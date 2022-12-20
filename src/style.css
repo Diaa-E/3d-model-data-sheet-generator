@@ -1,25 +1,24 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+@import url("./reset.css");
 
 :root{
-    --background: #041C32;
-    --background-card: #04293A;
-    --background-option:#064663;
-    --shadow: black;
-    --font: white;
+    --background: #E8C4C4;
+    --background-card: #F2E5E5;
+    --background-button:#CE7777;
+    --shadow: #2B3A55;
+    --font: black;
 }
 
 body{
+    background-color: var(--background);
+}
+
+form{
     display: grid;
     grid-auto-rows: min-content;
     place-content: stretch;
     place-items: stretch;
     gap: 20px;
     padding: 100px;
-    background-color: var(--background);
 }
 
 .card{
@@ -32,14 +31,4 @@ body{
     min-height: 100px;
     border-radius: 10px;
     box-shadow: 5px 5px 20px -10px var(--shadow);
-}
-
-.option{
-    background-color: var(--background-option);
-}
-
-h1{
-    grid-area: 1 / 1 / 2 / -1;
-    color: var(--font);
-    text-align: center;
 }
