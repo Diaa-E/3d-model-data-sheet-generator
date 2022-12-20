@@ -1,11 +1,12 @@
 "use strict";
 
-const modelFactory = () => {
+const datasheetFactory = (modelData) => {
 
     const model = {
+
+        details : "",
+        items : "",
         mesh: {
-            details : "",
-            items : [],
             meshType: "",
             polyTier : "",
             gameReady: true,
@@ -41,6 +42,7 @@ const modelFactory = () => {
                 software: "",
                 version: null,
             }
-        }
-    }
-}
+        },
+        ...modelData
+    };
+};
