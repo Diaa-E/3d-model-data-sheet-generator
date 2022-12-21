@@ -5,11 +5,9 @@ import {label, textArea, iconButton, inputNumber, inputText, div} from "./elemen
 
 export function startApp()
 {
-    
     const form = document.querySelector("#content");
     form.append(
         modelDetails());
-
 }
 
 function modelDetails()
@@ -46,7 +44,7 @@ function modelDetails()
     })
 
     //item count input field
-    const lblItemCounte = label({
+    const lblItemCount = label({
         text: "Item Count",
         classes: ["label-input"],
         for: "itemCount",
@@ -56,12 +54,12 @@ function modelDetails()
         name: "itemCount",
         id: "itemCount",
         classes: ["text-input"],
-        min: 1
+        min: "1"
     });
 
     const divItemCount = div({
         classes: ["input-container"],
-        children: [lblItemCounte, txtItemCount]
+        children: [lblItemCount, txtItemCount]
     })
 
     //add button

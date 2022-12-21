@@ -16,8 +16,9 @@ function label(options)
 
     const lbl = document.createElement("label");
     lbl.textContent = options.text;
+    lbl.setAttribute("for", options.for);
+    lbl.id = options.id
     domUtility.addClasses(lbl, options.classes);
-    domUtility.setElementAttributes(lbl,["for", "id"], [options.for, options.id]);
 
     return lbl;
 }
@@ -35,12 +36,12 @@ function textArea(options)
     }
 
     const txt = document.createElement("textarea");
+    txt.id = options.id;
+    txt.name = options.name;
+    txt.cols = options.cols;
+    txt.rows = options.rows;
+    txt.placeholder = options.placeholder;
     domUtility.addClasses(txt, options.classes);
-    domUtility.setElementAttributes(
-        txt,
-        ["name", "id", "rows", "cols", "placeholder"],
-        [options.name, options.id, options.rows, options.cols, options.placeholder]
-    );
 
     return txt;
 }
@@ -58,8 +59,9 @@ function iconButton(options)
     }
 
     const btn = document.createElement("buttons");
+    btn.type = options.type;
+    btn.id = options.id;
     domUtility.addClasses(btn, options.btnClasses);
-    domUtility.setElementAttributes(btn, ["Type", "id"], [options.type, options.id]);
     
     btn.addEventListener("click", (e) => {
 
@@ -87,10 +89,12 @@ function inputNumber(options)
     }
 
     const num = document.createElement("input");
-    domUtility.setElementAttributes(
-        num,
-        ["min", "max", "id", "name"]
-        [options.min, options.max, options.id, options.name]);
+    num.type = "number";
+    num.name = options.name;
+    num.min = options.min;
+    num.max = options.max;
+    num.id = options.id
+
     domUtility.addClasses(num, options.classes);
 
     return num;
@@ -99,8 +103,8 @@ function inputNumber(options)
 function inputText(options)
 {
     options = {
-        minlength: "",
-        maxlength: "",
+        minLength: "",
+        maxLength: "",
         classes: [],
         id: "",
         name: "",
@@ -109,10 +113,12 @@ function inputText(options)
     }
 
     const txt = document.createElement("input");
-    domUtility.setElementAttributes(
-        txt,
-        ["minlength", "maxlength", "id", "name", "placeholder"]
-        [options.min, options.max, options.id, options.name, options.placeholder]);
+    txt.name = options.name;
+    txt.id = options.id;
+    txt.maxLength = options.maxLength;
+    txt.minLength = options.minLength;
+    txt.placeholder = options.placeholder;
+
     domUtility.addClasses(txt, options.classes);
 
     return txt;
@@ -128,11 +134,7 @@ function div(options)
     };
 
     const div = document.createElement("div");
-    domUtility.setElementAttributes(
-        div,
-        ["id"],
-        [options.id]
-    );
+    div.id = options.id
     domUtility.addClasses(div, options.classes);
 
     if (options.children.length > 0)
