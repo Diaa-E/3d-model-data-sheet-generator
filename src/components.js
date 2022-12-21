@@ -3,7 +3,16 @@
 import addIcon from "./icons/add.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div} from "./elements";
 
-export function modelDetails()
+export function startApp()
+{
+    
+    const form = document.querySelector("#content");
+    form.append(
+        modelDetails());
+
+}
+
+function modelDetails()
 {
     const lblModelDetails = label({
         for: "details",
