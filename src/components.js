@@ -96,7 +96,7 @@ function labeledInput(labelText, id, type)
     return divWrapper;
 }
 
-function button(newIcon)
+function button(newIcon, clickFunction = () => {})
 {
     const btnClasses = ["button"];
     const iconClasses = ["button-icon"];
@@ -104,6 +104,11 @@ function button(newIcon)
     const btn = domUtility.createDomElement("button");
     domUtility.addClasses(btn, btnClasses);
     domUtility.setElementAttributes(btn, ["Type"], ["button"])
+    
+    btn.addEventListener("click", (e) => {
+
+        clickFunction(e);
+    })
 
     const btnIcon = new Image();
     btnIcon.src = newIcon;
