@@ -5,8 +5,6 @@ import addIcon from "./icons/add.svg";
 
 export function modelDetails()
 {
-    const divWrapper = card("modelDetails");
-
     const lblModelDetails = label({
         for: "details",
         text: "Model Details",
@@ -20,8 +18,6 @@ export function modelDetails()
         id: "details",
         placeholder:"Describe your model...", 
         classes: ["text-area"]});
-
-    const divAddItem = cardOption(true);
 
     //item name input field
     const lblItemName = label({
@@ -59,30 +55,27 @@ export function modelDetails()
         children: [lblItemCounte, txtItemCount]
     })
 
-    divAddItem.append(divItemName, divItemCount, iconButton({
+    //add button
+    const btnAdd = iconButton({
         icon: addIcon,
         btnClasses: ["button"],
-        iconClasses: ["button-icon"]}));
+        iconClasses: ["button-icon"]});
 
-    divWrapper.append(
-        lblModelDetails,
-        txtModelDetails,
-        lblModelItems,
-        divAddItem);
+    //add item card
+    const divAddItem = div({
+        children: [divItemName, divItemCount, btnAdd],
+        classes: ["option", "add"],
+    })
+
+    //parent card
+    const divWrapper = div({
+        id: "modelDetails",
+        classes: ["card"],
+        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem]
+    })
 
     return divWrapper;
 }
-
-function card(id = "")
-{
-    const cardClasses = ["card"];
-
-    const divCard = domUtility.createDomElement("div", null, id);
-    domUtility.addClasses(divCard, cardClasses);
-
-    return divCard;
-}
-
 function label(options)
 {
     options = {
@@ -121,19 +114,6 @@ function textArea(options)
     );
 
     return txt;
-}
-
-function cardOption(add = false)
-{
-    const optionClasses = ["option"];
-    const addClasses = ["add"];
-
-    const totalClasses = [...optionClasses, ...add ? addClasses : []];
-
-    const divOption = domUtility.createDomElement("div");
-    domUtility.addClasses(divOption, totalClasses);
-
-    return divOption;
 }
 
 function iconButton(options)
