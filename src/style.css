@@ -53,6 +53,10 @@ form{
 
 .option{
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    padding: 10px;
+    place-items: center;
     background-color: var(--background-option);
     min-height: 50px;
     border-radius: 5px;
@@ -84,6 +88,13 @@ form{
     border: 1px var(--font) solid;
 }
 
+.input-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    place-items: center;
+}
+
 .label{
     font-size: 24px;
     text-align: center;
@@ -92,4 +103,12 @@ form{
 .label-input{
     font-size: 16px;
     text-align: center;
+}
+
+.button{
+
+}
+
+.button-add{
+    
 }

@@ -1,6 +1,7 @@
 "use strict";
 
 import domUtility from "./dom.utility";
+import addIcon from "./icons/add.svg";
 
 export function modelDetails()
 {
@@ -74,8 +75,11 @@ function labeledInput(labelText, id, type)
 {
     const labelClasses = ["label-input"];
     const textClasses = ["text-input"];
+    const wrapperClasses = ["input-container"];
 
     const divWrapper = domUtility.createDomElement();
+    domUtility.addClasses(divWrapper, wrapperClasses);
+
     const lbl = domUtility.createDomElement("label", labelText);
     const txt = domUtility.createDomElement("input", "", id);
 
