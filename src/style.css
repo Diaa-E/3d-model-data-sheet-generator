@@ -119,4 +119,9 @@ form{
 
 .button-icon{
     width: 50px;
+    transition: .3s ease;
+}
+
+.button-icon:hover{
+    transform: scale(80%);
 }
