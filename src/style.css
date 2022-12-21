@@ -22,6 +22,7 @@
     --background-option: white;
     --shadow: #2B3A55;
     --font: black;
+    --font-placeholder: rgb(199, 199, 199);
 }
 
 body{
@@ -125,4 +126,8 @@ form{
 
 .button-icon:hover{
     transform: scale(80%);
+}
+
+*::placeholder{
+    color: var(--font-placeholder)
 }

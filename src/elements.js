@@ -85,6 +85,7 @@ function inputNumber(options)
         classes: [],
         id: "",
         name: "",
+        placeholder: "",
         ...options
     }
 
@@ -93,7 +94,8 @@ function inputNumber(options)
     num.name = options.name;
     num.min = options.min;
     num.max = options.max;
-    num.id = options.id
+    num.id = options.id;
+    num.placeholder = options.placeholder;
 
     domUtility.addClasses(num, options.classes);
 

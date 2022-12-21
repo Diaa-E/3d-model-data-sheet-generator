@@ -35,7 +35,8 @@ function modelDetails()
     const txtItemName = inputText({
         name: "itemName",
         id: "itemName",
-        classes: ["text-input"]
+        classes: ["text-input"],
+        placeholder: "Item's name"
     });
 
     const divItemName = div({
@@ -54,7 +55,8 @@ function modelDetails()
         name: "itemCount",
         id: "itemCount",
         classes: ["text-input"],
-        min: "1"
+        min: "1",
+        placeholder: "How many of it included"
     });
 
     const divItemCount = div({
