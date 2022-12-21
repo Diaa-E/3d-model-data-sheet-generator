@@ -7,16 +7,59 @@ export function modelDetails()
 {
     const divWrapper = card("modelDetails");
 
-    const lblModelDetails = label({for: "details", text: "Model Details", classes: ["label"]});
-    const txtModelDetails = textArea({id: "details", placeholder:"Describe your model...", classes: ["text-area"]});
-    const lblModelItems = label("", "Model Contents");
+    const lblModelDetails = label({
+        for: "details",
+        text: "Model Details",
+        classes: ["label"]});
+
+    const lblModelItems = label({
+        text: "Model Contents",
+        classes: ["label"]});
+
+    const txtModelDetails = textArea({
+        id: "details",
+        placeholder:"Describe your model...", 
+        classes: ["text-area"]});
 
     const divAddItem = cardOption(true);
-    const txtItemName = labeledInput("Item", "itemName", "text");
-    const txtItemCount = labeledInput("Item Count", "itemCount", "number");
-    domUtility.setElementAttributes(txtItemCount, ["min", "value"], [1, 1]);
 
-    divAddItem.append(txtItemName, txtItemCount, iconButton({
+    //item name input field
+    const lblItemName = label({
+        text: "Item",
+        classes: ["label-input"],
+        for: "itemName",
+    });
+    const txtItemName = inputText({
+        name: "itemName",
+        id: "itemName",
+        classes: ["text-input"]
+    });
+
+    const divItemName = div({
+        classes: ["input-container"],
+        children: [lblItemName, txtItemName]
+    })
+
+    //item count input field
+    const lblItemCounte = label({
+        text: "Item Count",
+        classes: ["label-input"],
+        for: "itemCount",
+    });
+
+    const txtItemCount = inputNumber({
+        name: "itemCount",
+        id: "itemCount",
+        classes: ["text-input"],
+        min: 1
+    });
+
+    const divItemCount = div({
+        classes: ["input-container"],
+        children: [lblItemCounte, txtItemCount]
+    })
+
+    divAddItem.append(divItemName, divItemCount, iconButton({
         icon: addIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"]}));
@@ -93,29 +136,6 @@ function cardOption(add = false)
     return divOption;
 }
 
-function labeledInput(labelText, id, type)
-{
-    const labelClasses = ["label-input"];
-    const textClasses = ["text-input"];
-    const wrapperClasses = ["input-container"];
-
-    const divWrapper = domUtility.createDomElement();
-    domUtility.addClasses(divWrapper, wrapperClasses);
-
-    const lbl = domUtility.createDomElement("label", labelText);
-    const txt = domUtility.createDomElement("input", "", id);
-
-    domUtility.addClasses(lbl, labelClasses);
-    domUtility.setElementAttributes(lbl, ["for"], [id]);
-
-    domUtility.addClasses(txt, textClasses);
-    domUtility.setElementAttributes(txt, ["type"], [type])
-
-    divWrapper.append(lbl, txt);
-
-    return divWrapper;
-}
-
 function iconButton(options)
 {
     options = {
@@ -144,4 +164,75 @@ function iconButton(options)
     btn.append(btnIcon);
 
     return btn;
+}
+
+function inputNumber(options)
+{
+    options = {
+        min: "",
+        max: "",
+        classes: [],
+        id: "",
+        name: "",
+        ...options
+    }
+
+    const num = document.createElement("input");
+    domUtility.setElementAttributes(
+        num,
+        ["min", "max", "id", "name"]
+        [options.min, options.max, options.id, options.name]);
+    domUtility.addClasses(num, options.classes);
+
+    return num;
+}
+
+function inputText(options)
+{
+    options = {
+        minlength: "",
+        maxlength: "",
+        classes: [],
+        id: "",
+        name: "",
+        placeholder: "",
+        ...options
+    }
+
+    const txt = document.createElement("input");
+    domUtility.setElementAttributes(
+        txt,
+        ["minlength", "maxlength", "id", "name", "placeholder"]
+        [options.min, options.max, options.id, options.name, options.placeholder]);
+    domUtility.addClasses(txt, options.classes);
+
+    return txt;
+}
+
+function div(options)
+{
+    options = {
+        id: "",
+        classes: [],
+        children: [],
+        ...options
+    };
+
+    const div = document.createElement("div");
+    domUtility.setElementAttributes(
+        div,
+        ["id"],
+        [options.id]
+    );
+    domUtility.addClasses(div, options.classes);
+
+    if (options.children.length > 0)
+    {
+        options.children.forEach(child => {
+
+            div.append(child);
+        });
+    };
+
+    return div;
 }
