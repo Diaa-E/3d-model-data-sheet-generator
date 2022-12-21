@@ -11,8 +11,16 @@ export function modelDetails()
     const txtModelDetails = textArea(fieldId, "Describe your model...");
 
     const divAddItem = cardOption(true);
+    const txtItemName = labeledInput("Item", "itemName", "text");
+    const txtItemCount = labeledInput("Item Count", "itemCount", "number");
+    domUtility.setElementAttributes(txtItemCount, ["min", "value"], [1, 1]);
 
-    divWrapper.append(lblModelDetails, txtModelDetails, divAddItem);
+    divAddItem.append(txtItemName, txtItemCount);
+
+    divWrapper.append(
+        lblModelDetails,
+        txtModelDetails,
+        divAddItem);
 
     return divWrapper;
 }
@@ -40,7 +48,7 @@ function label(target = "", text = "")
 
 function textArea(id = "", placeholder = "")
 {
-    const textAreaClasses = ["text-field"];
+    const textAreaClasses = ["text-area"];
 
     const txt = domUtility.createDomElement("textarea", null, id);
     domUtility.addClasses(txt, textAreaClasses);
@@ -52,12 +60,32 @@ function textArea(id = "", placeholder = "")
 function cardOption(add = false)
 {
     const optionClasses = ["option"];
-    const addItemClasses = ["add"];
+    const addClasses = ["add"];
 
-    const totalClasses = [...optionClasses, ...add ? addItemClasses : []];
+    const totalClasses = [...optionClasses, ...add ? addClasses : []];
 
     const divOption = domUtility.createDomElement("div");
     domUtility.addClasses(divOption, totalClasses);
 
     return divOption;
+}
+
+function labeledInput(labelText, id, type)
+{
+    const labelClasses = ["label-input"];
+    const textClasses = ["text-input"];
+
+    const divWrapper = domUtility.createDomElement();
+    const lbl = domUtility.createDomElement("label", labelText);
+    const txt = domUtility.createDomElement("input", "", id);
+
+    domUtility.addClasses(lbl, labelClasses);
+    domUtility.setElementAttributes(lbl, ["for"], [id]);
+
+    domUtility.addClasses(txt, textClasses);
+    domUtility.setElementAttributes(txt, ["type"], [type])
+
+    divWrapper.append(lbl, txt);
+
+    return divWrapper;
 }
