@@ -32,6 +32,7 @@ function textArea(options)
         rows: 10,
         placeholder: "Write text",
         classes: [],
+        required: false,
         ...options
     }
 
@@ -41,6 +42,7 @@ function textArea(options)
     txt.cols = options.cols;
     txt.rows = options.rows;
     txt.placeholder = options.placeholder;
+    txt.required = options.required;
     domUtility.addClasses(txt, options.classes);
 
     return txt;
@@ -86,6 +88,7 @@ function inputNumber(options)
         id: "",
         name: "",
         placeholder: "",
+        required: false,
         ...options
     }
 
@@ -95,6 +98,7 @@ function inputNumber(options)
     num.min = options.min;
     num.max = options.max;
     num.id = options.id;
+    num.required = options.required;
     num.placeholder = options.placeholder;
 
     domUtility.addClasses(num, options.classes);
@@ -111,6 +115,7 @@ function inputText(options)
         id: "",
         name: "",
         placeholder: "",
+        required: false,
         ...options
     }
 
@@ -120,6 +125,7 @@ function inputText(options)
     txt.maxLength = options.maxLength;
     txt.minLength = options.minLength;
     txt.placeholder = options.placeholder;
+    txt.required = options.required;
 
     domUtility.addClasses(txt, options.classes);
 
