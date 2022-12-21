@@ -14,6 +14,7 @@ const config = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
+        filename: "[name].[hash].js"
     },
     devServer: {
         open: true,
@@ -22,6 +23,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+            filename: "[name].[hash].html"
         }),
 
         // Add your plugins here
