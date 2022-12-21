@@ -9,7 +9,10 @@ export function modelDetails()
     const fieldId = "details"
     const lblModelDetails = label(fieldId, "Model Details");
     const txtModelDetails = textArea(fieldId, "Describe your model...");
-    divWrapper.append(lblModelDetails, txtModelDetails);
+
+    const divAddItem = cardOption(true);
+
+    divWrapper.append(lblModelDetails, txtModelDetails, divAddItem);
 
     return divWrapper;
 }
@@ -44,4 +47,17 @@ function textArea(id = "", placeholder = "")
     domUtility.setElementAttributes(txt, ["name", "rows", "placeholder"], [id, 10, placeholder]);
 
     return txt;
+}
+
+function cardOption(add = false)
+{
+    const optionClasses = ["option"];
+    const addItemClasses = ["add"];
+
+    const totalClasses = [...optionClasses, ...add ? addItemClasses : []];
+
+    const divOption = domUtility.createDomElement("div");
+    domUtility.addClasses(divOption, totalClasses);
+
+    return divOption;
 }

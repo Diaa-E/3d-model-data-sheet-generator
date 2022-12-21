@@ -17,7 +17,9 @@
 :root{
     --background: #E8C4C4;
     --background-card: #F2E5E5;
-    --background-button:#CE7777;
+    --background-selected:#CE7777;
+    --background-add: #daeaf1;
+    --background-option: white;
     --shadow: #2B3A55;
     --font: black;
 }
@@ -47,6 +49,22 @@ form{
     box-shadow: 5px 5px 20px -10px var(--shadow);
     place-content: stretch;
     place-items: stretch;
+}
+
+.option{
+    display: grid;
+    background-color: var(--background-option);
+    min-height: 50px;
+    border-radius: 5px;
+    border: 1px var(--font) solid;
+}
+
+.add{
+    background-color: var(--background-add);
+}
+
+.selected{
+    background-color: var(--background-selected);
 }
 
 .text-field{
