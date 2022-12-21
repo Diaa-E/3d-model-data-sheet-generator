@@ -53,10 +53,11 @@ form{
 
 .option{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 5fr) 1fr;
     gap: 5px;
     padding: 10px;
     place-items: center;
+    place-content: stretch;
     background-color: var(--background-option);
     min-height: 50px;
     border-radius: 5px;
@@ -86,6 +87,7 @@ form{
     resize: none;
     border-radius: 5px;
     border: 1px var(--font) solid;
+    width: 100%;
 }
 
 .input-container{
@@ -93,6 +95,7 @@ form{
     flex-wrap: wrap;
     gap: 5px;
     place-items: center;
+    width: 100%;
 }
 
 .label{
@@ -106,9 +109,14 @@ form{
 }
 
 .button{
-
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: #00000000;
+    cursor: pointer;
+    margin-right: 0;
 }
 
-.button-add{
-    
+.button-icon{
+    width: 50px;
 }
