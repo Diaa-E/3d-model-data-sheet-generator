@@ -1,10 +1,10 @@
 "use strict";
 
 import domUtility from "./dom.utility";
-import { createModelDetails } from "./components";
+import { modelDetails } from "./components";
 
 const form = document.querySelector("#content");
-form.append(createModelDetails());
+form.append(modelDetails());
 
 const datasheetFactory = (modelData) => {
 

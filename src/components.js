@@ -2,21 +2,46 @@
 
 import domUtility from "./dom.utility";
 
-export function createModelDetails()
+export function modelDetails()
 {
-    const divModelDetails = domUtility.createDomElement("div");
-    domUtility.addClasses(divModelDetails, ["card"]);
+    const divWrapper = card("modelDetails");
 
     const fieldId = "details"
-    const lblModelDetails = domUtility.createDomElement("label", "Model Details");
-    domUtility.setElementAttributes(lblModelDetails, ["for"], [fieldId]);
-    domUtility.addClasses(lblModelDetails, ["label"]);
+    const lblModelDetails = label(fieldId, "Model Details");
+    const txtModelDetails = textArea(fieldId, "Describe your model...");
+    divWrapper.append(lblModelDetails, txtModelDetails);
 
-    const txtModelDetails = domUtility.createDomElement("textarea");
-    domUtility.setElementAttributes(txtModelDetails, ["id", "name", "rows", "placeholder"], [fieldId, fieldId, 10, "Model description..."]);
-    domUtility.addClasses(txtModelDetails, ["text-field"]);
+    return divWrapper;
+}
 
-    divModelDetails.append(lblModelDetails, txtModelDetails);
+function card(id = "")
+{
+    const cardClasses = ["card"];
 
-    return divModelDetails;
+    const divCard = domUtility.createDomElement("div", null, id);
+    domUtility.addClasses(divCard, cardClasses);
+
+    return divCard;
+}
+
+function label(target = "", text = "")
+{
+    const labelClasses = ["label"];
+
+    const lbl = domUtility.createDomElement("label", text);
+    domUtility.addClasses(lbl, labelClasses);
+    domUtility.setElementAttributes(lbl, ["for"], [target]);
+
+    return lbl;
+}
+
+function textArea(id = "", placeholder = "")
+{
+    const textAreaClasses = ["text-field"];
+
+    const txt = domUtility.createDomElement("textarea", null, id);
+    domUtility.addClasses(txt, textAreaClasses);
+    domUtility.setElementAttributes(txt, ["name", "rows", "placeholder"], [id, 10, placeholder]);
+
+    return txt;
 }
