@@ -7,7 +7,6 @@ export function modelDetails()
 {
     const divWrapper = card("modelDetails");
 
-    const fieldId = "details"
     const lblModelDetails = label({for: "details", text: "Model Details", classes: ["label"]});
     const txtModelDetails = textArea({id: "details", placeholder:"Describe your model...", classes: ["text-area"]});
     const lblModelItems = label("", "Model Contents");
@@ -17,7 +16,10 @@ export function modelDetails()
     const txtItemCount = labeledInput("Item Count", "itemCount", "number");
     domUtility.setElementAttributes(txtItemCount, ["min", "value"], [1, 1]);
 
-    divAddItem.append(txtItemName, txtItemCount, button(addIcon));
+    divAddItem.append(txtItemName, txtItemCount, iconButton({
+        icon: addIcon,
+        btnClasses: ["button"],
+        iconClasses: ["button-icon"]}));
 
     divWrapper.append(
         lblModelDetails,
@@ -114,23 +116,30 @@ function labeledInput(labelText, id, type)
     return divWrapper;
 }
 
-function button(newIcon, clickFunction = () => {})
+function iconButton(options)
 {
-    const btnClasses = ["button"];
-    const iconClasses = ["button-icon"];
+    options = {
+        icon: addIcon,
+        btnClasses: [],
+        iconClasses: [],
+        type: "button",
+        id: "",
+        clickFunction: () => {},
+        ...options
+    }
 
-    const btn = domUtility.createDomElement("button");
-    domUtility.addClasses(btn, btnClasses);
-    domUtility.setElementAttributes(btn, ["Type"], ["button"])
+    const btn = document.createElement("buttons");
+    domUtility.addClasses(btn, options.btnClasses);
+    domUtility.setElementAttributes(btn, ["Type", "id"], [options.type, options.id]);
     
     btn.addEventListener("click", (e) => {
 
-        clickFunction(e);
+        options.clickFunction(e);
     })
 
     const btnIcon = new Image();
-    btnIcon.src = newIcon;
-    domUtility.addClasses(btnIcon, iconClasses);
+    btnIcon.src = options.icon;
+    domUtility.addClasses(btnIcon, options.iconClasses);
 
     btn.append(btnIcon);
 
