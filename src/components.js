@@ -86,9 +86,10 @@ function label(options)
         ...options
     }
 
-    const lbl = domUtility.createDomElement("label", options.text, options.id);
+    const lbl = document.createElement("label");
+    lbl.textContent = options.text;
     domUtility.addClasses(lbl, options.classes);
-    domUtility.setElementAttributes(lbl,["for"], [options.for]);
+    domUtility.setElementAttributes(lbl,["for", "id"], [options.for, options.id]);
 
     return lbl;
 }
