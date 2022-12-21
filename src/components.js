@@ -10,6 +10,7 @@ export function modelDetails()
     const fieldId = "details"
     const lblModelDetails = label(fieldId, "Model Details");
     const txtModelDetails = textArea(fieldId, "Describe your model...");
+    const lblModelItems = label("", "Model Contents");
 
     const divAddItem = cardOption(true);
     const txtItemName = labeledInput("Item", "itemName", "text");
@@ -21,6 +22,7 @@ export function modelDetails()
     divWrapper.append(
         lblModelDetails,
         txtModelDetails,
+        lblModelItems,
         divAddItem);
 
     return divWrapper;
