@@ -16,7 +16,7 @@ export function modelDetails()
     const txtItemCount = labeledInput("Item Count", "itemCount", "number");
     domUtility.setElementAttributes(txtItemCount, ["min", "value"], [1, 1]);
 
-    divAddItem.append(txtItemName, txtItemCount, addButton());
+    divAddItem.append(txtItemName, txtItemCount, button(addIcon));
 
     divWrapper.append(
         lblModelDetails,
@@ -94,7 +94,7 @@ function labeledInput(labelText, id, type)
     return divWrapper;
 }
 
-function addButton()
+function button(newIcon)
 {
     const btnClasses = ["button"];
     const iconClasses = ["button-icon"];
@@ -103,11 +103,11 @@ function addButton()
     domUtility.addClasses(btn, btnClasses);
     domUtility.setElementAttributes(btn, ["Type"], ["button"])
 
-    const icon = new Image();
-    icon.src = addIcon;
-    domUtility.addClasses(icon, iconClasses);
+    const btnIcon = new Image();
+    btnIcon.src = newIcon;
+    domUtility.addClasses(btnIcon, iconClasses);
 
-    btn.append(icon);
+    btn.append(btnIcon);
 
     return btn;
 }
