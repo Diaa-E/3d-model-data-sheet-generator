@@ -8,8 +8,8 @@ export function modelDetails()
     const divWrapper = card("modelDetails");
 
     const fieldId = "details"
-    const lblModelDetails = label(fieldId, "Model Details");
-    const txtModelDetails = textArea(fieldId, "Describe your model...");
+    const lblModelDetails = label({for: "details", text: "Model Details", classes: ["label"]});
+    const txtModelDetails = textArea({id: "details", placeholder:"Describe your model...", classes: ["text-area"]});
     const lblModelItems = label("", "Model Contents");
 
     const divAddItem = cardOption(true);
@@ -38,24 +38,42 @@ function card(id = "")
     return divCard;
 }
 
-function label(target = "", text = "")
+function label(options)
 {
-    const labelClasses = ["label"];
+    options = {
+        id: "",
+        for: "",
+        text: "Default text",
+        classes: [],
+        ...options
+    }
 
-    const lbl = domUtility.createDomElement("label", text);
-    domUtility.addClasses(lbl, labelClasses);
-    domUtility.setElementAttributes(lbl, ["for"], [target]);
+    const lbl = domUtility.createDomElement("label", options.text, options.id);
+    domUtility.addClasses(lbl, options.classes);
+    domUtility.setElementAttributes(lbl,["for"], [options.for]);
 
     return lbl;
 }
 
-function textArea(id = "", placeholder = "")
+function textArea(options)
 {
-    const textAreaClasses = ["text-area"];
+    options = {
+        id: "",
+        name: "",
+        cols: 30,
+        rows: 10,
+        placeholder: "Write text",
+        classes: [],
+        ...options
+    }
 
-    const txt = domUtility.createDomElement("textarea", null, id);
-    domUtility.addClasses(txt, textAreaClasses);
-    domUtility.setElementAttributes(txt, ["name", "rows", "placeholder"], [id, 10, placeholder]);
+    const txt = document.createElement("textarea");
+    domUtility.addClasses(txt, options.classes);
+    domUtility.setElementAttributes(
+        txt,
+        ["name", "id", "rows", "cols", "placeholder"],
+        [options.name, options.id, options.rows, options.cols, options.placeholder]
+    );
 
     return txt;
 }

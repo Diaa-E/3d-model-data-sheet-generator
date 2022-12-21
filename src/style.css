@@ -35,7 +35,7 @@ form{
     place-content: stretch;
     place-items: stretch;
     gap: 20px;
-    padding: 100px;
+    padding: 2%;
 }
 
 .card{
