@@ -86,6 +86,8 @@ function modelContents()
         iconClasses: ["button-icon"],
         clickFunction: addItem});
 
+    const divError = errorPanel("addError");
+
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
         classes: ["option", "add"],
@@ -97,7 +99,7 @@ function modelContents()
     const divWrapper = div({
         id: "modelContents",
         classes: ["card"],
-        children: [lblModelItems, divAddItem, testItem, testItem2]
+        children: [lblModelItems, divError, divAddItem, testItem, testItem2]
     })
 
     return divWrapper;
@@ -140,15 +142,25 @@ function addItem(e)
 {
     const txtItemName = document.querySelector("#itemName");
     const txtItemCount = document.querySelector("#itemCount");
+    const divError = document.querySelector("#addError");
+    divError.textContent = "";
 
     if (!txtItemName.validity.valid)
     {
-        console.log("invalid name")
-        return
+        divError.textContent = "The item must have a name.";
     }
     else if (!txtItemCount.checkValidity())
     {
-        console.log("Invalid number")
-        return
+        divError.textContent = "There has to be at least 1 of the item.";
     }
+}
+
+function errorPanel(id)
+{
+    const divError = div({
+        classes: ["error"],
+        id: id,
+    });
+
+    return divError;
 }
