@@ -141,9 +141,14 @@ function addItem(e)
     const txtItemName = document.querySelector("#itemName");
     const txtItemCount = document.querySelector("#itemCount");
 
-    if (!txtItemCount.checkValidity())
+    if (!txtItemName.validity.valid)
     {
-        txtItemCount.setCustomValidity("You can't add a non-positive number of an item.");
-        txtItemCount.reportValidity();
+        console.log("invalid name")
+        return
+    }
+    else if (!txtItemCount.checkValidity())
+    {
+        console.log("Invalid number")
+        return
     }
 }
