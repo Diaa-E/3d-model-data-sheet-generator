@@ -17,7 +17,7 @@
 :root{
     --background: #E8C4C4;
     --background-card: #F2E5E5;
-    --background-selected:#CE7777;
+    --background-selected:##f3cdcd;
     --background-add: #daeaf1;
     --background-option: white;
     --shadow: #2B3A55;
@@ -74,7 +74,7 @@ form{
 }
 
 .text-area{
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     padding: 10px;
     font-size: 16px;
     resize: none;
@@ -82,7 +82,7 @@ form{
 }
 
 .text-input{
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     padding: 5px;
     font-size: 16px;
     resize: none;
@@ -122,10 +122,17 @@ form{
 .button-icon{
     width: 50px;
     transition: .3s ease;
+    filter: saturate(0%);
 }
 
 .button-icon:hover{
     transform: scale(80%);
+    filter: saturate(100%);
+}
+
+.item-name{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
 }
 
 *::placeholder{

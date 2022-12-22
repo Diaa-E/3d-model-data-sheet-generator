@@ -1,7 +1,8 @@
 "use strict";
 
 import addIcon from "./icons/add.svg";
-import {label, textArea, iconButton, inputNumber, inputText, div} from "./elements";
+import deleteIcon from "./icons/delete.svg";
+import {label, textArea, iconButton, inputNumber, inputText, div, p} from "./elements";
 
 export function startApp()
 {
@@ -78,12 +79,39 @@ function modelDetails()
         classes: ["option", "add"],
     })
 
+    const testItem = modelItem(3, "Coffee Flask");
+
     //parent card
     const divWrapper = div({
         id: "modelDetails",
         classes: ["card"],
-        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem]
+        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem, testItem]
     })
 
     return divWrapper;
+}
+
+function modelItem(itemCount, itemName)
+{
+    const divItem = div({
+        id: "modelItem",
+        classes: ["option"],
+        children: [
+            p({
+                text: itemName,
+                classes: ["item-name"]
+            }),
+            p({
+                text: `x ${itemCount}`,
+                classes: ["item-name"]
+            }),
+            iconButton({
+                icon: deleteIcon,
+                btnClasses: ["button"],
+                iconClasses: ["button-icon"],
+            })
+        ]
+    });
+
+    return divItem;
 }
