@@ -83,7 +83,8 @@ function modelContents()
     const btnAdd = iconButton({
         icon: addIcon,
         btnClasses: ["button"],
-        iconClasses: ["button-icon"]});
+        iconClasses: ["button-icon"],
+        clickFunction: addItem});
 
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
@@ -133,4 +134,16 @@ function removeItem(e)
 {
     const divModelDetails = document.querySelector("#modelContents");
     divModelDetails.removeChild(e.target.parentNode.parentNode);
+}
+
+function addItem(e)
+{
+    const txtItemName = document.querySelector("#itemName");
+    const txtItemCount = document.querySelector("#itemCount");
+
+    if (!txtItemCount.checkValidity())
+    {
+        txtItemCount.setCustomValidity("You can't add a non-positive number of an item.");
+        txtItemCount.reportValidity();
+    }
 }

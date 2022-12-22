@@ -98,8 +98,8 @@ function inputNumber(options)
     const num = document.createElement("input");
     num.type = "number";
     num.name = options.name;
-    num.min = options.min;
-    num.max = options.max;
+    options.min === "" ? null : num.min = options.min;
+    options.max === "" ? null : num.max = options.max;
     num.id = options.id;
     num.required = options.required;
     num.placeholder = options.placeholder;
@@ -125,8 +125,8 @@ function inputText(options)
     const txt = document.createElement("input");
     txt.name = options.name;
     txt.id = options.id;
-    txt.maxLength = options.maxLength;
-    txt.minLength = options.minLength;
+    options.maxLength === "" ? null : txt.maxLength = options.maxLength;
+    options.minLength === "" ? null : txt.minLength = options.minLength;
     txt.placeholder = options.placeholder;
     txt.required = options.required;
 
