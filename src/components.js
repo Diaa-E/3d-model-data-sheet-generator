@@ -77,7 +77,7 @@ function modelContents()
     const divItemCount = div({
         classes: ["input-container"],
         children: [lblItemCount, txtItemCount]
-    })
+    });
 
     //add button
     const btnAdd = iconButton({
@@ -91,16 +91,13 @@ function modelContents()
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
         classes: ["option", "add"],
-    })
-
-    const testItem = modelItem(3, "Coffee Flask");
-    const testItem2 = modelItem(10, "Jerrycan");
+    });
 
     const divWrapper = div({
         id: "modelContents",
         classes: ["card"],
-        children: [lblModelItems, divError, divAddItem, testItem, testItem2]
-    })
+        children: [lblModelItems, divError, divAddItem]
+    });
 
     return divWrapper;
 }
