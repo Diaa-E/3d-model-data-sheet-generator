@@ -80,12 +80,13 @@ function modelDetails()
     })
 
     const testItem = modelItem(3, "Coffee Flask");
+    const testItem2 = modelItem(10, "Jerrycan");
 
     //parent card
     const divWrapper = div({
         id: "modelDetails",
         classes: ["card"],
-        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem, testItem]
+        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem, testItem, testItem2]
     })
 
     return divWrapper;
@@ -109,9 +110,17 @@ function modelItem(itemCount, itemName)
                 icon: deleteIcon,
                 btnClasses: ["button"],
                 iconClasses: ["button-icon"],
+                clickFunction: removeItem,
             })
         ]
     });
 
     return divItem;
+}
+
+//since nothing is passed to the back before form submition, no need to keep track of items order
+function removeItem(e)
+{
+    const divModelDetails = document.querySelector("#modelDetails");
+    divModelDetails.removeChild(e.target.parentNode.parentNode);
 }

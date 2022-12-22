@@ -60,7 +60,7 @@ function iconButton(options)
         ...options
     }
 
-    const btn = document.createElement("buttons");
+    const btn = document.createElement("button");
     btn.type = options.type;
     btn.id = options.id;
     domUtility.addClasses(btn, options.btnClasses);
