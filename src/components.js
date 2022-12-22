@@ -147,11 +147,18 @@ function addItem(e)
 
     if (!txtItemName.validity.valid)
     {
-        divError.textContent = "The item must have a name.";
+        divError.textContent = "Any item must have a name.";
     }
     else if (!txtItemCount.checkValidity())
     {
         divError.textContent = "There has to be at least 1 of the item.";
+    }
+    else
+    {
+        const divModelContents = document.querySelector("#modelContents");
+        divModelContents.append(modelItem(txtItemCount.value, txtItemName.value));
+        txtItemCount.value = "";
+        txtItemName.value = "";
     }
 }
 
