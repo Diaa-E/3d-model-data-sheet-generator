@@ -17,12 +17,14 @@
 :root{
     --background: #E8C4C4;
     --background-card: #F2E5E5;
-    --background-selected:##f3cdcd;
+    --background-selected:#f3cdcd;
     --background-add: #daeaf1;
     --background-option: white;
     --shadow: #2B3A55;
     --font: black;
     --font-placeholder: rgb(199, 199, 199);
+    --font-red: #f54748;
+    --font-green: #00ADB5;
 }
 
 body{
@@ -133,6 +135,11 @@ form{
 .item-name{
     font-family: "Roboto", sans-serif;
     font-size: 20px;
+    color: var(--font);
+}
+
+.item-count{
+    color: var(--font-green);
 }
 
 *::placeholder{

@@ -114,7 +114,7 @@ function modelItem(itemCount, itemName)
             }),
             p({
                 text: `x ${itemCount}`,
-                classes: ["item-name"]
+                classes: ["item-name", "item-count"]
             }),
             iconButton({
                 icon: deleteIcon,
