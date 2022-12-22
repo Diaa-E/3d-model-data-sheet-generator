@@ -8,7 +8,8 @@ export function startApp()
 {
     const form = document.querySelector("#content");
     form.append(
-        modelDetails());
+        modelDetails(),
+        modelContents());
 }
 
 function modelDetails()
@@ -18,15 +19,26 @@ function modelDetails()
         text: "Model Details",
         classes: ["label"]});
 
-    const lblModelItems = label({
-        text: "Model Contents",
-        classes: ["label"]});
-
     const txtModelDetails = textArea({
         id: "details",
         placeholder:"Describe your model...", 
         classes: ["text-area"]});
 
+    //parent card
+    const divWrapper = div({
+        id: "modelDetails",
+        classes: ["card"],
+        children: [lblModelDetails, txtModelDetails]
+    })
+
+    return divWrapper;
+}
+
+function modelContents()
+{
+    const lblModelItems = label({
+        text: "Model Contents",
+        classes: ["label"]});
     //item name input field
     const lblItemName = label({
         text: "Item",
@@ -73,7 +85,6 @@ function modelDetails()
         btnClasses: ["button"],
         iconClasses: ["button-icon"]});
 
-    //add item card
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
         classes: ["option", "add"],
@@ -82,11 +93,10 @@ function modelDetails()
     const testItem = modelItem(3, "Coffee Flask");
     const testItem2 = modelItem(10, "Jerrycan");
 
-    //parent card
     const divWrapper = div({
-        id: "modelDetails",
+        id: "modelContents",
         classes: ["card"],
-        children: [lblModelDetails, txtModelDetails, lblModelItems, divAddItem, testItem, testItem2]
+        children: [lblModelItems, divAddItem, testItem, testItem2]
     })
 
     return divWrapper;
@@ -121,6 +131,6 @@ function modelItem(itemCount, itemName)
 //since nothing is passed to the back before form submition, no need to keep track of items order
 function removeItem(e)
 {
-    const divModelDetails = document.querySelector("#modelDetails");
+    const divModelDetails = document.querySelector("#modelContents");
     divModelDetails.removeChild(e.target.parentNode.parentNode);
 }
