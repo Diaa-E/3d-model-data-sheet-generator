@@ -65,14 +65,17 @@ function iconButton(options)
     btn.id = options.id;
     domUtility.addClasses(btn, options.btnClasses);
     
-    btn.addEventListener("click", (e) => {
-
-        options.clickFunction(e);
-    })
-
+    //When the listener is assigned to the button
+    //the event emitter changes depending on where the vlick hit (image or button)
+    //which breaks the parentNode chain when deleting the item div
     const btnIcon = new Image();
     btnIcon.src = options.icon;
     domUtility.addClasses(btnIcon, options.iconClasses);
+
+    btnIcon.addEventListener("click", (e) => {
+
+        options.clickFunction(e);
+    })
 
     btn.append(btnIcon);
 
