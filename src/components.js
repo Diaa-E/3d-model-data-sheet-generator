@@ -187,7 +187,11 @@ function meshDetails()
         text: "Mesh Details",
         classes: ["label"]
     });
-    const meshType = select("meshType", ["option1", "option2"], "Mesh Type");
+    const meshType = select({
+        id: "meshType",
+        lblText: "Mesh Type",
+        choices: ["option1", "option2"]
+    });
 
     const divWrapper = div({
         id: "meshDetails",

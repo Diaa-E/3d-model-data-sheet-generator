@@ -202,11 +202,18 @@ function button(options)
     return btn;
 }
 
-function select(id, choices = [], lblText)
+function select(options)
 {
+    options = {
+        lblText: "Default text",
+        id: "",
+        choices: ["Default option 1", "Default option 2"],
+        ...options
+    }
+
     const divChoices = [];
 
-    choices.forEach(choice => {
+    options.choices.forEach(choice => {
 
         divChoices.push(button({
             text: choice,
@@ -221,12 +228,12 @@ function select(id, choices = [], lblText)
     })
 
     const lbl = label({
-        text: lblText,
+        text: options.lblText,
         classes: ["label-input"]
     })
 
     const divSelect = div({
-        id: id,
+        id: options.id,
         classes: ["option", "add", "select"],
         children: [lbl, divChoicesContainer]
     });
