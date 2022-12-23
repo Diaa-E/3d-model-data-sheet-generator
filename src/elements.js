@@ -72,7 +72,7 @@ function iconButton(options)
     btnIcon.src = options.icon;
     domUtility.addClasses(btnIcon, options.iconClasses);
 
-    btnIcon.addEventListener("click", (e) => {
+    btn.addEventListener("click", (e) => {
 
         options.clickFunction(e);
     })

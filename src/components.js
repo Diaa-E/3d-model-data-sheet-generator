@@ -132,10 +132,21 @@ function modelItem(itemCount, itemName)
 function removeItem(e)
 {
     const divModelDetails = document.querySelector("#modelContents");
-    divModelDetails.removeChild(e.target.parentNode.parentNode);
+    let target = e.target.parentNode;
+    let counter = 0;
+
+    //keep going up in the tree until the target is found or counter expires
+    //counter stops infinite loops, the number 10 is arbitrary
+    while (target.id !== "modelItem" && counter < 10)
+    {
+        target = target.parentNode;
+        counter++;
+    }
+
+    divModelDetails.removeChild(target);
 }
 
-function addItem(e)
+function addItem()
 {
     const txtItemName = document.querySelector("#itemName");
     const txtItemCount = document.querySelector("#itemCount");
