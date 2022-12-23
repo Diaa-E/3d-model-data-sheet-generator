@@ -218,14 +218,19 @@ function select(options)
 
     const divChoices = [];
 
-    options.choices.forEach(choice => {
-
+    for (let i = 0; i < options.choices.length; i++)
+    {
         divChoices.push(button({
-            text: choice,
+            text: options.choices[i],
             classes: ["button-choice"],
             clickFunction: selectChoice,
         }))
-    })
+
+        if (i < options.minChoices)
+        {
+            domUtility.addClasses(divChoices[i], options.selectedClasses);
+        }
+    }
 
     const divChoicesContainer = div({
         id: `${options.id}Choices`,

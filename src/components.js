@@ -195,6 +195,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        minChoices: 1,
     });
 
     const divWrapper = div({
