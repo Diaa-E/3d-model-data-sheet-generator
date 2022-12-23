@@ -200,10 +200,78 @@ function meshDetails()
         selectedClasses: ["selected"],
     });
 
+    const polyTier = radio({
+        id: "polyTier",
+        lblText: "Polycount Tier",
+        choices: [
+            "Lowpoly",
+            "Highpoly"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
+    const gameReady = radio({
+        id: "gameready",
+        lblText: "Model is game-ready",
+        choices: [
+            "NO",
+            "YES"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
+    const subdivision = radio({
+        id: "subdivision",
+        lblText: "Model is subdivision-ready",
+        choices: [
+            "NO",
+            "YES"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
+    const edgeSplit = radio({
+        id: "edgeSplit",
+        lblText: "Edge splits",
+        choices: [
+            "Sharp edges only",
+            "All edges",
+            "Based on angle"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
+    const realWorldScale = radio({
+        id: "realWorldScale",
+        lblText: "Model is scaled to real world scale",
+        choices: [
+            "NO",
+            "YES"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
     const divWrapper = div({
         id: "meshDetails",
         classes: ["card"],
-        children: [lblTitle, meshType]
+        children: [
+            lblTitle,
+            meshType,
+            polyTier,
+            gameReady,
+            subdivision,
+            edgeSplit,
+            realWorldScale]
     });
 
     return divWrapper;

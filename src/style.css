@@ -104,7 +104,7 @@ form{
 
 .label-input{
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     justify-self: flex-start;
     align-self: flex-start;
 }

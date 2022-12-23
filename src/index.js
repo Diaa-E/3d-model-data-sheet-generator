@@ -18,7 +18,6 @@ const datasheetFactory = (modelData) => {
             edgeSplit: "",
             realWorldScale: true,
             polygons: null,
-            polygonType: "",
             vertices: null,
         },
         rig: {
