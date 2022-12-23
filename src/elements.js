@@ -207,10 +207,12 @@ function select(options)
     options = {
         lblText: "Default text",
         id: "",
-        selectClasses: ["options", "add", "select"],
+        Classes: [],
         choiceClasses: [],
         labelClasses: [],
         choices: ["Default option 1", "Default option 2"],
+        selectedClasses: [],
+        minChoices: 0,
         ...options
     }
 
@@ -220,7 +222,8 @@ function select(options)
 
         divChoices.push(button({
             text: choice,
-            classes: ["button-choice"]
+            classes: ["button-choice"],
+            clickFunction: toggleSelected,
         }))
     })
 
@@ -237,9 +240,21 @@ function select(options)
 
     const divSelect = div({
         id: options.id,
-        classes: options.selectClasses,
+        classes: options.classes,
         children: [lbl, divChoicesContainer]
     });
+
+    function toggleSelected(e)
+    {
+        if (e.target.classList.contains(options.selectedClasses[0]))
+        {
+            domUtility.removeClasses(e.target, options.selectedClasses);
+        }
+        else
+        {
+            domUtility.addClasses(e.target, options.selectedClasses);
+        }
+    }
 
     return divSelect;
 }

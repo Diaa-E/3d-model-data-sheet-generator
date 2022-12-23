@@ -70,10 +70,6 @@ form{
     background-color: var(--background-add);
 }
 
-.selected{
-    background-color: var(--background-selected);
-}
-
 .text-area{
     font-family: "Roboto", sans-serif;
     padding: 10px;
@@ -137,6 +133,11 @@ form{
     font-family: "Roboto", sans-serif;
     cursor: pointer;
     transition: .2s ease;
+}
+/*order in css file indicates which properites override*/
+.selected{
+    background-color: var(--font-green);
+    color: var(--background-option);
 }
 
 .button-choice:active{
