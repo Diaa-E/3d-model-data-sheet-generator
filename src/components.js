@@ -2,7 +2,7 @@
 
 import addIcon from "./icons/add.svg";
 import deleteIcon from "./icons/delete.svg";
-import {label, textArea, iconButton, inputNumber, inputText, div, p, select} from "./elements";
+import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
 
 export function startApp()
 {
@@ -187,15 +187,17 @@ function meshDetails()
         text: "Mesh Details",
         classes: ["label"]
     });
-    const meshType = select({
+    const meshType = radio({
         id: "meshType",
         lblText: "Mesh Type",
-        choices: ["option1", "option2"],
+        choices: [
+            "Polygon Mesh",
+            "Triangulated Polygon Mesh",
+            "Quad Mesh"],
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
-        minChoices: 1,
     });
 
     const divWrapper = div({

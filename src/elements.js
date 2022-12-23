@@ -2,7 +2,7 @@
 
 import defaultIcon from "./icons/add.svg";
 import domUtility from "./dom.utility";
-export {label, textArea, iconButton, inputNumber, inputText, div, p, button, select};
+export {label, textArea, iconButton, inputNumber, inputText, div, p, button, select, radio};
 
 function label(options)
 {
@@ -288,6 +288,68 @@ function select(options)
         {
             domUtility.addClasses(e.target, options.selectedClasses);
         }
+    }
+
+    return divSelect;
+}
+
+function radio(options)
+{
+    options = {
+        lblText: "Default text",
+        id: "",
+        Classes: [],
+        choiceClasses: [],
+        labelClasses: [],
+        choices: ["Default option 1", "Default option 2"],
+        selectedClasses: [],
+        defaultChoice: 0,
+        ...options
+    }
+
+    const divChoices = [];
+
+    for (let i = 0; i < options.choices.length; i++)
+    {
+        divChoices.push(button({
+            text: options.choices[i],
+            classes: ["button-choice"],
+            clickFunction: selectChoice,
+        }))
+
+        if (i === options.defaultChoice)
+        {
+            domUtility.addClasses(divChoices[i], options.selectedClasses);
+        }
+    }
+
+    const divChoicesContainer = div({
+        id: `${options.id}Choices`,
+        classes: options.choiceClasses,
+        children: [...divChoices]
+    })
+
+    const lbl = label({
+        text: options.lblText,
+        classes: options.labelClasses
+    })
+
+    const divSelect = div({
+        id: options.id,
+        classes: options.classes,
+        children: [lbl, divChoicesContainer]
+    });
+
+    function selectChoice(e)
+    {
+        const allChoices = e.target.parentNode.children;
+        
+        for (let i = 0; i < allChoices.length; i++)
+        {
+            domUtility.removeClasses(allChoices[i], options.selectedClasses);
+        }
+
+        domUtility.addClasses(e.target, options.selectedClasses);
     }
 
     return divSelect;
