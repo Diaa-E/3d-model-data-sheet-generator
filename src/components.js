@@ -2,14 +2,15 @@
 
 import addIcon from "./icons/add.svg";
 import deleteIcon from "./icons/delete.svg";
-import {label, textArea, iconButton, inputNumber, inputText, div, p} from "./elements";
+import {label, textArea, iconButton, inputNumber, inputText, div, p, select} from "./elements";
 
 export function startApp()
 {
     const form = document.querySelector("#content");
     form.append(
         modelDetails(),
-        modelContents());
+        modelContents(),
+        meshDetails());
 }
 
 function modelDetails()
@@ -178,4 +179,21 @@ function errorPanel(id)
     });
 
     return divError;
+}
+
+function meshDetails()
+{
+    const lblTitle = label({
+        text: "Mesh Details",
+        classes: ["label"]
+    });
+    const meshType = select("meshType", ["option1", "option2"], "Mesh Type");
+
+    const divWrapper = div({
+        id: "meshDetails",
+        classes: ["card"],
+        children: [lblTitle, meshType]
+    });
+
+    return divWrapper;
 }

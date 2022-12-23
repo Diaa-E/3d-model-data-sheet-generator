@@ -17,7 +17,6 @@
 :root{
     --background: #E8C4C4;
     --background-card: #F2E5E5;
-    --background-selected:#f3cdcd;
     --background-add: #daeaf1;
     --background-option: white;
     --shadow: #2B3A55;
@@ -110,6 +109,8 @@ form{
 .label-input{
     font-size: 16px;
     text-align: center;
+    justify-self: flex-start;
+    align-self: flex-start;
 }
 
 .button{
@@ -125,6 +126,23 @@ form{
     width: 50px;
     transition: .3s ease;
     filter: saturate(0%);
+}
+
+.button-choice{
+    border-radius: 5px;
+    padding: 5px;;
+    background-color: var(--background-option);
+    border: 1px var(--font) solid;
+    width: 100%;
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+}
+
+.choices-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
 }
 
 .button-icon:hover{
@@ -147,6 +165,10 @@ form{
     color: var(--font-red);
     text-align: center;
     font-size: 16px;
+}
+
+.select{
+    grid-template-columns: 1fr 3fr;
 }
 
 *::placeholder{

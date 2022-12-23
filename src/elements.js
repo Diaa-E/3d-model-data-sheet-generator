@@ -2,7 +2,7 @@
 
 import defaultIcon from "./icons/add.svg";
 import domUtility from "./dom.utility";
-export {label, textArea, iconButton, inputNumber, inputText, div, p};
+export {label, textArea, iconButton, inputNumber, inputText, div, p, button, select};
 
 function label(options)
 {
@@ -174,4 +174,62 @@ function p(options)
     domUtility.addClasses(p, options.classes);
 
     return p;
+}
+
+function button(options)
+{
+    options = {
+        classes: [],
+        type: "button",
+        text: "click here",
+        id: "",
+        clickFunction: () => {},
+        ...options
+    }
+
+    const btn = document.createElement("button");
+    btn.textContent = options.text;
+    btn.id = options.id;
+    domUtility.addClasses(btn, options.classes);
+
+    btn.addEventListener("click", (e) => {
+
+        //prevent triggering of other click events further up the DOM tree
+        e.preventDefault();
+        options.clickFunction(e);
+    })
+
+    return btn;
+}
+
+function select(id, choices = [], lblText)
+{
+    const divChoices = [];
+
+    choices.forEach(choice => {
+
+        divChoices.push(button({
+            text: choice,
+            classes: ["button-choice"]
+        }))
+    })
+
+    const divChoicesContainer = div({
+        id: "meshTypeChoices",
+        classes: ["choices-container"],
+        children: [...divChoices]
+    })
+
+    const lbl = label({
+        text: lblText,
+        classes: ["label-input"]
+    })
+
+    const divSelect = div({
+        id: id,
+        classes: ["option", "add", "select"],
+        children: [lbl, divChoicesContainer]
+    });
+
+    return divSelect;
 }
