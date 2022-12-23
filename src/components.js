@@ -194,7 +194,7 @@ function meshDetails()
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
-        selectedClasses: ["selected"]
+        selectedClasses: ["selected"],
     });
 
     const divWrapper = div({

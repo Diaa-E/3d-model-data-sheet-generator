@@ -223,7 +223,7 @@ function select(options)
         divChoices.push(button({
             text: choice,
             classes: ["button-choice"],
-            clickFunction: toggleSelected,
+            clickFunction: selectChoice,
         }))
     })
 
@@ -243,6 +243,35 @@ function select(options)
         classes: options.classes,
         children: [lbl, divChoicesContainer]
     });
+
+    function selectChoice(e)
+    {
+        const allChoices = e.target.parentNode.children;
+        
+        if (options.minChoices === 0)
+        {
+            toggleSelected(e);
+        }
+        else
+        {
+            let currentSelected = 0;
+            //count already selected choices
+            for (let i = 0; i < allChoices.length; i++)
+            {
+                if (allChoices[i].classList.contains(options.selectedClasses[0]))
+                {
+                    currentSelected++;
+                }
+            }
+
+            //if the user is trying to deselect below the minimum limit of selected choices
+            if (!(e.target.classList.contains(options.selectedClasses[0])
+                 && currentSelected === options.minChoices))
+            {
+                toggleSelected(e);
+            }
+        }
+    }
 
     function toggleSelected(e)
     {
