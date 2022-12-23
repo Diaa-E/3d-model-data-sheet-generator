@@ -207,6 +207,9 @@ function select(options)
     options = {
         lblText: "Default text",
         id: "",
+        selectClasses: ["options", "add", "select"],
+        choiceClasses: [],
+        labelClasses: [],
         choices: ["Default option 1", "Default option 2"],
         ...options
     }
@@ -222,19 +225,19 @@ function select(options)
     })
 
     const divChoicesContainer = div({
-        id: "meshTypeChoices",
-        classes: ["choices-container"],
+        id: `${options.id}Choices`,
+        classes: options.choiceClasses,
         children: [...divChoices]
     })
 
     const lbl = label({
         text: options.lblText,
-        classes: ["label-input"]
+        classes: options.labelClasses
     })
 
     const divSelect = div({
         id: options.id,
-        classes: ["option", "add", "select"],
+        classes: options.selectClasses,
         children: [lbl, divChoicesContainer]
     });
 

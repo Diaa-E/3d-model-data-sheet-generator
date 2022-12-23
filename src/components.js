@@ -190,7 +190,10 @@ function meshDetails()
     const meshType = select({
         id: "meshType",
         lblText: "Mesh Type",
-        choices: ["option1", "option2"]
+        choices: ["option1", "option2"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        selectClasses: ["option", "add", "select"],
     });
 
     const divWrapper = div({
