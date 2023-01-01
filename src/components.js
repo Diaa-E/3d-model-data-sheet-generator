@@ -11,7 +11,8 @@ export function startApp()
         modelDetails(),
         modelContents(),
         meshDetails(),
-        polyCount());
+        polyCount(),
+        materials());
 }
 
 function modelDetails()
@@ -88,7 +89,7 @@ function modelContents()
         iconClasses: ["button-icon"],
         clickFunction: addItem});
 
-    const divError = errorPanel("addError");
+    const divError = errorPanel("addItemError");
 
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
@@ -152,7 +153,7 @@ function addItem()
 {
     const txtItemName = document.querySelector("#itemName");
     const txtItemCount = document.querySelector("#itemCount");
-    const divError = document.querySelector("#addError");
+    const divError = document.querySelector("#addItemError");
     divError.textContent = "";
 
     if (!txtItemName.validity.valid)
@@ -380,4 +381,80 @@ function polyCount()
     });
 
     return divWrapper;
+}
+
+function materials()
+{
+    const lblTitle = label({
+        text: "Materials",
+        classes: ["label"]
+    });
+
+    const lblmaterialName = label({
+        text: "Texture set",
+        classes: ["label-input"],
+        for: "materialName",
+    });
+    const txtmaterialName = inputText({
+        name: "materialName",
+        id: "materialName",
+        classes: ["text-input"],
+        placeholder: "Texture set's name",
+        required: true,
+    });
+
+    const divMaterialName = div({
+        classes: ["input-container"],
+        children: [lblmaterialName, txtmaterialName]
+    });
+
+    const lblResolution = label({
+        text: "Texture Resolution",
+        classes: ["label-input"],
+        for: "resolution",
+    });
+
+    const txtResolution = inputNumber({
+        name: "resolution",
+        id: "resolution",
+        classes: ["text-input"],
+        min: "1",
+        placeholder: "What are the texture's dimensions?",
+        required: true,
+    });
+
+    const divMaterialResolution = div({
+        classes: ["input-container"],
+        children: [lblResolution, txtResolution]
+    });
+
+    const btnAdd = iconButton({
+        icon: addIcon,
+        btnClasses: ["button"],
+        iconClasses: ["button-icon"],
+        clickFunction: addMaterial});
+
+    const divError = errorPanel("addMaterialError");
+
+    const divMaterial = div({
+        children: [divMaterialName, divMaterialResolution, btnAdd],
+        classes: ["option", "add"],
+    });
+
+    const divWrapper = div({
+        id: "materials",
+        classes: ["card"],
+        children: [
+            lblTitle,
+            divError,
+            divMaterial
+        ]
+    });
+
+    return divWrapper;
+}
+
+function addMaterial()
+{
+
 }
