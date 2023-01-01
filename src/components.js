@@ -12,7 +12,8 @@ export function startApp()
         modelContents(),
         meshDetails(),
         polyCount(),
-        materials());
+        materials(),
+        textureDetails());
 }
 
 function modelDetails()
@@ -519,4 +520,101 @@ function textureSet(setName, setResolution)
     });
 
     return divItem;
+}
+
+function textureDetails()
+{
+    const lblTitle = label({
+        text: "Texture Details",
+        classes: ["label"]
+    });
+
+    const textureExt = select({
+        lblText: "Texture Workflow",
+        id: "textureExt",
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+        choices: [".PNG", ".EXR", ".JPEG"],
+        minChoices: 1,
+    });
+
+    const workflow = select({
+        id: "workflow",
+        lblText: "Texture Workflow",
+        choices: [
+            "PBR Metallic Roughness",
+            "PBR Specular Gloss"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+        minChoices: 1,
+    });
+
+    const normals = select({
+        id: "normals",
+        lblText: "Normal Format",
+        choices: [
+            "OpenGL",
+            "DirectX"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+        minChoices: 1,
+    });
+
+    const uvMapping = select({
+        id: "uvs",
+        lblText: "UV Mapping",
+        choices: [
+            "Overlapping (Mirrored)",
+            "OVerlapping (Duplicate/Array)",
+            "Non-Overlapping (unique)"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
+    const maps =  select({
+        id: "maps",
+        lblText: "Texture Maps",
+        choices: [
+            "Base Color",
+            "Base Color + Alpha Opacity",
+            "Normal",
+            "Height/Bump",
+            "Opacity",
+            "Metallic",
+            "Glossiness",
+            "Roughness",
+            "Specular",
+            "Ambient Occlusion",
+            "Packed RGB (AO + Roughness + Metallic)",
+            "ID Map",
+            "Emissive",],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+        minChoices: 1,
+    });
+    
+    const divWrapper = div({
+        id: "textureDetails",
+        classes: ["card"],
+        children: [
+            lblTitle,
+            textureExt,
+            workflow,
+            normals,
+            uvMapping,
+            maps,
+        ]
+    });
+
+    return divWrapper;
 }
