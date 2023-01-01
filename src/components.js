@@ -432,7 +432,7 @@ function materials()
         icon: addIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"],
-        clickFunction: addMaterial});
+        clickFunction: addTextureSet});
 
     const divError = errorPanel("addMaterialError");
 
@@ -454,7 +454,52 @@ function materials()
     return divWrapper;
 }
 
-function addMaterial()
+function addTextureSet()
 {
+    const txtMaterialName = document.querySelector("#materialName");
+    const txtResolution = document.querySelector("#resolution");
+    const divError = document.querySelector("#addMaterialError");
+    divError.textContent = "";
 
+    if (!txtMaterialName.checkValidity())
+    {
+        divError.textContent = "Any texture set must have a name.";
+    }
+    else if (!txtResolution.checkValidity())
+    {
+        divError.textContent = "The texture must be at least 1 x 1 pixels";
+    }
+    else
+    {
+        const divMaterials = document.querySelector("#materials");
+        divMaterials.append(textureSet(txtMaterialName.value, txtResolution.value));
+        txtResolution.value = "";
+        txtMaterialName.value = "";
+    }
+}
+
+function textureSet(setName, setResolution)
+{
+    const divItem = div({
+        id: "textureSet",
+        classes: ["option"],
+        children: [
+            p({
+                text: setName,
+                classes: ["item-name"]
+            }),
+            p({
+                text: `${setResolution} x ${setResolution}`,
+                classes: ["item-name", "item-count"]
+            }),
+            iconButton({
+                icon: deleteIcon,
+                btnClasses: ["button"],
+                iconClasses: ["button-icon"],
+                clickFunction: removeItem,
+            })
+        ]
+    });
+
+    return divItem;
 }
