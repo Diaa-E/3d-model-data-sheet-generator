@@ -149,6 +149,23 @@ function removeItem(e)
     divModelDetails.removeChild(target);
 }
 
+function removeSet(e)
+{
+    const divMaterials = document.querySelector("#materials");
+    let target = e.target.parentNode;
+    let counter = 0;
+
+    //keep going up in the tree until the target is found or counter expires
+    //counter stops infinite loops, the number 10 is arbitrary
+    while (target.id !== "textureSet" && counter < 10)
+    {
+        target = target.parentNode;
+        counter++;
+    }
+
+    divMaterials.removeChild(target);
+}
+
 function addItem()
 {
     const txtItemName = document.querySelector("#itemName");
@@ -496,7 +513,7 @@ function textureSet(setName, setResolution)
                 icon: deleteIcon,
                 btnClasses: ["button"],
                 iconClasses: ["button-icon"],
-                clickFunction: removeItem,
+                clickFunction: removeSet,
             })
         ]
     });
