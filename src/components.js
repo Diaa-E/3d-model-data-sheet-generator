@@ -262,6 +262,18 @@ function meshDetails()
         selectedClasses: ["selected"],
     });
 
+    const rigged = radio({
+        id: "rigged",
+        lblText: "Model is rigged",
+        choices: [
+            "NO",
+            "YES"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+    });
+
     const divWrapper = div({
         id: "meshDetails",
         classes: ["card"],
@@ -272,7 +284,8 @@ function meshDetails()
             gameReady,
             subdivision,
             edgeSplit,
-            realWorldScale]
+            realWorldScale,
+            rigged]
     });
 
     return divWrapper;

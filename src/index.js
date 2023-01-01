@@ -17,14 +17,11 @@ const datasheetFactory = (modelData) => {
             subdivision: false,
             edgeSplit: "",
             realWorldScale: true,
+            rigged: false,
         },
         polyCount: {
             tris: null,
             verts: null
-        },
-        rig: {
-            rigged: false,
-            rigNotes: "",
         },
         materials: [],
         textures: {
