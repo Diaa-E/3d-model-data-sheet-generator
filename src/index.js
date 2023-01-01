@@ -33,18 +33,6 @@ const datasheetFactory = (modelData) => {
             Uv: "",
             maps: [],
         },
-        render: {
-            thumb: {
-                engine: "",
-                software: "",
-                version: null,
-            },
-            preview: {
-                engine: "",
-                software: "",
-                version: null,
-            }
-        },
         ...modelData
     };
 };
