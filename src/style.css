@@ -70,6 +70,10 @@ form{
     background-color: var(--background-add);
 }
 
+.no-button{
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .text-area{
     font-family: "Roboto", sans-serif;
     padding: 10px;

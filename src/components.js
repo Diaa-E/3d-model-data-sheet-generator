@@ -10,7 +10,8 @@ export function startApp()
     form.append(
         modelDetails(),
         modelContents(),
-        meshDetails());
+        meshDetails(),
+        polyCount());
 }
 
 function modelDetails()
@@ -251,7 +252,7 @@ function meshDetails()
 
     const realWorldScale = radio({
         id: "realWorldScale",
-        lblText: "Model is scaled to real world scale",
+        lblText: "Model is scaled to real world dimensions",
         choices: [
             "NO",
             "YES"],
@@ -272,6 +273,70 @@ function meshDetails()
             subdivision,
             edgeSplit,
             realWorldScale]
+    });
+
+    return divWrapper;
+}
+
+function polyCount()
+{
+    const lblTitle = label({
+        text: "Poly Count",
+        classes: ["label"]
+    });
+
+    const lblTris = label({
+        text: "Number of polygons",
+        classes: ["label-input"],
+        for: "itemCount",
+    });
+
+    const txtTris = inputNumber({
+        name: "tris",
+        id: "tris",
+        classes: ["text-input"],
+        min: "1",
+        placeholder: "How many triangles is your model?",
+        required: true,
+    });
+
+    const divTris = div({
+        classes: ["input-container"],
+        children: [lblTris, txtTris]
+    });
+
+    const lblVerts = label({
+        text: "Number of vertices",
+        classes: ["label-input"],
+        for: "itemCount",
+    });
+
+    const txtVerts = inputNumber({
+        name: "tris",
+        id: "tris",
+        classes: ["text-input"],
+        min: "1",
+        placeholder: "How many triangles is your model?",
+        required: true,
+    });
+
+    const divVerts = div({
+        classes: ["input-container"],
+        children: [lblVerts, txtVerts]
+    });
+
+    const divPolyCount = div({
+        children: [divTris, divVerts],
+        classes: ["option", "add", "no-button"],
+    });
+
+    const divWrapper = div({
+        id: "polyCount",
+        classes: ["card"],
+        children: [
+            lblTitle,
+            divPolyCount,
+        ]
     });
 
     return divWrapper;
