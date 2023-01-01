@@ -300,6 +300,18 @@ function polyCount()
         required: true,
     });
 
+    txtTris.addEventListener("input", () => {
+
+        if (!txtTris.checkValidity())
+        {
+            divError.textContent = "Any model must consist of at least 1 polygon";
+        }
+        else
+        {
+            divError.textContent = "";
+        }
+    });
+
     const divTris = div({
         classes: ["input-container"],
         children: [lblTris, txtTris]
@@ -318,6 +330,18 @@ function polyCount()
         min: "1",
         placeholder: "How many vertices is your model?",
         required: true,
+    });
+
+    txtVerts.addEventListener("input", () => {
+
+        if (!txtVerts.checkValidity())
+        {
+            divError.textContent = "Any model must consist of at least 1 vertex";
+        }
+        else
+        {
+            divError.textContent = "";
+        }
     });
 
     const divVerts = div({
