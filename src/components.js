@@ -506,7 +506,7 @@ function textureSet(setName, setResolution)
                 classes: ["item-name"]
             }),
             p({
-                text: `${setResolution} x ${setResolution}`,
+                text: `${setResolution} x ${setResolution} Pixels`,
                 classes: ["item-name", "item-count"]
             }),
             iconButton({
