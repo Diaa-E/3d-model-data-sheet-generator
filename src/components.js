@@ -288,7 +288,7 @@ function polyCount()
     const lblTris = label({
         text: "Number of polygons",
         classes: ["label-input"],
-        for: "itemCount",
+        for: "tris",
     });
 
     const txtTris = inputNumber({
@@ -308,15 +308,15 @@ function polyCount()
     const lblVerts = label({
         text: "Number of vertices",
         classes: ["label-input"],
-        for: "itemCount",
+        for: "verts",
     });
 
     const txtVerts = inputNumber({
-        name: "tris",
-        id: "tris",
+        name: "verts",
+        id: "verts",
         classes: ["text-input"],
         min: "1",
-        placeholder: "How many triangles is your model?",
+        placeholder: "How many vertices is your model?",
         required: true,
     });
 
@@ -330,11 +330,14 @@ function polyCount()
         classes: ["option", "add", "no-button"],
     });
 
+    const divError = errorPanel("polycountError");
+
     const divWrapper = div({
         id: "polyCount",
         classes: ["card"],
         children: [
             lblTitle,
+            divError,
             divPolyCount,
         ]
     });
