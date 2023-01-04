@@ -118,8 +118,8 @@ function modelContents()
     else
     {
         divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
-        txtItemCount.element.value = "";
-        txtItemName.element.value = "";
+        txtItemCount.clearContent();
+        txtItemName.clearContent();
     }
 }
 

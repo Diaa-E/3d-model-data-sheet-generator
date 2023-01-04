@@ -122,7 +122,12 @@ function inputNumber(options)
         return options.errorMsg;
     }
 
-    return {element, getContent, isValid, getError};
+    function clearContent()
+    {
+        element.value = "";
+    }
+
+    return {element, getContent, isValid, getError, clearContent};
 }
 
 function inputText(options)
@@ -163,8 +168,13 @@ function inputText(options)
     {
         return options.errorMsg;
     }
+    
+    function clearContent()
+    {
+        element.value = "";
+    }
 
-    return {element, getContent, isValid, getError};
+    return {element, getContent, isValid, getError, clearContent};
 }
 
 function div(options)
