@@ -199,6 +199,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const polyTier = radio({
@@ -211,6 +212,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const gameReady = radio({
@@ -223,6 +225,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const subdivision = radio({
@@ -235,6 +238,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const edgeSplit = radio({
@@ -248,6 +252,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const realWorldScale = radio({
@@ -260,6 +265,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const rigged = radio({
@@ -272,6 +278,7 @@ function meshDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const divWrapper = div({
@@ -494,6 +501,7 @@ function textureDetails()
         selectedClasses: ["selected"],
         choices: [".PNG", ".EXR", ".JPEG"],
         minChoices: 1,
+        optionClasses: ["button-choice"]
     });
 
     const workflow = select({
@@ -507,6 +515,7 @@ function textureDetails()
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
         minChoices: 1,
+        optionClasses: ["button-choice"]
     });
 
     const normals = select({
@@ -520,6 +529,7 @@ function textureDetails()
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
         minChoices: 1,
+        optionClasses: ["button-choice"]
     });
 
     const uvMapping = select({
@@ -533,6 +543,7 @@ function textureDetails()
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
     });
 
     const maps =  select({
@@ -557,6 +568,7 @@ function textureDetails()
         classes: ["option", "add", "select"],
         selectedClasses: ["selected"],
         minChoices: 1,
+        optionClasses: ["button-choice"]
     });
     
     const divWrapper = div({

@@ -168,7 +168,7 @@ function inputText(options)
     {
         return options.errorMsg;
     }
-    
+
     function clearContent()
     {
         element.value = "";
@@ -255,6 +255,7 @@ function select(options)
         choices: ["Default option 1", "Default option 2"],
         selectedClasses: [],
         minChoices: 0,
+        optionClasses: [],
         ...options
     }
 
@@ -264,7 +265,7 @@ function select(options)
     {
         divChoices.push(button({
             text: options.choices[i],
-            classes: ["button-choice"],
+            classes: [...options.optionClasses],
             clickFunction: selectChoice,
         }))
 
@@ -342,6 +343,7 @@ function radio(options)
         id: "",
         Classes: [],
         choiceClasses: [],
+        optionClasses: [],
         labelClasses: [],
         choices: ["Default option 1", "Default option 2"],
         selectedClasses: [],
@@ -355,7 +357,7 @@ function radio(options)
     {
         divChoices.push(button({
             text: options.choices[i],
-            classes: ["button-choice"],
+            classes: [...options.optionClasses],
             clickFunction: selectChoice,
         }))
 
