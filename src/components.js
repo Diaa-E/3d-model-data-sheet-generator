@@ -55,6 +55,7 @@ function modelContents()
         classes: ["text-input"],
         placeholder: "Item's name",
         required: true,
+        errorMsg: "Any item must have a name",
     });
 
     const divItemName = div({
@@ -76,6 +77,7 @@ function modelContents()
         min: "1",
         placeholder: "How many of it included",
         required: true,
+        errorMsg: "There has to be at least 1 of the item"
     });
 
     const divItemCount = div({
@@ -102,6 +104,24 @@ function modelContents()
         classes: ["card"],
         children: [lblModelItems, divError, divAddItem]
     });
+
+    function addItem()
+{
+    if (!txtItemName.isValid())
+    {
+        divError.textContent = txtItemName.getError();
+    }
+    else if (!txtItemCount.isValid())
+    {
+        divError.textContent = txtItemCount.getError();
+    }
+    else
+    {
+        divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
+        txtItemCount.element.value = "";
+        txtItemName.element.value = "";
+    }
+}
 
     return divWrapper;
 }
@@ -167,29 +187,29 @@ function removeSet(e)
     divMaterials.removeChild(target);
 }
 
-function addItem()
-{
-    const txtItemName = document.querySelector("#itemName");
-    const txtItemCount = document.querySelector("#itemCount");
-    const divError = document.querySelector("#addItemError");
-    divError.textContent = "";
+// function addItem()
+// {
+//     const txtItemName = document.querySelector("#itemName");
+//     const txtItemCount = document.querySelector("#itemCount");
+//     const divError = document.querySelector("#addItemError");
+//     divError.textContent = "";
 
-    if (!txtItemName.validity.valid)
-    {
-        divError.textContent = "Any item must have a name.";
-    }
-    else if (!txtItemCount.checkValidity())
-    {
-        divError.textContent = "There has to be at least 1 of the item.";
-    }
-    else
-    {
-        const divModelContents = document.querySelector("#modelContents");
-        divModelContents.append(modelItem(txtItemCount.value, txtItemName.value));
-        txtItemCount.value = "";
-        txtItemName.value = "";
-    }
-}
+//     if (!txtItemName.validity.valid)
+//     {
+//         divError.textContent = "Any item must have a name";
+//     }
+//     else if (!txtItemCount.checkValidity())
+//     {
+//         divError.textContent = "There has to be at least 1 of the item";
+//     }
+//     else
+//     {
+//         const divModelContents = document.querySelector("#modelContents");
+//         divModelContents.append(modelItem(txtItemCount.value, txtItemName.value));
+//         txtItemCount.value = "";
+//         txtItemName.value = "";
+//     }
+// }
 
 function errorPanel(id)
 {
