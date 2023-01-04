@@ -141,7 +141,7 @@ function modelContents()
                     icon: deleteIcon,
                     btnClasses: ["button"],
                     iconClasses: ["button-icon"],
-                    clickFunction: removeItem,
+                    clickFunction: removeElement,
                 })
             ]
         });
@@ -149,41 +149,27 @@ function modelContents()
         return divItem;
     }
 
-    //since nothing is passed to the back before form submition, no need to keep track of items order
-    function removeItem(e)
-    {
-        let target = e.target.parentNode;
-        let counter = 0;
-
-        //keep going up in the tree until the target is found or counter expires
-        //counter stops infinite loops, the number 10 is arbitrary
-        while (target.id !== "modelItem" && counter < 10)
-        {
-            target = target.parentNode;
-            counter++;
-        }
-
-        divWrapper.removeChild(target);
-    }
-
     return divWrapper;
 }
 
-function removeSet(e)
+//instead of writing a unique delete function for every type of list
+//since all list items use the .option class it can be used to identify the target
+//instead of the id
+function removeElement(e)
 {
-    const divMaterials = document.querySelector("#materials");
     let target = e.target.parentNode;
     let counter = 0;
 
     //keep going up in the tree until the target is found or counter expires
     //counter stops infinite loops, the number 10 is arbitrary
-    while (target.id !== "textureSet" && counter < 10)
+    while (!target.classList.contains("option") && counter < 10)
     {
         target = target.parentNode;
         counter++;
     }
 
-    divMaterials.removeChild(target);
+    //the list's parent is always one level higher
+    target.parentNode.removeChild(target);
 }
 
 function errorPanel(id)
@@ -504,7 +490,7 @@ function materials()
                     icon: deleteIcon,
                     btnClasses: ["button"],
                     iconClasses: ["button-icon"],
-                    clickFunction: removeSet,
+                    clickFunction: removeElement
                 })
             ]
         });
