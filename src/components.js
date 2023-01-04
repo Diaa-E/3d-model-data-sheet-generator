@@ -106,68 +106,67 @@ function modelContents()
     });
 
     function addItem()
-{
-    if (!txtItemName.isValid())
     {
-        divError.textContent = txtItemName.getError();
+        if (!txtItemName.isValid())
+        {
+            divError.textContent = txtItemName.getError();
+        }
+        else if (!txtItemCount.isValid())
+        {
+            divError.textContent = txtItemCount.getError();
+        }
+        else
+        {
+            divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
+            txtItemCount.clearContent();
+            txtItemName.clearContent();
+        }
     }
-    else if (!txtItemCount.isValid())
+
+    function modelItem(itemCount, itemName)
     {
-        divError.textContent = txtItemCount.getError();
+        const divItem = div({
+            id: "modelItem",
+            classes: ["option"],
+            children: [
+                p({
+                    text: itemName,
+                    classes: ["item-name"]
+                }),
+                p({
+                    text: `x ${itemCount}`,
+                    classes: ["item-name", "item-count"]
+                }),
+                iconButton({
+                    icon: deleteIcon,
+                    btnClasses: ["button"],
+                    iconClasses: ["button-icon"],
+                    clickFunction: removeItem,
+                })
+            ]
+        });
+
+        return divItem;
     }
-    else
+
+    //since nothing is passed to the back before form submition, no need to keep track of items order
+    function removeItem(e)
     {
-        divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
-        txtItemCount.clearContent();
-        txtItemName.clearContent();
+        let target = e.target.parentNode;
+        let counter = 0;
+
+        //keep going up in the tree until the target is found or counter expires
+        //counter stops infinite loops, the number 10 is arbitrary
+        while (target.id !== "modelItem" && counter < 10)
+        {
+            target = target.parentNode;
+            counter++;
+        }
+
+        divWrapper.removeChild(target);
     }
-}
 
     return divWrapper;
-}
-
-function modelItem(itemCount, itemName)
-{
-    const divItem = div({
-        id: "modelItem",
-        classes: ["option"],
-        children: [
-            p({
-                text: itemName,
-                classes: ["item-name"]
-            }),
-            p({
-                text: `x ${itemCount}`,
-                classes: ["item-name", "item-count"]
-            }),
-            iconButton({
-                icon: deleteIcon,
-                btnClasses: ["button"],
-                iconClasses: ["button-icon"],
-                clickFunction: removeItem,
-            })
-        ]
-    });
-
-    return divItem;
-}
-
-//since nothing is passed to the back before form submition, no need to keep track of items order
-function removeItem(e)
-{
-    const divModelDetails = document.querySelector("#modelContents");
-    let target = e.target.parentNode;
-    let counter = 0;
-
-    //keep going up in the tree until the target is found or counter expires
-    //counter stops infinite loops, the number 10 is arbitrary
-    while (target.id !== "modelItem" && counter < 10)
-    {
-        target = target.parentNode;
-        counter++;
-    }
-
-    divModelDetails.removeChild(target);
 }
 
 function removeSet(e)
@@ -186,30 +185,6 @@ function removeSet(e)
 
     divMaterials.removeChild(target);
 }
-
-// function addItem()
-// {
-//     const txtItemName = document.querySelector("#itemName");
-//     const txtItemCount = document.querySelector("#itemCount");
-//     const divError = document.querySelector("#addItemError");
-//     divError.textContent = "";
-
-//     if (!txtItemName.validity.valid)
-//     {
-//         divError.textContent = "Any item must have a name";
-//     }
-//     else if (!txtItemCount.checkValidity())
-//     {
-//         divError.textContent = "There has to be at least 1 of the item";
-//     }
-//     else
-//     {
-//         const divModelContents = document.querySelector("#modelContents");
-//         divModelContents.append(modelItem(txtItemCount.value, txtItemName.value));
-//         txtItemCount.value = "";
-//         txtItemName.value = "";
-//     }
-// }
 
 function errorPanel(id)
 {
