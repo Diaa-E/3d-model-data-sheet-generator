@@ -117,37 +117,11 @@ function modelContents()
         }
         else
         {
-            divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
+            divWrapper.append(listItem(txtItemName.getContent(), `x ${txtItemCount.getContent()}`));
             txtItemCount.clearContent();
             txtItemName.clearContent();
             divError.textContent = "";
         }
-    }
-
-    function modelItem(itemCount, itemName)
-    {
-        const divItem = div({
-            id: "modelItem",
-            classes: ["option"],
-            children: [
-                p({
-                    text: itemName,
-                    classes: ["item-name"]
-                }),
-                p({
-                    text: `x ${itemCount}`,
-                    classes: ["item-name", "item-count"]
-                }),
-                iconButton({
-                    icon: deleteIcon,
-                    btnClasses: ["button"],
-                    iconClasses: ["button-icon"],
-                    clickFunction: removeElement,
-                })
-            ]
-        });
-
-        return divItem;
     }
 
     return divWrapper;
@@ -156,7 +130,7 @@ function modelContents()
 //instead of writing a unique delete function for every type of list
 //since all list items use the .option class it can be used to identify the target
 //instead of the id
-function removeElement(e)
+function removeListItem(e)
 {
     let target = e.target.parentNode;
     let counter = 0;
@@ -171,6 +145,31 @@ function removeElement(e)
 
     //the list's parent is always one level higher
     target.parentNode.removeChild(target);
+}
+
+function listItem(firstField, secondField)
+{
+    const divItem = div({
+        classes: ["option"],
+        children: [
+            p({
+                text: firstField,
+                classes: ["item-name"]
+            }),
+            p({
+                text:secondField,
+                classes: ["item-name", "item-count"]
+            }),
+            iconButton({
+                icon: deleteIcon,
+                btnClasses: ["button"],
+                iconClasses: ["button-icon"],
+                clickFunction: removeListItem,
+            })
+        ]
+    });
+
+    return divItem;
 }
 
 function errorPanel(id)
@@ -467,37 +466,13 @@ function materials()
         }
         else
         {
-            divWrapper.append(textureSet(txtMaterialName.getContent(), txtResolution.getContent()));
+            divWrapper.append(listItem(
+                txtMaterialName.getContent(),
+                `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`));
             txtResolution.clearContent();
             txtMaterialName.clearContent();
             divError.textContent = "";
         }
-    }
-
-    function textureSet(setName, setResolution)
-    {
-        const divItem = div({
-            id: "textureSet",
-            classes: ["option"],
-            children: [
-                p({
-                    text: setName,
-                    classes: ["item-name"]
-                }),
-                p({
-                    text: `${setResolution} x ${setResolution} Pixels`,
-                    classes: ["item-name", "item-count"]
-                }),
-                iconButton({
-                    icon: deleteIcon,
-                    btnClasses: ["button"],
-                    iconClasses: ["button-icon"],
-                    clickFunction: removeElement
-                })
-            ]
-        });
-
-        return divItem;
     }
 
     return divWrapper;
