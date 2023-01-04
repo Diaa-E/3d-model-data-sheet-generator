@@ -333,7 +333,22 @@ function select(options)
         }
     }
 
-    return divSelect;
+    function getSelected()
+    {
+        const selected = [];
+
+        for (let i = 0; i < divChoices.length; i++)
+        {
+            if (divChoices[i].classList.contains(options.selectedClasses[0]))
+            {
+                selected.push(divChoices[i].textContent);
+            }
+        }
+
+        return selected;
+    }
+
+    return {element: divSelect, getSelected};
 }
 
 function radio(options)

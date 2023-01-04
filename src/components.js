@@ -576,11 +576,11 @@ function textureDetails()
         classes: ["card"],
         children: [
             lblTitle,
-            textureExt,
-            workflow,
-            normals,
-            uvMapping,
-            maps,
+            textureExt.element,
+            workflow.element,
+            normals.element,
+            uvMapping.element,
+            maps.element,
         ]
     });
 
