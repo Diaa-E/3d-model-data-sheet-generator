@@ -286,13 +286,13 @@ function meshDetails()
         classes: ["card"],
         children: [
             lblTitle,
-            meshType,
-            polyTier,
-            gameReady,
-            subdivision,
-            edgeSplit,
-            realWorldScale,
-            rigged]
+            meshType.element,
+            polyTier.element,
+            gameReady.element,
+            subdivision.element,
+            edgeSplit.element,
+            realWorldScale.element,
+            rigged.element]
     });
 
     return divWrapper;

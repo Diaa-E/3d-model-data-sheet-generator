@@ -396,5 +396,16 @@ function radio(options)
         domUtility.addClasses(e.target, options.selectedClasses);
     }
 
-    return divSelect;
+    function getSelected()
+    {
+        for (let i = 0; i < divChoices.length; i++)
+        {
+            if (divChoices[i].classList.contains(options.selectedClasses[0]))
+            {
+                return divChoices[i].textContent;
+            }
+        }
+    }
+
+    return {element: divSelect, getSelected};
 }
