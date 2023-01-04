@@ -59,7 +59,7 @@ function modelContents()
 
     const divItemName = div({
         classes: ["input-container"],
-        children: [lblItemName, txtItemName]
+        children: [lblItemName, txtItemName.element]
     })
 
     //item count input field
@@ -80,7 +80,7 @@ function modelContents()
 
     const divItemCount = div({
         classes: ["input-container"],
-        children: [lblItemCount, txtItemCount]
+        children: [lblItemCount, txtItemCount.element]
     });
 
     //add button
@@ -332,9 +332,9 @@ function polyCount()
         required: true,
     });
 
-    txtTris.addEventListener("input", () => {
+    txtTris.element.addEventListener("input", () => {
 
-        if (!txtTris.checkValidity())
+        if (!txtTris.element.checkValidity())
         {
             divError.textContent = "Any model must consist of at least 1 polygon";
         }
@@ -346,7 +346,7 @@ function polyCount()
 
     const divTris = div({
         classes: ["input-container"],
-        children: [lblTris, txtTris]
+        children: [lblTris, txtTris.element]
     });
 
     const lblVerts = label({
@@ -364,7 +364,7 @@ function polyCount()
         required: true,
     });
 
-    txtVerts.addEventListener("input", () => {
+    txtVerts.element.addEventListener("input", () => {
 
         if (!txtVerts.checkValidity())
         {
@@ -378,7 +378,7 @@ function polyCount()
 
     const divVerts = div({
         classes: ["input-container"],
-        children: [lblVerts, txtVerts]
+        children: [lblVerts, txtVerts.element]
     });
 
     const divPolyCount = div({
@@ -423,7 +423,7 @@ function materials()
 
     const divMaterialName = div({
         classes: ["input-container"],
-        children: [lblmaterialName, txtmaterialName]
+        children: [lblmaterialName, txtmaterialName.element]
     });
 
     const lblResolution = label({
@@ -443,7 +443,7 @@ function materials()
 
     const divMaterialResolution = div({
         classes: ["input-container"],
-        children: [lblResolution, txtResolution]
+        children: [lblResolution, txtResolution.element]
     });
 
     const btnAdd = iconButton({
@@ -530,7 +530,7 @@ function textureDetails()
     });
 
     const textureExt = select({
-        lblText: "Texture Workflow",
+        lblText: "Texture format",
         id: "textureExt",
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
@@ -555,7 +555,7 @@ function textureDetails()
 
     const normals = select({
         id: "normals",
-        lblText: "Normal Format",
+        lblText: "Normal Maps",
         choices: [
             "OpenGL",
             "DirectX"],

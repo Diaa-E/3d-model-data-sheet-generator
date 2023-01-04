@@ -95,18 +95,23 @@ function inputNumber(options)
         ...options
     }
 
-    const num = document.createElement("input");
-    num.type = "number";
-    num.name = options.name;
-    options.min === "" ? null : num.min = options.min;
-    options.max === "" ? null : num.max = options.max;
-    num.id = options.id;
-    num.required = options.required;
-    num.placeholder = options.placeholder;
+    const element = document.createElement("input");
+    element.type = "number";
+    element.name = options.name;
+    options.min === "" ? null : element.min = options.min;
+    options.max === "" ? null : element.max = options.max;
+    element.id = options.id;
+    element.required = options.required;
+    element.placeholder = options.placeholder;
 
-    domUtility.addClasses(num, options.classes);
+    domUtility.addClasses(element, options.classes);
 
-    return num;
+    function getContent()
+    {
+        return element.value;
+    }
+
+    return {element, getContent};
 }
 
 function inputText(options)
@@ -122,17 +127,22 @@ function inputText(options)
         ...options
     }
 
-    const txt = document.createElement("input");
-    txt.name = options.name;
-    txt.id = options.id;
-    options.maxLength === "" ? null : txt.maxLength = options.maxLength;
-    options.minLength === "" ? null : txt.minLength = options.minLength;
-    txt.placeholder = options.placeholder;
-    txt.required = options.required;
+    const element = document.createElement("input");
+    element.name = options.name;
+    element.id = options.id;
+    options.maxLength === "" ? null : element.maxLength = options.maxLength;
+    options.minLength === "" ? null : element.minLength = options.minLength;
+    element.placeholder = options.placeholder;
+    element.required = options.required;
 
-    domUtility.addClasses(txt, options.classes);
+    domUtility.addClasses(element, options.classes);
 
-    return txt;
+    function getContent()
+    {
+        return element.value;
+    }
+
+    return {element, getContent};
 }
 
 function div(options)
