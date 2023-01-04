@@ -330,13 +330,14 @@ function polyCount()
         min: "1",
         placeholder: "How many triangles is your model?",
         required: true,
+        errorMsg: "Any model must consist of at least 1 polygon",
     });
 
     txtTris.element.addEventListener("input", () => {
 
-        if (!txtTris.element.checkValidity())
+        if (!txtTris.isValid())
         {
-            divError.textContent = "Any model must consist of at least 1 polygon";
+            divError.textContent = txtTris.getError();
         }
         else
         {
@@ -362,13 +363,14 @@ function polyCount()
         min: "1",
         placeholder: "How many vertices is your model?",
         required: true,
+        errorMsg: "Any model must consist of at least 1 vertex",
     });
 
     txtVerts.element.addEventListener("input", () => {
 
-        if (!txtVerts.checkValidity())
+        if (!txtVerts.isValid())
         {
-            divError.textContent = "Any model must consist of at least 1 vertex";
+            divError.textContent = txtVerts.getError();
         }
         else
         {

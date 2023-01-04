@@ -92,6 +92,7 @@ function inputNumber(options)
         name: "",
         placeholder: "",
         required: false,
+        errorMsg: "Invalid Input",
         ...options
     }
 
@@ -111,7 +112,17 @@ function inputNumber(options)
         return element.value;
     }
 
-    return {element, getContent};
+    function isValid()
+    {
+        return element.checkValidity();
+    }
+
+    function getError()
+    {
+        return options.errorMsg;
+    }
+
+    return {element, getContent, isValid, getError};
 }
 
 function inputText(options)
@@ -124,6 +135,7 @@ function inputText(options)
         name: "",
         placeholder: "",
         required: false,
+        errorMsg: "Invalid Input",
         ...options
     }
 
@@ -142,7 +154,17 @@ function inputText(options)
         return element.value;
     }
 
-    return {element, getContent};
+    function isValid()
+    {
+        return element.checkValidity();
+    }
+
+    function getError()
+    {
+        return options.errorMsg;
+    }
+
+    return {element, getContent, isValid, getError};
 }
 
 function div(options)
