@@ -120,6 +120,7 @@ function modelContents()
             divWrapper.append(modelItem(txtItemCount.getContent(), txtItemName.getContent()));
             txtItemCount.clearContent();
             txtItemName.clearContent();
+            divError.textContent = "";
         }
     }
 
@@ -469,6 +470,7 @@ function materials()
             divWrapper.append(textureSet(txtMaterialName.getContent(), txtResolution.getContent()));
             txtResolution.clearContent();
             txtMaterialName.clearContent();
+            divError.textContent = "";
         }
     }
 
