@@ -8,12 +8,12 @@ export function startApp()
 {
     const form = document.querySelector("#content");
     form.append(
-        modelDetails(),
+        modelDetails().component,
         modelContents().component,
-        meshDetails(),
-        polyCount(),
+        meshDetails().component,
+        polyCount().component,
         materials().component,
-        textureDetails());
+        textureDetails().component);
 }
 
 function modelDetails()
@@ -35,7 +35,12 @@ function modelDetails()
         children: [lblModelDetails, txtModelDetails.element]
     })
 
-    return divWrapper;
+    function getData()
+    {
+        return {details: txtModelDetails.getContent()};
+    }
+
+    return {component: divWrapper, getData};
 }
 
 function modelContents()
@@ -137,7 +142,7 @@ function modelContents()
             modelItems.push(`${pList[1].textContent} ${pList[0].textContent}`);
         });
 
-        return modelItems;
+        return {items: modelItems};
     }
 
     return {component: divWrapper, getData};
@@ -312,7 +317,20 @@ function meshDetails()
             rigged.element]
     });
 
-    return divWrapper;
+    function getData()
+    {
+        return {
+            meshType: meshType.getSelected(),
+            polyTier: polyTier.getSelected(),
+            gameReady: gameReady.getSelected(),
+            subdivision: subdivision.getSelected(),
+            edgeSplit: edgeSplit.getSelected(),
+            realWorldScale: realWorldScale.getSelected(),
+            rigged: rigged.getSelected(),
+        }
+    }
+
+    return {component: divWrapper, getData};
 }
 
 function polyCount()
@@ -405,7 +423,15 @@ function polyCount()
         ]
     });
 
-    return divWrapper;
+    function getData()
+    {
+        return {
+            tris: txtTris.getContent(),
+            verts: txtVerts.getContent(),
+        }
+    }
+
+    return {component: divWrapper, getData};
 }
 
 function materials()
@@ -510,7 +536,7 @@ function materials()
             modelMaterials.push(`${pList[0].textContent} (${pList[1].textContent})`);
         });
 
-        return modelMaterials;
+        return {materials: modelMaterials};
     }
 
     return {component: divWrapper, getData};
@@ -615,5 +641,16 @@ function textureDetails()
         ]
     });
 
-    return divWrapper;
+    function getData()
+    {
+        return {
+            format: textureExt.getSelected(),
+            workflow: workflow.getSelected(),
+            normals: normals.getSelected(),
+            uv: uvMapping.getSelected(),
+            maps: maps.getSelected(),
+        }
+    }
+
+    return {component: divWrapper, getData};
 }

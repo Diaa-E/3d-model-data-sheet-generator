@@ -25,11 +25,9 @@ const datasheetFactory = (modelData) => {
         },
         materials: [],
         textures: {
-            format: "",
+            format: [],
             workflow: "",
             normals: "",
-            idMap: false,
-            packedRgb: true,
             Uv: "",
             maps: [],
         },
