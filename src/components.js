@@ -6,17 +6,31 @@ import {label, textArea, iconButton, inputNumber, inputText, div, p, select, rad
 
 export function startApp()
 {
+    const modelDetails = ModelDetails();
+    const modelContents = ModelContents();
+    const meshDetails = MeshDetails();
+    const polyCount = PolyCount();
+    const materials = Materials();
+    const textureDetails = TextureDetails();
+
     const form = document.querySelector("#content");
+
     form.append(
-        modelDetails().component,
-        modelContents().component,
-        meshDetails().component,
-        polyCount().component,
-        materials().component,
-        textureDetails().component);
+        modelDetails.component,
+        modelContents.component,
+        meshDetails.component,
+        polyCount.component,
+        materials.component,
+        textureDetails.component,
+    );
+
+    form.addEventListener("submit", (e) => {
+
+        e.preventDefault();
+    });
 }
 
-function modelDetails()
+function ModelDetails()
 {
     const lblModelDetails = label({
         for: "details",
@@ -43,7 +57,7 @@ function modelDetails()
     return {component: divWrapper, getData};
 }
 
-function modelContents()
+function ModelContents()
 {
     const lblModelItems = label({
         text: "Model Contents",
@@ -97,7 +111,7 @@ function modelContents()
         iconClasses: ["button-icon"],
         clickFunction: addItem});
 
-    const divError = errorPanel("addItemError");
+    const divError = ErrorPanel("addItemError");
 
     const divAddItem = div({
         children: [divItemName, divItemCount, btnAdd],
@@ -122,7 +136,7 @@ function modelContents()
         }
         else
         {
-            divWrapper.append(listItem(txtItemName.getContent(),
+            divWrapper.append(ListItem(txtItemName.getContent(),
                 `x ${txtItemCount.getContent()}`, "modelItem"));
             txtItemCount.clearContent();
             txtItemName.clearContent();
@@ -168,7 +182,7 @@ function removeListItem(e)
     target.parentNode.removeChild(target);
 }
 
-function listItem(firstField, secondField, id)
+function ListItem(firstField, secondField, id)
 {
     const divItem = div({
         id: id,
@@ -194,7 +208,7 @@ function listItem(firstField, secondField, id)
     return divItem;
 }
 
-function errorPanel(id)
+function ErrorPanel(id)
 {
     const divError = div({
         classes: ["error"],
@@ -204,7 +218,7 @@ function errorPanel(id)
     return divError;
 }
 
-function meshDetails()
+function MeshDetails()
 {
     const lblTitle = label({
         text: "Mesh Details",
@@ -333,7 +347,7 @@ function meshDetails()
     return {component: divWrapper, getData};
 }
 
-function polyCount()
+function PolyCount()
 {
     const lblTitle = label({
         text: "Poly Count",
@@ -411,7 +425,7 @@ function polyCount()
         classes: ["option", "add", "no-button"],
     });
 
-    const divError = errorPanel("polycountError");
+    const divError = ErrorPanel("polycountError");
 
     const divWrapper = div({
         id: "polyCount",
@@ -434,7 +448,7 @@ function polyCount()
     return {component: divWrapper, getData};
 }
 
-function materials()
+function Materials()
 {
     const lblTitle = label({
         text: "Materials",
@@ -487,7 +501,7 @@ function materials()
         iconClasses: ["button-icon"],
         clickFunction: addTextureSet});
 
-    const divError = errorPanel("addMaterialError");
+    const divError = ErrorPanel("addMaterialError");
 
     const divMaterial = div({
         children: [divMaterialName, divMaterialResolution, btnAdd],
@@ -516,7 +530,7 @@ function materials()
         }
         else
         {
-            divWrapper.append(listItem(
+            divWrapper.append(ListItem(
                 txtMaterialName.getContent(),
                 `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`, "textureSet"));
             txtResolution.clearContent();
@@ -542,7 +556,7 @@ function materials()
     return {component: divWrapper, getData};
 }
 
-function textureDetails()
+function TextureDetails()
 {
     const lblTitle = label({
         text: "Texture Details",

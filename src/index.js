@@ -4,7 +4,7 @@ import { startApp } from "./components";
 
 startApp();
 
-const datasheetFactory = (modelData) => {
+const DataSheet = (modelData) => {
 
     const model = {
 
@@ -33,4 +33,6 @@ const datasheetFactory = (modelData) => {
         },
         ...modelData
     };
+
+    return modelData;
 };
