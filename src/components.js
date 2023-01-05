@@ -9,7 +9,7 @@ export function startApp()
     const form = document.querySelector("#content");
     form.append(
         modelDetails(),
-        modelContents(),
+        modelContents().component,
         meshDetails(),
         polyCount(),
         materials(),
@@ -117,14 +117,30 @@ function modelContents()
         }
         else
         {
-            divWrapper.append(listItem(txtItemName.getContent(), `x ${txtItemCount.getContent()}`));
+            divWrapper.append(listItem(txtItemName.getContent(),
+                `x ${txtItemCount.getContent()}`, "modelItem"));
             txtItemCount.clearContent();
             txtItemName.clearContent();
             divError.textContent = "";
+            getData();
         }
     }
 
-    return divWrapper;
+    function getData()
+    {
+        const divList = document.querySelectorAll("#modelContents>#modelItem");
+
+        const modelItems = [];
+
+        divList.forEach(item => {
+            const pList = item.querySelectorAll("p");
+            modelItems.push(`${pList[1].textContent} ${pList[0].textContent}`);
+        });
+
+        return modelItems;
+    }
+
+    return {component: divWrapper, getData};
 }
 
 //instead of writing a unique delete function for every type of list
@@ -147,9 +163,10 @@ function removeListItem(e)
     target.parentNode.removeChild(target);
 }
 
-function listItem(firstField, secondField)
+function listItem(firstField, secondField, id)
 {
     const divItem = div({
+        id: id,
         classes: ["option"],
         children: [
             p({
@@ -475,7 +492,8 @@ function materials()
         {
             divWrapper.append(listItem(
                 txtMaterialName.getContent(),
-                `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`));
+                `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`),
+                "textureSet");
             txtResolution.clearContent();
             txtMaterialName.clearContent();
             divError.textContent = "";
