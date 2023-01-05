@@ -2,6 +2,8 @@
 
 import addIcon from "./icons/add.svg";
 import deleteIcon from "./icons/delete.svg";
+import generateIcon from "./icons/replay.svg";
+import copyIcon from "./icons/copy.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
 
 export function startApp()
@@ -13,6 +15,7 @@ export function startApp()
     const materials = Materials();
     const textureDetails = TextureDetails();
     const targetSite = TargetSite();
+    const dataSheet = Datasheet();
 
     const form = document.querySelector("#content");
 
@@ -23,7 +26,8 @@ export function startApp()
         polyCount.component,
         materials.component,
         textureDetails.component,
-        targetSite.component
+        targetSite.component,
+        dataSheet.component,
     );
 
     form.addEventListener("submit", (e) => {
@@ -706,4 +710,52 @@ function TargetSite()
     }
 
     return {component: divWrapper, getData}
+}
+
+function Datasheet()
+{
+    const lblTitle = label({
+        text: "Datasheet",
+        classes: ["label"]});
+
+    const pSheet = p({
+        id: "sheet",
+        classes: ["sheet"],
+        text: "",
+    });
+
+    const btnGenerate = iconButton({
+        icon: generateIcon,
+        btnClasses: ["button"],
+        iconClasses: ["button-icon"],});
+
+    const btnCopy = iconButton({
+        icon: copyIcon,
+        btnClasses: ["button"],
+        iconClasses: ["button-icon"],});
+
+    const divControls = div({
+        classes: ["sheet-controls"],
+        children: [btnGenerate, btnCopy]
+    })
+
+    const divSheet = div({
+        id: "datasheet",
+        classes: ["option", "add", "data-sheet"],
+        children: [
+            pSheet,
+            divControls
+        ]
+    });
+
+    const divWrapper = div({
+        id: "datasheet",
+        classes: ["card"],
+        children: [
+            lblTitle,
+            divSheet,
+        ]
+    });
+
+    return {component: divWrapper}
 }
