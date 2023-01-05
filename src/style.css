@@ -66,16 +66,6 @@ form{
     border: 1px var(--font) solid;
 }
 
-.sheet{
-    padding: 10px;
-    background-color: var(--background-option);
-    min-height: 400px;
-    border-radius: 5px;
-    border: 1px var(--font) solid;
-    width: 100%;
-    overflow: scroll;
-}
-
 .add{
     background-color: var(--background-add);
 }
