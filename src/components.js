@@ -30,6 +30,8 @@ export function startApp()
         dataSheet.component,
     );
 
+    //using a submit event to have access to
+    //components without having to pass anything to button events
     form.addEventListener("submit", (e) => {
 
         e.preventDefault();
@@ -727,7 +729,9 @@ function Datasheet()
     const btnGenerate = iconButton({
         icon: generateIcon,
         btnClasses: ["button"],
-        iconClasses: ["button-icon"],});
+        iconClasses: ["button-icon"],
+        type: "submit"});
+    btnGenerate.formNoValidate = true; //Avoid validating item creation empty fields
 
     const btnCopy = iconButton({
         icon: copyIcon,
