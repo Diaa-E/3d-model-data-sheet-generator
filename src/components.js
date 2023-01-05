@@ -12,6 +12,7 @@ export function startApp()
     const polyCount = PolyCount();
     const materials = Materials();
     const textureDetails = TextureDetails();
+    const targetSite = TargetSite();
 
     const form = document.querySelector("#content");
 
@@ -22,6 +23,7 @@ export function startApp()
         polyCount.component,
         materials.component,
         textureDetails.component,
+        targetSite.component
     );
 
     form.addEventListener("submit", (e) => {
@@ -667,4 +669,41 @@ function TextureDetails()
     }
 
     return {component: divWrapper, getData};
+}
+
+function TargetSite()
+{
+    const lblTitle = label({
+        text: "Target Website",
+        classes: ["label"]
+    });
+
+    const websites = radio({
+        id: "websites",
+        lblText: "Generate Sheet For",
+        choices: [
+            "CGTrader",
+            "Sketchfab"],
+        choiceClasses: ["choices-container"],
+        labelClasses: ["label-input"],
+        classes: ["option", "add", "select"],
+        selectedClasses: ["selected"],
+        optionClasses: ["button-choice"]
+    });
+
+    const divWrapper = div({
+        id: "targetSite",
+        classes: ["card"],
+        children: [
+            lblTitle,
+            websites.element
+        ]
+    });
+
+    function getData()
+    {
+        return {target: websites.getSelected()}
+    }
+
+    return {component: divWrapper, getData}
 }
