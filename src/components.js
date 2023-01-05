@@ -12,7 +12,7 @@ export function startApp()
         modelContents().component,
         meshDetails(),
         polyCount(),
-        materials(),
+        materials().component,
         textureDetails());
 }
 
@@ -492,15 +492,28 @@ function materials()
         {
             divWrapper.append(listItem(
                 txtMaterialName.getContent(),
-                `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`),
-                "textureSet");
+                `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`, "textureSet"));
             txtResolution.clearContent();
             txtMaterialName.clearContent();
             divError.textContent = "";
         }
     }
 
-    return divWrapper;
+    function getData()
+    {
+        const divList = document.querySelectorAll("#materials>#textureSet");
+
+        const modelMaterials = [];
+
+        divList.forEach(item => {
+            const pList = item.querySelectorAll("p");
+            modelMaterials.push(`${pList[0].textContent} (${pList[1].textContent})`);
+        });
+
+        return modelMaterials;
+    }
+
+    return {component: divWrapper, getData};
 }
 
 function textureDetails()
