@@ -720,11 +720,12 @@ function Datasheet()
         text: "Datasheet",
         classes: ["label"]});
 
-    const pSheet = p({
+    const txtSheet = textArea({
         id: "sheet",
-        classes: ["sheet"],
-        text: "",
-    });
+        classes: ["text-area"],
+        placeholder: "Generated sheet will appear here...",
+    })
+    txtSheet.element.readOnly = true;
 
     const btnGenerate = iconButton({
         icon: generateIcon,
@@ -747,7 +748,7 @@ function Datasheet()
         id: "datasheet",
         classes: ["option", "add", "data-sheet"],
         children: [
-            pSheet,
+            txtSheet.element,
             divControls
         ]
     });
