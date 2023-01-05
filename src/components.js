@@ -32,7 +32,7 @@ function modelDetails()
     const divWrapper = div({
         id: "modelDetails",
         classes: ["card"],
-        children: [lblModelDetails, txtModelDetails]
+        children: [lblModelDetails, txtModelDetails.element]
     })
 
     return divWrapper;

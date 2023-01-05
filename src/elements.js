@@ -45,7 +45,12 @@ function textArea(options)
     txt.required = options.required;
     domUtility.addClasses(txt, options.classes);
 
-    return txt;
+    function getContent()
+    {
+        return txt.value;
+    }
+
+    return {element: txt, getContent};
 }
 
 function iconButton(options)
