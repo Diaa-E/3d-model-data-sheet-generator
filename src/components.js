@@ -918,7 +918,7 @@ function Datasheet()
     const txtSheet = textArea({
         id: "sheet",
         classes: ["text-area"],
-        placeholder: "Generated sheet will appear here...",
+        placeholder: "Click the bolt to generate a sheet...",
     });
     txtSheet.element.readOnly = true;
 
