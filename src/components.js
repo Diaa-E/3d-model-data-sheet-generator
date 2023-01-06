@@ -932,7 +932,8 @@ function Datasheet()
     const btnCopy = iconButton({
         icon: copyIcon,
         btnClasses: ["button"],
-        iconClasses: ["button-icon"],});
+        iconClasses: ["button-icon"],
+        clickFunction: copyToClipboard});
 
     const divControls = div({
         classes: ["sheet-controls"],
@@ -971,6 +972,11 @@ function Datasheet()
     function writeSheet(sheet)
     {
         txtSheet.element.value = sheet;
+    }
+
+    function copyToClipboard()
+    {
+        navigator.clipboard.writeText(txtSheet.getContent());
     }
 
     return {component: divWrapper, showError, clearError, writeSheet}
