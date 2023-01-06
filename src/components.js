@@ -37,20 +37,24 @@ export function startApp()
         e.preventDefault();
 
         let modelData;
+        const SUBMIT_ERROR = "There is an error at:";
 
         if (!modelContents.getData().items.length > 0)
         {
             modelContents.showError("A model must include at least 1 item")
+            dataSheet.showError(`${SUBMIT_ERROR} model contents`)
         }
         else if (polyCount.getData().tris === "" || polyCount.getData().verts === "")
         {
             polyCount.showError("Any model must have a polygon and vertex count");
+            dataSheet.showError(`${SUBMIT_ERROR} polycount`)
         }
         else
         {
             modelData = ModelData();
             modelContents.clearError();
             polyCount.clearError();
+            dataSheet.clearError();
             console.log(modelData);
         }
     });
@@ -809,6 +813,8 @@ function Datasheet()
         text: "Datasheet",
         classes: ["label"]});
 
+    const divError = ErrorPanel("submitError");
+
     const txtSheet = textArea({
         id: "sheet",
         classes: ["text-area"],
@@ -847,9 +853,20 @@ function Datasheet()
         classes: ["card"],
         children: [
             lblTitle,
+            divError,
             divSheet,
         ]
     });
 
-    return {component: divWrapper}
+    function showError(errorMsg)
+    {
+        divError.textContent = errorMsg;
+    }
+
+    function clearError()
+    {
+        divError.textContent = "";
+    }
+
+    return {component: divWrapper, showError, clearError}
 }
