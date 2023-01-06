@@ -41,12 +41,43 @@ export function App()
             if (validateForm())
             {
                 modelData = ModelData();
+                SpecialCharacters();
             }
             else
             {
                 return
             }
         });
+    }
+
+    function SpecialCharacters()
+    {
+        const specialChars = {
+            boldOpen: "",
+            boldClose: "",
+            italicOpen: "",
+            italicClose: "",
+            list: "", 
+        }
+        switch (targetSite.getData().target)
+        {
+            case "Sketchfab": 
+                specialChars.boldOpen = "**";
+                specialChars.boldClose = "**";
+                specialChars.list = "* ";
+                specialChars.italicOpen = "*";
+                specialChars.italicClose = "*";
+                break;
+            case "CGTrader":
+                specialChars.boldOpen = "**";
+                specialChars.boldClose = "**";
+                specialChars.list = "- ";
+                specialChars.italicOpen = "_";
+                specialChars.italicClose = "_";
+                break;
+        }
+
+        return specialChars;
     }
 
     function validateForm()
