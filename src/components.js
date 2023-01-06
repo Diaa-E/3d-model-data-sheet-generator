@@ -36,6 +36,46 @@ export function startApp()
 
         e.preventDefault();
     });
+
+    function ModelData()
+    {
+        //reduce multiple getData() calls to a single one
+        const sectionDetails = modelDetails.getData();
+        const sectionItems = modelContents.getData();
+        const sectionMesh = meshDetails.getData();
+        const sectionPolyCount = polyCount.getData();
+        const sectionMaterials = materials.getData();
+        const sectionTextures = textureDetails.getData();
+
+        const model = {
+
+            details : sectionDetails,
+            items : sectionItems,
+            mesh: {
+                meshType: sectionMesh.meshType,
+                polyTier : sectionMesh.polyTier,
+                gameReady: sectionMesh.gameReady,
+                subdivision: sectionMesh.subdivision,
+                edgeSplit: sectionMesh.edgeSplit,
+                realWorldScale: sectionMesh.realWorldScale,
+                rigged: sectionMesh.rigged,
+            },
+            polyCount: {
+                tris: sectionPolyCount.tris,
+                verts: sectionPolyCount.verts,
+            },
+            materials: sectionMaterials.length > 0 ? sectionMaterials : ["N/A"],
+            textures: {
+                format: sectionMaterials.length > 0 ? sectionTextures.format : ["N/A"],
+                workflow: sectionMaterials.length > 0 ? sectionTextures.workflow : ["N/A"],
+                normals: sectionMaterials.length > 0 ? sectionTextures.normals : ["N/A"],
+                Uv: sectionTextures.uv.length > 0 ? sectionTextures.uv : ["N/A"],
+                maps: sectionMaterials.length > 0 ? sectionTextures.maps : ["N/A"],
+            },
+        };
+
+        return model;
+    }
 }
 
 function ModelDetails()
