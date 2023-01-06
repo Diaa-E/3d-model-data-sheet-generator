@@ -98,7 +98,7 @@ export function App()
             sheet += `${chars.list}${map}\n`;
         })
 
-        console.log(sheet);
+        dataSheet.writeSheet(sheet);
     }
 
     function SpecialCharacters()
@@ -919,7 +919,7 @@ function Datasheet()
         id: "sheet",
         classes: ["text-area"],
         placeholder: "Generated sheet will appear here...",
-    })
+    });
     txtSheet.element.readOnly = true;
 
     const btnGenerate = iconButton({
@@ -937,7 +937,7 @@ function Datasheet()
     const divControls = div({
         classes: ["sheet-controls"],
         children: [btnGenerate, btnCopy]
-    })
+    });
 
     const divSheet = div({
         id: "datasheet",
@@ -968,5 +968,10 @@ function Datasheet()
         divError.textContent = "";
     }
 
-    return {component: divWrapper, showError, clearError}
+    function writeSheet(sheet)
+    {
+        txtSheet.element.value = sheet;
+    }
+
+    return {component: divWrapper, showError, clearError, writeSheet}
 }
