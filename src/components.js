@@ -6,7 +6,7 @@ import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
 
-export function startApp()
+export function App()
 {
     const modelDetails = ModelDetails();
     const modelContents = ModelContents();
@@ -17,26 +17,40 @@ export function startApp()
     const targetSite = TargetSite();
     const dataSheet = Datasheet();
 
-    const form = document.querySelector("#content");
+    function start()
+    {
+        const form = document.querySelector("#content");
+        form.append(
+            modelDetails.component,
+            modelContents.component,
+            meshDetails.component,
+            polyCount.component,
+            materials.component,
+            textureDetails.component,
+            targetSite.component,
+            dataSheet.component,
+        );
 
-    form.append(
-        modelDetails.component,
-        modelContents.component,
-        meshDetails.component,
-        polyCount.component,
-        materials.component,
-        textureDetails.component,
-        targetSite.component,
-        dataSheet.component,
-    );
+        //using a submit event to have access to
+        //components without having to pass anything to button events
+        form.addEventListener("submit", (e) => {
 
-    //using a submit event to have access to
-    //components without having to pass anything to button events
-    form.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-        e.preventDefault();
+            let modelData;
+            if (validateForm())
+            {
+                modelData = ModelData();
+            }
+            else
+            {
+                return
+            }
+        });
+    }
 
-        let modelData;
+    function validateForm()
+    {
         const SUBMIT_ERROR = "There is an error at:";
 
         if (!modelContents.getData().items.length > 0)
@@ -51,13 +65,15 @@ export function startApp()
         }
         else
         {
-            modelData = ModelData();
             modelContents.clearError();
             polyCount.clearError();
             dataSheet.clearError();
-            console.log(modelData);
+            
+            return true
         }
-    });
+
+        return false
+    }
 
     function ModelData()
     {
@@ -100,6 +116,8 @@ export function startApp()
 
         return model;
     }
+
+    return {start}
 }
 
 function ModelDetails()
