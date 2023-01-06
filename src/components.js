@@ -65,6 +65,8 @@ export function startApp()
         const sectionMaterials = materials.getData();
         const sectionTextures = textureDetails.getData();
 
+        const NOT_AVAILABLE = "N/A";
+
         const model = {
 
             details : sectionDetails.details,
@@ -82,13 +84,13 @@ export function startApp()
                 tris: sectionPolyCount.tris,
                 verts: sectionPolyCount.verts,
             },
-            materials: sectionMaterials.materials.length > 0 ? sectionMaterials.materials : ["N/A"],
+            materials: sectionMaterials.materials.length > 0 ? sectionMaterials.materials : [NOT_AVAILABLE],
             textures: {
-                format: sectionMaterials.materials.length > 0 ? sectionTextures.format : ["N/A"],
-                workflow: sectionMaterials.materials.length > 0 ? sectionTextures.workflow : ["N/A"],
-                normals: sectionMaterials.materials.length > 0 ? sectionTextures.normals : ["N/A"],
-                Uv: sectionTextures.uv.length > 0 ? sectionTextures.uv : ["N/A"],
-                maps: sectionMaterials.materials.length > 0 ? sectionTextures.maps : ["N/A"],
+                format: sectionMaterials.materials.length > 0 ? sectionTextures.format : [NOT_AVAILABLE],
+                workflow: sectionMaterials.materials.length > 0 ? sectionTextures.workflow : [NOT_AVAILABLE],
+                normals: sectionMaterials.materials.length > 0 ? sectionTextures.normals : [NOT_AVAILABLE],
+                Uv: sectionTextures.uv.length > 0 ? sectionTextures.uv : [NOT_AVAILABLE],
+                maps: sectionMaterials.materials.length > 0 ? sectionTextures.maps : [NOT_AVAILABLE],
             },
         };
 
