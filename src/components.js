@@ -35,6 +35,24 @@ export function startApp()
     form.addEventListener("submit", (e) => {
 
         e.preventDefault();
+
+        let modelData;
+
+        if (!modelContents.getData().items.length > 0)
+        {
+            modelContents.showError("A model must include at least 1 item")
+        }
+        else if (polyCount.getData().tris === "" || polyCount.getData().verts === "")
+        {
+            polyCount.showError("Any model must have a polygon and vertex count");
+        }
+        else
+        {
+            modelData = ModelData();
+            modelContents.clearError();
+            polyCount.clearError();
+            console.log(modelData);
+        }
     });
 
     function ModelData()
@@ -49,8 +67,8 @@ export function startApp()
 
         const model = {
 
-            details : sectionDetails,
-            items : sectionItems,
+            details : sectionDetails.details,
+            items : sectionItems.items,
             mesh: {
                 meshType: sectionMesh.meshType,
                 polyTier : sectionMesh.polyTier,
@@ -64,13 +82,13 @@ export function startApp()
                 tris: sectionPolyCount.tris,
                 verts: sectionPolyCount.verts,
             },
-            materials: sectionMaterials.length > 0 ? sectionMaterials : ["N/A"],
+            materials: sectionMaterials.materials.length > 0 ? sectionMaterials.materials : ["N/A"],
             textures: {
-                format: sectionMaterials.length > 0 ? sectionTextures.format : ["N/A"],
-                workflow: sectionMaterials.length > 0 ? sectionTextures.workflow : ["N/A"],
-                normals: sectionMaterials.length > 0 ? sectionTextures.normals : ["N/A"],
+                format: sectionMaterials.materials.length > 0 ? sectionTextures.format : ["N/A"],
+                workflow: sectionMaterials.materials.length > 0 ? sectionTextures.workflow : ["N/A"],
+                normals: sectionMaterials.materials.length > 0 ? sectionTextures.normals : ["N/A"],
                 Uv: sectionTextures.uv.length > 0 ? sectionTextures.uv : ["N/A"],
-                maps: sectionMaterials.length > 0 ? sectionTextures.maps : ["N/A"],
+                maps: sectionMaterials.materials.length > 0 ? sectionTextures.maps : ["N/A"],
             },
         };
 
