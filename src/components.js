@@ -2,7 +2,7 @@
 
 import addIcon from "./icons/add.svg";
 import deleteIcon from "./icons/delete.svg";
-import generateIcon from "./icons/replay.svg";
+import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
 
@@ -136,11 +136,11 @@ function ModelContents()
     {
         if (!txtItemName.isValid())
         {
-            divError.textContent = txtItemName.getError();
+            showError(txtItemName.getError());
         }
         else if (!txtItemCount.isValid())
         {
-            divError.textContent = txtItemCount.getError();
+            showError(txtItemCount.getError());
         }
         else
         {
@@ -148,8 +148,7 @@ function ModelContents()
                 `x ${txtItemCount.getContent()}`, "modelItem"));
             txtItemCount.clearContent();
             txtItemName.clearContent();
-            divError.textContent = "";
-            getData();
+            clearError();
         }
     }
 
@@ -167,7 +166,17 @@ function ModelContents()
         return {items: modelItems};
     }
 
-    return {component: divWrapper, getData};
+    function showError(errorMsg)
+    {
+        divError.textContent = errorMsg;
+    }
+
+    function clearError()
+    {
+        divError.textContent = "";
+    }
+
+    return {component: divWrapper, getData, showError, clearError};
 }
 
 //instead of writing a unique delete function for every type of list
@@ -382,11 +391,11 @@ function PolyCount()
 
         if (!txtTris.isValid())
         {
-            divError.textContent = txtTris.getError();
+            showError(txtTris.getError());
         }
         else
         {
-            divError.textContent = "";
+            clearError();
         }
     });
 
@@ -415,11 +424,11 @@ function PolyCount()
 
         if (!txtVerts.isValid())
         {
-            divError.textContent = txtVerts.getError();
+            showError(txtVerts.getError());
         }
         else
         {
-            divError.textContent = "";
+            clearError();
         }
     });
 
@@ -453,7 +462,17 @@ function PolyCount()
         }
     }
 
-    return {component: divWrapper, getData};
+    function showError(errorMsg)
+    {
+        divError.textContent = errorMsg;
+    }
+
+    function clearError()
+    {
+        divError.textContent = "";
+    }
+
+    return {component: divWrapper, getData, showError, clearError};
 }
 
 function Materials()
@@ -530,11 +549,11 @@ function Materials()
     {
         if (!txtMaterialName.isValid())
         {
-            divError.textContent = txtMaterialName.getError();
+            showError(txtMaterialName.getError());
         }
         else if (!txtResolution.isValid())
         {
-            divError.textContent = txtResolution.getError();
+            showError(txtResolution.getError());
         }
         else
         {
@@ -543,7 +562,7 @@ function Materials()
                 `${txtResolution.getContent()} x ${txtResolution.getContent()} Pixels`, "textureSet"));
             txtResolution.clearContent();
             txtMaterialName.clearContent();
-            divError.textContent = "";
+            clearError();
         }
     }
 
@@ -561,7 +580,17 @@ function Materials()
         return {materials: modelMaterials};
     }
 
-    return {component: divWrapper, getData};
+    function showError(errorMsg)
+    {
+        divError.textContent = errorMsg;
+    }
+
+    function clearError()
+    {
+        divError.textContent = "";
+    }
+
+    return {component: divWrapper, getData, showError, clearError};
 }
 
 function TextureDetails()
