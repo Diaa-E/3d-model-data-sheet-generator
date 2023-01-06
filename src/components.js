@@ -59,13 +59,13 @@ export function App()
         sheet += `${chars.boldOpen}${data.details}${chars.boldClose}\n`;
 
         //Model Contents
-        sheet += `\n${chars.boldOpen}Model Contents:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}Model Contents:${chars.boldClose}\n\n`;
         data.items.forEach(item => {
             sheet += `${chars.list}${item}\n`;
         });
 
         //Mesh
-        sheet += `\n${chars.boldOpen}Mesh:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}Mesh:${chars.boldClose}\n\n`;
         sheet += `${chars.list}Mesh Type: ${data.mesh.meshType}\n`;
         sheet += `${chars.list}Tier: ${data.mesh.polyTier}\n`;
         sheet += `${chars.list}Model is Game-ready: ${data.mesh.gameReady}\n`;
@@ -75,25 +75,25 @@ export function App()
         sheet += `${chars.list}Model is Rigged: ${data.mesh.rigged}\n`;
 
         //Polycount
-        sheet += `\n${chars.boldOpen}PolyCount:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}PolyCount:${chars.boldClose}\n\n`;
         sheet += `${chars.list}Triangles: ${data.polyCount.tris}\n`;
         sheet += `${chars.list}Vertices: ${data.polyCount.verts}\n`;
 
         //Materials
-        sheet += `\n${chars.boldOpen}Materials:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}Materials:${chars.boldClose}\n\n`;
         data.materials.forEach(material => {
             sheet += `${chars.list}${material}\n`;
         });
 
         //Textures
-        sheet += `\n${chars.boldOpen}Textures:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}Textures:${chars.boldClose}\n\n`;
         sheet += `${chars.list}Texture File Format(s): ${data.textures.format.join(SEPERATOR)}\n`;
         sheet += `${chars.list}Texture Workflow(s): ${data.textures.workflow.join(SEPERATOR)}\n`;
         sheet += `${chars.list}Normals: ${data.textures.normals.join(SEPERATOR)}\n`;
         sheet += `${chars.list}UV Mapping: ${data.textures.uv.join(SEPERATOR)}\n`;
 
         //Maps
-        sheet += `\n${chars.boldOpen}Texture Maps:${chars.boldClose}\n`;
+        sheet += `\n${chars.boldOpen}Texture Maps:${chars.boldClose}\n\n`;
         data.textures.maps.forEach(map => {
             sheet += `${chars.list}${map}\n`;
         })
