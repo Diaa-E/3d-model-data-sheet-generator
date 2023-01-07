@@ -62,18 +62,19 @@ form{
 }
 
 h1, h2{
-    font-family: "Grape Nuts", sans-serif;
     text-align: center;
 }
 
 h1{
-    font-size: 54px;
+    font-family: "Resotho", sans-serif;
+    font-size: 32px;
 }
 
 h2{
+    font-family: "Grape Nuts", sans-serif;
     font-size: 32px;
     color: var(--font-grey);
-    margin-bottom: 50px;
+    margin: 10px auto 50px auto;
 }
 
 .card{
