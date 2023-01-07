@@ -23,7 +23,7 @@
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
      inkscape:zoom="16.166667"
-     inkscape:cx="19.824742"
+     inkscape:cx="15.927835"
      inkscape:cy="24"
      inkscape:window-width="1920"
      inkscape:window-height="974"
@@ -34,5 +34,5 @@
   <path
      d="M 20.246056,40.6993 22.14792,27.618182 h -6.772494 q -0.510256,0 -0.742191,-0.46387 -0.231934,-0.463869 0,-0.881352 L 25.998037,7.3007003 h 1.901864 L 25.998037,20.335431 h 6.679719 q 0.510257,0 0.765385,0.46387 0.255128,0.463869 0.02319,0.881352 L 22.14792,40.6993 Z"
      id="path2"
-     style="stroke-width:0.927739;fill:#6dd1ff;fill-opacity:1" />
+     style="stroke-width:0.927739;fill:#ffc600;fill-opacity:1" />
 </svg>
