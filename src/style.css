@@ -189,6 +189,10 @@ form{
     font-size: 16px;
 }
 
+.info{
+    color: var(--font-green);
+}
+
 .select{
     grid-template-columns: 1fr 3fr;
 }

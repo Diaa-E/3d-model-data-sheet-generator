@@ -5,6 +5,7 @@ import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
+import domUtility from "./dom.utility";
 
 export function App()
 {
@@ -398,15 +399,23 @@ function ErrorPanel(id)
 
     function showError(errorMsg)
     {
+        domUtility.removeClasses(divError, ["info"]);
         divError.textContent = errorMsg;
+    }
+
+    function showInfo(info)
+    {
+        domUtility.addClasses(divError, ["info"]);
+        divError.textContent = info;
     }
 
     function clearError()
     {
+        domUtility.removeClasses(divError, ["info"]); //avoid class duplication
         divError.textContent = "";
     }
 
-    return {element: divError, showError, clearError};
+    return {element: divError, showError, clearError, showInfo};
 }
 
 function MeshDetails()
@@ -987,6 +996,7 @@ function Datasheet()
     function copyToClipboard()
     {
         navigator.clipboard.writeText(txtSheet.getContent());
+        divError.showInfo("Sheet copied to clipboard");
     }
 
     return {component: divWrapper, showError, clearError, writeSheet}
