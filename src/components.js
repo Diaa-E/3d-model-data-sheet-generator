@@ -995,8 +995,15 @@ function Datasheet()
 
     function copyToClipboard()
     {
-        navigator.clipboard.writeText(txtSheet.getContent());
-        divError.showInfo("Sheet copied to clipboard");
+        if (txtSheet.getContent() === "")
+        {
+            divError.showError("Sheet is empty, nothing was copied to clipboard")
+        }
+        else
+        {
+            navigator.clipboard.writeText(txtSheet.getContent());
+            divError.showInfo("Sheet copied to clipboard");
+        }
     }
 
     return {component: divWrapper, showError, clearError, writeSheet}
