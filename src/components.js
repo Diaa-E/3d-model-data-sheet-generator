@@ -4,11 +4,13 @@ import addIcon from "./icons/add.svg";
 import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
+import logo from "./logo/logo.svg";
 import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
 import domUtility from "./dom.utility";
 
 export function App()
 {
+    const logoHeader = LogoHeader();
     const modelDetails = ModelDetails();
     const modelContents = ModelContents();
     const meshDetails = MeshDetails();
@@ -21,6 +23,9 @@ export function App()
     function start()
     {
         const form = document.querySelector("#content");
+        document.body.insertBefore(logoHeader.logo, form);
+        document.body.insertBefore(logoHeader.header, form);
+        document.body.insertBefore(logoHeader.slogan, form);
         form.append(
             modelDetails.component,
             modelContents.component,
@@ -1007,4 +1012,19 @@ function Datasheet()
     }
 
     return {component: divWrapper, showError, clearError, writeSheet}
+}
+
+function LogoHeader()
+{
+    const appLogo = new Image();
+    appLogo.src = logo;
+    domUtility.addClasses(appLogo, ["logo"]);
+
+    const header1 = document.createElement("h1");
+    header1.textContent = "3D Model Datasheet Generator";
+
+    const header2 = document.createElement("h2");
+    header2.textContent = "Your datasheet is only a few clicks away";
+
+    return {logo: appLogo, header: header1, slogan: header2};
 }
