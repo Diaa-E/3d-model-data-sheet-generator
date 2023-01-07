@@ -142,7 +142,7 @@ form{
 .button-icon{
     width: 50px;
     transition: .3s ease;
-    filter: saturate(0%);
+    filter: saturate(0%) brightness(0%);
 }
 
 .button-choice{
