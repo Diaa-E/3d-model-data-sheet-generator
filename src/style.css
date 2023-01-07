@@ -26,6 +26,11 @@
     --font-green: #00ADB5;
 }
 
+*::selection{
+    background-color: var(--font-green);
+    color: var(--background-option);
+}
+
 body{
     background-color: var(--background);
     font-family: "Resotho", sans-serif;
