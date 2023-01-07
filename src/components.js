@@ -293,7 +293,7 @@ function ModelContents()
     const divWrapper = div({
         id: "modelContents",
         classes: ["card"],
-        children: [lblModelItems, divError, divAddItem]
+        children: [lblModelItems, divError.element, divAddItem]
     });
 
     function addItem()
@@ -332,12 +332,12 @@ function ModelContents()
 
     function showError(errorMsg)
     {
-        divError.textContent = errorMsg;
+        divError.showError(errorMsg);
     }
 
     function clearError()
     {
-        divError.textContent = "";
+        divError.clearError();
     }
 
     return {component: divWrapper, getData, showError, clearError};
@@ -396,7 +396,17 @@ function ErrorPanel(id)
         id: id,
     });
 
-    return divError;
+    function showError(errorMsg)
+    {
+        divError.textContent = errorMsg;
+    }
+
+    function clearError()
+    {
+        divError.textContent = "";
+    }
+
+    return {element: divError, showError, clearError};
 }
 
 function MeshDetails()
@@ -613,7 +623,7 @@ function PolyCount()
         classes: ["card"],
         children: [
             lblTitle,
-            divError,
+            divError.element,
             divPolyCount,
         ]
     });
@@ -628,12 +638,12 @@ function PolyCount()
 
     function showError(errorMsg)
     {
-        divError.textContent = errorMsg;
+        divError.showError(errorMsg);
     }
 
     function clearError()
     {
-        divError.textContent = "";
+        divError.clearError();
     }
 
     return {component: divWrapper, getData, showError, clearError};
@@ -704,7 +714,7 @@ function Materials()
         classes: ["card"],
         children: [
             lblTitle,
-            divError,
+            divError.element,
             divMaterial
         ]
     });
@@ -746,12 +756,12 @@ function Materials()
 
     function showError(errorMsg)
     {
-        divError.textContent = errorMsg;
+        divError.showError(errorMsg);
     }
 
     function clearError()
     {
-        divError.textContent = "";
+        divError.clearError();
     }
 
     return {component: divWrapper, getData, showError, clearError};
@@ -954,19 +964,19 @@ function Datasheet()
         classes: ["card"],
         children: [
             lblTitle,
-            divError,
+            divError.element,
             divSheet,
         ]
     });
 
     function showError(errorMsg)
     {
-        divError.textContent = errorMsg;
+        divError.showError(errorMsg);
     }
 
     function clearError()
     {
-        divError.textContent = "";
+        divError.clearError();
     }
 
     function writeSheet(sheet)
