@@ -238,3 +238,51 @@ h2{
 *::placeholder{
     color: var(--font-placeholder)
 }
+
+@media (max-width: 600px)
+{
+    .logo{
+        height: 100px;
+    }
+
+    h1{
+        font-size: 20px;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+    .label{
+        font-size: 18px;
+    }
+
+    .label-input{
+        font-size: 12px;
+    }
+
+    .text-input{
+        font-size: 12px;
+    }
+
+    .button-choice{
+        font-size: 12px;
+    }
+
+    .select{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card{
+        padding: 10px;
+        gap: 5px;
+    }
+
+    form{
+        gap: 5px;
+    }
+
+    .error{
+        font-size: 12px;
+    }
+}
