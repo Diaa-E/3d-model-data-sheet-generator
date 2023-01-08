@@ -942,7 +942,7 @@ function Datasheet()
     const txtSheet = textArea({
         id: "sheet",
         classes: ["text-area"],
-        placeholder: "Click the bolt to generate a sheet...",
+        placeholder: "Click the bolt to generate a sheet...\nCopy the generated sheet to your target site...",
     });
     txtSheet.element.readOnly = true;
 
