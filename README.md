@@ -1,24 +1,3 @@
-<style>
-    li{
-        margin: 10px;
-        text-align: justify;
-    }
-    table{
-        width: 100%;
-    }
-    td, th{
-        border: 1px grey solid;
-        text-align: center;
-        padding: 10px;
-    }
-    h2{
-        color: #00ADB5;
-    }
-    th{
-        color: #ffc600;
-    }
-</style>
-
 <p align="center"><img src="./src/logo/logo.svg" width="200px"></p>
 
 # <p align="center">3d Model Data Sheet Generator v1.0.0</p>
