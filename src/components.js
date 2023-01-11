@@ -212,7 +212,7 @@ function ModelDetails()
 {
     const lblModelDetails = label({
         for: "details",
-        text: "Model Details",
+        text: "Model Description",
         classes: ["label"]});
 
     const txtModelDetails = textArea({
@@ -242,7 +242,7 @@ function ModelContents()
         classes: ["label"]});
     //item name input field
     const lblItemName = label({
-        text: "Item",
+        text: "Item's Name",
         classes: ["label-input"],
         for: "itemName",
     });
@@ -262,7 +262,7 @@ function ModelContents()
 
     //item count input field
     const lblItemCount = label({
-        text: "Item Count",
+        text: "Item's Count",
         classes: ["label-input"],
         for: "itemCount",
     });
@@ -560,7 +560,7 @@ function PolyCount()
     });
 
     const lblTris = label({
-        text: "Number of polygons",
+        text: "Number of Triangles",
         classes: ["label-input"],
         for: "tris",
     });
