@@ -95,7 +95,6 @@ export function App()
         sheet += `\n${chars.boldOpen}Textures:${chars.boldClose}\n\n`;
         sheet += `${chars.list}Texture File Format(s): ${data.textures.format.join(SEPERATOR)}\n`;
         sheet += `${chars.list}Texture Workflow(s): ${data.textures.workflow.join(SEPERATOR)}\n`;
-        sheet += `${chars.list}Normals: ${data.textures.normals.join(SEPERATOR)}\n`;
         sheet += `${chars.list}UV Mapping: ${data.textures.uv.join(SEPERATOR)}\n`;
 
         //Maps
@@ -196,7 +195,6 @@ export function App()
             textures: {
                 format: sectionMaterials.materials.length > 0 ? sectionTextures.format : [NOT_AVAILABLE],
                 workflow: sectionMaterials.materials.length > 0 ? sectionTextures.workflow : [NOT_AVAILABLE],
-                normals: sectionMaterials.materials.length > 0 ? sectionTextures.normals : [NOT_AVAILABLE],
                 uv: sectionTextures.uv.length > 0 ? sectionTextures.uv : [NOT_AVAILABLE],
                 maps: sectionMaterials.materials.length > 0 ? sectionTextures.maps : [NOT_AVAILABLE],
             },
@@ -814,20 +812,6 @@ function TextureDetails()
         optionClasses: ["button-choice"]
     });
 
-    const normals = select({
-        id: "normals",
-        lblText: "Normal Maps",
-        choices: [
-            "OpenGL",
-            "DirectX"],
-        choiceClasses: ["choices-container"],
-        labelClasses: ["label-input"],
-        classes: ["option", "add", "select"],
-        selectedClasses: ["selected"],
-        minChoices: 1,
-        optionClasses: ["button-choice"]
-    });
-
     const uvMapping = select({
         id: "uvs",
         lblText: "UV Mapping",
@@ -848,7 +832,8 @@ function TextureDetails()
         choices: [
             "Base Color",
             "Base Color + Alpha Opacity",
-            "Normal",
+            "Normal GL",
+            "Normal DX",
             "Height/Bump",
             "Opacity",
             "Metallic",
@@ -858,7 +843,7 @@ function TextureDetails()
             "Ambient Occlusion",
             "Packed RGB (AO + Roughness + Metallic)",
             "ID Map",
-            "Emissive",],
+            "Emissive",].sort(),
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
@@ -874,7 +859,6 @@ function TextureDetails()
             lblTitle,
             textureExt.element,
             workflow.element,
-            normals.element,
             uvMapping.element,
             maps.element,
         ]
@@ -885,7 +869,6 @@ function TextureDetails()
         return {
             format: textureExt.getSelected(),
             workflow: workflow.getSelected(),
-            normals: normals.getSelected(),
             uv: uvMapping.getSelected(),
             maps: maps.getSelected(),
         }
