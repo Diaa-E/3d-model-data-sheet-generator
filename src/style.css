@@ -106,10 +106,6 @@ h2{
     background-color: var(--background-add);
 }
 
-.data-sheet{
-    grid-template-columns: 10fr 1fr;
-}
-
 .sheet-controls{
     display: flex;
     flex-direction: column;
@@ -118,6 +114,7 @@ h2{
 }
 
 .no-button{
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(2, min-content);
 }
 
@@ -232,6 +229,7 @@ h2{
 }
 
 .select{
+    grid-template-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);;
 }
 
@@ -269,10 +267,6 @@ h2{
         font-size: 16px;
     }
 
-    .select{
-        grid-template-columns: 1fr 3fr;
-    }
-
     .card{
         gap: 10px;
         padding: 30px;
@@ -292,9 +286,21 @@ h2{
 
     .option{
         grid-template-columns: repeat(2, 5fr) 1fr;
+        grid-template-rows: 1fr;
     }
 
     .no-button{
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
     }
+
+    .select{
+        grid-template-columns: 1fr 3fr;
+        grid-template-rows: 1fr;
+    }
+}
+
+/*added last to override everything*/
+.data-sheet{
+    grid-template-columns: 10fr 1fr;
 }
