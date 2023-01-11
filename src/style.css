@@ -28,7 +28,6 @@
     --background-option: white;
     --shadow: #2B3A55;
     --font: black;
-    --font-placeholder: rgb(199, 199, 199);
     --font-red: #f54748;
     --font-green: #00ADB5;
     --font-grey:rgb(134, 134, 134);
@@ -237,7 +236,7 @@ h2{
 }
 
 *::placeholder{
-    color: var(--font-placeholder)
+    color: var(--font-grey)
 }
 
 @media (min-width: 700px)
