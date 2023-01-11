@@ -211,7 +211,7 @@ h2{
 
 .item-name{
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--font);
 }
 
@@ -284,5 +284,9 @@ h2{
 
     .error{
         font-size: 16px;
+    }
+    
+    .item-name{
+        font-size: 20px;
     }
 }
