@@ -99,10 +99,10 @@
         classes: Array of Strings, undefined ? []
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -121,9 +121,9 @@
         <td>Add CSS classes to the label</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>HTML label element</td>
@@ -142,10 +142,10 @@
         required: Boolean, undefined ? false
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -176,9 +176,9 @@
         <td>Set the element as required</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML textarea element</td>
@@ -199,10 +199,10 @@
         clickFunction: Function, undefined ? () => {},
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -229,9 +229,9 @@
         <td>Add a function to execute on click events</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>HTML button element</td>
@@ -248,10 +248,10 @@
         clickFunction: Function, undefined ? () => {},
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -274,9 +274,9 @@
         <td>Add a function to execute on click events</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>HTML button element</td>
@@ -296,10 +296,10 @@
         errorMsg: String, undefined ? "Invalid Input"
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -334,9 +334,9 @@
         <td>Define a custom error message for illegal input (general error message)</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML number input element</td>
@@ -368,10 +368,10 @@
         errorMsg: String, undefined ? "Invalid Input"
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -406,9 +406,9 @@
         <td>Define a custom error message for illegal input (general error message)</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML text input element</td>
@@ -435,10 +435,10 @@
         children: Array of HTML Elements, undefined ? [],
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -452,9 +452,9 @@
         <td>HTML elements to be appended to the div element, in the same order they were passed</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML div element</td>
@@ -469,10 +469,10 @@
         text: String, undefined ? "Default text",
     });
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -486,9 +486,9 @@
         <td>element's text content</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML p element</td>
@@ -511,10 +511,10 @@
 
 <strong>Description: </strong>A custom-made check list element. Allows multiple checks and can have a minimum number of active checks
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -553,9 +553,9 @@
         <td>Minimum number of checked buttons at any time, 0 means no limit.</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML div element</td>
@@ -581,10 +581,10 @@
 
 <strong>Description: </strong>A custom-made radio button element. Looks and behaves just like the select component but allows only one choice active at any time.
 
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Parameter</th>
-        <th>Use</th>
+        <th style="text-align: inherit;">Parameter</th>
+        <th style="text-align: inherit;">Use</th>
     </tr>
     <tr>
         <td>id</td>
@@ -623,9 +623,9 @@
         <td>Index of the button selected by default</td>
     </tr>
 </table>
-<table>
+<table style="width: 100%; text-align: center;">
     <tr>
-        <th>Returns</th>
+        <th style="text-align: inherit;">Returns</th>
     </tr>
     <tr>
         <td>element : HTML div element</td>
