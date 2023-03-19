@@ -817,7 +817,7 @@ function TextureDetails()
         lblText: "UV Mapping",
         choices: [
             "Overlapping (Mirrored)",
-            "Overlapping (Duplicate/Array)",
+            "Overlapping (Duplicate/Array/Thickness)",
             "Non-Overlapping (unique)"],
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
