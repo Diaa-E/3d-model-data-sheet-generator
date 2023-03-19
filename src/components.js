@@ -803,7 +803,8 @@ function TextureDetails()
         lblText: "Texture Workflow",
         choices: [
             "PBR Metallic Roughness",
-            "PBR Specular Gloss"],
+            "PBR Specular Gloss",
+            "Non-PBR"],
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
