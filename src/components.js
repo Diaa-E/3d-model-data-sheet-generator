@@ -486,7 +486,8 @@ function MeshDetails()
         choices: [
             "Sharp edges only",
             "All edges",
-            "Based on angle"],
+            "Based on angle",
+            "None"],
         choiceClasses: ["choices-container"],
         labelClasses: ["label-input"],
         classes: ["option", "add", "select"],
