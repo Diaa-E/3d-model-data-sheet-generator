@@ -22,8 +22,9 @@
 1. Move content more towards the center instead of stretching across the page.
 1. Set the default of real world scale to yes.
 1. Lighten shadows.
-1. Add proper metadata.
 
 ### Completed ✅
+
+1. Add proper metadata.
 
 ### Cancelled ❌

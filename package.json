@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
+  "name": "3d-data-sheet-generator",
   "version": "1.0.2",
-  "description": "My webpack project",
+  "description": "A tool for generating description for 3D models",
   "main": "index.js",
   "private": true,
   "scripts": {
