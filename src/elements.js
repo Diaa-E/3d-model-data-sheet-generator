@@ -1,26 +1,9 @@
 "use strict";
 
 import domUtility from "./dom.utility";
-export {p, button, select, radio};
+export {button, select, radio};
 import label from "./components/label";
 import div from "./components/div";
-
-function p(options)
-{
-    options = {
-        id: "",
-        classes: [],
-        text: "Default text",
-        ...options
-    }
-
-    const p = document.createElement("p");
-    p.id = options.id;
-    p.textContent = options.text;
-    domUtility.addClasses(p, options.classes);
-
-    return p;
-}
 
 function button(options)
 {
