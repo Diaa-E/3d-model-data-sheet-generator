@@ -1,12 +1,9 @@
-"use strict";
+import domUtility from "../dom.utility";
+import button from "./button";
+import div from "./div";
+import label from "./label";
 
-import domUtility from "./dom.utility";
-export {radio};
-import label from "./components/label";
-import div from "./components/div";
-import button from "./components/button";
-
-function radio(options)
+export default function radio(options)
 {
     options = {
         lblText: "Default text",

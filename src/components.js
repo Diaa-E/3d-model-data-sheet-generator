@@ -5,7 +5,6 @@ import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import logo from "./logo/logo.svg";
-import {radio} from "./elements";
 import label from "./components/label";
 import textArea from "./components/textArea";
 import iconButton from "./components/iconButton";
@@ -14,6 +13,7 @@ import inputText from "./components/inputText";
 import div from "./components/div";
 import p from "./components/paragraph";
 import select from "./components/select";
+import radio from "./components/radio";
 import domUtility from "./dom.utility";
 
 export function App()
