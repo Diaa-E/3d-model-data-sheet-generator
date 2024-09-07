@@ -1,23 +1,20 @@
-"use strict";
+import domUtility from "../dom.utility";
+import button from "./button";
+import div from "./div";
+import label from "./label";
 
-import domUtility from "./dom.utility";
-export {radio};
-import label from "./components/label";
-import div from "./components/div";
-import button from "./components/button";
-
-function radio(options)
+export default function select(options)
 {
     options = {
         lblText: "Default text",
         id: "",
         Classes: [],
         choiceClasses: [],
-        optionClasses: [],
         labelClasses: [],
         choices: ["Default option 1", "Default option 2"],
         selectedClasses: [],
-        defaultChoice: 0,
+        minChoices: 0,
+        optionClasses: [],
         ...options
     }
 
@@ -31,7 +28,7 @@ function radio(options)
             clickFunction: selectChoice,
         }))
 
-        if (i === options.defaultChoice)
+        if (i < options.minChoices)
         {
             domUtility.addClasses(divChoices[i], options.selectedClasses);
         }
@@ -58,23 +55,56 @@ function radio(options)
     {
         const allChoices = e.target.parentNode.children;
         
-        for (let i = 0; i < allChoices.length; i++)
+        if (options.minChoices === 0)
         {
-            domUtility.removeClasses(allChoices[i], options.selectedClasses);
+            toggleSelected(e);
         }
+        else
+        {
+            let currentSelected = 0;
+            //count already selected choices
+            for (let i = 0; i < allChoices.length; i++)
+            {
+                if (allChoices[i].classList.contains(options.selectedClasses[0]))
+                {
+                    currentSelected++;
+                }
+            }
 
-        domUtility.addClasses(e.target, options.selectedClasses);
+            //if the user is trying to deselect below the minimum limit of selected choices
+            if (!(e.target.classList.contains(options.selectedClasses[0])
+                 && currentSelected === options.minChoices))
+            {
+                toggleSelected(e);
+            }
+        }
+    }
+
+    function toggleSelected(e)
+    {
+        if (e.target.classList.contains(options.selectedClasses[0]))
+        {
+            domUtility.removeClasses(e.target, options.selectedClasses);
+        }
+        else
+        {
+            domUtility.addClasses(e.target, options.selectedClasses);
+        }
     }
 
     function getSelected()
     {
+        const selected = [];
+
         for (let i = 0; i < divChoices.length; i++)
         {
             if (divChoices[i].classList.contains(options.selectedClasses[0]))
             {
-                return divChoices[i].textContent;
+                selected.push(divChoices[i].textContent);
             }
         }
+
+        return selected;
     }
 
     return {element: divSelect, getSelected};
