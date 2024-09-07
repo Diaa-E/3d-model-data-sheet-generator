@@ -1,43 +1,8 @@
 "use strict";
 
-import defaultIcon from "./icons/add.svg";
 import domUtility from "./dom.utility";
-export { iconButton, inputNumber, inputText, div, p, button, select, radio};
+export {inputNumber, inputText, div, p, button, select, radio};
 import label from "./components/label";
-
-function iconButton(options)
-{
-    options = {
-        icon: defaultIcon,
-        btnClasses: [],
-        iconClasses: [],
-        type: "button",
-        id: "",
-        clickFunction: () => {},
-        ...options
-    }
-
-    const btn = document.createElement("button");
-    btn.type = options.type;
-    btn.id = options.id;
-    domUtility.addClasses(btn, options.btnClasses);
-    
-    //When the listener is assigned to the button
-    //the event emitter changes depending on where the vlick hit (image or button)
-    //which breaks the parentNode chain when deleting the item div
-    const btnIcon = new Image();
-    btnIcon.src = options.icon;
-    domUtility.addClasses(btnIcon, options.iconClasses);
-
-    btn.addEventListener("click", (e) => {
-
-        options.clickFunction(e);
-    })
-
-    btn.append(btnIcon);
-
-    return btn;
-}
 
 function inputNumber(options)
 {
