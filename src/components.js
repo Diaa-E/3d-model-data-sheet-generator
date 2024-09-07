@@ -5,12 +5,13 @@ import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import logo from "./logo/logo.svg";
-import {div, p, select, radio} from "./elements";
+import {p, select, radio} from "./elements";
 import label from "./components/label";
 import textArea from "./components/textArea";
 import iconButton from "./components/iconButton";
 import inputNumber from "./components/inputNumber";
 import inputText from "./components/inputText";
+import div from "./components/div";
 import domUtility from "./dom.utility";
 
 export function App()

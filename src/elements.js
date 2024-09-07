@@ -1,32 +1,9 @@
 "use strict";
 
 import domUtility from "./dom.utility";
-export {div, p, button, select, radio};
+export {p, button, select, radio};
 import label from "./components/label";
-
-function div(options)
-{
-    options = {
-        id: "",
-        classes: [],
-        children: [],
-        ...options
-    };
-
-    const div = document.createElement("div");
-    div.id = options.id
-    domUtility.addClasses(div, options.classes);
-
-    if (options.children.length > 0)
-    {
-        options.children.forEach(child => {
-
-            div.append(child);
-        });
-    };
-
-    return div;
-}
+import div from "./components/div";
 
 function p(options)
 {
