@@ -8,6 +8,8 @@
 
 ### **2.0.0 (unreleased)**
 
+- ⚙️ Extracted each component in the ```elements.js``` file into its own file.
+
 ### **1.0.2 (20 Mar, 2023)**
 
 - ➕ Added "packed height + normal" to texture maps options.
