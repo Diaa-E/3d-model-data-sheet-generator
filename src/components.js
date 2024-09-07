@@ -5,7 +5,8 @@ import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import logo from "./logo/logo.svg";
-import {label, textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
+import { textArea, iconButton, inputNumber, inputText, div, p, select, radio} from "./elements";
+import label from "./components/label";
 import domUtility from "./dom.utility";
 
 export function App()
