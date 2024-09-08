@@ -8,5 +8,10 @@
         "targets": {"node": "current"} 
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"] //use ES6 modules in testing
+    }
+  }
 }
