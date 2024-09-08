@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ⚙️ Extracted each component in the ```components.js``` file into its own file.
 - ⚙️ Extracted each component in the ```elements.js``` file into its own file.
 
 ### **1.0.2 (20 Mar, 2023)**
