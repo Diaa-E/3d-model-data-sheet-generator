@@ -1,9 +1,7 @@
-import * as j from "@jest/globals";
+describe("jest works", () => {
 
-j.describe("Jest runs", () => {
+    it("truth is truthy", () => {
 
-    j.it("truth is truthy", () => {
-
-        j.expect(true).toBeTruthy();
+        expect(true).toBeTruthy();
     });
 });
