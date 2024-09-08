@@ -1,6 +1,6 @@
 "use strict";
 
-import { App } from "./components";
+import { App } from "./App";
 
 const app = App();
 app.start();
