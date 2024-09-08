@@ -1,6 +1,6 @@
 import domUtility from "../dom.utility";
 
-export default function textArea(options)
+export default function TextArea(options)
 {
     options = {
         id: "",

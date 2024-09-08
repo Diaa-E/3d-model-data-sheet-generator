@@ -5,15 +5,15 @@ import deleteIcon from "./icons/delete.svg";
 import generateIcon from "./icons/bolt.svg";
 import copyIcon from "./icons/copy.svg";
 import logo from "./logo/logo.svg";
-import label from "./components/label";
-import textArea from "./components/textArea";
-import iconButton from "./components/iconButton";
-import inputNumber from "./components/inputNumber";
-import inputText from "./components/inputText";
-import div from "./components/div";
-import p from "./components/paragraph";
-import select from "./components/select";
-import radio from "./components/radio";
+import Label from "./components/Label";
+import TextArea from "./components/TextArea";
+import IconButton from "./components/IconButton";
+import InputNumber from "./components/InputNumber";
+import InputText from "./components/InputText";
+import Div from "./components/Div";
+import Paragraph from "./components/Paragraph";
+import Select from "./components/Select";
+import Radio from "./components/Radio";
 import domUtility from "./dom.utility";
 
 import ModelDetails from "./components/ModelDetails";
@@ -218,16 +218,16 @@ export function App()
 
 function ModelContents()
 {
-    const lblModelItems = label({
+    const lblModelItems = Label({
         text: "Model Contents",
         classes: ["label"]});
     //item name input field
-    const lblItemName = label({
+    const lblItemName = Label({
         text: "Item's Name",
         classes: ["label-input"],
         for: "itemName",
     });
-    const txtItemName = inputText({
+    const txtItemName = InputText({
         name: "itemName",
         id: "itemName",
         classes: ["text-input"],
@@ -236,19 +236,19 @@ function ModelContents()
         errorMsg: "Any item must have a name",
     });
 
-    const divItemName = div({
+    const divItemName = Div({
         classes: ["input-container"],
         children: [lblItemName, txtItemName.element]
     })
 
     //item count input field
-    const lblItemCount = label({
+    const lblItemCount = Label({
         text: "Item's Count",
         classes: ["label-input"],
         for: "itemCount",
     });
 
-    const txtItemCount = inputNumber({
+    const txtItemCount = InputNumber({
         name: "itemCount",
         id: "itemCount",
         classes: ["text-input"],
@@ -258,13 +258,13 @@ function ModelContents()
         errorMsg: "There has to be at least 1 of the item"
     });
 
-    const divItemCount = div({
+    const divItemCount = Div({
         classes: ["input-container"],
         children: [lblItemCount, txtItemCount.element]
     });
 
     //add button
-    const btnAdd = iconButton({
+    const btnAdd = IconButton({
         icon: addIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"],
@@ -272,12 +272,12 @@ function ModelContents()
 
     const divError = ErrorPanel("addItemError");
 
-    const divAddItem = div({
+    const divAddItem = Div({
         children: [divItemName, divItemCount, btnAdd],
         classes: ["option", "add"],
     });
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "modelContents",
         classes: ["card"],
         children: [lblModelItems, divError.element, divAddItem]
@@ -352,19 +352,19 @@ function removeListItem(e)
 
 function ListItem(firstField, secondField, id)
 {
-    const divItem = div({
+    const divItem = Div({
         id: id,
         classes: ["option"],
         children: [
-            p({
+            Paragraph({
                 text: firstField,
                 classes: ["item-name"]
             }),
-            p({
+            Paragraph({
                 text:secondField,
                 classes: ["item-name", "item-count"]
             }),
-            iconButton({
+            IconButton({
                 icon: deleteIcon,
                 btnClasses: ["button"],
                 iconClasses: ["button-icon"],
@@ -378,7 +378,7 @@ function ListItem(firstField, secondField, id)
 
 function ErrorPanel(id)
 {
-    const divError = div({
+    const divError = Div({
         classes: ["error"],
         id: id,
     });
@@ -406,11 +406,11 @@ function ErrorPanel(id)
 
 function MeshDetails()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Mesh Details",
         classes: ["label"]
     });
-    const meshType = radio({
+    const meshType = Radio({
         id: "meshType",
         lblText: "Mesh Type",
         choices: [
@@ -424,7 +424,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const polyTier = radio({
+    const polyTier = Radio({
         id: "polyTier",
         lblText: "Polycount Tier",
         choices: [
@@ -437,7 +437,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const gameReady = radio({
+    const gameReady = Radio({
         id: "gameready",
         lblText: "Model is game-ready",
         choices: [
@@ -450,7 +450,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const subdivision = radio({
+    const subdivision = Radio({
         id: "subdivision",
         lblText: "Model is subdivision-ready",
         choices: [
@@ -463,7 +463,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const edgeSplit = radio({
+    const edgeSplit = Radio({
         id: "edgeSplit",
         lblText: "Edge splits",
         choices: [
@@ -478,7 +478,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const realWorldScale = radio({
+    const realWorldScale = Radio({
         id: "realWorldScale",
         lblText: "Model is scaled to real world dimensions",
         choices: [
@@ -491,7 +491,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const rigged = radio({
+    const rigged = Radio({
         id: "rigged",
         lblText: "Model is rigged",
         choices: [
@@ -504,7 +504,7 @@ function MeshDetails()
         optionClasses: ["button-choice"]
     });
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "meshDetails",
         classes: ["card"],
         children: [
@@ -536,18 +536,18 @@ function MeshDetails()
 
 function PolyCount()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Poly Count",
         classes: ["label"]
     });
 
-    const lblTris = label({
+    const lblTris = Label({
         text: "Number of Triangles",
         classes: ["label-input"],
         for: "tris",
     });
 
-    const txtTris = inputNumber({
+    const txtTris = InputNumber({
         name: "tris",
         id: "tris",
         classes: ["text-input"],
@@ -569,18 +569,18 @@ function PolyCount()
         }
     });
 
-    const divTris = div({
+    const divTris = Div({
         classes: ["input-container"],
         children: [lblTris, txtTris.element]
     });
 
-    const lblVerts = label({
+    const lblVerts = Label({
         text: "Number of vertices",
         classes: ["label-input"],
         for: "verts",
     });
 
-    const txtVerts = inputNumber({
+    const txtVerts = InputNumber({
         name: "verts",
         id: "verts",
         classes: ["text-input"],
@@ -602,19 +602,19 @@ function PolyCount()
         }
     });
 
-    const divVerts = div({
+    const divVerts = Div({
         classes: ["input-container"],
         children: [lblVerts, txtVerts.element]
     });
 
-    const divPolyCount = div({
+    const divPolyCount = Div({
         children: [divTris, divVerts],
         classes: ["option", "add", "no-button"],
     });
 
     const divError = ErrorPanel("polycountError");
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "polyCount",
         classes: ["card"],
         children: [
@@ -647,17 +647,17 @@ function PolyCount()
 
 function Materials()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Materials",
         classes: ["label"]
     });
 
-    const lblmaterialName = label({
+    const lblmaterialName = Label({
         text: "Texture set",
         classes: ["label-input"],
         for: "materialName",
     });
-    const txtMaterialName = inputText({
+    const txtMaterialName = InputText({
         name: "materialName",
         id: "materialName",
         classes: ["text-input"],
@@ -666,18 +666,18 @@ function Materials()
         errorMsg: "Any texture set must have a name",
     });
 
-    const divMaterialName = div({
+    const divMaterialName = Div({
         classes: ["input-container"],
         children: [lblmaterialName, txtMaterialName.element]
     });
 
-    const lblResolution = label({
+    const lblResolution = Label({
         text: "Texture Resolution",
         classes: ["label-input"],
         for: "resolution",
     });
 
-    const txtResolution = inputNumber({
+    const txtResolution = InputNumber({
         name: "resolution",
         id: "resolution",
         classes: ["text-input"],
@@ -687,12 +687,12 @@ function Materials()
         errorMsg: "The texture must be at least 1 x 1 pixels",
     });
 
-    const divMaterialResolution = div({
+    const divMaterialResolution = Div({
         classes: ["input-container"],
         children: [lblResolution, txtResolution.element]
     });
 
-    const btnAdd = iconButton({
+    const btnAdd = IconButton({
         icon: addIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"],
@@ -700,12 +700,12 @@ function Materials()
 
     const divError = ErrorPanel("addMaterialError");
 
-    const divMaterial = div({
+    const divMaterial = Div({
         children: [divMaterialName, divMaterialResolution, btnAdd],
         classes: ["option", "add"],
     });
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "materials",
         classes: ["card"],
         children: [
@@ -765,12 +765,12 @@ function Materials()
 
 function TextureDetails()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Texture Details",
         classes: ["label"]
     });
 
-    const textureExt = select({
+    const textureExt = Select({
         lblText: "Texture format",
         id: "textureExt",
         choiceClasses: ["choices-container"],
@@ -782,7 +782,7 @@ function TextureDetails()
         optionClasses: ["button-choice"]
     });
 
-    const workflow = select({
+    const workflow = Select({
         id: "workflow",
         lblText: "Texture Workflow",
         choices: [
@@ -797,7 +797,7 @@ function TextureDetails()
         optionClasses: ["button-choice"]
     });
 
-    const uvMapping = select({
+    const uvMapping = Select({
         id: "uvs",
         lblText: "UV Mapping",
         choices: [
@@ -811,7 +811,7 @@ function TextureDetails()
         optionClasses: ["button-choice"]
     });
 
-    const maps =  select({
+    const maps =  Select({
         id: "maps",
         lblText: "Texture Maps",
         choices: [
@@ -839,7 +839,7 @@ function TextureDetails()
         optionClasses: ["button-choice"]
     });
     
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "textureDetails",
         classes: ["card"],
         children: [
@@ -866,12 +866,12 @@ function TextureDetails()
 
 function TargetSite()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Target Website",
         classes: ["label"]
     });
 
-    const websites = radio({
+    const websites = Radio({
         id: "websites",
         lblText: "Generate Sheet For",
         choices: [
@@ -884,7 +884,7 @@ function TargetSite()
         optionClasses: ["button-choice"]
     });
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "targetSite",
         classes: ["card"],
         children: [
@@ -903,38 +903,38 @@ function TargetSite()
 
 function Datasheet()
 {
-    const lblTitle = label({
+    const lblTitle = Label({
         text: "Datasheet",
         classes: ["label"]});
 
     const divError = ErrorPanel("submitError");
 
-    const txtSheet = textArea({
+    const txtSheet = TextArea({
         id: "sheet",
         classes: ["text-area"],
         placeholder: "Click the bolt to generate a sheet...\nCopy the generated sheet to your target site...",
     });
     txtSheet.element.readOnly = true;
 
-    const btnGenerate = iconButton({
+    const btnGenerate = IconButton({
         icon: generateIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"],
         type: "submit"});
     btnGenerate.formNoValidate = true; //Avoid validating item creation empty fields
 
-    const btnCopy = iconButton({
+    const btnCopy = IconButton({
         icon: copyIcon,
         btnClasses: ["button"],
         iconClasses: ["button-icon"],
         clickFunction: copyToClipboard});
 
-    const divControls = div({
+    const divControls = Div({
         classes: ["sheet-controls"],
         children: [btnGenerate, btnCopy]
     });
 
-    const divSheet = div({
+    const divSheet = Div({
         id: "datasheet",
         classes: ["option", "add", "data-sheet"],
         children: [
@@ -943,7 +943,7 @@ function Datasheet()
         ]
     });
 
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "datasheet",
         classes: ["card"],
         children: [

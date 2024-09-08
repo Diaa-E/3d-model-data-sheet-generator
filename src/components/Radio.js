@@ -1,9 +1,9 @@
 import domUtility from "../dom.utility";
-import button from "./button";
-import div from "./div";
-import label from "./label";
+import Button from "./Button";
+import Div from "./Div";
+import Label from "./Label";
 
-export default function radio(options)
+export default function Radio(options)
 {
     options = {
         lblText: "Default text",
@@ -22,7 +22,7 @@ export default function radio(options)
 
     for (let i = 0; i < options.choices.length; i++)
     {
-        divChoices.push(button({
+        divChoices.push(Button({
             text: options.choices[i],
             classes: [...options.optionClasses],
             clickFunction: selectChoice,
@@ -34,18 +34,18 @@ export default function radio(options)
         }
     }
 
-    const divChoicesContainer = div({
+    const divChoicesContainer = Div({
         id: `${options.id}Choices`,
         classes: options.choiceClasses,
         children: [...divChoices]
     })
 
-    const lbl = label({
+    const lbl = Label({
         text: options.lblText,
         classes: options.labelClasses
     })
 
-    const divSelect = div({
+    const divSelect = Div({
         id: options.id,
         classes: options.classes,
         children: [lbl, divChoicesContainer]

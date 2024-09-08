@@ -1,10 +1,10 @@
 import domUtility from "../dom.utility";
 
-export default function inputText(options)
+export default function InputNumber(options)
 {
     options = {
-        minLength: "",
-        maxLength: "",
+        min: "",
+        max: "",
         classes: [],
         id: "",
         name: "",
@@ -15,12 +15,13 @@ export default function inputText(options)
     }
 
     const element = document.createElement("input");
+    element.type = "number";
     element.name = options.name;
+    options.min === "" ? null : element.min = options.min;
+    options.max === "" ? null : element.max = options.max;
     element.id = options.id;
-    options.maxLength === "" ? null : element.maxLength = options.maxLength;
-    options.minLength === "" ? null : element.minLength = options.minLength;
-    element.placeholder = options.placeholder;
     element.required = options.required;
+    element.placeholder = options.placeholder;
 
     domUtility.addClasses(element, options.classes);
 

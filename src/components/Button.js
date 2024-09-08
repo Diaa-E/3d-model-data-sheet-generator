@@ -1,6 +1,6 @@
 import domUtility from "../dom.utility";
 
-export default function button(options)
+export default function Button(options)
 {
     options = {
         classes: [],

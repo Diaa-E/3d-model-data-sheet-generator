@@ -1,21 +1,21 @@
-import label from "./label";
-import textArea from "./textArea";
-import div from "./div";
+import Label from "./Label";
+import TextArea from "./TextArea";
+import Div from "./Div";
 
 export default function ModelDetails()
 {
-    const lblModelDetails = label({
+    const lblModelDetails = Label({
         for: "details",
         text: "Model Description",
         classes: ["label"]});
 
-    const txtModelDetails = textArea({
+    const txtModelDetails = TextArea({
         id: "details",
         placeholder:"Describe your model...", 
         classes: ["text-area"]});
 
     //parent card
-    const divWrapper = div({
+    const divWrapper = Div({
         id: "modelDetails",
         classes: ["card"],
         children: [lblModelDetails, txtModelDetails.element]

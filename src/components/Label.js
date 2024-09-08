@@ -1,6 +1,6 @@
 import domUtility from "../dom.utility";
 
-export default function label(options)
+export default function Label(options)
 {
     options = {
         id: "",

@@ -1,6 +1,6 @@
 import domUtility from "../dom.utility";
 
-export default function div(options)
+export default function Div(options)
 {
     options = {
         id: "",

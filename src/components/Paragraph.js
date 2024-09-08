@@ -1,6 +1,6 @@
 import domUtility from "../dom.utility";
 
-export default function p(options)
+export default function Paragraph(options)
 {
     options = {
         id: "",

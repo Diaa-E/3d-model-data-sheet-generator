@@ -1,7 +1,7 @@
 import defaultIcon from "../icons/add.svg";
 import domUtility from "../dom.utility";
 
-export default function iconButton(options)
+export default function IconButton(options)
 {
     options = {
         icon: defaultIcon,
