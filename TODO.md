@@ -12,7 +12,6 @@
 1. Add option to scroll to each error field.
 1. Write unit tests for components.
 1. Extract each component into its own module.
-1. Switch to CSS modules.
 1. Add dark mode.
 1. Revisit color palette.
 1. Revisit logo.
@@ -26,5 +25,6 @@
 ### Completed ✅
 
 1. Add proper metadata.
+1. Switch to CSS modules.
 
 ### Cancelled ❌
