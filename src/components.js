@@ -16,6 +16,8 @@ import select from "./components/select";
 import radio from "./components/radio";
 import domUtility from "./dom.utility";
 
+import ModelDetails from "./components/ModelDetails";
+
 export function App()
 {
     const logoHeader = LogoHeader();
@@ -212,33 +214,6 @@ export function App()
     }
 
     return {start}
-}
-
-function ModelDetails()
-{
-    const lblModelDetails = label({
-        for: "details",
-        text: "Model Description",
-        classes: ["label"]});
-
-    const txtModelDetails = textArea({
-        id: "details",
-        placeholder:"Describe your model...", 
-        classes: ["text-area"]});
-
-    //parent card
-    const divWrapper = div({
-        id: "modelDetails",
-        classes: ["card"],
-        children: [lblModelDetails, txtModelDetails.element]
-    })
-
-    function getData()
-    {
-        return {details: txtModelDetails.getContent()};
-    }
-
-    return {component: divWrapper, getData};
 }
 
 function ModelContents()
