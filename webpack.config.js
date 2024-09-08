@@ -34,18 +34,24 @@ const config = {
                 test: /\.(js|jsx)$/i,
                 loader: 'babel-loader',
             },
-            // {
-            //     test: /\.css$/i,
-            //     use: [stylesHandler,'css-loader'],
-            // },
+            {
+                test: /\.css$/i,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                localIdentName: "__[local]__[hash:base64:5]",
+                            },
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
             },
-            {
-                test: /\.css$/,
-                loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' 
-            }
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
