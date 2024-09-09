@@ -1,78 +1,49 @@
-import domUtility from "../dom.utility";
-import Button from "./Button";
-import Div from "./Div";
-import Label from "./Label";
+import { v4 as generateId } from "uuid";
+import {createElement, createFragment} from "../utils/createElement";
 
-export default function Radio(options)
+import styles from "./Radio.module.css";
+
+export default function Radio(props)
 {
-    options = {
-        lblText: "Default text",
-        id: "",
-        Classes: [],
-        choiceClasses: [],
-        optionClasses: [],
-        labelClasses: [],
-        choices: ["Default option 1", "Default option 2"],
-        selectedClasses: [],
-        defaultChoice: 0,
-        ...options
+    props = {
+        name: "radioGroup",
+        onChange: () => {},
+        text: "Radio",
+        value: "radio",
+        ...props
     }
 
-    const divChoices = [];
+    const id = generateId();
 
-    for (let i = 0; i < options.choices.length; i++)
-    {
-        divChoices.push(Button({
-            text: options.choices[i],
-            classes: [...options.optionClasses],
-            clickFunction: selectChoice,
-        }))
-
-        if (i === options.defaultChoice)
+    const radioButton = createElement(
+        "input",
         {
-            domUtility.addClasses(divChoices[i], options.selectedClasses);
-        }
-    }
+            type: "radio",
+            id: id,
+            name: props.name,
+            value: props.value,
+            onChange: props.onChange,
+            class: `${styles["radio"]}`
+        },
+        [],
+    );
 
-    const divChoicesContainer = Div({
-        id: `${options.id}Choices`,
-        classes: options.choiceClasses,
-        children: [...divChoices]
-    })
-
-    const lbl = Label({
-        text: options.lblText,
-        classes: options.labelClasses
-    })
-
-    const divSelect = Div({
-        id: options.id,
-        classes: options.classes,
-        children: [lbl, divChoicesContainer]
-    });
-
-    function selectChoice(e)
-    {
-        const allChoices = e.target.parentNode.children;
-        
-        for (let i = 0; i < allChoices.length; i++)
+    const label = createElement(
+        "label",
         {
-            domUtility.removeClasses(allChoices[i], options.selectedClasses);
-        }
+            for: id,
+            class: `${styles["radio-label"]}`
+        },
+        [
+            props.text,
+        ]
+    );
 
-        domUtility.addClasses(e.target, options.selectedClasses);
-    }
+    const fragment = createFragment(
+        {},
+        radioButton,
+        label
+    )
 
-    function getSelected()
-    {
-        for (let i = 0; i < divChoices.length; i++)
-        {
-            if (divChoices[i].classList.contains(options.selectedClasses[0]))
-            {
-                return divChoices[i].textContent;
-            }
-        }
-    }
-
-    return {element: divSelect, getSelected};
+    return fragment;
 }
