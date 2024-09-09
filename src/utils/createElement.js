@@ -2,7 +2,7 @@
 
 // stolen from https://betterprogramming.pub/how-to-use-jsx-without-react-21d23346e5dc
 
-export default function createElement(tag, props, ...children)
+export function createElement(tag, props, ...children)
 {
     if (typeof tag === "function")
     {
@@ -29,6 +29,11 @@ export default function createElement(tag, props, ...children)
     });
 
     return element;
+}
+
+export function createFragment(props, ...children)
+{
+    return children;
 }
 
 function appendChild(parent, child)
