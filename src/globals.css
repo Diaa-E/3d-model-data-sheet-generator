@@ -1,0 +1,36 @@
+@import url("./reset.css");
+
+@font-face {
+    font-family: "Resotho";
+    src: url(./fonts/Resotho-Extralight.otf);
+    font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(./fonts/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Grape Nuts";
+    src: url(./fonts/GrapeNuts-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --font-default: "Robotos", sans-serif;
+    --font-title: "Resotho", serif;
+    --background: #E8C4C4;
+    --background-card: #dedede;
+    --background-mini-form: #daeaf1;
+    --background-option: #f2f2f2;
+    --shadow: #2B3A55;
+    --font: black;
+    --red: #f54748;
+    --green: #00ADB5;
+    --placeholder:rgb(134, 134, 134);
+}
