@@ -19,7 +19,7 @@ export function createElement(tag, props, ...children)
         }
         else
         {
-            element.setAttribute(key, value.toString());
+            element.setAttribute(key, String(value));
         }
     });
 
@@ -45,7 +45,7 @@ function appendChild(parent, child)
     else
     {
         parent.appendChild(
-            child.nodeType ? child : document.createTextNode(child.toString())
+            child.nodeType ? child : document.createTextNode(String(child))
         );
     }
 }
