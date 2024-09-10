@@ -9,3 +9,8 @@ global.render = (elements) => {
         document.body.append(elements);
     }
 }
+
+global.cleanup = () => {
+    
+    document.body.innerHTML = ""
+}
