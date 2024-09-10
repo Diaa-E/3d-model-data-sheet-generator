@@ -3,7 +3,7 @@ import { createElement, createFragment } from "../utils/createElement";
 
 import styles from "./CheckBox.module.css";
 
-export default function CheckBox(options)
+export default function CheckBox(options = { name: "", text: "", value: "", onChange: () => {} })
 {
     options = {
         name: "checkbox",
