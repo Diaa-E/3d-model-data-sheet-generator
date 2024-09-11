@@ -3,14 +3,14 @@ import { createElement, createFragment } from "../utils/createElement";
 
 import styles from "./CheckBox.module.css";
 
-export default function CheckBox(options = { name: "", text: "", value: "", onChange: () => {} })
+export default function CheckBox(props = { name: "", text: "", value: "", onChange: () => {} })
 {
-    options = {
+    props = {
         name: "checkbox",
         text: "checkbox",
         value: "checkbox",
         onChange: () => {},
-        ...options
+        ...props
     }
 
     const id = generateId();
@@ -20,10 +20,10 @@ export default function CheckBox(options = { name: "", text: "", value: "", onCh
         {
             id: id,
             type: "checkbox",
-            name: options.name,
-            value: options.value,
+            name: props.name,
+            value: props.value,
             class: styles["checkbox"],
-            onChange: options.onChange
+            onChange: props.onChange
         }
     )
 
@@ -34,7 +34,7 @@ export default function CheckBox(options = { name: "", text: "", value: "", onCh
             class: styles["checkbox-label"]
         },
         [
-            options.text
+            props.text
         ]
     )
 
