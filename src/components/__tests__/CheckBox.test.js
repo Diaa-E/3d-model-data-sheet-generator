@@ -62,4 +62,17 @@ describe("CheckBox component", () => {
 
         expect(onChange.mock.calls).toHaveLength(1);
     });
+
+    it("Calls onChange function when checkbox is unchecked", () => {
+
+        const onChange = jest.fn();
+
+        render(CheckBox({name: "option_1", text: "value_1", value: "value_1", onChange: onChange}));
+
+        const checkBox = document.querySelector("input[type='checkbox']");
+        checkBox.click();
+        checkBox.click();
+
+        expect(onChange.mock.calls).toHaveLength(2);
+    });
 });
