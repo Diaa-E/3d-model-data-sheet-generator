@@ -37,6 +37,20 @@ describe("CheckBox component", () => {
         expect(document.querySelector("input[type='checkbox']").name).toBe("option_1");
     });
 
+    it("Checks checkbox when checked prop is true", () => {
+
+        render(CheckBox({name: "option_1", text: "value_1", value: "value_1", checked: true}));
+
+        expect(document.querySelector("input[type='checkbox']").checked).toBeTruthy();
+    });
+
+    it("Checks checkbox when checked prop is true", () => {
+
+        render(CheckBox({name: "option_1", text: "value_1", value: "value_1", checked: false}));
+
+        expect(document.querySelector("input[type='checkbox']").checked).toBeFalsy();
+    });
+
     it("Checkbox is checked when label is clicked", () => {
 
         render(CheckBox({name: "option_1", text: "value_1", value: "value_1"}));

@@ -46,6 +46,24 @@ describe("Radio component", () => {
         expect(radioButton.name).toBe("option");
     });
 
+    it("Checks radio button when checked prop is true", () => {
+
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: true}));
+
+        const radioButton = document.querySelector('input[type="radio"]');
+
+        expect(radioButton.checked).toBeTruthy();
+    });
+
+    it("Unchecks radio button when checked prop is false", () => {
+
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: false}));
+
+        const radioButton = document.querySelector('input[type="radio"]');
+
+        expect(radioButton.checked).toBeFalsy();
+    });
+
     it("Radio button is checked when label is clicked", () => {
 
         render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));

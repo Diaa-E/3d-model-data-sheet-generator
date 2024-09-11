@@ -3,13 +3,14 @@ import { createElement, createFragment } from "../utils/createElement";
 
 import styles from "./CheckBox.module.css";
 
-export default function CheckBox(props = { name: "", text: "", value: "", onChange: () => {} })
+export default function CheckBox(props = { name: "", text: "", value: "", onChange: () => {}, checked: false })
 {
     props = {
         name: "checkbox",
         text: "checkbox",
         value: "checkbox",
         onChange: () => {},
+        checked: false,
         ...props
     }
 
@@ -23,7 +24,8 @@ export default function CheckBox(props = { name: "", text: "", value: "", onChan
             name: props.name,
             value: props.value,
             class: styles["checkbox"],
-            onChange: props.onChange
+            onChange: props.onChange,
+            ...(props.checked && { checked: true })
         }
     )
 
