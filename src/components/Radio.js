@@ -3,7 +3,7 @@ import {createElement, createFragment} from "../utils/createElement";
 
 import styles from "./Radio.module.css";
 
-export default function Radio(props)
+export default function Radio(    props = { name: "", onChange: () => {}, text: "", value: "" })
 {
     props = {
         name: "radioGroup",
