@@ -14,3 +14,9 @@ global.cleanup = () => {
     
     document.body.innerHTML = ""
 }
+
+global.changeElementValue = (element, newValue) => {
+    
+    element.value = newValue;
+    element.dispatchEvent(new Event("change"));
+}
