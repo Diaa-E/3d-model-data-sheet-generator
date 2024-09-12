@@ -1,0 +1,49 @@
+.icon-button{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: solid var(--font) 1px;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.icon{
+    height: 100%;
+    width: 100%;
+    background-image: var(--icon);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-button-primary{
+    background-color: var(--green);
+}
+
+.icon-button-secondary{
+    background-color: var(--background-option);
+}
+
+.icon-button-danger{
+    background-color: var(--red);
+}
+
+.icon-button-secondary .icon{
+    filter: invert(1);
+}
+
+.icon-button-danger:hover{
+    background-color: var(--red-dark);
+}
+
+.icon-button-secondary:hover{
+    background-color: var(--background-option-dark);
+}
+
+.icon-button-primary:hover{
+    background-color: var(--green-dark);
+}
+
+.icon-button-text{
+    display: none;
+}
