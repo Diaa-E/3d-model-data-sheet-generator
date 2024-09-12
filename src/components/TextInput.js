@@ -25,6 +25,7 @@ export default function TextInput(props = {
     const textInput = createElement(
         "input",
         {
+            id: id,
             type: "text",
             placeholder: props.placeholder,
             name: props.name,
