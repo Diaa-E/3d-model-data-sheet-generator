@@ -8,6 +8,7 @@ export default function TextArea(props = {
     placeholder: "",
     rows: 10,
     cols: 30,
+    onChange: () => {},
 })
 {
     const id = generateId();
@@ -17,6 +18,7 @@ export default function TextArea(props = {
         placeholder: "text area",
         rows: 10,
         cols: 30,
+        onChange: () => {},
         ...props
     };
 
@@ -40,6 +42,7 @@ export default function TextArea(props = {
             resize: false,
             rows: props.rows,
             cols: props.cols,
+            onChange: props.onChange,
         },
         [
 
