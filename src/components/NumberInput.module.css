@@ -1,28 +1,11 @@
 .number-input-field{
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-default);
-    gap: 5px;
-    width: 100%;
+    composes: input-field from "../common.module.css";
 }
 
 .number-input{
-    color: var(--font);
-    border: solid var(--font) 1px;
-    border-radius: 5px;
-    padding: 2px 5px;
-    outline: none;
-    transition: border-color .2s ease-in-out;
-}
-
-.number-input:focus{
-    border-color: var(--green);
-}
-
-.number-input::placeholder{
-    color: var(--placeholder);
+    composes: text-box from "../common.module.css";
 }
 
 .number-input-label{
-    color: var(--font);
+    composes: text-box-label from "../common.module.css";
 }

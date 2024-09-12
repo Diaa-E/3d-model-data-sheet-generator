@@ -1,20 +1,7 @@
 .checkbox{
-    display: none;
+    composes: checkbox from "../common.module.css";
 }
 
 .checkbox-label{
-    font-family: var(--font-default);
-    font-size: 1rem;
-    background-color: var(--background-option);
-    color: var(--font);
-    padding: 5px;
-    border-radius: 5px;
-    border: solid var(--font) 1px;
-    cursor: pointer;
-    transition: background-color .2s ease-in-out, color .2s ease-in-out;
-}
-
-.checkbox:checked+.checkbox-label{
-    background-color: var(--green);
-    color: var(--background-option);
+    composes: checkbox-label from "../common.module.css";
 }
