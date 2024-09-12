@@ -3,7 +3,15 @@ import { createElement } from "../utils/createElement";
 
 import styles from "./NumberInput.module.css";
 
-export default function NumberInput(props = { text: "", placeholder: "", onChange: () => {}, name: "", max: "", min: "", required: false})
+export default function NumberInput(props = {
+    text: "",
+    placeholder: "",
+    onChange: () => {},
+    name: "",
+    max: "",
+    min: "",
+    required: false
+})
 {
     const id = generateId();
 
