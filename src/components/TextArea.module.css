@@ -1,0 +1,8 @@
+.text-area{
+    composes: text-box from "../common.module.css";
+    resize: none;
+}
+
+.text-area-field{
+    composes: input-field from "../common.module.css";
+}
