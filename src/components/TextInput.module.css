@@ -1,0 +1,11 @@
+.text-input{
+    composes: text-box from "../common.module.css";
+}
+
+.text-input-label{
+    composes: text-box-label from "../common.module.css";
+}
+
+.text-input-field{
+    composes: input-field from "../common.module.css";
+}
