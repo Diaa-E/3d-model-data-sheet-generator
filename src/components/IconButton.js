@@ -55,7 +55,7 @@ export default function IconButton(props = {
         ]
     );
 
-    button.style.setProperty("--icon", `url("${defaultIcon}")`);
+    button.style.setProperty("--icon", `url("${props.iconPath}")`);
     
     return button;
 }
