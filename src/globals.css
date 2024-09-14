@@ -32,9 +32,6 @@
 }
 
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: var(--background);
 }
 
@@ -45,4 +42,11 @@ form{
     place-items: stretch;
     gap: 5px;
     padding: 2%;
+}
+
+:global(div#root){
+    margin: 0 auto;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
 }
