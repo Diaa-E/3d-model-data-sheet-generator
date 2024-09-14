@@ -85,6 +85,22 @@ describe("Text Area Component", () => {
         expect(textArea.placeholder).toBe("text area");
     });
 
+    it("Uses value from value prop", () => {
+
+        render(TextArea({
+            cols: 50,
+            rows: 20,
+            onInput: () => {},
+            placeholder: "text area",
+            text: "text area",
+            value: "some value"
+        }));
+
+        const textArea = document.querySelector("textarea");
+
+        expect(textArea.textContent).toBe("some value");
+    });
+
     it("Calls onInput function when text changes", () => {
 
         const onInput = jest.fn();

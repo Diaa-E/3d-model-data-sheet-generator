@@ -8,7 +8,8 @@ export default function TextInput(props = {
     name: "",
     onInput: () => {},
     autocomplete: "",
-    required: false
+    required: false,
+    value: "",
 })
 {
     const id = generateId();
@@ -19,6 +20,7 @@ export default function TextInput(props = {
         name: "text",
         autocomplete: "off",
         onInput: () => {},
+        value: "",
         ...props
     }
 
@@ -32,6 +34,7 @@ export default function TextInput(props = {
             onInput: props.onInput,
             autocomplete: props.autocomplete,
             class: styles["text-input"],
+            value: props.value,
             ...(props.required && { required: true })
         }
     );

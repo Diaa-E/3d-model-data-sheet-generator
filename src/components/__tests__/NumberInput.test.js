@@ -129,6 +129,24 @@ describe("Number Input Component", () => {
         expect(numberInput.required).toBeFalsy();
     });
 
+    it("Uses value from value prop", () => {
+
+        render(NumberInput({
+            max: "",
+            min: "0",
+            name: "number_1",
+            onInput: () => {},
+            placeholder: "50",
+            text: "",
+            required: false,
+            value: "24"
+        }));
+
+        const numberInput = document.querySelector("input[type='number']");
+
+        expect(numberInput.value).toBe("24");
+    });
+
     it("Calls onInput function when value is changed", () => {
 
         const onInput = jest.fn();

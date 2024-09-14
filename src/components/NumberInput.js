@@ -10,7 +10,8 @@ export default function NumberInput(props = {
     name: "",
     max: "",
     min: "",
-    required: false
+    required: false,
+    value: "",
 })
 {
     const id = generateId();
@@ -22,6 +23,7 @@ export default function NumberInput(props = {
         name: "number",
         max: "",
         min: "",
+        value: "",
         ...props
     }
 
@@ -35,6 +37,7 @@ export default function NumberInput(props = {
             name: props.name,
             max: props.max,
             min: props.min,
+            value: props.value,
             class: styles["number-input"],
             ...(props.required && { required: true }),
         },

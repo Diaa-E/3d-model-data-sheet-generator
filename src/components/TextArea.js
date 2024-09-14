@@ -9,6 +9,7 @@ export default function TextArea(props = {
     rows: 10,
     cols: 30,
     onInput: () => {},
+    value: "",
 })
 {
     const id = generateId();
@@ -19,6 +20,7 @@ export default function TextArea(props = {
         rows: 10,
         cols: 30,
         onInput: () => {},
+        value: "",
         ...props
     };
 
@@ -45,7 +47,7 @@ export default function TextArea(props = {
             onInput: props.onInput,
         },
         [
-
+            props.value
         ]
     );
 

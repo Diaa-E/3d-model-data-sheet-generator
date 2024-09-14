@@ -90,6 +90,23 @@ describe("Text Input Component", () => {
         expect(textInput.required).toBeFalsy();
     });
 
+    it("Uses value from value prop", () => {
+
+        render(TextInput({
+            autocomplete: "off",
+            name: "text_1",
+            onInput: () => {},
+            placeholder: "text_1",
+            required: false,
+            text: "text_1",
+            value: "some value"
+        }));
+
+        const textInput = document.querySelector("input[type='text']");
+
+        expect(textInput.value).toBe("some value");
+    });
+
     it("Calls onInput function when text value is changed", () => {
 
         const onInput = jest.fn();
