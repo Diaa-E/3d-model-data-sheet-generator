@@ -9,7 +9,7 @@ export default function ModelInfo(props = {
     const titleField = TextInput({
         autocomplete: "off",
         name: "modelTitle",
-        onChange: () => {},
+        onInput: () => {},
         placeholder: "Model Title",
         required: true,
         text: "Title",

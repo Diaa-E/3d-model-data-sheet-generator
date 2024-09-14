@@ -18,5 +18,5 @@ global.cleanup = () => {
 global.changeElementValue = (element, newValue) => {
     
     element.value = newValue;
-    element.dispatchEvent(new Event("change"));
+    element.dispatchEvent(new Event("input"));
 }

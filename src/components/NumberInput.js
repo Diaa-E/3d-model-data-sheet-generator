@@ -6,7 +6,7 @@ import styles from "./NumberInput.module.css";
 export default function NumberInput(props = {
     text: "",
     placeholder: "",
-    onChange: () => {},
+    onInput: () => {},
     name: "",
     max: "",
     min: "",
@@ -18,7 +18,7 @@ export default function NumberInput(props = {
     props = {
         text: "number",
         placeholder: "number",
-        onChange: () => {},
+        onInput: () => {},
         name: "number",
         max: "",
         min: "",
@@ -31,7 +31,7 @@ export default function NumberInput(props = {
             type: "number",
             id: id,
             placeholder: props.placeholder,
-            onChange: props.onChange,
+            onInput: props.onInput,
             name: props.name,
             max: props.max,
             min: props.min,

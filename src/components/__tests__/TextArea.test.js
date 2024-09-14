@@ -13,7 +13,7 @@ describe("Text Area Component", () => {
         render(TextArea({
             cols: 30,
             rows: 10,
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text area",
             text: "text area"
         }));
@@ -30,7 +30,7 @@ describe("Text Area Component", () => {
         render(TextArea({
             cols: 30,
             rows: 10,
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text area",
             text: "text area"
         }));
@@ -45,7 +45,7 @@ describe("Text Area Component", () => {
         render(TextArea({
             cols: 50,
             rows: 10,
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text area",
             text: "text area"
         }));
@@ -60,7 +60,7 @@ describe("Text Area Component", () => {
         render(TextArea({
             cols: 50,
             rows: 20,
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text area",
             text: "text area"
         }));
@@ -75,7 +75,7 @@ describe("Text Area Component", () => {
         render(TextArea({
             cols: 50,
             rows: 20,
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text area",
             text: "text area"
         }));
@@ -85,14 +85,14 @@ describe("Text Area Component", () => {
         expect(textArea.placeholder).toBe("text area");
     });
 
-    it("Calls onChange function when text changes", () => {
+    it("Calls onInput function when text changes", () => {
 
-        const onChange = jest.fn();
+        const onInput = jest.fn();
 
         render(TextArea({
             cols: 50,
             rows: 20,
-            onChange: onChange,
+            onInput: onInput,
             placeholder: "text area",
             text: "text area"
         }));
@@ -100,7 +100,7 @@ describe("Text Area Component", () => {
         const textArea = document.querySelector("textarea");
         changeElementValue(textArea, "some text");
 
-        expect(onChange.mock.calls).toHaveLength(1);
+        expect(onInput.mock.calls).toHaveLength(1);
         expect(textArea.value).toBe("some text");
     });
 });

@@ -13,7 +13,7 @@ describe("Text Input Component", () => {
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
@@ -31,7 +31,7 @@ describe("Text Input Component", () => {
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
@@ -47,7 +47,7 @@ describe("Text Input Component", () => {
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
@@ -63,7 +63,7 @@ describe("Text Input Component", () => {
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text_1",
             required: true,
             text: "text_1"
@@ -79,7 +79,7 @@ describe("Text Input Component", () => {
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
@@ -90,14 +90,14 @@ describe("Text Input Component", () => {
         expect(textInput.required).toBeFalsy();
     });
 
-    it("Calls onChange function when text value is changed", () => {
+    it("Calls onInput function when text value is changed", () => {
 
-        const onChange = jest.fn();
+        const onInput = jest.fn();
 
         render(TextInput({
             autocomplete: "off",
             name: "text_1",
-            onChange: onChange,
+            onInput: onInput,
             placeholder: "text_1",
             required: false,
             text: "text_1"
@@ -106,7 +106,7 @@ describe("Text Input Component", () => {
         const textInput = document.querySelector("input[type='text']");
         changeElementValue(textInput, "some text");
 
-        expect(onChange.mock.calls).toHaveLength(1);
+        expect(onInput.mock.calls).toHaveLength(1);
         expect(textInput.value).toBe("some text");
     });
 });

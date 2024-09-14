@@ -6,7 +6,7 @@ export default function TextInput(props = {
     text: "", 
     placeholder: "", 
     name: "",
-    onChange: () => {},
+    onInput: () => {},
     autocomplete: "",
     required: false
 })
@@ -18,7 +18,7 @@ export default function TextInput(props = {
         placeholder: "text",
         name: "text",
         autocomplete: "off",
-        onChange: () => {},
+        onInput: () => {},
         ...props
     }
 
@@ -29,7 +29,7 @@ export default function TextInput(props = {
             type: "text",
             placeholder: props.placeholder,
             name: props.name,
-            onChange: props.onChange,
+            onInput: props.onInput,
             autocomplete: props.autocomplete,
             class: styles["text-input"],
             ...(props.required && { required: true })

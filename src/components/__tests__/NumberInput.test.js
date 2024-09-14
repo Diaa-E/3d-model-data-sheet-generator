@@ -14,7 +14,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
@@ -33,7 +33,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "number_1",
             required: false
@@ -50,7 +50,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
@@ -67,7 +67,7 @@ describe("Number Input Component", () => {
             max: "100",
             min: "",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
@@ -84,7 +84,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "0",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
@@ -101,7 +101,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "0",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: true
@@ -118,7 +118,7 @@ describe("Number Input Component", () => {
             max: "",
             min: "0",
             name: "number_1",
-            onChange: () => {},
+            onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
@@ -129,15 +129,15 @@ describe("Number Input Component", () => {
         expect(numberInput.required).toBeFalsy();
     });
 
-    it("Calls onChange function when value is changed", () => {
+    it("Calls onInput function when value is changed", () => {
 
-        const onChange = jest.fn();
+        const onInput = jest.fn();
 
         render(NumberInput({
             max: "",
             min: "0",
             name: "number_1",
-            onChange: onChange,
+            onInput: onInput,
             placeholder: "50",
             text: "",
             required: false
@@ -146,7 +146,7 @@ describe("Number Input Component", () => {
         const numberInput = document.querySelector("input[type='number']");
         changeElementValue(numberInput, 100);
 
-        expect(onChange.mock.calls).toHaveLength(1);
+        expect(onInput.mock.calls).toHaveLength(1);
         expect(numberInput.value).toBe("100");
     });
 });
