@@ -76,7 +76,7 @@ export default function App()
         })
     );
            
-    return [modelInfo, fieldSet];
+    return [modelInfo.element, fieldSet];
 }
 
 // export function App()

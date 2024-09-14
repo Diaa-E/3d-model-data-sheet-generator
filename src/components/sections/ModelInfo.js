@@ -1,15 +1,22 @@
 import Fieldset from "../Fieldset";
 import TextArea from "../TextArea";
-import TextInput from "../TextInput"
+import TextInput from "../TextInput";
 
-export default function ModelInfo(props = {
-    
-})
+export default function ModelInfo()
 {
+    const data = {
+
+        title: "",
+        description: ""
+    };
+
     const titleField = TextInput({
         autocomplete: "off",
         name: "modelTitle",
-        onInput: () => {},
+        onInput: (e) => {
+
+            data.title = e.target.value;
+        },
         placeholder: "Model Title",
         required: true,
         text: "Title",
@@ -18,8 +25,11 @@ export default function ModelInfo(props = {
     const descriptionField = TextArea({
         placeholder: "Model Description",
         text: "Description",
-        onChange: () => {}
-    })
+        onInput: (e) => {
+
+            data.description = e.target.value;
+        }
+    });
 
     const fieldSet = Fieldset({
         legend: "Title and Description",
@@ -29,5 +39,10 @@ export default function ModelInfo(props = {
         ]
     });
 
-    return fieldSet;
+    function getData()
+    {
+        return data;
+    }
+
+    return {element: fieldSet, getData: getData};
 }
