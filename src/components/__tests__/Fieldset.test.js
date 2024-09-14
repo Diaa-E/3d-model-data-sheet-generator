@@ -26,4 +26,16 @@ describe("Fieldset Component", () => {
 
         expect(legend.textContent).toBe("form fieldset 1");
     });
+
+    it("Appends cildren elements from props", () => {
+
+        const childNode = document.createElement("h1");
+        childNode.textContent = "child node";
+
+        render(Fieldset({ legend: "fieldset", children: [ childNode ] }));
+
+        const fieldset = document.querySelector("fieldset");
+
+        expect(childNode.parentElement).toBe(fieldset);
+    });
 });

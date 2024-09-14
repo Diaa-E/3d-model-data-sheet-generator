@@ -3,12 +3,14 @@ import styles from "./Fieldset.module.css";
 
 export default function Fieldset(
     props = {
-        legend: ""
+        legend: "",
+        children: [],
     }
 )
 {
     props = {
         legend: "fieldset",
+        children: [],
         ...props
     };
 
@@ -28,7 +30,8 @@ export default function Fieldset(
             class: styles["fieldset"]
         },
         [
-            legend
+            legend,
+            ...props.children
         ]
     );
 
