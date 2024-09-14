@@ -1,0 +1,11 @@
+.fieldset{
+    composes: card from "../common.module.css";
+}
+
+.legend{
+    float: left;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+}

@@ -1,9 +1,8 @@
 @import url("./reset.css");
 
 @font-face {
-    font-family: "Resotho";
-    src: url("./assets/fonts/Resotho-Extralight.otf");
-    font-weight: lighter;
+    font-family: "Slim Jim";
+    src: url("./assets/fonts/SlimJim.ttf");
     font-style: normal;
 }
 
@@ -14,18 +13,9 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: "Grape Nuts";
-    src: url("./assets/fonts/GrapeNuts-Regular.ttf");
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root{
-    --font-default: "Robotos", sans-serif;
-    --font-title: "Resotho", serif;
     --background: #E8C4C4;
-    --background-card: #dedede;
+    --background-card: #f2e5e5;
     --background-mini-form: #daeaf1;
     --background-option: #f2f2f2;
     --background-option-dark: #c8c8c8;
@@ -37,7 +27,8 @@
     --green-dark: #0e9da4;
     --placeholder:#868686;
     --font-default: "Roboto", sans-serif;
-    --font-title: "Resotho", serif,
+    --font-title: "Slim Jim", serif;
+    --shadow: 0px 1px 3px rgb(0, 0, 0, 0.1), 0px 6px 12px rgb(0, 0, 0, 0.08);
 }
 
 body{

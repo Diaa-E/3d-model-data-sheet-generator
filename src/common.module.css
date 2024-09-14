@@ -47,3 +47,15 @@
 .text-box-label{
     color: var(--font);
 }
+
+.card{
+    background-color: vaR(--background-card);
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+    border: none;
+    width: 100%;
+    gap: 10px;
+}
