@@ -1,6 +1,10 @@
 "use strict";
 
-import { App } from "./App";
+import "./globals.css";
 
-const app = App();
-app.start();
+import App from "./App";
+import {createElement} from "./utils/createElement";
+
+document.getElementById("root").append(
+    App()
+)
