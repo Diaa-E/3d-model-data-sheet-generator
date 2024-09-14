@@ -7,9 +7,13 @@ import TextInput from "./components/TextInput";
 import TextArea from "./components/TextArea";
 import IconButton from "./components/IconButton";
 import Fieldset from "./components/Fieldset";
+import ModelInfo from "./components/sections/ModelInfo";
 
 export default function App()
 {
+
+    const modelInfo = ModelInfo();
+
     const fieldSet = Fieldset({
         legend: "First Field Set"
     });
@@ -72,7 +76,7 @@ export default function App()
         })
     );
            
-    return fieldSet;
+    return [modelInfo, fieldSet];
 }
 
 // export function App()
