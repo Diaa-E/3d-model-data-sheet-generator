@@ -5,6 +5,7 @@
 ### Pending 🕝
 
 1. Feature: Add user specified texture map.
+1. Check for illegal characters.
 1. Feature: Add preset and custom resolution for texture sets.
 1. Add texture type UDIM or single image to each texture map.
 1. Feature: custom texture workflow can be added by user
