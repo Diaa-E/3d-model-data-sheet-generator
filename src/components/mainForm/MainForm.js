@@ -4,12 +4,14 @@ import MeshType from "./MeshType";
 
 import ModelInfo from "./ModelInfo";
 import ModelTier from "./ModelTier";
+import PolyCount from "./PolyCount";
 
 export default function MainForm()
 {
     const modelInfo = ModelInfo();
-    const meshType = MeshType();
     const modelTier = ModelTier();
+    const polyCount = PolyCount();
+    const meshType = MeshType();
 
     const form = createElement(
         "form",
@@ -24,6 +26,7 @@ export default function MainForm()
         [
             modelInfo.element,
             modelTier.element,
+            polyCount.element,
             meshType.element,
         ]
     );
