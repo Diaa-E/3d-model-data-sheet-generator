@@ -40,5 +40,10 @@ export default function ModelTier()
         children: radioGroup
     });
 
-    return { element: fieldset };
+    function getData()
+    {
+        return data;
+    }
+
+    return { element: fieldset, getData: getData };
 }
