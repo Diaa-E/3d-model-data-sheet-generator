@@ -1,82 +1,13 @@
 "use strict";
 
-import CheckBox from "./components/CheckBox";
-import NumberInput from "./components/NumberInput";
-import Radio from "./components/Radio";
-import TextInput from "./components/TextInput";
-import TextArea from "./components/TextArea";
-import IconButton from "./components/IconButton";
-import Fieldset from "./components/Fieldset";
 import MainForm from "./components/mainForm/MainForm";
 
 export default function App()
 {
 
     const mainForm = MainForm();
-
-    const fieldSet = Fieldset({
-        legend: "First Field Set"
-    });
-    
-    fieldSet.append(
-        ...Radio(
-            {
-                checked: true,
-                name: "group_1",
-                onChange: () => {},
-                text: "radio 1",
-                value: "radio 1"
-            }
-        ),
-        ...Radio(
-            {
-                checked: true,
-                name: "group_1",
-                onChange: () => {},
-                text: "radio 2",
-                value: "radio 2"
-            }
-        ),
-        ...CheckBox(
-            {
-                onChange: () => console.log(1),
-                name: "options",
-                text: "checkbox 1",
-                value: "1",
-                checked: true,
-            }
-        ),
-        ...CheckBox(
-            {
-                onChange: () => console.log(2),
-                name: "options",
-                text: "checkbox 2",
-                value: "2"
-            }
-        ),
-        NumberInput({
-            max: "100",
-            min: "0",
-
-        }),
-        TextInput({
-            
-        }),
-        TextArea({
-
-        }),
-        IconButton({
-            color: "danger"
-        }),
-        IconButton({
-            color: "primary"
-        }),
-        IconButton({
-            color: "secondary"
-        })
-    );
            
-    return [mainForm.element, fieldSet];
+    return [ mainForm.element ];
 }
 
 // export function App()
