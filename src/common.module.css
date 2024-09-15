@@ -33,11 +33,12 @@
     border-radius: 5px;
     padding: 5px;
     outline: none;
-    transition: border-color .2s ease-in-out;
+    outline-color: var(--none);
+    transition: outline-color .2s ease-in-out;
 }
 
 .text-box:focus{
-    border-color: var(--green);
+    outline: solid var(--green) 2px;
 }
 
 .text-box::placeholder{
