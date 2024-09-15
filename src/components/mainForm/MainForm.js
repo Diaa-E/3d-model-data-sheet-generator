@@ -3,11 +3,13 @@ import styles from "./MainForm.module.css";
 import MeshType from "./MeshType";
 
 import ModelInfo from "./ModelInfo";
+import ModelTier from "./ModelTier";
 
 export default function MainForm()
 {
     const modelInfo = ModelInfo();
     const meshType = MeshType();
+    const modelTier = ModelTier();
 
     const form = createElement(
         "form",
@@ -21,6 +23,7 @@ export default function MainForm()
         },
         [
             modelInfo.element,
+            modelTier.element,
             meshType.element,
         ]
     );
