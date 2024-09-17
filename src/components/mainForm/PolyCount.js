@@ -1,6 +1,7 @@
 import Fieldset from "../Fieldset";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
 import NumberInput from "../NumberInput";
+import FieldsContainer from "../FieldsContainer";
 
 export default function PolyCount()
 {
@@ -39,11 +40,17 @@ export default function PolyCount()
         value: data.triangles
     });
 
+    const fieldsContainer = FieldsContainer({
+        children: [
+            verticesInput,
+            trianglesInput,
+        ]
+    })
+
     const fieldSet = Fieldset({
         legend: "Polygon Count",
         children: [
-            verticesInput,
-            trianglesInput
+            fieldsContainer
         ]
     });
 
