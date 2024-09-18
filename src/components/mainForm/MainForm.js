@@ -1,6 +1,7 @@
 import { createElement } from "../../utils/createElement";
 import styles from "./MainForm.module.css";
 import MeshType from "./MeshType";
+import ModelContents from "./ModelContents";
 
 import ModelInfo from "./ModelInfo";
 import ModelTier from "./ModelTier";
@@ -9,6 +10,7 @@ import PolyCount from "./PolyCount";
 export default function MainForm()
 {
     const modelInfo = ModelInfo();
+    const modelContents = ModelContents();
     const modelTier = ModelTier();
     const polyCount = PolyCount();
     const meshType = MeshType();
@@ -25,6 +27,7 @@ export default function MainForm()
         },
         [
             modelInfo.element,
+            modelContents.element,
             modelTier.element,
             polyCount.element,
             meshType.element,
