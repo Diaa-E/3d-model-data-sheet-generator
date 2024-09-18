@@ -2,7 +2,7 @@ import { createElement } from "../utils/createElement";
 import ListItem from "./ListItem";
 import styles from "./UnorderedList.module..css";
 
-export default function OrderedList(props = {
+export default function UnorderedList(props = {
     listItems: [],
     addToData: () => {},
     removeFromData: () => {}
@@ -16,11 +16,31 @@ export default function OrderedList(props = {
         ...props
     };
 
-    const orderedList = createElement(
+    const listItems = props.listItems.map(item => {
+
+        const keys = Object.keys(item);
+
+        const listItem = ListItem({
+            key: item[keys[0]],
+            firstField: item[keys[1]],
+            secondField: item[keys[2]],
+            onDelete: () =>  {
+                props.removeFromData(listItem.getKey());
+                listItem.element.parentElement.removeChild(listItem.element);
+            }
+        });
+
+        return (
+            listItem.element
+        );
+    });
+
+    const unorderedList = createElement(
         "ul",
         {
             class: styles["ordered-list"]
         },
+        listItems
     );
 
     function addItem(firstField, secondField)
@@ -30,16 +50,16 @@ export default function OrderedList(props = {
             secondField: secondField,
             onDelete: () => {
                 props.removeFromData(listItem.getKey());
-                listItem.element.parentElement.removeChild(listItem.element)
+                listItem.element.parentElement.removeChild(listItem.element);
             },
         });
 
-        orderedList.appendChild(
+        unorderedList.appendChild(
             listItem.element
         );
 
         props.addToData(listItem.getKey(), firstField, secondField);
     }
 
-    return {element: orderedList, addItem: addItem};
+    return {element: unorderedList, addItem: addItem};
 }

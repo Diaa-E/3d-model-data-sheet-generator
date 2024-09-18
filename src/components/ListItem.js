@@ -5,14 +5,14 @@ import deleteIcon from "../assets/icons/delete.svg";
 import { v4 as generateId } from "uuid";
 
 export default function ListItem(props = {
+    key: "",
     firstField: "",
     secondField: "",
     onDelete: () => {},
 })
 {
-    const KEY = generateId();
-
     props = {
+        key: generateId(),
         firstField: "field_1",
         secondField: "field_2",
         onDelete: () => {},
@@ -61,7 +61,7 @@ export default function ListItem(props = {
 
     function getKey()
     {
-        return KEY;
+        return props.key;
     }
 
     return {element: listItem, getKey: getKey};

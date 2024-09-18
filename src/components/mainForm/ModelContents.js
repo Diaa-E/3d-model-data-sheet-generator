@@ -3,7 +3,7 @@ import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
 import NumberInput from "../NumberInput";
-import OrderedList from "../UnorderedList";
+import UnorderedList from "../UnorderedList";
 import TextInput from "../TextInput";
 
 export default function ModelContents()
@@ -43,10 +43,11 @@ export default function ModelContents()
         ]
     });
 
-    const orderedList = OrderedList({
+    const unorderedList = UnorderedList({
 
         addToData: addToData,
         removeFromData: deleteFromData,
+        listItems: data.modelContents
     });
 
     function deleteFromData(key)
@@ -71,7 +72,7 @@ export default function ModelContents()
     const addButton = IconButton({
         type: "button",
         color: "primary",
-        onClick: () => orderedList.addItem(itemName.getValue(), `x${itemCount.getValue()}`),
+        onClick: () => unorderedList.addItem(itemName.getValue(), `x${itemCount.getValue()}`),
         text: "Add new item"
     });
 
@@ -80,7 +81,7 @@ export default function ModelContents()
         children: [
             fieldContainer,
             addButton,
-            orderedList.element
+            unorderedList.element
         ],
     });
 
