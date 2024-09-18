@@ -10,7 +10,7 @@ describe("Number Input Component", () => {
 
     it("Renders a number input with a label", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
             min: "",
             name: "number_1",
@@ -18,7 +18,9 @@ describe("Number Input Component", () => {
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
         const label = document.querySelector("label");
@@ -29,7 +31,7 @@ describe("Number Input Component", () => {
 
     it("Renders label text from the text prop", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
             min: "",
             name: "number_1",
@@ -37,7 +39,9 @@ describe("Number Input Component", () => {
             placeholder: "50",
             text: "number_1",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const label = document.querySelector("label");
 
@@ -46,7 +50,7 @@ describe("Number Input Component", () => {
 
     it("Uses placeholder from placeholder prop", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
             min: "",
             name: "number_1",
@@ -54,7 +58,9 @@ describe("Number Input Component", () => {
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -63,7 +69,7 @@ describe("Number Input Component", () => {
 
     it ("Uses max value from props", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "100",
             min: "",
             name: "number_1",
@@ -71,7 +77,9 @@ describe("Number Input Component", () => {
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -80,7 +88,7 @@ describe("Number Input Component", () => {
 
     it("Uses min value from props", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
             min: "0",
             name: "number_1",
@@ -88,7 +96,9 @@ describe("Number Input Component", () => {
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -97,15 +107,17 @@ describe("Number Input Component", () => {
 
     it("Adds required attribute when required prop is true", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
-            min: "0",
+            min: "",
             name: "number_1",
             onInput: () => {},
             placeholder: "50",
             text: "",
             required: true
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -114,15 +126,17 @@ describe("Number Input Component", () => {
 
     it("Removes required attribute when required prop is false", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
-            min: "0",
+            min: "",
             name: "number_1",
             onInput: () => {},
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -131,16 +145,18 @@ describe("Number Input Component", () => {
 
     it("Uses value from value prop", () => {
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
-            min: "0",
+            min: "",
             name: "number_1",
             onInput: () => {},
             placeholder: "50",
             text: "",
             required: false,
             value: "24"
-        }));
+        });
+
+        render(numberInputComponent.element);
 
         const numberInput = document.querySelector("input[type='number']");
 
@@ -151,16 +167,17 @@ describe("Number Input Component", () => {
 
         const onInput = jest.fn();
 
-        render(NumberInput({
+        const numberInputComponent = NumberInput({
             max: "",
-            min: "0",
+            min: "",
             name: "number_1",
             onInput: onInput,
             placeholder: "50",
             text: "",
             required: false
-        }));
+        });
 
+        render(numberInputComponent.element);
         const numberInput = document.querySelector("input[type='number']");
         changeElementValue(numberInput, 100);
 

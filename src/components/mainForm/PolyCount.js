@@ -42,8 +42,8 @@ export default function PolyCount()
 
     const fieldsContainer = FieldsContainer({
         children: [
-            verticesInput,
-            trianglesInput,
+            verticesInput.element,
+            trianglesInput.element,
         ]
     })
 

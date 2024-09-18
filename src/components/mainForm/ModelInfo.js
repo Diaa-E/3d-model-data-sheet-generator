@@ -42,7 +42,7 @@ export default function ModelInfo()
     const fieldSet = Fieldset({
         legend: "Title and Description",
         children: [
-            titleField,
+            titleField.element,
             descriptionField
         ]
     });

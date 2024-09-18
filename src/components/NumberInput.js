@@ -64,7 +64,12 @@ export default function NumberInput(props = {
             label,
             numberInput
         ]
-    )
+    );
 
-    return divContainer;
+    function getValue()
+    {
+        return numberInput.value;
+    }
+
+    return {element: divContainer, getValue: getValue};
 }

@@ -61,5 +61,10 @@ export default function TextInput(props = {
         ]
     );
 
-    return divContainer;
+    function getValue()
+    {
+        return textInput.value;
+    }
+
+    return { element: divContainer, getValue: getValue };
 }

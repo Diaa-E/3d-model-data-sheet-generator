@@ -10,14 +10,16 @@ describe("Text Input Component", () => {
 
     it("Renders a text input with a label", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
         const label = document.querySelector("label");
@@ -28,14 +30,16 @@ describe("Text Input Component", () => {
 
     it("Renders label text from the text prop", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const label = document.querySelector("label");
 
@@ -44,14 +48,16 @@ describe("Text Input Component", () => {
 
     it("Uses placeholder from placeholder prop", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
 
@@ -60,14 +66,16 @@ describe("Text Input Component", () => {
 
     it("Adds required attribute when required prop is true", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
             required: true,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
 
@@ -76,14 +84,16 @@ describe("Text Input Component", () => {
 
     it("Removes required attribute when required prop is false", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
             required: false,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
 
@@ -92,7 +102,7 @@ describe("Text Input Component", () => {
 
     it("Uses value from value prop", () => {
 
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: () => {},
@@ -100,7 +110,9 @@ describe("Text Input Component", () => {
             required: false,
             text: "text_1",
             value: "some value"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
 
@@ -110,15 +122,16 @@ describe("Text Input Component", () => {
     it("Calls onInput function when text value is changed", () => {
 
         const onInput = jest.fn();
-
-        render(TextInput({
+        const textInputComponent = TextInput({
             autocomplete: "off",
             name: "text_1",
             onInput: onInput,
             placeholder: "text_1",
             required: false,
             text: "text_1"
-        }));
+        });
+
+        render(textInputComponent.element);
 
         const textInput = document.querySelector("input[type='text']");
         changeElementValue(textInput, "some text");
