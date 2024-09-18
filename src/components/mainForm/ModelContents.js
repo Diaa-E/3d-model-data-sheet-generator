@@ -64,7 +64,7 @@ export default function ModelContents()
     const addButton = IconButton({
         type: "button",
         color: "primary",
-        onClick: () => orderedList.addItem(itemName.getValue(), itemCount.getValue()),
+        onClick: () => orderedList.addItem(itemName.getValue(), `x${itemCount.getValue()}`),
         text: "Add new item"
     });
 
