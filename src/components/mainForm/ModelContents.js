@@ -3,7 +3,7 @@ import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
 import NumberInput from "../NumberInput";
-import OrderedList from "../OrderedList";
+import OrderedList from "../UnorderedList";
 import TextInput from "../TextInput";
 
 export default function ModelContents()

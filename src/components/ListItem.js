@@ -53,8 +53,8 @@ export default function ListItem(props = {
             class: styles["list-item"],
         },
         [
-            field_1,
             field_2,
+            field_1,
             deleteButton
         ]
     );

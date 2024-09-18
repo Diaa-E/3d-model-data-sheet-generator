@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement";
 import ListItem from "./ListItem";
-import styles from "./OrderedList.module.css";
+import styles from "./UnorderedList.module..css";
 
 export default function OrderedList(props = {
     listItems: [],
@@ -17,13 +17,10 @@ export default function OrderedList(props = {
     };
 
     const orderedList = createElement(
-        "ol",
+        "ul",
         {
             class: styles["ordered-list"]
         },
-        [
-
-        ]
     );
 
     function addItem(firstField, secondField)

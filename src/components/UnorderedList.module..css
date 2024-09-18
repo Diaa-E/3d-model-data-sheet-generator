@@ -1,0 +1,10 @@
+.ordered-list{
+    font-family: var(--font-default);
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-top: 30px;
+    padding-top: 30px;
+    gap: 10px;
+    border-top: solid 1px var(--font);
+}
