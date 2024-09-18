@@ -7,7 +7,7 @@ import { v4 as generateId } from "uuid";
 export default function ListItem(props = {
     firstField: "",
     secondField: "",
-    onDeleteCallback: () => {},
+    onDelete: () => {},
 })
 {
     const KEY = generateId();
@@ -15,7 +15,7 @@ export default function ListItem(props = {
     props = {
         firstField: "field_1",
         secondField: "field_2",
-        onDeleteCallbaxk: () => {},
+        onDelete: () => {},
         ...props
     }
 
@@ -43,7 +43,7 @@ export default function ListItem(props = {
         type: "button",
         color: "danger",
         iconPath: deleteIcon,
-        onClick: props.onDeleteCallback,
+        onClick: props.onDelete,
         text: "Delete"
     })
 

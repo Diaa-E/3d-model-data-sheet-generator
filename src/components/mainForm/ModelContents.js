@@ -45,21 +45,28 @@ export default function ModelContents()
 
     const orderedList = OrderedList({
 
-        addItemCallback: (key, firstField, secondField) => {
-            data.modelContents.push({
-                id: key,
-                itemName: firstField,
-                itemCount: secondField
-            });
-            saveToStorage(STORAGE_KEY, data);
-        },
-        deleteItemCallback: (key) => {
-            data.modelContents = data.modelContents.filter(item => {
-                return item.id !== key;
-            });
-            saveToStorage(STORAGE_KEY, data);
-        },
+        addToData: addToData,
+        removeFromData: deleteFromData,
     });
+
+    function deleteFromData(key)
+    {
+        data.modelContents = data.modelContents.filter(item => {
+
+            return item.id !== key;
+        });
+        saveToStorage(STORAGE_KEY, data);
+    }
+
+    function addToData(key, firstField, secondField)
+    {
+        data.modelContents.push({
+            id: key,
+            itemName: firstField,
+            itemCount: secondField
+        });
+        saveToStorage(STORAGE_KEY, data);
+    }
 
     const addButton = IconButton({
         type: "button",

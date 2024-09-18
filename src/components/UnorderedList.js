@@ -4,15 +4,15 @@ import styles from "./UnorderedList.module..css";
 
 export default function OrderedList(props = {
     listItems: [],
-    addItemCallback: () => {},
-    deleteItemCallback: () => {}
+    addToData: () => {},
+    removeFromData: () => {}
 })
 {
     props = {
 
         listItems: [],
-        addItemCallback: () => {},
-        deleteItemCallback: () => {},
+        addToData: () => {},
+        removeFromData: () => {},
         ...props
     };
 
@@ -28,19 +28,17 @@ export default function OrderedList(props = {
         const listItem = ListItem({
             firstField: firstField,
             secondField: secondField,
-            onDeleteCallback: () => {
-
-                props.deleteItemCallback(listItem.getKey());
-                listItem.element.parentElement.removeChild(listItem.element);
-                console.log("deleted");
-            }
+            onDelete: () => {
+                props.removeFromData(listItem.getKey());
+                listItem.element.parentElement.removeChild(listItem.element)
+            },
         });
 
         orderedList.appendChild(
             listItem.element
         );
 
-        props.addItemCallback(listItem.getKey(), firstField, secondField);
+        props.addToData(listItem.getKey(), firstField, secondField);
     }
 
     return {element: orderedList, addItem: addItem};
