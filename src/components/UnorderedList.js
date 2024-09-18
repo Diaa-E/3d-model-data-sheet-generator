@@ -24,10 +24,7 @@ export default function UnorderedList(props = {
             key: item[keys[0]],
             firstField: item[keys[1]],
             secondField: item[keys[2]],
-            onDelete: () =>  {
-                props.removeFromData(listItem.getKey());
-                listItem.element.parentElement.removeChild(listItem.element);
-            }
+            onDelete: () => deleteItem(listItem),
         });
 
         return (
@@ -48,10 +45,7 @@ export default function UnorderedList(props = {
         const listItem = ListItem({
             firstField: firstField,
             secondField: secondField,
-            onDelete: () => {
-                props.removeFromData(listItem.getKey());
-                listItem.element.parentElement.removeChild(listItem.element);
-            },
+            onDelete: () => deleteItem(listItem),
         });
 
         unorderedList.appendChild(
@@ -59,6 +53,12 @@ export default function UnorderedList(props = {
         );
 
         props.addToData(listItem.getKey(), firstField, secondField);
+    }
+
+    function deleteItem(listItem)
+    {
+        props.removeFromData(listItem.getKey());
+        listItem.element.parentElement.removeChild(listItem.element);
     }
 
     return {element: unorderedList, addItem: addItem};
