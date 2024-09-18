@@ -16,6 +16,16 @@ export default function UnorderedList(props = {
         ...props
     };
 
+    const emptyListText = createElement(
+        "span",
+        {
+            class: styles["empty-list-text"]
+        },
+        [
+            "This list has no items."
+        ]
+    );
+
     const listItems = props.listItems.map(item => {
 
         const keys = Object.keys(item);
@@ -37,7 +47,7 @@ export default function UnorderedList(props = {
         {
             class: styles["ordered-list"]
         },
-        listItems
+        listItems.length > 0 ? listItems : emptyListText
     );
 
     function addItem(firstField, secondField)
@@ -47,6 +57,11 @@ export default function UnorderedList(props = {
             secondField: secondField,
             onDelete: () => deleteItem(listItem),
         });
+
+        if (unorderedList.children[0] === emptyListText)
+        {
+            unorderedList.removeChild(emptyListText);
+        }
 
         unorderedList.appendChild(
             listItem.element
@@ -59,6 +74,11 @@ export default function UnorderedList(props = {
     {
         props.removeFromData(listItem.getKey());
         listItem.element.parentElement.removeChild(listItem.element);
+        
+        if (unorderedList.children.length === 0)
+        {
+            unorderedList.appendChild(emptyListText)
+        }
     }
 
     return {element: unorderedList, addItem: addItem};
