@@ -119,6 +119,51 @@ describe("Text Input Component", () => {
         expect(textInput.value).toBe("some value");
     });
 
+    it("Value getter returns current value", () => {
+
+        const textInputComponent = TextInput({
+            autocomplete: "off",
+            name: "text_1",
+            onInput: () => {},
+            placeholder: "text_1",
+            required: false,
+            text: "text_1",
+            value: "some value"
+        });
+
+        render(textInputComponent.element);
+
+        expect(textInputComponent.getValue()).toBe("some value");
+
+        const textInput = document.querySelector("input[type='text']");
+        textInput.value = "new value";
+
+        expect(textInputComponent.getValue()).toBe("new value");
+    });
+
+    it("Clear function sets the input's value to an empty string", () => {
+
+        const textInputComponent = TextInput({
+            autocomplete: "off",
+            name: "text_1",
+            onInput: () => {},
+            placeholder: "text_1",
+            required: false,
+            text: "text_1",
+            value: "some value"
+        });
+
+        render(textInputComponent.element);
+
+        const textInput = document.querySelector("input[type='text']");
+        
+        expect(textInput.value).toBe("some value");
+
+        textInputComponent.clear();
+
+        expect(textInput.value).toBe("");
+    });
+
     it("Calls onInput function when text value is changed", () => {
 
         const onInput = jest.fn();

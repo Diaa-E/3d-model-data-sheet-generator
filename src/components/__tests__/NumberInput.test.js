@@ -163,6 +163,54 @@ describe("Number Input Component", () => {
         expect(numberInput.value).toBe("24");
     });
 
+    it("Value getter returns current value", () => {
+
+        const numberInputComponent = NumberInput({
+            max: "",
+            min: "",
+            name: "number_1",
+            onInput: () => {},
+            placeholder: "50",
+            text: "",
+            required: false,
+            value: "24"
+        });
+
+        render(numberInputComponent.element);
+
+        const numberInput = document.querySelector("input[type='number']");
+
+        expect(numberInputComponent.getValue()).toBe("24");
+
+        numberInput.value = "53";
+
+        expect(numberInputComponent.getValue()).toBe("53");
+    });
+
+    it("Clear function sets the input's value to an empty string", () => {
+
+        const numberInputComponent = NumberInput({
+            max: "",
+            min: "",
+            name: "number_1",
+            onInput: () => {},
+            placeholder: "50",
+            text: "",
+            required: false,
+            value: "24"
+        });
+
+        render(numberInputComponent.element);
+
+        const numberInput = document.querySelector("input[type='number']");
+
+        expect(numberInput.value).toBe("24");
+
+        numberInputComponent.clear();
+
+        expect(numberInput.value).toBe("");
+    });
+
     it("Calls onInput function when value is changed", () => {
 
         const onInput = jest.fn();

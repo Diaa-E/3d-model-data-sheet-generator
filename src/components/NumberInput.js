@@ -71,5 +71,10 @@ export default function NumberInput(props = {
         return numberInput.value;
     }
 
-    return {element: divContainer, getValue: getValue};
+    function clear()
+    {
+        numberInput.value = "";
+    }
+
+    return {element: divContainer, getValue: getValue, clear: clear};
 }
