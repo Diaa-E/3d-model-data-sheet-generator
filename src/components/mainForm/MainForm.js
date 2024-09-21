@@ -1,4 +1,5 @@
 import { createElement } from "../../utils/createElement";
+import EdgeSplit from "./EdgeSplit";
 import styles from "./MainForm.module.css";
 import MeshType from "./MeshType";
 import ModelContents from "./ModelContents";
@@ -14,6 +15,7 @@ export default function MainForm()
     const modelTier = ModelTier();
     const polyCount = PolyCount();
     const meshType = MeshType();
+    const edgeSplit = EdgeSplit();
 
     const form = createElement(
         "form",
@@ -31,6 +33,7 @@ export default function MainForm()
             modelTier.element,
             polyCount.element,
             meshType.element,
+            edgeSplit.element,
         ]
     );
 
