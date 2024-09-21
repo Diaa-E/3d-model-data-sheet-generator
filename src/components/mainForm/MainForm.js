@@ -8,6 +8,7 @@ import ModelInfo from "./ModelInfo.fieldset";
 import ModelTier from "./ModelTier.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import Rigging from "./Rigging.fieldset";
+import Uv from "./Uv.fieldset";
 
 export default function MainForm()
 {
@@ -18,6 +19,7 @@ export default function MainForm()
     const meshType = MeshType();
     const edgeSplit = EdgeSplit();
     const rigging = Rigging();
+    const uv = Uv();
 
     const form = createElement(
         "form",
@@ -37,6 +39,7 @@ export default function MainForm()
             meshType.element,
             edgeSplit.element,
             rigging.element,
+            uv.element,
         ]
     );
 
