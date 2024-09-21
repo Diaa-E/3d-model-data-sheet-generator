@@ -1,13 +1,13 @@
 import { createElement } from "../../utils/createElement";
-import EdgeSplit from "./EdgeSplit";
+import EdgeSplit from "./EdgeSplit.fieldset";
 import styles from "./MainForm.module.css";
-import MeshType from "./MeshType";
-import ModelContents from "./ModelContents";
+import MeshType from "./MeshType.fieldset";
+import ModelContents from "./ModelContents.fieldset";
 
-import ModelInfo from "./ModelInfo";
-import ModelTier from "./ModelTier";
-import PolyCount from "./PolyCount";
-import Rigging from "./Rigging";
+import ModelInfo from "./ModelInfo.fieldset";
+import ModelTier from "./ModelTier.fieldset";
+import PolyCount from "./PolyCount.fieldset";
+import Rigging from "./Rigging.fieldset";
 
 export default function MainForm()
 {
