@@ -7,6 +7,7 @@ import ModelContents from "./ModelContents";
 import ModelInfo from "./ModelInfo";
 import ModelTier from "./ModelTier";
 import PolyCount from "./PolyCount";
+import Rigging from "./Rigging";
 
 export default function MainForm()
 {
@@ -16,6 +17,7 @@ export default function MainForm()
     const polyCount = PolyCount();
     const meshType = MeshType();
     const edgeSplit = EdgeSplit();
+    const rigging = Rigging();
 
     const form = createElement(
         "form",
@@ -34,6 +36,7 @@ export default function MainForm()
             polyCount.element,
             meshType.element,
             edgeSplit.element,
+            rigging.element,
         ]
     );
 
