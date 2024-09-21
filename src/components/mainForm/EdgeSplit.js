@@ -1,5 +1,4 @@
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
-import { v4 as generateId } from "uuid";
 import Fieldset from "../Fieldset";
 import Radio from "../Radio";
 
