@@ -3,6 +3,7 @@ import CheckBox from "../CheckBox";
 import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
+import MiniFieldset from "../MiniFieldset";
 import TextInput from "../TextInput";
 
 export default function TextureWorkflow()
@@ -61,12 +62,19 @@ export default function TextureWorkflow()
             newTextureWorkflow.element,
             addButton
         ]
+    });
+
+    const addWorkflowFieldset = MiniFieldset({
+        legend: "Add a New Texture Workflow",
+        children: [
+            fieldsContainer,
+        ]
     })
 
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
         children: [
-            fieldsContainer,
+            addWorkflowFieldset,
             ...checkboxGroup,
         ]
     });
