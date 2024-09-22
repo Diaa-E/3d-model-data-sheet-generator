@@ -5,6 +5,7 @@ import IconButton from "../IconButton";
 import NumberInput from "../NumberInput";
 import UnorderedList from "../UnorderedList";
 import TextInput from "../TextInput";
+import MiniFieldset from "../MiniFieldset";
 
 export default function ModelContents()
 {
@@ -81,11 +82,18 @@ export default function ModelContents()
         text: "Add new item"
     });
 
+    const addItemFieldset = MiniFieldset({
+        legend: "Add a New Item",
+        children: [
+            fieldContainer,
+            addButton
+        ]
+    });
+
     const fieldSet = Fieldset({
         legend: "Model Contents",
         children: [
-            fieldContainer,
-            addButton,
+            addItemFieldset,
             unorderedList.element
         ],
     });
