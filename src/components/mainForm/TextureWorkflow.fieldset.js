@@ -74,8 +74,8 @@ export default function TextureWorkflow()
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
         children: [
-            addWorkflowFieldset,
             ...checkboxGroup,
+            addWorkflowFieldset,
         ]
     });
 

@@ -93,8 +93,8 @@ export default function ModelContents()
     const fieldSet = Fieldset({
         legend: "Model Contents",
         children: [
+            unorderedList.element,
             addItemFieldset,
-            unorderedList.element
         ],
     });
 

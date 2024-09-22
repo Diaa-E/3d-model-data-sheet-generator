@@ -89,8 +89,8 @@ export default function TextureSets()
     const fieldSet = Fieldset({
         legend: "Texture Sets",
         children: [
+            unorderedList.element,
             addSetFieldset,
-            unorderedList.element
         ]
     });
 

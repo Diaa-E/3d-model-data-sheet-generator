@@ -3,10 +3,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    margin-top: 30px;
-    padding-top: 30px;
+    padding-bottom: 30px;
     gap: 10px;
-    border-top: solid 1px var(--placeholder);
+    border-bottom: solid 1px var(--placeholder);
 }
 
 .empty-list-text{
