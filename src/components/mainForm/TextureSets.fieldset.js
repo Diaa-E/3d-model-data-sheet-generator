@@ -2,6 +2,7 @@ import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility"
 import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
+import MiniFieldset from "../MiniFieldset";
 import NumberInput from "../NumberInput";
 import TextInput from "../TextInput";
 import UnorderedList from "../UnorderedList";
@@ -67,7 +68,7 @@ export default function TextureSets()
         addToData: addToData,
         removeFromData: deleteFromData,
         listItems: data.textureSets
-    })
+    });
 
     const fieldContainer = FieldsContainer({
         children: [
@@ -75,13 +76,20 @@ export default function TextureSets()
             textureHeight.element,
             textureWidth.element,
         ]
+    });
+
+    const addSetFieldset = MiniFieldset({
+        legend: "Add a New Texture Set",
+        children: [
+            fieldContainer,
+            addButton
+        ]
     })
 
     const fieldSet = Fieldset({
         legend: "Texture Sets",
         children: [
-            fieldContainer,
-            addButton,
+            addSetFieldset,
             unorderedList.element
         ]
     });
