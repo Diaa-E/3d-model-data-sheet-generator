@@ -60,7 +60,6 @@ export default function TextureWorkflow()
     const fieldsContainer = FieldsContainer({
         children: [
             newTextureWorkflow.element,
-            addButton
         ]
     });
 
@@ -68,6 +67,7 @@ export default function TextureWorkflow()
         legend: "Add a New Texture Workflow",
         children: [
             fieldsContainer,
+            addButton,
         ]
     })
 
