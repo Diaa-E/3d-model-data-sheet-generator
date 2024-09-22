@@ -8,6 +8,7 @@ import ModelInfo from "./ModelInfo.fieldset";
 import ModelTier from "./ModelTier.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import Rigging from "./Rigging.fieldset";
+import TextureFormat from "./TextureFormat";
 import TextureSets from "./TextureSets.fieldset";
 import TextureWorkflow from "./TextureWorkflow.fieldset";
 import Uv from "./Uv.fieldset";
@@ -24,6 +25,7 @@ export default function MainForm()
     const uv = Uv();
     const textureSets = TextureSets();
     const textureWorkflow = TextureWorkflow();
+    const textureFormat = TextureFormat();
 
     const form = createElement(
         "form",
@@ -45,7 +47,8 @@ export default function MainForm()
             rigging.element,
             uv.element,
             textureSets.element,
-            textureWorkflow.element
+            textureWorkflow.element,
+            textureFormat.element
         ]
     );
 
