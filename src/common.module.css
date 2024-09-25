@@ -29,6 +29,7 @@
 }
 
 .text-box{
+    font-family: var(--font-default);
     color: var(--font);
     border: solid var(--font) 1px;
     border-radius: 5px;

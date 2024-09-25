@@ -39,7 +39,7 @@ export default function AddCheckbox( props = {
         "input",
         {
             type: "text",
-            class: styles["add-option-textbox"],
+            class: styles["add-checkbox-textbox"],
             placeholder: props.placeholder,
             id: props.id
         }
@@ -50,13 +50,16 @@ export default function AddCheckbox( props = {
         {
             class: styles["add-checkbox-textbox-label"],
             for: props.id
-        }
+        },
+        [
+            props.placeholder
+        ]
     )
 
     const fieldset = createElement(
         "fieldset",
         {
-            class: styles["add-option-fieldset"]
+            class: styles["add-checkbox-fieldset"]
         },
         [
             legend,
@@ -66,5 +69,15 @@ export default function AddCheckbox( props = {
         ]
     );
 
-    return { element: fieldset, }
+    function clear()
+    {
+        textBox.value = "";
+    }
+
+    function getValue()
+    {
+        return textBox.value;
+    }
+
+    return { element: fieldset, clear: clear, getValue: getValue }
 }

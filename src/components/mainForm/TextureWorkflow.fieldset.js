@@ -1,11 +1,8 @@
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
+import AddCheckbox from "../AddCheckbox";
 import CheckBox from "../CheckBox";
-import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
-import IconButton from "../IconButton";
-import MiniFieldset from "../MiniFieldset";
 import RadioGroup from "../RadioGroup";
-import TextInput from "../TextInput";
 
 export default function TextureWorkflow()
 {
@@ -43,64 +40,38 @@ export default function TextureWorkflow()
         );
     }
 
-
-    const newTextureWorkflow = TextInput({
-        autocomplete: "off",
-        name: "newTextureWorkflow",
-        onInput: () => {},
-        placeholder: "New Texture Workflow",
-        text: "New Texture Workflow",
-        value: "",
-    });
-
-    const addButton = IconButton({
-
-        color: "primary",
-        onClick: addWorkflow,
-        text: "Add texture workflow",
-        type: "button",
-    });
-
-    const fieldsContainer = FieldsContainer({
-        children: [
-            newTextureWorkflow.element,
-        ]
-    });
-
-    const addWorkflowFieldset = MiniFieldset({
-        legend: "Add a New Texture Workflow",
-        children: [
-            fieldsContainer,
-            addButton,
-        ]
+    const addWorkflowFieldset = AddCheckbox({
+        legend: "Add a new texture workflow",
+        onAdd: addWorkflow,
+        placeholder: "New Texture Workflow"
     })
 
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
         children: [
             radioGroup.element,
-            addWorkflowFieldset,
+            addWorkflowFieldset.element,
         ]
     });
 
     function addWorkflow()
     {
-        data.textureWorkflow[newTextureWorkflow.getValue()] = false;
+        data.textureWorkflow[addWorkflowFieldset.getValue()] = false;
         saveToStorage(STORAGE_KEY, data);
         radioGroup.addButton(
             CheckBox({
                 name: STORAGE_KEY,
-                checked: data.textureWorkflow[newTextureWorkflow.getValue()],
+                checked: data.textureWorkflow[addWorkflowFieldset.getValue()],
                 onChange: (e) => {
 
                     data.textureWorkflow[e.target.value] = e.target.checked;
                     saveToStorage(STORAGE_KEY, data);
                 },
-                text: newTextureWorkflow.getValue(),
-                value: newTextureWorkflow.getValue(),
+                text: addWorkflowFieldset.getValue(),
+                value: addWorkflowFieldset.getValue(),
             })
         );
-        newTextureWorkflow.clear();
+        addWorkflowFieldset.clear();
     }
 
     return { element: fieldSet };

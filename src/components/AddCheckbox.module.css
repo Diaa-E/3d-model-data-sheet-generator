@@ -1,0 +1,21 @@
+.add-checkbox-legend{
+    display: none;
+}
+
+.add-checkbox-textbox{
+    composes: text-box from "../common.module.css";
+    border-style: dashed;
+    text-align: center;
+}
+
+.add-checkbox-textbox-label{
+    display: none;
+}
+
+.add-checkbox-fieldset{
+    border: none;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
