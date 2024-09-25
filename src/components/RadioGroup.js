@@ -15,7 +15,7 @@ export default function RadioGroup( props = {
     const legend = createElement(
         "legend",
         {
-            class: styles["legend"]
+            class: styles["radio-group-legend"]
         },
         [
             props.legend
@@ -36,7 +36,7 @@ export default function RadioGroup( props = {
     function addButton(button)
     {
         fieldSet.append(
-            button
+            ...button
         );
     }
 

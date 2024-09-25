@@ -4,6 +4,7 @@ import FieldsContainer from "../FieldsContainer";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
 import MiniFieldset from "../MiniFieldset";
+import RadioGroup from "../RadioGroup";
 import TextInput from "../TextInput";
 
 export default function TextureWorkflow()
@@ -40,6 +41,13 @@ export default function TextureWorkflow()
         );
     }
 
+    const radioGroup = RadioGroup({
+        legend: "Texture Workflow",
+        buttons: [
+            ...checkboxGroup
+        ]
+    })
+
     const newTextureWorkflow = TextInput({
         autocomplete: "off",
         name: "newTextureWorkflow",
@@ -74,7 +82,7 @@ export default function TextureWorkflow()
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
         children: [
-            ...checkboxGroup,
+            radioGroup.element,
             addWorkflowFieldset,
         ]
     });
@@ -83,8 +91,8 @@ export default function TextureWorkflow()
     {
         data.textureWorkflow[newTextureWorkflow.getValue()] = false;
         saveToStorage(STORAGE_KEY, data);
-        fieldSet.append(
-            ...CheckBox({
+        radioGroup.addButton(
+            CheckBox({
                 name: STORAGE_KEY,
                 checked: data.textureWorkflow[newTextureWorkflow.getValue()],
                 onChange: (e) => {

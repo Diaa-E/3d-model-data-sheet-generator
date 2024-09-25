@@ -1,0 +1,11 @@
+.radio-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: none;
+}
+
+.radio-group-legend{
+    font-family: var(--font-default);
+    margin-bottom: 20px;
+}
