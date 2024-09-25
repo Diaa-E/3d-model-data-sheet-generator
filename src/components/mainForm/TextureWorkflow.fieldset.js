@@ -22,11 +22,13 @@ export default function TextureWorkflow()
         }
     );
 
-    const checkboxGroup = [];
+    const radioGroup = RadioGroup({
+        legend: "Texture Workflow",
+    });
 
     for (const key of Object.keys(data.textureWorkflow))
     {
-        checkboxGroup.push(
+        radioGroup.addButton(
             CheckBox({
                 name: STORAGE_KEY,
                 checked: data.textureWorkflow[key],
@@ -41,12 +43,6 @@ export default function TextureWorkflow()
         );
     }
 
-    const radioGroup = RadioGroup({
-        legend: "Texture Workflow",
-        buttons: [
-            ...checkboxGroup
-        ]
-    })
 
     const newTextureWorkflow = TextInput({
         autocomplete: "off",
