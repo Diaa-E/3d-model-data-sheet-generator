@@ -20,7 +20,7 @@ export default function TextureWorkflow()
     );
 
     const radioGroup = RadioGroup({
-        legend: "Texture Workflow",
+        legend: "Select one or more texture workflows",
     });
 
     for (const key of Object.keys(data.textureWorkflow))
