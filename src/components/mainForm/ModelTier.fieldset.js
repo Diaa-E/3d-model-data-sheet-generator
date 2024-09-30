@@ -1,6 +1,7 @@
 import Fieldset from "../Fieldset";
 import Radio from "../Radio";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
+import RadioGroup from "../RadioGroup";
 
 export default function ModelTier()
 {
@@ -16,28 +17,34 @@ export default function ModelTier()
         {
             modelTier: options[0],
         }
-    )
+    );
 
-    const radioGroup = options.map(option => {
+    const radioGroup = RadioGroup({
+        legend: "Select a model polygon count tier."
+    });
 
-        return (
+    options.forEach(option => {
+
+        radioGroup.addButton(
             Radio({
                 name: "meshTier",
                 onChange: (e) => {
 
                     data.modelTier = e.target.value;
-                    saveToStorage(STORAGE_KEY, data)
+                    saveToStorage(STORAGE_KEY, data);
                 },
                 checked: data.modelTier === option,
                 text: option,
                 value: option,
             })
-        );
+        )
     });
 
     const fieldset = Fieldset({
         legend: "Model Tier",
-        children: radioGroup
+        children: [
+            radioGroup.element
+        ]
     });
 
     function getData()
