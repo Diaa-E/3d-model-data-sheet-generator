@@ -2,10 +2,7 @@ import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility"
 import AddCheckbox from "../AddCheckbox";
 import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
-import IconButton from "../IconButton";
-import MiniFieldset from "../MiniFieldset";
 import RadioGroup from "../RadioGroup";
-import TextInput from "../TextInput";
 
 export default function TextureFormat()
 {
