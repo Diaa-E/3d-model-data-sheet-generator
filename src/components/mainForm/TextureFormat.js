@@ -3,6 +3,7 @@ import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
 import MiniFieldset from "../MiniFieldset";
+import RadioGroup from "../RadioGroup";
 import TextInput from "../TextInput";
 
 export default function TextureFormat()
@@ -20,12 +21,11 @@ export default function TextureFormat()
         }
     );
 
-    const checkboxGroup = [];
+    const checkboxGroup = RadioGroup({});
 
     for (const key of Object.keys(data.textureFormat))
     {
-        checkboxGroup.push(
-
+        checkboxGroup.addButton(
             CheckBox({
                 name: STORAGE_KEY,
                 checked: data.textureFormat[key],
@@ -67,7 +67,7 @@ export default function TextureFormat()
     const fieldSet = Fieldset({
         legend: "Texture Format",
         children: [
-            ...checkboxGroup,
+            checkboxGroup.element,
             miniFieldset
         ]
     });
