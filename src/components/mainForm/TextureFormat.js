@@ -1,4 +1,5 @@
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
+import AddCheckbox from "../AddCheckbox";
 import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import IconButton from "../IconButton";
@@ -39,56 +40,38 @@ export default function TextureFormat()
             })
         );
     }
-
-    const newTextureFormat = TextInput({
-        autocomplete: "off",
-        name: "newTextureFormat",
-        onInput: () => {},
-        placeholder: "New Texture Format",
-        text: "New Texture Format",
-        value: "",
+    
+    const addTextureFormat = AddCheckbox({
+        legend: "Add a new texture format",
+        onAdd: addFormat,
+        placeholder: "New Texture Format"
     });
-
-    const addButton = IconButton({
-        color: "primary",
-        onClick: addFormat,
-        text: "Add texture format",
-        type: "button",
-    });
-
-    const miniFieldset = MiniFieldset({
-        legend: "Add a New Texture Format",
-        children: [
-            newTextureFormat.element,
-            addButton
-        ]
-    })
 
     const fieldSet = Fieldset({
         legend: "Texture Format",
         children: [
             checkboxGroup.element,
-            miniFieldset
+            addTextureFormat.element,
         ]
     });
 
     function addFormat()
     {
-        data.textureFormat[newTextureFormat.getValue()] = false;
-        fieldSet.append(
-            ...CheckBox({
-                checked: data.textureFormat[newTextureFormat.getValue()],
+        data.textureFormat[addTextureFormat.getValue()] = false;
+        checkboxGroup.addButton(
+            CheckBox({
+                checked: data.textureFormat[addTextureFormat.getValue()],
                 name: STORAGE_KEY,
                 onChange: (e) => {
 
                     data.textureFormat[e.target.value] = e.target.checked;
                     saveToStorage(STORAGE_KEY, data);
                 },
-                text: newTextureFormat.getValue(),
-                value: newTextureFormat.getValue()
+                text: addTextureFormat.getValue(),
+                value: addTextureFormat.getValue()
             })
         );
-        newTextureFormat.clear();
+        addTextureFormat.clear();
         saveToStorage(STORAGE_KEY, data);
     }
 
