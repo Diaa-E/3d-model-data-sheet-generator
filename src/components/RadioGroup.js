@@ -35,9 +35,18 @@ export default function RadioGroup( props = {
 
     function addButton(button)
     {
-        fieldSet.append(
-            ...button
-        );
+        if(Array.isArray(button))
+        {
+            fieldSet.append(
+                ...button
+            );
+        }
+        else
+        {
+            fieldSet.append(
+                button
+            );
+        }
     }
 
     return { element: fieldSet, addButton: addButton }
