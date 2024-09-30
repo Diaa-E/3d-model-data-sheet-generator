@@ -8,29 +8,14 @@ describe("Radio Group Component", () => {
         jest.restoreAllMocks();
     });
 
-    it("Returns a fieldset", () => {
+    it("Returns a div", () => {
 
         const radioGroupComponent = RadioGroup({});
         render(radioGroupComponent.element);
 
-        const fieldset = document.querySelector("fieldset");
+        const div = document.querySelector("div");
 
-        expect(fieldset).not.toBeNull();
-    });
-
-    it("Adds a legend to the field set using the legend prop", () => {
-
-        const radioGroupComponent = RadioGroup({
-            legend: "test 1",
-            buttons: [],
-        });
-        render(radioGroupComponent.element);
-
-        const legend = document.querySelector("legend");
-
-        expect(legend).not.toBeNull();
-        expect(legend.parentElement).toBe(radioGroupComponent.element);
-        expect(legend.textContent).toBe("test 1");
+        expect(div).not.toBeNull();
     });
 
     it("Appends children from children prop", () => {
@@ -43,12 +28,12 @@ describe("Radio Group Component", () => {
         });
         render(radioGroupComponent.element);
 
-        const fieldset = document.querySelector("fieldset");
+        const div = document.querySelector("div");
 
-        expect(button.parentElement).toBe(fieldset);
+        expect(button.parentElement).toBe(div);
     });
 
-    it("addButton function appends passed element to the fieldset", () => {
+    it("addButton function appends passed element to the div", () => {
 
         const button = document.createElement("button");
 
@@ -59,8 +44,8 @@ describe("Radio Group Component", () => {
         render(radioGroupComponent.element);
         radioGroupComponent.addButton(button);
 
-        const fieldset = document.querySelector("fieldset");
+        const div = document.querySelector("div");
 
-        expect(button.parentElement).toBe(fieldset);
+        expect(button.parentElement).toBe(div);
     });
 });

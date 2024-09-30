@@ -2,33 +2,20 @@ import { createElement } from "../utils/createElement";
 import styles from "./RadioGroup.module.css";
 
 export default function RadioGroup( props = {
-    legend: "",
     buttons: [],
 })
 {
     props = {
-        legend: "radio group",
         buttons: [],
         ...props
     };
 
-    const legend = createElement(
-        "legend",
-        {
-            class: styles["radio-group-legend"]
-        },
-        [
-            props.legend
-        ]
-    );
-
-    const fieldSet = createElement(
-        "fieldset",
+    const div = createElement(
+        "div",
         {
             class: styles["radio-group"]
         },
         [
-            legend,
             ...props.buttons,
         ]
     );
@@ -37,17 +24,17 @@ export default function RadioGroup( props = {
     {
         if(Array.isArray(button))
         {
-            fieldSet.append(
+            div.append(
                 ...button
             );
         }
         else
         {
-            fieldSet.append(
+            div.append(
                 button
             );
         }
     }
 
-    return { element: fieldSet, addButton: addButton }
+    return { element: div, addButton: addButton }
 }

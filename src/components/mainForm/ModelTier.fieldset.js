@@ -19,9 +19,7 @@ export default function ModelTier()
         }
     );
 
-    const radioGroup = RadioGroup({
-        legend: "Select a model polygon count tier."
-    });
+    const radioGroup = RadioGroup({});
 
     options.forEach(option => {
 
