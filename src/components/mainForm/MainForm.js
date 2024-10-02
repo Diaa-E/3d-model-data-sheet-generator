@@ -8,6 +8,7 @@ import ModelInfo from "./ModelInfo.fieldset";
 import ModelTier from "./ModelTier.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import Rigging from "./Rigging.fieldset";
+import TargetSite from "./TargetSite.fieldset";
 import TextureFormat from "./TextureFormat";
 import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
@@ -28,6 +29,7 @@ export default function MainForm()
     const textureWorkflow = TextureWorkflow();
     const textureFormat = TextureFormat();
     const textureMaps = TextureMaps();
+    const targetSite = TargetSite();
 
     const form = createElement(
         "form",
@@ -51,7 +53,8 @@ export default function MainForm()
             textureSets.element,
             textureWorkflow.element,
             textureFormat.element,
-            textureMaps.element
+            textureMaps.element,
+            targetSite.element,
         ]
     );
 
