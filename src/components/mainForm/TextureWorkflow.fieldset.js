@@ -42,7 +42,7 @@ export default function TextureWorkflow()
         legend: "Add a new texture workflow",
         onAdd: addWorkflow,
         placeholder: "New Texture Workflow"
-    })
+    });
 
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
