@@ -8,6 +8,7 @@ export default function TargetSite()
     const STORAGE_KEY = "targetSite";
 
     const options = [
+        "None",
         "CGTrader",
         "Sketchfab"
     ];
