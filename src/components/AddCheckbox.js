@@ -2,6 +2,7 @@ import { createElement } from "../utils/createElement";
 import styles from "./AddCheckbox.module.css";
 import IconButton from "./IconButton";
 import { v4 as generateId } from "uuid";
+import icons from "../barrels/icons.barrel";
 
 export default function AddCheckbox( props = {
     legend: "",
@@ -23,6 +24,7 @@ export default function AddCheckbox( props = {
         onClick: props.onAdd,
         text: "Add",
         type: "button",
+        iconPath: icons.addIcon
     });
 
     const legend = createElement(

@@ -6,6 +6,7 @@ import NumberInput from "../NumberInput";
 import UnorderedList from "../UnorderedList";
 import TextInput from "../TextInput";
 import MiniFieldset from "../MiniFieldset";
+import icons from "../../barrels/icons.barrel";
 
 export default function ModelContents()
 {
@@ -79,7 +80,8 @@ export default function ModelContents()
             itemCount.clear();
             itemName.clear();
         },
-        text: "Add new item"
+        text: "Add new item",
+        iconPath: icons.addIcon
     });
 
     const addItemFieldset = MiniFieldset({

@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement";
 import styles from "./IconButton.module.css";
-import defaultIcon from "../assets/icons/add.svg";
+import icons from "../barrels/icons.barrel";
 
 export default function IconButton(props = {
     type: "",
@@ -13,7 +13,7 @@ export default function IconButton(props = {
     props = {
         type: "button",
         onClick: () => {},
-        iconPath: defaultIcon,
+        iconPath: icons.defaultIcon,
         text: "click here",
         color: "primary",
         ...props

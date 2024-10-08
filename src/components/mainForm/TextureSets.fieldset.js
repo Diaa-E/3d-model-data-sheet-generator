@@ -6,6 +6,7 @@ import MiniFieldset from "../MiniFieldset";
 import NumberInput from "../NumberInput";
 import TextInput from "../TextInput";
 import UnorderedList from "../UnorderedList";
+import icons from "../../barrels/icons.barrel";
 
 export default function TextureSets()
 {
@@ -61,7 +62,8 @@ export default function TextureSets()
             textureWidth.clear();
         },
         text: "Add texture set",
-        type: "button"
+        type: "button",
+        iconPath: icons.addIcon
     });
 
     const unorderedList = UnorderedList({

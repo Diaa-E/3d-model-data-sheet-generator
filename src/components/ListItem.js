@@ -1,7 +1,7 @@
 import { createElement } from "../utils/createElement";
 import IconButton from "./IconButton";
 import styles from "./ListItem.module.css";
-import deleteIcon from "../assets/icons/delete.svg";
+import icons from "../barrels/icons.barrel";
 import { v4 as generateId } from "uuid";
 
 export default function ListItem(props = {
@@ -42,7 +42,7 @@ export default function ListItem(props = {
     const deleteButton = IconButton({
         type: "button",
         color: "danger",
-        iconPath: deleteIcon,
+        iconPath: icons.deleteIcon,
         onClick: props.onDelete,
         text: "Delete"
     })
