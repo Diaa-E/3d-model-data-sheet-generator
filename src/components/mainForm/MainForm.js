@@ -34,7 +34,7 @@ export default function MainForm()
     const form = createElement(
         "form",
         {
-            actio: "/",
+            action: "/",
             onSubmit: (e) => {
 
                 e.preventDefault();
