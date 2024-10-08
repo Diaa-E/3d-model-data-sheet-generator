@@ -41,7 +41,6 @@ export default function TextArea(props = {
             id: id,
             placeholder: props.placeholder,
             class: styles["text-area"],
-            resize: false,
             rows: props.rows,
             cols: props.cols,
             onInput: props.onInput,
