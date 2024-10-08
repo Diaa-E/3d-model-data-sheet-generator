@@ -9,13 +9,27 @@ export function createElement(tag, props, ...children)
         return tag(props, ...children);
     }
 
+    const attributeMap = {
+        class: "className",
+        for: "htmlFor"
+    };
+
     const element = document.createElement(tag);
 
-    Object.entries(props || {}).forEach(([key, value]) => {
+    if (element instanceof HTMLUnknownElement)
+    {
+        throw new Error("Invalid HTML tag name: " + tag);
+    }
+
+    Object.entries(props ?? {}).forEach(([key, value]) => {
 
         if (key.startsWith("on") && key.toLowerCase() in window)
         {
             element.addEventListener(key.toLowerCase().substring(2), value);
+        }
+        else if (!(key in element) && !(key in attributeMap))
+        {
+            throw new Error("Invalid HTML element attribute: " + key);
         }
         else
         {
@@ -44,6 +58,11 @@ function appendChild(parent, child)
     }
     else
     {
+        if (!(child instanceof Element) && !(typeof child === "string"))
+        {
+            throw new Error("Invalid child: " + child);
+        }
+        
         parent.appendChild(
             child.nodeType ? child : document.createTextNode(String(child))
         );
