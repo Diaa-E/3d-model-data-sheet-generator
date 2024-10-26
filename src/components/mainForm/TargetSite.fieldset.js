@@ -9,28 +9,27 @@ export default function TargetSite()
 
     const options = [
         "None",
+        "Fab",
         "CGTrader",
         "Sketchfab"
     ];
 
-    const data = getFromStorage(
+    let seletedOption = getFromStorage(
         STORAGE_KEY,
-        {
-            TargetSite: options[0]
-        }
+        options[0]
     );
 
     const radioGroup = RadioGroup({
         buttons: options.map(option => {
             return (
                 Radio({
-                    checked: data.TargetSite === option,
+                    checked: seletedOption === option,
                     name: STORAGE_KEY,
                     text: option,
                     value: option,
                     onChange: (e) => {
-                        data.TargetSite = e.target.value;
-                        saveToStorage(STORAGE_KEY, data);
+                        seletedOption = e.target.value;
+                        saveToStorage(STORAGE_KEY, seletedOption);
                     }
                 })
             );

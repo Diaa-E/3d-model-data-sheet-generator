@@ -12,11 +12,9 @@ export default function ModelContents()
 {
     const STORAGE_KEY = "modelContents";
 
-    const data = getFromStorage(
+    let items = getFromStorage(
         STORAGE_KEY,
-        {
-            modelContents: [],
-        }
+        []
     );
 
     const itemName = TextInput({
@@ -49,26 +47,26 @@ export default function ModelContents()
 
         addToData: addToData,
         removeFromData: deleteFromData,
-        listItems: data.modelContents
+        listItems: items
     });
 
     function deleteFromData(key)
     {
-        data.modelContents = data.modelContents.filter(item => {
+        items = items.filter(item => {
 
             return item.id !== key;
         });
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(STORAGE_KEY, items);
     }
 
     function addToData(key, firstField, secondField)
     {
-        data.modelContents.push({
+        items.push({
             id: key,
             itemName: firstField,
             itemCount: secondField
         });
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(STORAGE_KEY, items);
     }
 
     const addButton = IconButton({

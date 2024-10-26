@@ -5,6 +5,7 @@ import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility"
 export default function MeshType()
 {
     const STORAGE_KEY = "meshType";
+
     const options = [
         "Non-unifrom Polygons",
         "Triangulated Mesh",
@@ -12,24 +13,22 @@ export default function MeshType()
         "Quad Mesh (Subdivision Ready)",
     ];
 
-    const data = getFromStorage(
+    let selectedOption = getFromStorage(
         STORAGE_KEY,
-        {
-            meshType: options[0],
-        }
+        options[0]
     );
 
     const radioGroup = options.map(option => {
 
         return (
             Radio({
-                name: "meshType",
+                name: STORAGE_KEY,
                 onChange: (e) => {
 
-                    data.meshType = e.target.value;
-                    saveToStorage(STORAGE_KEY, data)
+                    selectedOption = e.target.value;
+                    saveToStorage(STORAGE_KEY, selectedOption)
                 },
-                checked: data.meshType === option,
+                checked: selectedOption === option,
                 text: option,
                 value: option,
             })
@@ -43,7 +42,7 @@ export default function MeshType()
 
     function getData()
     {
-        return data;
+        return selectedOption;
     }
 
     return { element: fieldSet, getData: getData }

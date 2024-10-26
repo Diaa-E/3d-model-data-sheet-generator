@@ -7,36 +7,50 @@ import RadioGroup from "../RadioGroup";
 export default function TextureWorkflow()
 {
     const STORAGE_KEY = "textureWorkflow";
+    const STORAGE_KEY_USER = `${STORAGE_KEY}_user`;
 
-    const data = getFromStorage(
-        STORAGE_KEY,
-        {
-            textureWorkflow: {
-                "PBR Metallic Roughness": false,
-                "PBR Specular Gloss": false,
-                "Non-PBR": false,
-            }
-        }
+    const options = [
+        "PBR Metallic Roughness",
+        "PBR Specular Gloss",
+        "Non-PBR",
+    ];
+
+    const userOptions = getFromStorage(
+        STORAGE_KEY_USER,
+        []
     );
 
-    const radioGroup = RadioGroup({});
+    const selectedOptions = getFromStorage(
+        STORAGE_KEY,
+        []
+    );
 
-    for (const key of Object.keys(data.textureWorkflow))
-    {
-        radioGroup.addButton(
+    const checkboxGroup = RadioGroup({});
+
+    [...options, ...userOptions].forEach(option => {
+
+        checkboxGroup.addButton(
             CheckBox({
+                checked: selectedOptions.includes(option),
                 name: STORAGE_KEY,
-                checked: data.textureWorkflow[key],
                 onChange: (e) => {
 
-                    data.textureWorkflow[e.target.value] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
-                text: key,
-                value: key,
+                text: option,
+                value: option,
             })
         );
-    }
+    });
 
     const addWorkflowFieldset = AddCheckbox({
         legend: "Add a new texture workflow",
@@ -47,29 +61,37 @@ export default function TextureWorkflow()
     const fieldSet = Fieldset({
         legend: "Texture Workflow",
         children: [
-            radioGroup.element,
+            checkboxGroup.element,
             addWorkflowFieldset.element,
         ]
     });
 
     function addWorkflow()
     {
-        data.textureWorkflow[addWorkflowFieldset.getValue()] = false;
-        saveToStorage(STORAGE_KEY, data);
-        radioGroup.addButton(
+        checkboxGroup.addButton(
             CheckBox({
                 name: STORAGE_KEY,
-                checked: data.textureWorkflow[addWorkflowFieldset.getValue()],
+                checked: false,
                 onChange: (e) => {
 
-                    data.textureWorkflow[e.target.value] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === addWorkflowFieldset.getValue()), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
                 text: addWorkflowFieldset.getValue(),
                 value: addWorkflowFieldset.getValue(),
             })
         );
+        userOptions.push(addWorkflowFieldset.getValue());
         addWorkflowFieldset.clear();
+        saveToStorage(STORAGE_KEY_USER, userOptions);
     }
 
     return { element: fieldSet };

@@ -12,11 +12,9 @@ export default function ModelTier()
         "High-poly"
     ];
 
-    const data = getFromStorage(
+    let selectedOption = getFromStorage(
         STORAGE_KEY,
-        {
-            modelTier: options[0],
-        }
+        options[0]
     );
 
     const radioGroup = RadioGroup({});
@@ -25,13 +23,13 @@ export default function ModelTier()
 
         radioGroup.addButton(
             Radio({
-                name: "meshTier",
+                name: STORAGE_KEY,
                 onChange: (e) => {
 
-                    data.modelTier = e.target.value;
-                    saveToStorage(STORAGE_KEY, data);
+                    selectedOption = e.target.value;
+                    saveToStorage(STORAGE_KEY, selectedOption);
                 },
-                checked: data.modelTier === option,
+                checked: selectedOption === option,
                 text: option,
                 value: option,
             })
@@ -47,7 +45,7 @@ export default function ModelTier()
 
     function getData()
     {
-        return data;
+        return selectedOption;
     }
 
     return { element: fieldset, getData: getData };

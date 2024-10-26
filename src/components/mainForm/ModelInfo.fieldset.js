@@ -6,7 +6,7 @@ import TextInput from "../TextInput";
 export default function ModelInfo()
 {
     const STORAGE_KEY = "modelInfo";
-    const data = getFromStorage(
+    const modelInfo = getFromStorage(
         STORAGE_KEY,
         {
             title: "",
@@ -19,23 +19,23 @@ export default function ModelInfo()
         name: "modelTitle",
         onInput: (e) => {
 
-            data.title = e.target.value;
-            saveToStorage(STORAGE_KEY, data);
+            modelInfo.title = e.target.value;
+            saveToStorage(STORAGE_KEY, modelInfo);
         },
         placeholder: "Model Title",
         required: true,
         text: "Title",
-        value: data.title
+        value: modelInfo.title
     });
 
     const descriptionField = TextArea({
         placeholder: "Model Description",
         text: "Description",
-        value: data.description,
+        value: modelInfo.description,
         onInput: (e) => {
 
-            data.description = e.target.value;
-            saveToStorage(STORAGE_KEY, data);
+            modelInfo.description = e.target.value;
+            saveToStorage(STORAGE_KEY, modelInfo);
         }
     });
 
@@ -49,7 +49,7 @@ export default function ModelInfo()
 
     function getData()
     {
-        return data;
+        return modelInfo;
     }
 
     return {element: fieldSet, getData: getData};

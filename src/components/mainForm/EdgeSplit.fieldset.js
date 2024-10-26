@@ -13,25 +13,23 @@ export default function EdgeSplit()
         "All Edges"
     ]
 
-    const data = getFromStorage(
+    let selectedOption = getFromStorage(
         STORAGE_KEY,
-        {
-            edgeSplit: options[0],
-        }
+        options[0]
     );
 
     const radioGroup = options.map(option => {
 
         return (
             Radio({
-                name: "edgeSplit",
-                checked: data.edgeSplit === option,
+                name: STORAGE_KEY,
+                checked: selectedOption === option,
                 text: option,
                 value: option,
                 onChange: (e) => {
 
-                    data.edgeSplit = e.target.value,
-                    saveToStorage(STORAGE_KEY, data);
+                    selectedOption = e.target.value,
+                    saveToStorage(STORAGE_KEY, selectedOption);
                 }
             })
         );
@@ -44,7 +42,7 @@ export default function EdgeSplit()
 
     function getData()
     {
-        return data;
+        return selectedOption;
     }
 
     return {element: fieldSet, getData: getData}

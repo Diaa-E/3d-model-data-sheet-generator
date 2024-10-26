@@ -13,32 +13,30 @@ export default function Uv()
         "Overlapping by Extrusion",
     ];
 
-    const data = getFromStorage(
+    const selectedOptions = getFromStorage(
         STORAGE_KEY,
-        {
-            uv: []
-        }
+        []
     );
 
     const checkboxGroup = options.map(option => {
 
         return (
             CheckBox({
-                name: "uv",
+                name: STORAGE_KEY,
                 text: option,
                 value: option,
-                checked: data.uv.findIndex(item => item === option) > -1,
+                checked: selectedOptions.includes(option),
                 onChange: (e) => {
 
                     if (e.target.checked)
                     {
-                        data.uv.push(e.target.value);
-                        saveToStorage(STORAGE_KEY, data);
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
                     }
                     else
                     {
-                        data.uv.splice(data.uv.findIndex(item => item === option), 1);
-                        saveToStorage(STORAGE_KEY, data);
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
                     }
                 }
             })
@@ -52,7 +50,7 @@ export default function Uv()
 
     function getData()
     {
-        return data;
+        return selectedOptions;
     }
 
     return { element: fieldSet, getData: getData }

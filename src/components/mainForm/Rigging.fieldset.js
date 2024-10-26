@@ -6,45 +6,45 @@ export default function Rigging()
 {
     const STORAGE_KEY = "rigging";
 
-    const data = getFromStorage(
+    const options = [
+        "Rigged",
+        "Animated"
+    ];
+
+    const selectedOptions = getFromStorage(
         STORAGE_KEY,
-        {
-            rigging: {
-                isRigged: false,
-                isAnimated: false,
-            }
-        }
+        []
     );
 
-    const riggedCheckbox = CheckBox({
-        checked: data.rigging.isRigged,
-        name: "rigged",
-        text: "Rigged",
-        value: "rigged",
-        onChange: (e) => {
-            
-            data.rigging.isRigged = e.target.checked;
-            saveToStorage(STORAGE_KEY, data);
-        }
+    const checkboxGroup = options.map(option => {
+
+        return (
+            CheckBox({
+                checked: selectedOptions.includes(option),
+                name: STORAGE_KEY,
+                onChange: (e) => {
+
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                },
+                text: option,
+                value: option
+            })
+        );
     });
-
-    const animatedCheckbox = CheckBox({
-        checked: data.rigging.isAnimated,
-        name: "animated",
-        text: "Animated",
-        value: "animated",
-        onChange: (e) => {
-
-            data.rigging.isAnimated = e.target.checked;
-            saveToStorage(STORAGE_KEY, data);
-        }
-    })
 
     const fieldSet = Fieldset({
         legend: "Rigging and Animation",
         children: [
-            riggedCheckbox,
-            animatedCheckbox,
+            checkboxGroup
         ]
     });
 

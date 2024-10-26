@@ -7,36 +7,50 @@ import RadioGroup from "../RadioGroup";
 export default function TextureFormat()
 {
     const STORAGE_KEY = "textureFormat";
+    const STORAGE_KEY_USER = `${STORAGE_KEY}_user`;
 
-    const data = getFromStorage(
+    const options = [
+        ".PNG",
+        ".JPEG",
+        ".EXR",
+    ];
+
+    const userOptions = getFromStorage(
+        STORAGE_KEY_USER,
+        []
+    );
+
+    const selectedOptions = getFromStorage(
         STORAGE_KEY,
-        {
-            textureFormat: {
-                ".PNG": false,
-                ".EXR": false,
-                ".JPEG": false,
-            }
-        }
+        []
     );
 
     const checkboxGroup = RadioGroup({});
 
-    for (const key of Object.keys(data.textureFormat))
-    {
+    [...options, ...userOptions].forEach(option => {
+
         checkboxGroup.addButton(
             CheckBox({
+                checked: selectedOptions.includes(option),
                 name: STORAGE_KEY,
-                checked: data.textureFormat[key],
                 onChange: (e) => {
 
-                    data.textureFormat[key] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
-                text: key,
-                value: key
+                text: option,
+                value: option
             })
         );
-    }
+    });
     
     const addTextureFormat = AddCheckbox({
         legend: "Add a new texture format",
@@ -54,22 +68,30 @@ export default function TextureFormat()
 
     function addFormat()
     {
-        data.textureFormat[addTextureFormat.getValue()] = false;
         checkboxGroup.addButton(
             CheckBox({
-                checked: data.textureFormat[addTextureFormat.getValue()],
+                checked: false,
                 name: STORAGE_KEY,
                 onChange: (e) => {
 
-                    data.textureFormat[e.target.value] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === addTextureFormat.getValue()), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
                 text: addTextureFormat.getValue(),
                 value: addTextureFormat.getValue()
             })
         );
+        userOptions.push(addTextureFormat.getValue());
         addTextureFormat.clear();
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(STORAGE_KEY_USER, userOptions);
     }
 
     return { element: fieldSet, };

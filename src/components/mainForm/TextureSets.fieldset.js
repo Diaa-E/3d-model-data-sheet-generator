@@ -12,11 +12,9 @@ export default function TextureSets()
 {
     const STORAGE_KEY = "textureSets";
 
-    const data = getFromStorage(
+    let textureSets = getFromStorage(
         STORAGE_KEY,
-        {
-            textureSets: []
-        }
+        []
     );
 
     const textureName = TextInput({
@@ -69,7 +67,7 @@ export default function TextureSets()
     const unorderedList = UnorderedList({
         addToData: addToData,
         removeFromData: deleteFromData,
-        listItems: data.textureSets
+        listItems: textureSets
     });
 
     const fieldContainer = FieldsContainer({
@@ -98,21 +96,21 @@ export default function TextureSets()
 
     function addToData(key, firstField, secondField)
     {
-        data.textureSets.push({
+        textureSets.push({
             id: key,
             itemName: firstField,
             itemCount: secondField
         });
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(STORAGE_KEY, textureSets);
     }
 
     function deleteFromData(key)
     {
-        data.textureSets = data.textureSets.filter(item => {
+        textureSets = textureSets.filter(item => {
 
             return item.id !== key;
         });
-        saveToStorage(STORAGE_KEY, data);
+        saveToStorage(STORAGE_KEY, textureSets);
     }
 
     return { element: fieldSet }

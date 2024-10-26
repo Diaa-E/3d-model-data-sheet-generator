@@ -6,7 +6,7 @@ import FieldsContainer from "../FieldsContainer";
 export default function PolyCount()
 {
     const STORAGE_KEY = "polyCount";
-    const data = getFromStorage(
+    const polyCount = getFromStorage(
         STORAGE_KEY,
         {
             vertices: "",
@@ -19,12 +19,12 @@ export default function PolyCount()
         min: "0",
         onInput: (e) => {
 
-            data.vertices = e.target.value;
-            saveToStorage(STORAGE_KEY, data);
+            polyCount.vertices = e.target.value;
+            saveToStorage(STORAGE_KEY, polyCount);
         },
         placeholder: "Number of Vertices",
         text: "Vertices",
-        value: data.vertices
+        value: polyCount.vertices
     });
 
     const trianglesInput = NumberInput({
@@ -32,12 +32,12 @@ export default function PolyCount()
         min: "0",
         onInput: (e) => {
 
-            data.triangles = e.target.value;
-            saveToStorage(STORAGE_KEY, data);
+            polyCount.triangles = e.target.value;
+            saveToStorage(STORAGE_KEY, polyCount);
         },
         placeholder: "Number of Triangles",
         text: "Triangles",
-        value: data.triangles
+        value: polyCount.triangles
     });
 
     const fieldsContainer = FieldsContainer({
@@ -56,7 +56,7 @@ export default function PolyCount()
 
     function getData()
     {
-        return data;
+        return polyCount;
     }
 
     return { element: fieldSet, getData: getData }

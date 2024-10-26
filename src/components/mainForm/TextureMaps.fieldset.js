@@ -7,50 +7,65 @@ import RadioGroup from "../RadioGroup";
 export default function TextureMaps()
 {
     const STORAGE_KEY = "textureMaps";
-    const data = getFromStorage(
+    const STORAGE_KEY_USER = `${STORAGE_KEY}_user`;
+
+    const options = [
+        "Ambient Occlusion",
+        "Base Color",
+        "Base Color (RGB) + Opacity (Alpha)",
+        "Albedo",
+        "Albedo (RGB) + Opacity (Alpha)",
+        "Emissive",
+        "Glossiness",
+        "Height/Bump",
+        "ID Map",
+        "Metallic",
+        "Normal DX",
+        "Normal GL",
+        "Opacity",
+        "Normal DX (RGB) + Height (Alpha)",
+        "Normal GL (RGB) + Height (Alpha)",
+        "Ambient Occlusion (R) + Roughness (G) + Metallic (B)",
+        "Roughness",
+        "Specular"
+    ];
+
+    const userOptions = getFromStorage(
+        STORAGE_KEY_USER,
+        []
+    );
+
+    const selectedOptions = getFromStorage(
         STORAGE_KEY,
-        {
-            textureMaps: {
-                "Ambient Occlusion": false,
-                "Base Color": false,
-                "Base Color (RGB) + Opacity (Alpha)": false,
-                "Albedo" : false,
-                "Albedo (RGB) + Opacity (Alpha)": false,
-                "Emissive": false,
-                "Glossiness": false,
-                "Height/Bump": false,
-                "ID Map": false,
-                "Metallic": false,
-                "Normal DX": false,
-                "Normal GL": false,
-                "Opacity": false,
-                "Normal DX (RGB) + Height (Alpha)": false,
-                "Normal GL (RGB) + Height (Alpha)": false,
-                "Ambient Occlusion (R) + Roughness (G) + Metallic (B)": false,
-                "Roughness": false,
-                "Specular": false
-            }
-        }
+        []
     );
 
     const checkboxGroup = RadioGroup({});
 
-    for (const key of Object.keys(data.textureMaps))
-    {
+    [...options, ...userOptions].forEach(option => {
+
         checkboxGroup.addButton(
             CheckBox({
+                checked: selectedOptions.includes(option),
                 name: STORAGE_KEY,
-                checked: data.textureMaps[key],
                 onChange: (e) => {
 
-                    data.textureMaps[key] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
-                text: key,
-                value: key
+                text: option,
+                value: option
             })
-        );
-    }
+        )
+    });
 
     const addTextureMapFieldset = AddCheckbox({
         legend: "Add a new texture map",
@@ -68,22 +83,30 @@ export default function TextureMaps()
 
     function addTextureMap()
     {
-        data.textureMaps[addTextureMapFieldset.getValue()] = false;
-        saveToStorage(STORAGE_KEY, data);
         checkboxGroup.addButton(
             CheckBox({
                 name: STORAGE_KEY,
-                checked: data.textureMaps[addTextureMapFieldset.getValue()],
+                checked: false,
                 onChange: (e) => {
 
-                    data.textureMaps[e.target.value] = e.target.checked;
-                    saveToStorage(STORAGE_KEY, data);
+                    if (e.target.checked)
+                    {
+                        selectedOptions.push(e.target.value);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
+                    else
+                    {
+                        selectedOptions.splice(selectedOptions.findIndex(item => item === addTextureMapFieldset.getValue()), 1);
+                        saveToStorage(STORAGE_KEY, selectedOptions);
+                    }
                 },
                 text: addTextureMapFieldset.getValue(),
                 value: addTextureMapFieldset.getValue(),
             })
         );
+        userOptions.push(addTextureMapFieldset.getValue());
         addTextureMapFieldset.clear();
+        saveToStorage(STORAGE_KEY_USER, userOptions)
     }
 
     return { element: fieldSet };
