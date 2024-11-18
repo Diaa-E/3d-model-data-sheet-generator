@@ -44,6 +44,7 @@ describe("Radio Fieldset Component", () => {
 
         const fieldSet = document.querySelectorAll("fieldset")[0];
 
+        expect(fieldSet.querySelector("legend")).not.toBeNull();
         expect(fieldSet.querySelector("legend").textContent).toBe("test 1");
     });
 
