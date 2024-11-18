@@ -6,8 +6,6 @@ import ModelContents from "./ModelContents.fieldset";
 import ModelInfo from "./ModelInfo.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import RadioFieldset from "./RadioFieldSet";
-import TextureFormat from "./TextureFormat";
-import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
 
 export default function MainForm()
@@ -101,8 +99,34 @@ export default function MainForm()
         userOptionLegend: "Add a new texture format",
         userOptionPlaceholder: "New Texture Format"
     });
-    
-    const textureMaps = TextureMaps();
+
+    const textureMaps = CheckboxFieldset({
+        legend: "Texture Maps",
+        options: [
+            "Ambient Occlusion",
+            "Base Color",
+            "Base Color (RGB) + Opacity (Alpha)",
+            "Albedo",
+            "Albedo (RGB) + Opacity (Alpha)",
+            "Emissive",
+            "Glossiness",
+            "Height/Bump",
+            "ID Map",
+            "Metallic",
+            "Normal DX",
+            "Normal GL",
+            "Opacity",
+            "Normal DX (RGB) + Height (Alpha)",
+            "Normal GL (RGB) + Height (Alpha)",
+            "Ambient Occlusion (R) + Roughness (G) + Metallic (B)",
+            "Roughness",
+            "Specular"
+        ],
+        storageKey: "textureMaps",
+        enableUserOptions: true,
+        userOptionLegend: "Add a new texture map",
+        userOptionPlaceholder: "New Texture Map"
+    });
 
     const targetSite = RadioFieldset({
         legend: "Target Website",
