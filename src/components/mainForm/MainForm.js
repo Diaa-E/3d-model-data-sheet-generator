@@ -7,7 +7,6 @@ import ModelInfo from "./ModelInfo.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import RadioFieldset from "./RadioFieldSet";
 import Rigging from "./Rigging.fieldset";
-import TargetSite from "./TargetSite.fieldset";
 import TextureFormat from "./TextureFormat";
 import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
@@ -29,7 +28,7 @@ export default function MainForm()
         storageKey: "modelTier",
         enableUserOptions: false,
     });
-    
+
     const polyCount = PolyCount();
 
     const meshType = RadioFieldset({
@@ -51,7 +50,18 @@ export default function MainForm()
     const textureWorkflow = TextureWorkflow();
     const textureFormat = TextureFormat();
     const textureMaps = TextureMaps();
-    const targetSite = TargetSite();
+
+    const targetSite = RadioFieldset({
+        legend: "Target Website",
+        options: [
+            "None",
+            "CGTrader",
+            "Fab",
+            "Sketchfab",
+        ],
+        storageKey: "targetSite",
+        enableUserOptions: false
+    });
 
     const form = createElement(
         "form",
