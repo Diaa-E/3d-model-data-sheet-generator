@@ -1,7 +1,6 @@
 import { createElement } from "../../utils/createElement";
 import EdgeSplit from "./EdgeSplit.fieldset";
 import styles from "./MainForm.module.css";
-import MeshType from "./MeshType.fieldset";
 import ModelContents from "./ModelContents.fieldset";
 
 import ModelInfo from "./ModelInfo.fieldset";
@@ -19,6 +18,7 @@ export default function MainForm()
 {
     const modelInfo = ModelInfo();
     const modelContents = ModelContents();
+
     const modelTier = RadioFieldset({
         legend: "Model Tier",
         options: [
@@ -29,8 +29,21 @@ export default function MainForm()
         storageKey: "modelTier",
         enableUserOptions: false,
     });
+    
     const polyCount = PolyCount();
-    const meshType = MeshType();
+
+    const meshType = RadioFieldset({
+        legend: "Mesh Type",
+        options: [
+            "Non-unifrom Polygons",
+            "Triangulated Mesh",
+            "Quad Mesh",
+            "Quad Mesh (Subdivision Ready)",
+        ],
+        storageKey: "meshType",
+        enableUserOptions: false,
+    });
+
     const edgeSplit = EdgeSplit();
     const rigging = Rigging();
     const uv = Uv();
