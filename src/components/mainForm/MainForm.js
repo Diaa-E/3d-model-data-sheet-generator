@@ -5,8 +5,8 @@ import MeshType from "./MeshType.fieldset";
 import ModelContents from "./ModelContents.fieldset";
 
 import ModelInfo from "./ModelInfo.fieldset";
-import ModelTier from "./ModelTier.fieldset";
 import PolyCount from "./PolyCount.fieldset";
+import RadioFieldset from "./RadioFieldSet";
 import Rigging from "./Rigging.fieldset";
 import TargetSite from "./TargetSite.fieldset";
 import TextureFormat from "./TextureFormat";
@@ -19,7 +19,16 @@ export default function MainForm()
 {
     const modelInfo = ModelInfo();
     const modelContents = ModelContents();
-    const modelTier = ModelTier();
+    const modelTier = RadioFieldset({
+        legend: "Model Tier",
+        options: [
+            "Low-poly",
+            "Mid-poly",
+            "High-poly"
+        ],
+        storageKey: "modelTier",
+        enableUserOptions: false,
+    });
     const polyCount = PolyCount();
     const meshType = MeshType();
     const edgeSplit = EdgeSplit();
