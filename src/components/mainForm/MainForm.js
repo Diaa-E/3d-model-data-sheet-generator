@@ -9,7 +9,6 @@ import RadioFieldset from "./RadioFieldSet";
 import TextureFormat from "./TextureFormat";
 import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
-import TextureWorkflow from "./TextureWorkflow.fieldset";
 
 export default function MainForm()
 {
@@ -76,7 +75,20 @@ export default function MainForm()
     });
 
     const textureSets = TextureSets();
-    const textureWorkflow = TextureWorkflow();
+
+    const textureWorkflow = CheckboxFieldset({
+        legend: "Texture Workflow",
+        options: [
+            "PBR Metallic Roughness",
+            "PBR Specular Gloss",
+            "Non-PBR",
+        ],
+        storageKey: "textureWorkflow",
+        enableUserOptions: true,
+        userOptionLegend: "Add a new texture workflow",
+        userOptionPlaceholder: "New Texture Workflow"
+    });
+
     const textureFormat = TextureFormat();
     const textureMaps = TextureMaps();
 
