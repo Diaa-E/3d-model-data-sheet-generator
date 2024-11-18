@@ -89,7 +89,19 @@ export default function MainForm()
         userOptionPlaceholder: "New Texture Workflow"
     });
 
-    const textureFormat = TextureFormat();
+    const textureFormat = CheckboxFieldset({
+        legend: "Texture Format",
+        options: [
+            ".PNG",
+            ".JPEG",
+            ".EXR",
+        ],
+        storageKey: "textureFormat",
+        enableUserOptions: true,
+        userOptionLegend: "Add a new texture format",
+        userOptionPlaceholder: "New Texture Format"
+    });
+    
     const textureMaps = TextureMaps();
 
     const targetSite = RadioFieldset({
