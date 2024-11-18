@@ -1,6 +1,6 @@
 export default function mockSessionStorage()
 {
-    const sessionStore = {};
+    let sessionStore = {};
 
     const mockGetItem = jest.fn((key) => {
 
@@ -12,6 +12,12 @@ export default function mockSessionStorage()
         sessionStore[key] = String(value);
     });
 
+    const clear = jest.fn(() => {
+
+        sessionStore = []
+    })
+
     window.sessionStorage.getItem = mockGetItem;
     window.sessionStorage.setItem = mockSetItem;
+    window.sessionStorage.clear = clear;
 }
