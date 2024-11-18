@@ -1,11 +1,11 @@
 import { createElement } from "../../utils/createElement";
+import CheckboxFieldset from "./CheckboxFieldset";
 import styles from "./MainForm.module.css";
 import ModelContents from "./ModelContents.fieldset";
 
 import ModelInfo from "./ModelInfo.fieldset";
 import PolyCount from "./PolyCount.fieldset";
 import RadioFieldset from "./RadioFieldSet";
-import Rigging from "./Rigging.fieldset";
 import TextureFormat from "./TextureFormat";
 import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
@@ -54,7 +54,16 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const rigging = Rigging();
+    const rigging = CheckboxFieldset({
+        legend: "Rigging and Animation",
+        options: [
+            "Rigged",
+            "Animated",
+        ],
+        storageKey: "rigging",
+        enableUserOptions: false,
+    });
+
     const uv = Uv();
     const textureSets = TextureSets();
     const textureWorkflow = TextureWorkflow();
