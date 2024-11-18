@@ -1,5 +1,4 @@
 import { createElement } from "../../utils/createElement";
-import EdgeSplit from "./EdgeSplit.fieldset";
 import styles from "./MainForm.module.css";
 import ModelContents from "./ModelContents.fieldset";
 
@@ -43,7 +42,18 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const edgeSplit = EdgeSplit();
+    const edgeSplit = RadioFieldset({
+        legend: "Edge Split",
+        options: [
+            "None",
+            "Sharp Edges",
+            "Angle-based",
+            "All Edges"
+        ],
+        storageKey: "edgeSplit",
+        enableUserOptions: false,
+    });
+
     const rigging = Rigging();
     const uv = Uv();
     const textureSets = TextureSets();
