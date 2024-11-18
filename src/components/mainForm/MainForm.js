@@ -10,7 +10,6 @@ import TextureFormat from "./TextureFormat";
 import TextureMaps from "./TextureMaps.fieldset";
 import TextureSets from "./TextureSets.fieldset";
 import TextureWorkflow from "./TextureWorkflow.fieldset";
-import Uv from "./Uv.fieldset";
 
 export default function MainForm()
 {
@@ -64,7 +63,18 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const uv = Uv();
+    const uv = CheckboxFieldset({
+        legend: "UV Mapping",
+        options: [
+            "Non-overlapping",
+            "Overlapping by duplication",
+            "Overlapping by Mirroring",
+            "Overlapping by Extrusion"
+        ],
+        storageKey: "uv",
+        enableUserOptions: false,
+    });
+
     const textureSets = TextureSets();
     const textureWorkflow = TextureWorkflow();
     const textureFormat = TextureFormat();
