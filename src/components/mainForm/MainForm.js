@@ -4,7 +4,7 @@ import styles from "./MainForm.module.css";
 import ModelContents from "./ModelContents.fieldset";
 
 import ModelInfoFieldset from "./ModelInfoFieldset";
-import PolyCount from "./PolyCount.fieldset";
+import PolyCountFieldset from "./PolyCountFieldset";
 import RadioFieldset from "./RadioFieldSet";
 import TextureSets from "./TextureSets.fieldset";
 
@@ -27,7 +27,7 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const polyCount = PolyCount();
+    const polyCount = PolyCountFieldset();
 
     const meshType = RadioFieldset({
         legend: "Mesh Type",

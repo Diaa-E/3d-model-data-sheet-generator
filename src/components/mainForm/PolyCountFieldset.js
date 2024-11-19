@@ -3,9 +3,14 @@ import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility"
 import NumberInput from "../NumberInput";
 import FieldsContainer from "../FieldsContainer";
 
-export default function PolyCount()
+export default function PolyCountFieldset(props = {storageKey: ""})
 {
-    const STORAGE_KEY = "polyCount";
+    props = {
+        storageKey: "defaultKey",
+        ...props
+    };
+
+    const STORAGE_KEY = props.storageKey;
     const polyCount = getFromStorage(
         STORAGE_KEY,
         {
@@ -54,10 +59,10 @@ export default function PolyCount()
         ]
     });
 
-    function getData()
+    function getState()
     {
         return polyCount;
     }
 
-    return { element: fieldSet, getData: getData }
+    return { element: fieldSet, getState: getState }
 }
