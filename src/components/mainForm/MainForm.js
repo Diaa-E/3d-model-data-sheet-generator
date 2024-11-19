@@ -27,7 +27,9 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const polyCount = PolyCountFieldset();
+    const polyCount = PolyCountFieldset({
+        storageKey: "polycount"
+    });
 
     const meshType = RadioFieldset({
         legend: "Mesh Type",
