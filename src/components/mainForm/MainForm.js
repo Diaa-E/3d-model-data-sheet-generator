@@ -3,14 +3,17 @@ import CheckboxFieldset from "./CheckboxFieldset";
 import styles from "./MainForm.module.css";
 import ModelContents from "./ModelContents.fieldset";
 
-import ModelInfo from "./ModelInfo.fieldset";
+import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCount from "./PolyCount.fieldset";
 import RadioFieldset from "./RadioFieldSet";
 import TextureSets from "./TextureSets.fieldset";
 
 export default function MainForm()
 {
-    const modelInfo = ModelInfo();
+    const modelInfo = ModelInfoFieldset({
+        storageKey: "modelInfo"
+    });
+
     const modelContents = ModelContents();
 
     const modelTier = RadioFieldset({

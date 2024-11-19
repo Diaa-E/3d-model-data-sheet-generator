@@ -3,9 +3,14 @@ import Fieldset from "../Fieldset";
 import TextArea from "../TextArea";
 import TextInput from "../TextInput";
 
-export default function ModelInfo()
+export default function ModelInfoFieldset(props = {storageKey: ""})
 {
-    const STORAGE_KEY = "modelInfo";
+    props = {
+        storageKey: "defaultKey",
+        ...props
+    };
+
+    const STORAGE_KEY = props.storageKey;
     const modelInfo = getFromStorage(
         STORAGE_KEY,
         {
@@ -24,13 +29,13 @@ export default function ModelInfo()
         },
         placeholder: "Model Title",
         required: true,
-        text: "Title",
+        text: "Model Title",
         value: modelInfo.title
     });
 
     const descriptionField = TextArea({
         placeholder: "Model Description",
-        text: "Description",
+        text: "Model Description",
         value: modelInfo.description,
         onInput: (e) => {
 
@@ -40,17 +45,17 @@ export default function ModelInfo()
     });
 
     const fieldSet = Fieldset({
-        legend: "Title and Description",
+        legend: "Model Information",
         children: [
             titleField.element,
             descriptionField
         ]
     });
 
-    function getData()
+    function getState()
     {
         return modelInfo;
     }
 
-    return {element: fieldSet, getData: getData};
+    return {element: fieldSet, getState: getState};
 }
