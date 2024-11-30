@@ -1,9 +1,9 @@
 import { createElement } from "../../utils/createElement";
-import CheckboxFieldset from "./CheckboxFieldset";
 import styles from "./MainForm.module.css";
 
 import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCountFieldset from "./PolyCountFieldset";
+import CheckboxFieldset from "./CheckboxFieldset";
 import RadioFieldset from "./RadioFieldSet";
 
 export default function MainForm()
