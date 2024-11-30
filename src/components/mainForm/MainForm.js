@@ -1,7 +1,6 @@
 import { createElement } from "../../utils/createElement";
 import CheckboxFieldset from "./CheckboxFieldset";
 import styles from "./MainForm.module.css";
-import ModelContentsFieldset from "./ModelContentsFieldset";
 
 import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCountFieldset from "./PolyCountFieldset";
@@ -14,8 +13,13 @@ export default function MainForm()
         storageKey: "modelInfo"
     });
 
-    const modelContents = ModelContentsFieldset({
-        storageKey: "modelContents",
+    const modelContents2 = CheckboxFieldset({
+        legend: "Model Contents",
+        options: [],
+        storageKey: "modelContents2",
+        enableUserOptions: true,
+        userOptionLegend: "Add a new item",
+        userOptionPlaceholder: "i.e 5 lowpoly mokneys",
     });
 
     const modelTier = RadioFieldset({
@@ -159,7 +163,7 @@ export default function MainForm()
         },
         [
             modelInfo.element,
-            modelContents.element,
+            modelContents2.element,
             modelTier.element,
             polyCount.element,
             meshType.element,
