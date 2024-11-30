@@ -12,10 +12,10 @@ export default function MainForm()
         storageKey: "modelInfo"
     });
 
-    const modelContents2 = CheckboxFieldset({
+    const modelContents = CheckboxFieldset({
         legend: "Model Contents",
         options: [],
-        storageKey: "modelContents2",
+        storageKey: "modelContents",
         enableUserOptions: true,
         userOptionLegend: "Add a new item",
         userOptionPlaceholder: "i.e 5 lowpoly mokneys",
@@ -169,7 +169,7 @@ export default function MainForm()
         },
         [
             modelInfo.element,
-            modelContents2.element,
+            modelContents.element,
             modelTier.element,
             polyCount.element,
             meshType.element,
