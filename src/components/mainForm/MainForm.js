@@ -5,7 +5,6 @@ import styles from "./MainForm.module.css";
 import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCountFieldset from "./PolyCountFieldset";
 import RadioFieldset from "./RadioFieldSet";
-import TextureSets from "./TextureSets.fieldset";
 
 export default function MainForm()
 {
@@ -83,7 +82,14 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const textureSets = TextureSets();
+    const textureSets = CheckboxFieldset({
+        legend: "Texture Sets",
+        options: [],
+        storageKey: "textureSets",
+        enableUserOptions: true,
+        userOptionLegend: "Add a new texture set",
+        userOptionPlaceholder: "i.e lowpoly monkey (4096 x 4096)"
+    });
 
     const textureWorkflow = CheckboxFieldset({
         legend: "Texture Workflow",
