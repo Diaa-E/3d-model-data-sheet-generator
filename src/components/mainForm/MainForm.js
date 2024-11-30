@@ -1,7 +1,7 @@
 import { createElement } from "../../utils/createElement";
 import CheckboxFieldset from "./CheckboxFieldset";
 import styles from "./MainForm.module.css";
-import ModelContents from "./ModelContents.fieldset";
+import ModelContentsFieldset from "./ModelContentsFieldset";
 
 import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCountFieldset from "./PolyCountFieldset";
@@ -14,7 +14,9 @@ export default function MainForm()
         storageKey: "modelInfo"
     });
 
-    const modelContents = ModelContents();
+    const modelContents = ModelContentsFieldset({
+        storageKey: "modelContents",
+    });
 
     const modelTier = RadioFieldset({
         legend: "Model Tier",

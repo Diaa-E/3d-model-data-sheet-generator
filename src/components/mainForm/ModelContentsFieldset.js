@@ -8,9 +8,15 @@ import TextInput from "../TextInput";
 import MiniFieldset from "../MiniFieldset";
 import icons from "../../barrels/icons.barrel";
 
-export default function ModelContents()
+export default function ModelContentsFieldset(props = {storageKey: ""})
 {
-    const STORAGE_KEY = "modelContents";
+    props = {
+
+        storageKey: "defaultKey",
+        ...props,
+    };
+
+    const STORAGE_KEY = props.storageKey;
 
     let items = getFromStorage(
         STORAGE_KEY,
@@ -45,12 +51,12 @@ export default function ModelContents()
 
     const unorderedList = UnorderedList({
 
-        addToData: addToData,
-        removeFromData: deleteFromData,
+        addToData: addToState,
+        removeFromData: deleteFromState,
         listItems: items
     });
 
-    function deleteFromData(key)
+    function deleteFromState(key)
     {
         items = items.filter(item => {
 
@@ -59,7 +65,7 @@ export default function ModelContents()
         saveToStorage(STORAGE_KEY, items);
     }
 
-    function addToData(key, firstField, secondField)
+    function addToState(key, firstField, secondField)
     {
         items.push({
             id: key,
@@ -98,5 +104,10 @@ export default function ModelContents()
         ],
     });
 
-    return { element: fieldSet }
+    function getState()
+    {
+        return items;
+    }
+
+    return { element: fieldSet, getState: getState };
 }
