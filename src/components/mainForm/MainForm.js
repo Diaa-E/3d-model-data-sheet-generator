@@ -8,14 +8,31 @@ import RadioFieldset from "./RadioFieldSet";
 
 export default function MainForm()
 {
+    // keeps all keys in sight to easily spot repeating keys if they exist
+    const storageKeys = {
+        modelInfo: "modelInfo",
+        modelContents: "modelContents",
+        modelTier: "modelTier",
+        polyCount: "polyCount",
+        meshType: "meshType",
+        edgeSplit: "edgeSplit",
+        rigging: "rigging",
+        uv: "uv",
+        textureSets: "textureSets",
+        textureFormat: "textureFormat",
+        textureMaps: "textureMaps",
+        targetSite: "targetSite",
+        textureWorkflow: "textureWorkflow",
+    };
+
     const modelInfo = ModelInfoFieldset({
-        storageKey: "modelInfo"
+        storageKey: storageKeys.modelInfo
     });
 
     const modelContents = CheckboxFieldset({
         legend: "Model Contents",
         options: [],
-        storageKey: "modelContents",
+        storageKey: storageKeys.modelContents,
         enableUserOptions: true,
         userOptionLegend: "Add a new item",
         userOptionPlaceholder: "i.e 5 lowpoly mokneys",
@@ -28,12 +45,12 @@ export default function MainForm()
             "Mid-poly",
             "High-poly"
         ],
-        storageKey: "modelTier",
+        storageKey: storageKeys.modelTier,
         enableUserOptions: false,
     });
 
     const polyCount = PolyCountFieldset({
-        storageKey: "polycount"
+        storageKey: storageKeys.polyCount
     });
 
     const meshType = RadioFieldset({
@@ -44,7 +61,7 @@ export default function MainForm()
             "Quad Mesh",
             "Quad Mesh (Subdivision Ready)",
         ],
-        storageKey: "meshType",
+        storageKey: storageKeys.meshType,
         enableUserOptions: false,
     });
 
@@ -56,7 +73,7 @@ export default function MainForm()
             "Angle-based",
             "All Edges"
         ],
-        storageKey: "edgeSplit",
+        storageKey: storageKeys.edgeSplit,
         enableUserOptions: false,
     });
 
@@ -66,7 +83,7 @@ export default function MainForm()
             "Rigged",
             "Animated",
         ],
-        storageKey: "rigging",
+        storageKey: storageKeys.rigging,
         enableUserOptions: false,
     });
 
@@ -78,14 +95,14 @@ export default function MainForm()
             "Overlapping by Mirroring",
             "Overlapping by Extrusion"
         ],
-        storageKey: "uv",
+        storageKey: storageKeys.uv,
         enableUserOptions: false,
     });
 
     const textureSets = CheckboxFieldset({
         legend: "Texture Sets",
         options: [],
-        storageKey: "textureSets",
+        storageKey: storageKeys.textureSets,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture set",
         userOptionPlaceholder: "i.e lowpoly monkey (4096 x 4096)"
@@ -98,7 +115,7 @@ export default function MainForm()
             "PBR Specular Gloss",
             "Non-PBR",
         ],
-        storageKey: "textureWorkflow",
+        storageKey: storageKeys.textureWorkflow,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture workflow",
         userOptionPlaceholder: "New Texture Workflow"
@@ -111,7 +128,7 @@ export default function MainForm()
             ".JPEG",
             ".EXR",
         ],
-        storageKey: "textureFormat",
+        storageKey: storageKeys.textureFormat,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture format",
         userOptionPlaceholder: "New Texture Format"
@@ -139,7 +156,7 @@ export default function MainForm()
             "Roughness",
             "Specular"
         ],
-        storageKey: "textureMaps",
+        storageKey: storageKeys.textureMaps,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture map",
         userOptionPlaceholder: "New Texture Map"
@@ -153,7 +170,7 @@ export default function MainForm()
             "Fab",
             "Sketchfab",
         ],
-        storageKey: "targetSite",
+        storageKey: storageKeys.targetSite,
         enableUserOptions: false
     });
 
