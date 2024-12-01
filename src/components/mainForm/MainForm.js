@@ -35,7 +35,7 @@ export default function MainForm()
         storageKey: storageKeys.modelContents,
         enableUserOptions: true,
         userOptionLegend: "Add a new item",
-        userOptionPlaceholder: "i.e 5 lowpoly mokneys",
+        userOptionPlaceholder: "i.e 5 lowpoly monkeys",
     });
 
     const modelTier = RadioFieldset({
