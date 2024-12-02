@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement";
 import styles from "./AddCheckbox.module.css";
-import IconButton from "./IconButton";
+import IconButton from "./Button";
 import { v4 as generateId } from "uuid";
 import icons from "../barrels/icons.barrel";
 
