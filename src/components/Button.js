@@ -20,15 +20,15 @@ export default function Button(props = {
     };
 
     const colors = {
-        primary: styles["icon-button-primary"],
-        secondary: styles["icon-button-secondary"],
-        danger: styles["icon-button-danger"],
+        primary: styles["button-primary"],
+        secondary: styles["button-secondary"],
+        danger: styles["button-danger"],
     }
 
     const textSpan = createElement(
         "span",
         {
-            class: styles["icon-button-text"],
+            class: styles["button-text"],
         },
         [
             props.text
@@ -46,7 +46,7 @@ export default function Button(props = {
         "button",
         {
             type: props.type,
-            class: `${styles["icon-button"]} ${colors[props.color]}`,
+            class: `${styles["button"]} ${colors[props.color]}`,
             onClick: props.onClick,
         },
         [

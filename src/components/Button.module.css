@@ -1,4 +1,4 @@
-.icon-button{
+.button{
     width: 100%;
     height: 30px;
     min-width: 30px;
@@ -17,34 +17,34 @@
     background-position: center;
 }
 
-.icon-button-primary{
+.button-primary{
     background-color: var(--green);
 }
 
-.icon-button-secondary{
+.button-secondary{
     background-color: var(--background-option);
 }
 
-.icon-button-danger{
+.button-danger{
     background-color: var(--red);
 }
 
-.icon-button-secondary .icon{
+.button-secondary .icon{
     filter: invert(1);
 }
 
-.icon-button-danger:hover{
+.button-danger:hover{
     background-color: var(--red-dark);
 }
 
-.icon-button-secondary:hover{
+.button-secondary:hover{
     background-color: var(--background-option-dark);
 }
 
-.icon-button-primary:hover{
+.button-primary:hover{
     background-color: var(--green-dark);
 }
 
-.icon-button-text{
+.button-text{
     display: none;
 }
