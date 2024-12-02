@@ -1,0 +1,22 @@
+.icon-button{
+    margin: 0 0 0 auto;
+    height: 30px;
+    min-width: 30px;
+    background-color: var(--none);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon{
+    height: 100%;
+    width: 100%;
+    background-image: var(--icon);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-button-text{
+    display: none;
+}

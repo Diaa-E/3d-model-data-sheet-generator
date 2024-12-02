@@ -1,4 +1,4 @@
-import Button from "../Button";
+import IconButton from "../IconButton";
 
 describe("Icon Button Component", () => {
 
@@ -10,7 +10,7 @@ describe("Icon Button Component", () => {
 
     it("Renders a button", () => {
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: () => {},
             iconPath: "",
@@ -25,7 +25,7 @@ describe("Icon Button Component", () => {
 
     it("Uses text from props", () => {
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: () => {},
             iconPath: "",
@@ -40,7 +40,7 @@ describe("Icon Button Component", () => {
 
     it("Uses type from props", () => {
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: () => {},
             iconPath: "",
@@ -55,7 +55,7 @@ describe("Icon Button Component", () => {
 
     it("Adds icon path prop to --icon property in the button's CSS", () => {
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: () => {},
             iconPath: "icon1",
@@ -72,7 +72,7 @@ describe("Icon Button Component", () => {
 
         const onClick = jest.fn();
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: onClick,
             iconPath: "icon1",
@@ -90,7 +90,7 @@ describe("Icon Button Component", () => {
 
         const onClick = jest.fn();
 
-        render(Button({
+        render(IconButton({
             color: "primary",
             onClick: onClick,
             iconPath: "icon1",
