@@ -1,8 +1,8 @@
 import { createElement } from "../utils/createElement";
-import styles from "./IconButton.module.css";
+import styles from "./Button.module.css";
 import icons from "../barrels/icons.barrel";
 
-export default function IconButton(props = {
+export default function Button(props = {
     type: "",
     onClick: () => {},
     iconPath: "",
