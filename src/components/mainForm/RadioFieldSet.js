@@ -3,6 +3,7 @@ import AddCheckbox from "../AddCheckbox";
 import Fieldset from "../Fieldset";
 import Radio from "../Radio";
 import RadioGroup from "../RadioGroup";
+import { searchCaseInsensitive } from "../../utils/customArraySearch";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -84,7 +85,7 @@ export default function RadioFieldset(props = {
             });
             return;
         }
-        else if (userOptions.includes(addOptionFieldset.getValue()) || options.includes(addOptionFieldset.getValue()))
+        else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
         {
             dispatchErrorPopupEvent({
 

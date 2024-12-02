@@ -4,6 +4,7 @@ import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
 import { dispatchErrorPopupEvent} from "../../utils/errorPopupEvents";
+import { searchCaseInsensitive } from "../../utils/customArraySearch";
 
 export default function CheckboxFieldset(props = {
     legend: "",
@@ -93,7 +94,7 @@ export default function CheckboxFieldset(props = {
             });
             return;
         }
-        else if (userOptions.includes(addOptionFieldset.getValue()) || options.includes(addOptionFieldset.getValue()))
+        else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
         {
             dispatchErrorPopupEvent({
 
