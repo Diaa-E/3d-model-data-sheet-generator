@@ -75,6 +75,25 @@ export default function RadioFieldset(props = {
 
     function addOption()
     {
+        if (addOptionFieldset.getValue() === "")
+        {
+            dispatchErrorPopupEvent({
+
+                dispatchingElement: addOptionFieldset.element,
+                errorMsg: "Field Cannot be empty."
+            });
+            return;
+        }
+        else if (userOptions.includes(addOptionFieldset.getValue()) || options.includes(addOptionFieldset.getValue()))
+        {
+            dispatchErrorPopupEvent({
+
+                dispatchingElement: addOptionFieldset.element,
+                errorMsg: "This option already exists"
+            });
+            return;
+        }
+
         radioGroup.addButton(
             Radio({
                 name: STORAGE_KEY,
