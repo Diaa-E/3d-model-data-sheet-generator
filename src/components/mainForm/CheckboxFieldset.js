@@ -3,7 +3,7 @@ import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
-import { dispatchErrorPopupEvent, popupEventName } from "../../utils/errorPopupEvents";
+import { dispatchErrorPopupEvent} from "../../utils/errorPopupEvents";
 
 export default function CheckboxFieldset(props = {
     legend: "",
