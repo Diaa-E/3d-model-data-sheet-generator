@@ -1,13 +1,15 @@
 "use strict";
 
+import ErrorPopup from "./components/ErrorPopup";
 import MainForm from "./components/mainForm/MainForm";
 
 export default function App()
 {
 
     const mainForm = MainForm();
+    const errorPopup = ErrorPopup();
            
-    return [ mainForm.element ];
+    return [ mainForm.element, errorPopup.element ];
 }
 
 // export function App()

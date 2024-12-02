@@ -12,7 +12,7 @@ global.render = (elements) => {
 
 global.cleanup = () => {
     
-    document.body.innerHTML = ""
+    document.body.innerHTML = "";
 }
 
 global.changeElementValue = (element, newValue) => {
