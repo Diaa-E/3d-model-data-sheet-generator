@@ -1,4 +1,4 @@
-# <img src="./src/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
+# <img src="./src/assets/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
 
 ## To do list
 
