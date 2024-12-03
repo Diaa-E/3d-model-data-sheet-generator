@@ -1,4 +1,4 @@
-# <img src="./src/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
+# <img src="./src/assets/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
 
 ## Change log
 
@@ -8,6 +8,28 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Added an extra option for animation.
+- ➕ Added "Non-uniform polygons" option to mesh type fieldset.
+- ➕ Added "Mid-poly" option to model tier fieldset.
+- ➕ Aligned page content more towards the center and added a max width for wide screens.
+- ➕ Softened element shadows.
+- ➕ Added a model title field.
+- ➕ Improved accessibility for multiple compoenents.
+- ➕ Added more descriptive options to the UV fieldset.
+- ➕ Model contents are now a single field an the user can freely enter all the related info like the item count.
+- ➕ Texture sets are now a single field and the user can freely enter all the related info like the resolution if applicable.
+- ➕ Errors are now displayed in a small notification popup at the bottom of the screen.
+- ➕ Removed the "scaled to real world dimensions" fieldset.
+- ➕ Document state is now saved to session storage to persist through reloads.
+- ➕ Users can now add their own options to some fieldsets.
+- ➕ Redesigned the logo.
+- ➕ Added extra options to the target site options.
+- ➕ Added feature to generate unformatted text (selecting none in the target site fieldset).
+- ⚙️ Reduced reliance on media queries.
+- ⚙️ Added all icons to a barrel file.
+- ⚙️ Added proper metadata.
+- ⚙️ Switched from global scope CSS to CSS modules.
+- ⚙️ Wrote unit tests for components.
 - ⚙️ Extracted each component in the ```components.js``` file into its own file.
 - ⚙️ Extracted each component in the ```elements.js``` file into its own file.
 
