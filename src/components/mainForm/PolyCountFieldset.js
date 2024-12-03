@@ -64,5 +64,5 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         return polyCount;
     }
 
-    return { element: fieldSet, getState: getState }
+    return { element: fieldSet.element, getState: getState }
 }

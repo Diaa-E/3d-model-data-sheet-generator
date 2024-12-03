@@ -10,7 +10,7 @@ describe("Fieldset Component", () => {
 
     it("Renders a fieldset and a legend child", () => {
 
-        render(Fieldset({ legend: "fieldset" }));
+        render(Fieldset({ legend: "fieldset" }).element);
 
         const fieldset = document.querySelector("fieldset");
         const legend = document.querySelector("legend");
@@ -21,7 +21,7 @@ describe("Fieldset Component", () => {
 
     it("Legend uses text from legend prop", () => {
 
-        render(Fieldset({ legend: "form fieldset 1" }));
+        render(Fieldset({ legend: "form fieldset 1" }).element);
         const legend = document.querySelector("legend");
 
         expect(legend.textContent).toBe("form fieldset 1");
@@ -32,7 +32,7 @@ describe("Fieldset Component", () => {
         const childNode = document.createElement("h1");
         childNode.textContent = "child node";
 
-        render(Fieldset({ legend: "fieldset", children: [ childNode ] }));
+        render(Fieldset({ legend: "fieldset", children: [ childNode ] }).element);
 
         const fieldset = document.querySelector("fieldset");
 

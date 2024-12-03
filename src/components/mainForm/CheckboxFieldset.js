@@ -92,6 +92,7 @@ export default function CheckboxFieldset(props = {
                 dispatchingElement: invalidField,
                 errorMsg: "Field Cannot be empty."
             });
+            fieldSet.setInvalid(true);
             return;
         }
         else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
@@ -101,9 +102,11 @@ export default function CheckboxFieldset(props = {
                 dispatchingElement: invalidField,
                 errorMsg: "This option already exists"
             });
+            fieldSet.setInvalid(true);
             return;
         }
 
+        fieldSet.setInvalid(false);
         checkboxGroup.addButton(
             CheckBox({
                 checked: false,
@@ -135,5 +138,5 @@ export default function CheckboxFieldset(props = {
         return selectedOptions;
     }
 
-    return { element: fieldSet, getState: getState };
+    return { element: fieldSet.element, getState: getState };
 }

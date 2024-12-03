@@ -35,5 +35,17 @@ export default function Fieldset(
         ]
     );
 
-    return fieldset;
+    function setInvalid(invalid)
+    {
+        if (invalid)
+        {
+            fieldset.classList.add(styles["invalid"]);
+        }
+        else
+        {
+            fieldset.classList.remove(styles["invalid"]);
+        }
+    }
+
+    return { element: fieldset, setInvalid: setInvalid };
 }

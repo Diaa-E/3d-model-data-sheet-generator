@@ -83,6 +83,7 @@ export default function RadioFieldset(props = {
                 dispatchingElement: invalidField,
                 errorMsg: "Field Cannot be empty."
             });
+            fieldSet.setInvalid(true);
             return;
         }
         else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
@@ -92,9 +93,11 @@ export default function RadioFieldset(props = {
                 dispatchingElement: invalidField,
                 errorMsg: "This option already exists"
             });
+            fieldSet.setInvalid(true);
             return;
         }
 
+        fieldSet.setInvalid(false);
         radioGroup.addButton(
             Radio({
                 name: STORAGE_KEY,
@@ -118,5 +121,5 @@ export default function RadioFieldset(props = {
         return selectedOption;
     }
 
-    return { element: fieldSet, getState: getState }
+    return { element: fieldSet.element, getState: getState }
 }

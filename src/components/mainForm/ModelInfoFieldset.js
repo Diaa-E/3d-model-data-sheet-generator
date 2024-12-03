@@ -57,5 +57,5 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         return modelInfo;
     }
 
-    return {element: fieldSet, getState: getState};
+    return {element: fieldSet.element, getState: getState};
 }

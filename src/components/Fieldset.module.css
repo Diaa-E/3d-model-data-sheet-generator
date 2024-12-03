@@ -1,5 +1,12 @@
 .fieldset{
     composes: card from "../common.module.css";
+    outline: none;
+    outline-color: var(--none);
+    transition: outline-color .2s ease-in-out ;
+}
+
+.invalid{
+    outline: solid var(--red) 2px;
 }
 
 .legend{
