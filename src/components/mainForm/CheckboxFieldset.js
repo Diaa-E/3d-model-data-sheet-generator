@@ -83,13 +83,13 @@ export default function CheckboxFieldset(props = {
         );
     });
 
-    function addOption()
+    function addOption(invalidField)
     {
         if (addOptionFieldset.getValue() === "")
         {
             dispatchErrorPopupEvent({
 
-                dispatchingElement: addOptionFieldset.element,
+                dispatchingElement: invalidField,
                 errorMsg: "Field Cannot be empty."
             });
             return;
@@ -98,7 +98,7 @@ export default function CheckboxFieldset(props = {
         {
             dispatchErrorPopupEvent({
 
-                dispatchingElement: addOptionFieldset.element,
+                dispatchingElement: invalidField,
                 errorMsg: "This option already exists"
             });
             return;

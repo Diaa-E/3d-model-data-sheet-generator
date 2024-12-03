@@ -20,7 +20,8 @@ export function dispatchErrorPopupEvent(options = {
         popupEventName,
         {
             detail: {
-                errorMsg: options.errorMsg
+                errorMsg: options.errorMsg,
+                lastFocusedElement: options.dispatchingElement,
             },
             bubbles: true,
         }

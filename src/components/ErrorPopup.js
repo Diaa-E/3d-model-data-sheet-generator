@@ -6,6 +6,8 @@ import { popupEventName } from "../utils/errorPopupEvents";
 
 export default function ErrorPopup()
 {
+    let lastFocusedElement = null;
+
     const errorMsg = createElement(
         "p",
         {
@@ -51,18 +53,21 @@ export default function ErrorPopup()
 
         openPopup();
         errorMsg.textContent = e.detail.errorMsg;
+        lastFocusedElement = e.detail.lastFocusedElement;
     });
 
     function closePopup()
     {
         popupWrapper.style.visibility = "hidden";
         popupWrapper.hidden = true;
+        lastFocusedElement.focus();
     }
 
     function openPopup()
     {
         popupWrapper.style.visibility = "visible";
         popupWrapper.hidden = false;
+        closeButton.focus();
     }
 
     return { element: popupWrapper }

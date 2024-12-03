@@ -19,14 +19,6 @@ export default function AddCheckbox( props = {
         ...props
     };
 
-    const addButton = IconButton({
-        color: "primary",
-        onClick: props.onAdd,
-        text: "Add",
-        type: "button",
-        iconPath: icons.addIcon
-    });
-
     const legend = createElement(
         "legend",
         {
@@ -46,6 +38,14 @@ export default function AddCheckbox( props = {
             id: props.id
         }
     );
+
+    const addButton = IconButton({
+        color: "primary",
+        onClick: () => props.onAdd(textBox),
+        text: "Add",
+        type: "button",
+        iconPath: icons.addIcon
+    });
 
     const label = createElement(
         "label",
