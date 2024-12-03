@@ -7,6 +7,8 @@ import { popupEventName } from "../utils/errorPopupEvents";
 export default function ErrorPopup()
 {
     let lastFocusedElement = null;
+    const CLOSE_DURATION = 0.5;
+    const OPEN_DURATION = 0.3;
 
     const errorMsg = createElement(
         "p",
@@ -24,7 +26,7 @@ export default function ErrorPopup()
         text: "Dismiss error popup",
         onClick: closePopup,
         type: "button"
-    })
+    });
 
     const popup = createElement(
         "div",
@@ -56,17 +58,29 @@ export default function ErrorPopup()
         lastFocusedElement = e.detail.lastFocusedElement;
     });
 
+    popup.style.setProperty("--close-duration", `${CLOSE_DURATION}s`);
+    popup.style.setProperty("--open-duration", `${OPEN_DURATION}s`);
+
     function closePopup()
     {
-        popupWrapper.style.visibility = "hidden";
-        popupWrapper.hidden = true;
+        popup.classList.remove(styles["open"]);
+        popup.classList.add(styles["close"]);
         lastFocusedElement.focus();
+
+        setTimeout(CLOSE_DURATION, () => {
+            
+            popupWrapper.style.visibility = "hidden";
+            popupWrapper.hidden = true;
+        });
     }
 
     function openPopup()
     {
         popupWrapper.style.visibility = "visible";
         popupWrapper.hidden = false;
+        
+        popup.classList.add(styles["open"]);
+        popup.classList.remove(styles["close"]);
         closeButton.focus();
     }
 
