@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Add favicon.
 - ➕ Added an extra option for animation.
 - ➕ Added "Non-uniform polygons" option to mesh type fieldset.
 - ➕ Added "Mid-poly" option to model tier fieldset.
