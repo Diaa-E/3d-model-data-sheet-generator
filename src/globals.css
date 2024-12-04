@@ -14,6 +14,8 @@
 }
 
 :root{
+    --background-dark: #1F2041;
+    --background-option-dark: #4B3F72;
     --background: #E8C4C4;
     --background-card: #f2e5e5;
     --background-mini-form: #daeaf1;
