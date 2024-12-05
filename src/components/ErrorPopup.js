@@ -67,11 +67,12 @@ export default function ErrorPopup()
         popup.classList.add(styles["close"]);
         lastFocusedElement.focus();
 
-        setTimeout(CLOSE_DURATION, () => {
-            
+        setTimeout(() => {
+
             popupWrapper.style.visibility = "hidden";
             popupWrapper.hidden = true;
-        });
+            
+        }, CLOSE_DURATION * 1000);
     }
 
     function openPopup()
