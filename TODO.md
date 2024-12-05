@@ -4,6 +4,9 @@
 
 ### Pending 🕝
 
+1. Make options keyboard focusable.
+1. Add dark mode.
+1. Unmount error popup from the DOM after closing.
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
 1. Add option to scroll to each error field.
