@@ -11,7 +11,7 @@
     border-radius: 5px;
     border: solid var(--font) 1px;
     cursor: pointer;
-    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out, box-shadow .2s ease-in-out;
     text-align: center;
     display: flex;
     justify-content: space-between;
