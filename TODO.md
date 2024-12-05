@@ -6,7 +6,6 @@
 
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
-1. Highlight error fields.
 1. Add option to scroll to each error field.
 1. Add dark mode.
 1. Revisit color palette.
@@ -15,6 +14,7 @@
 
 ### Completed ✅
 
+1. Highlight error fields.
 1. Lighten shadows.
 1. Move content more towards the center instead of stretching across the page.
 1. Improve accessibility.
