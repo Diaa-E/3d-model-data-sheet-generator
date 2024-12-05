@@ -3,7 +3,14 @@ import { createElement, createFragment } from "../utils/createElement";
 
 import styles from "./CheckBox.module.css";
 
-export default function CheckBox(props = { name: "", text: "", value: "", onChange: () => {}, checked: false })
+export default function CheckBox(props = {
+    name: "",
+    text: "",
+    value: "",
+    onChange: () => {},
+    checked: false,
+    userOption: false,
+})
 {
     props = {
         name: "checkbox",
@@ -11,6 +18,7 @@ export default function CheckBox(props = { name: "", text: "", value: "", onChan
         value: "checkbox",
         onChange: () => {},
         checked: false,
+        userOption: false,
         ...props
     }
 
@@ -27,7 +35,32 @@ export default function CheckBox(props = { name: "", text: "", value: "", onChan
             onChange: props.onChange,
             ...(props.checked && { checked: true })
         }
-    )
+    );
+
+    
+    const checkMark = createElement(
+        "div",
+        {
+            class: styles["check-mark"]
+        }
+    );
+
+    const userMark = createElement(
+        "div",
+        {
+            class: `${styles["user-mark"]} ${props.userOption ? styles["user-mark-visible"] : ""}`
+        }
+    );
+
+    const labelText = createElement(
+        "span",
+        {
+            class: styles["checkbox-label-text"]
+        },
+        [
+            props.text
+        ]
+    );
 
     const label = createElement(
         "label",
@@ -36,13 +69,15 @@ export default function CheckBox(props = { name: "", text: "", value: "", onChan
             class: styles["checkbox-label"]
         },
         [
-            props.text
+            userMark,
+            labelText,
+            checkMark
         ]
-    )
+    );
 
     return createFragment(
         {},
         checkBox,
         label
-    )
+    );
 }

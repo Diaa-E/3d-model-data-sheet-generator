@@ -13,11 +13,47 @@
     cursor: pointer;
     transition: background-color .2s ease-in-out, color .2s ease-in-out;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox-label-text{
+    
 }
 
 .checkbox:checked+.checkbox-label{
     background-color: var(--green);
     color: var(--background-option);
+}
+
+.mark{
+    background-position: center;
+    background-size: contain;
+    height: 20px;
+    width: 20px;
+    transition: filter .2s ease-in-out, opacity .2s ease-in-out;
+}
+
+.checkbox:checked+.checkbox-label>.mark{
+    filter: invert(1);
+}
+
+.user-mark{
+    background-image: url("./assets/icons/user_option.svg");
+    opacity: 0;
+}
+
+.user-mark-visible{
+    opacity: 1;
+}
+
+.check-mark{
+    background-image: url("./assets/icons/checked.svg");
+    opacity: 0;
+}
+
+.checkbox:checked+.checkbox-label>.check-mark{
+    opacity: 100%
 }
 
 .input-field{

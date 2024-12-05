@@ -56,7 +56,7 @@ export default function RadioFieldset(props = {
             ]
     });
 
-    [...options, ...(props.enableUserOptions ? userOptions : [])].forEach(option => {
+    options.forEach(option => {
 
         radioGroup.addButton(
             Radio({
@@ -72,6 +72,27 @@ export default function RadioFieldset(props = {
             })
         );
     });
+
+    if (props.enableUserOptions)
+    {
+        userOptions.forEach(option => {
+
+            radioGroup.addButton(
+                Radio({
+                    name: STORAGE_KEY,
+                    checked: selectedOption === option,
+                    text: option,
+                    value: option,
+                    userOption: true,
+                    onChange: (e) => {
+    
+                        selectedOption = e.target.value,
+                        saveToStorage(STORAGE_KEY, selectedOption);
+                    }
+                })
+            );
+        });
+    }
     
 
     function addOption(invalidField)
@@ -104,6 +125,7 @@ export default function RadioFieldset(props = {
                 checked: false,
                 text: addOptionFieldset.getValue(),
                 value: addOptionFieldset.getValue(),
+                userOption: true,
                 onChange: (e) => {
 
                     selectedOption = e.target.value,

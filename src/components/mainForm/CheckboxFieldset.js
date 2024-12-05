@@ -58,7 +58,7 @@ export default function CheckboxFieldset(props = {
         ]
     });
 
-    [...options, ...(props.enableUserOptions ? userOptions : [])].forEach(option => {
+    options.forEach(option => {
 
         checkboxGroup.addButton(
             CheckBox({
@@ -82,6 +82,35 @@ export default function CheckboxFieldset(props = {
             })
         );
     });
+
+    if (props.enableUserOptions)
+    {
+        userOptions.forEach(option => {
+    
+            checkboxGroup.addButton(
+                CheckBox({
+                    checked: selectedOptions.includes(option),
+                    name: STORAGE_KEY,
+                    text: option,
+                    value: option,
+                    userOption: true,
+                    onChange: (e) => {
+    
+                        if (e.target.checked)
+                        {
+                            selectedOptions.push(e.target.value);
+                            saveToStorage(STORAGE_KEY, selectedOptions);
+                        }
+                        else
+                        {
+                            selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                            saveToStorage(STORAGE_KEY, selectedOptions);
+                        }
+                    },
+                })
+            );
+        });
+    }
 
     function addOption(invalidField)
     {
@@ -111,6 +140,9 @@ export default function CheckboxFieldset(props = {
             CheckBox({
                 checked: false,
                 name: STORAGE_KEY,
+                text: addOptionFieldset.getValue(),
+                value: addOptionFieldset.getValue(),
+                userOption: true,
                 onChange: (e) => {
 
                     if (e.target.checked)
@@ -124,8 +156,6 @@ export default function CheckboxFieldset(props = {
                         saveToStorage(STORAGE_KEY, selectedOptions);
                     }
                 },
-                text: addOptionFieldset.getValue(),
-                value: addOptionFieldset.getValue()
             })
         );
         userOptions.push(addOptionFieldset.getValue());
