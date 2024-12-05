@@ -24,6 +24,7 @@
 .checkbox:checked+.checkbox-label{
     background-color: var(--green);
     color: var(--background-option);
+    box-shadow: var(--shadow);
 }
 
 .mark{
