@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Selected options are labeld by a check mark.
 - ➕ Add favicon.
 - ➕ Added an extra option for animation.
 - ➕ Added "Non-uniform polygons" option to mesh type fieldset.
