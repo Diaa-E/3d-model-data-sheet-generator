@@ -6,6 +6,7 @@ import { popupEventName } from "../utils/errorPopupEvents";
 
 export default function ErrorPopup()
 {
+    let isOpen = false;
     let lastFocusedElement = null;
     const CLOSE_DURATION = 0.5;
     const OPEN_DURATION = 0.3;
@@ -71,6 +72,7 @@ export default function ErrorPopup()
 
             popupWrapper.style.visibility = "hidden";
             popupWrapper.hidden = true;
+            isOpen = false;
             
         }, CLOSE_DURATION * 1000);
     }
@@ -82,7 +84,18 @@ export default function ErrorPopup()
         
         popup.classList.add(styles["open"]);
         popup.classList.remove(styles["close"]);
+        isOpen = true;
+
         closeButton.focus();
+
+        setTimeout(() => {
+
+            if (isOpen)
+            {
+                closePopup();
+            }
+
+        }, 10000)
     }
 
     return { element: popupWrapper }
