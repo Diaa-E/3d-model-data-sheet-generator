@@ -8,6 +8,7 @@ export default function ErrorPopup()
 {
     let isOpen = false;
     let lastFocusedElement = null;
+    let closeTimer = null;
     const CLOSE_DURATION = 0.5;
     const OPEN_DURATION = 0.3;
 
@@ -88,14 +89,17 @@ export default function ErrorPopup()
 
         closeButton.focus();
 
-        setTimeout(() => {
+        clearTimeout(closeTimer);
+        console.log("timer reset")
+
+        closeTimer = setTimeout(() => {
 
             if (isOpen)
             {
                 closePopup();
             }
 
-        }, 10000)
+        }, 10000);
     }
 
     return { element: popupWrapper }
