@@ -1,0 +1,21 @@
+.item-checkbox{
+    composes: checkbox from "../common.module.css";
+}
+
+.item-checkbox-label{
+    composes: checkbox-label from "../common.module.css";
+}
+
+.item-checkbox-label-text{
+    composes: checkbox-label-text from "../common.module.css";
+}
+
+.visibility-mark{
+    composes: mark from "../common.module.css";
+    composes: visibility-mark from "../common.module.css";
+}
+
+.item-mark{
+    composes: mark from "../common.module.css";
+    composes: item-mark from "../common.module.css";
+}

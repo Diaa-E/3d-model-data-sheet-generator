@@ -45,6 +45,21 @@
     opacity: 0;
 }
 
+.item-mark{
+    background-image: var(--item-icon);
+}
+
+.visibility-mark{
+    background-image: url("./assets/icons/hidden.svg");
+    filter: invert(1);
+    transition: filter .2s ease-in-out, background-image .2s ease-in-out;
+}
+
+.checkbox:checked+.checkbox-label>.visibility-mark{
+    filter: invert(0);
+    background-image: url("./assets/icons/visible.svg");
+}
+
 .user-mark-visible{
     opacity: 1;
 }
