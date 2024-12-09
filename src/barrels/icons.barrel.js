@@ -6,6 +6,7 @@ import userOptionIcon from "../assets/icons/user_option.svg";
 import checkedIcon from "../assets/icons/checked.svg";
 import generateIcon from "../assets/icons/generate.svg";
 import modelItemIcon from "../assets/icons/model_item.svg";
+import textureSetIcon from "../assets/icons/texture_set.svg";
 
 const icons = {
     addIcon: addIcon,
@@ -15,7 +16,8 @@ const icons = {
     userOptionIcon: userOptionIcon,
     checkedIcon: checkedIcon,
     generateIcon: generateIcon,
-    modelItemIcon: modelItemIcon
+    modelItemIcon: modelItemIcon,
+    textureSetIcon: textureSetIcon
 };
 
 export default icons;

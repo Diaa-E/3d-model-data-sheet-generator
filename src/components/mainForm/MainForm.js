@@ -7,6 +7,8 @@ import CheckboxFieldset from "./CheckboxFieldset";
 import RadioFieldset from "./RadioFieldSet";
 import DatasheetFieldset from "./DatasheetFieldset";
 import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
+import ItemCheckBoxFieldset from "./ItemCheckBoxFieldset";
+import icons from "../../barrels/icons.barrel";
 
 export default function MainForm()
 {
@@ -31,13 +33,14 @@ export default function MainForm()
         storageKey: storageKeys.modelInfo
     });
 
-    const modelContents = CheckboxFieldset({
+    const modelContents = ItemCheckBoxFieldset({
         legend: "Model Contents",
-        options: [],
         storageKey: storageKeys.modelContents,
+        items: [],
         enableUserOptions: true,
-        userOptionLegend: "Add a new item",
-        userOptionPlaceholder: "i.e 5 lowpoly monkeys",
+        addItemLegend: "Add a new item",
+        addItemPlaceholder: "i.e 5 lowpoly monkeys",
+        itemIcon: icons.modelItemIcon,
     });
 
     const modelTier = RadioFieldset({
@@ -101,13 +104,13 @@ export default function MainForm()
         enableUserOptions: false,
     });
 
-    const textureSets = CheckboxFieldset({
+    const textureSets = ItemCheckBoxFieldset({
         legend: "Texture Sets",
-        options: [],
+        items: [],
         storageKey: storageKeys.textureSets,
-        enableUserOptions: true,
-        userOptionLegend: "Add a new texture set",
-        userOptionPlaceholder: "i.e lowpoly monkey (4096 x 4096)"
+        addItemLegend: "Add a new texture set",
+        addItemPlaceholder: "i.e lowpoly monkey (4096 x 4096)",
+        itemIcon: icons.textureSetIcon
     });
 
     const textureWorkflow = CheckboxFieldset({
