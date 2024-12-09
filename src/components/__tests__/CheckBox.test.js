@@ -41,14 +41,14 @@ describe("CheckBox component", () => {
 
         render(CheckBox({name: "option_1", text: "value_1", value: "value_1", checked: true}));
 
-        expect(document.querySelector("input[type='checkbox']").checked).toBeTruthy();
+        expect(document.querySelector("input[type='checkbox']").checked).toBe(true);
     });
 
-    it("Checks checkbox when checked prop is true", () => {
+    it("Unchecks checkbox when checked prop is true", () => {
 
         render(CheckBox({name: "option_1", text: "value_1", value: "value_1", checked: false}));
 
-        expect(document.querySelector("input[type='checkbox']").checked).toBeFalsy();
+        expect(document.querySelector("input[type='checkbox']").checked).toBe(false);
     });
 
     it("Checkbox is checked when label is clicked", () => {
@@ -58,11 +58,11 @@ describe("CheckBox component", () => {
         const checkBox = document.querySelector("input[type='checkbox']");
         const label = document.querySelector("label");
 
-        expect(checkBox.checked).toBeFalsy();
+        expect(checkBox.checked).toBe(false);
 
         label.click();
 
-        expect(checkBox.checked).toBeTruthy();
+        expect(checkBox.checked).toBe(true);
     });
 
     it("Calls onChange function when checkbox is checked", () => {
