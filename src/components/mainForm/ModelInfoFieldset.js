@@ -28,7 +28,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
             saveToStorage(STORAGE_KEY, modelInfo);
         },
         placeholder: "Model Title",
-        required: true,
+        required: false,
         text: "Model Title",
         value: modelInfo.title
     });
