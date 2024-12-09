@@ -6,6 +6,7 @@ import PolyCountFieldset from "./PolyCountFieldset";
 import CheckboxFieldset from "./CheckboxFieldset";
 import RadioFieldset from "./RadioFieldSet";
 import DatasheetFieldset from "./DatasheetFieldset";
+import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
 
 export default function MainForm()
 {
@@ -184,6 +185,7 @@ export default function MainForm()
             onSubmit: (e) => {
 
                 e.preventDefault();
+                onSubmit();
             },
             class: styles["main-form"]
         },
@@ -204,6 +206,21 @@ export default function MainForm()
             datasheet.element
         ]
     );
+
+    function onSubmit()
+    {
+        try
+        {
+            modelInfo.validate();
+        }
+        catch (error)
+        {
+            dispatchErrorPopupEvent({
+                dispatchingElement: form,
+                errorMsg: error
+            });
+        }
+    }
 
     return { element: form }
 }
