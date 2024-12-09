@@ -121,4 +121,36 @@ describe("Model Info Fieldset Component", () => {
 
         expect(descTextarea.value).toBe("test text");
     });
+
+    it("Validating throws when title field is empty", () => {
+
+        const modelInfoComponent = ModelInfoFieldset({
+            storageKey: "test1"
+        });
+
+        render(modelInfoComponent.element);
+
+        const fieldset = document.querySelector("fieldset");
+        const titleInput = fieldset.querySelector("input[type='text']");
+        changeElementValue(titleInput, "");
+
+        expect(() => modelInfoComponent.validate()).toThrow(/title/i);
+    });
+
+    it("Validating throws when description field is empty", () => {
+
+        const modelInfoComponent = ModelInfoFieldset({
+            storageKey: "test1"
+        });
+
+        render(modelInfoComponent.element);
+
+        const fieldset = document.querySelector("fieldset");
+        const descTextarea = fieldset.querySelector("textarea");
+        const titleInput = fieldset.querySelector("input[type='text']");
+        changeElementValue(titleInput, "some value");
+        changeElementValue(descTextarea, "");
+
+        expect(() => modelInfoComponent.validate()).toThrow(/description/i)
+    });
 });
