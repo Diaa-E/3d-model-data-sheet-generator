@@ -2,7 +2,7 @@ import { v4 as generateId } from "uuid"
 import { createElement, createFragment } from "../utils/createElement";
 import icons from "../barrels/icons.barrel";
 
-import styles from "./ItemCheckBox.module.css";
+import styles from "./ItemCheckbox.module.css";
 
 export default function ItemCheckBox(props = {
     name: "",
@@ -74,6 +74,8 @@ export default function ItemCheckBox(props = {
             visibilityMark
         ]
     );
+
+    label.style.setProperty("--item-icon", `url("${props.itemIcon}")`)
 
     return createFragment(
         {},
