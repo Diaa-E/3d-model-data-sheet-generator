@@ -5,6 +5,7 @@ import ModelInfoFieldset from "./ModelInfoFieldset";
 import PolyCountFieldset from "./PolyCountFieldset";
 import CheckboxFieldset from "./CheckboxFieldset";
 import RadioFieldset from "./RadioFieldSet";
+import DatasheetFieldset from "./DatasheetFieldset";
 
 export default function MainForm()
 {
@@ -174,6 +175,8 @@ export default function MainForm()
         enableUserOptions: false
     });
 
+    const datasheet = DatasheetFieldset();
+
     const form = createElement(
         "form",
         {
@@ -198,6 +201,7 @@ export default function MainForm()
             textureFormat.element,
             textureMaps.element,
             targetSite.element,
+            datasheet.element
         ]
     );
 
