@@ -36,7 +36,6 @@ export default function MainForm()
     const modelContents = ItemCheckBoxFieldset({
         legend: "Model Contents",
         storageKey: storageKeys.modelContents,
-        items: [],
         enableUserOptions: true,
         addItemLegend: "Add a new item",
         addItemPlaceholder: "i.e 5 lowpoly monkeys",
@@ -106,7 +105,6 @@ export default function MainForm()
 
     const textureSets = ItemCheckBoxFieldset({
         legend: "Texture Sets",
-        items: [],
         storageKey: storageKeys.textureSets,
         addItemLegend: "Add a new texture set",
         addItemPlaceholder: "i.e lowpoly monkey (4096 x 4096)",

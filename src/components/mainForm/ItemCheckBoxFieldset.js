@@ -9,7 +9,6 @@ import { searchCaseInsensitive } from "../../utils/customArraySearch";
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
     storageKey: "",
-    items: [],
     itemIcon: "",
     addItemLegend: "",
     addItemPlaceholder: "",
@@ -18,10 +17,6 @@ export default function ItemCheckBoxFieldset(props = {
     props = {
         legend: "Item Checkbox Fieldset",
         storageKey: "defaultKey",
-        items: [
-            "item1",
-            "item2",
-        ],
         itemIcon: icons.defaultIcon,
         addItemLegend: "New Item",
         addItemPlaceholder: "Add a New Item",
@@ -30,9 +25,10 @@ export default function ItemCheckBoxFieldset(props = {
 
     // storage keys
     const STORAGE_KEY = props.storageKey;
+    const STORAGE_KEY_USER = `${STORAGE_KEY}_user`;
 
     // fieldset state
-    const items = props.items;
+    const items = getFromStorage(STORAGE_KEY_USER, []);
     const selectedItems = getFromStorage(STORAGE_KEY, []);
 
     // components
