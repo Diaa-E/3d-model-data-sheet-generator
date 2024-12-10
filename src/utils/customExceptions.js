@@ -1,43 +1,45 @@
-export function InvalidFieldsetException(message = "")
+export const InvalidFieldsetException = customExceptionFActory("InvalidFieldException");
+
+function customExceptionFActory(name = "customException")
 {
-    //This solution is better than the class extension as it's supported outside E6
-    //http://stackoverflow.com/a/35881508/112731
-
-    Object.defineProperty(this, "name", {
-
-        enumerable: false,
-        writable: false,
-        value: "FieldInvalidException"
-    });
-
-    Object.defineProperty(this, "message", {
-        enumerable: false,
-        writable: true,
-        value: message
-    });
-
-    if(Error.hasOwnProperty("captureStackTrace"))
+    return function customException(message = "")
     {
-        Error.captureStackTrace(this, InvalidFieldsetException);
-    }
-    else
-    {
-        Object.defineProperty(this, "stack", {
+        Object.defineProperty(this, "name", {
 
             enumerable: false,
             writable: false,
-            value: (new Error()).stack,
+            value: name
         });
-    }
-
-    if (typeof Object.setPrototypeOf === "function")
-    {
-        Object.setPrototypeOf(InvalidFieldsetException.prototype, Error.prototype);
-    }
-    else
-    {
-        InvalidFieldsetException.prototype = Object.create(Error.prototype, {
-            constructor: { value: InvalidFieldsetException }
+    
+        Object.defineProperty(this, "message", {
+            enumerable: false,
+            writable: true,
+            value: message
         });
+    
+        if(Error.hasOwnProperty("captureStackTrace"))
+        {
+            Error.captureStackTrace(this, customException);
+        }
+        else
+        {
+            Object.defineProperty(this, "stack", {
+    
+                enumerable: false,
+                writable: false,
+                value: (new Error()).stack,
+            });
+        }
+    
+        if (typeof Object.setPrototypeOf === "function")
+        {
+            Object.setPrototypeOf(customException.prototype, Error.prototype);
+        }
+        else
+        {
+            customException.prototype = Object.create(Error.prototype, {
+                constructor: { value: customException }
+            });
+        }
     }
 }
