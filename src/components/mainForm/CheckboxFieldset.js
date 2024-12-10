@@ -5,6 +5,7 @@ import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
 import { dispatchErrorPopupEvent} from "../../utils/errorPopupEvents";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function CheckboxFieldset(props = {
     legend: "",
@@ -12,7 +13,8 @@ export default function CheckboxFieldset(props = {
     options: [],
     enableUserOptions: false,
     userOptionPlaceholder: "",
-    userOptionLegend: ""
+    userOptionLegend: "",
+    required: false,
 })
 {
     props = {
@@ -25,6 +27,7 @@ export default function CheckboxFieldset(props = {
         enableUserOptions: false,
         userOptionPlaceholder: "New Option",
         userOptionLegend: "Add a New Option",
+        required: false,
         ...props
     };
 
@@ -168,5 +171,16 @@ export default function CheckboxFieldset(props = {
         return selectedOptions;
     }
 
-    return { element: fieldSet.element, getState: getState };
+    function validate()
+    {
+        if (props.required && selectedOptions.length < 1)
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException(`${props.legend} must have at least 1 selected option.`);
+        }
+
+        fieldSet.setInvalid(false);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate };
 }
