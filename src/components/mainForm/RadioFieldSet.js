@@ -4,6 +4,7 @@ import Fieldset from "../Fieldset";
 import Radio from "../Radio";
 import RadioGroup from "../RadioGroup";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -11,7 +12,8 @@ export default function RadioFieldset(props = {
     options: [],
     enableUserOptions: false,
     userOptionPlaceholder: "",
-    userOptionLegend: ""
+    userOptionLegend: "",
+    required: false
 })
 {
     props = {
@@ -24,8 +26,18 @@ export default function RadioFieldset(props = {
         enableUserOptions: false,
         userOptionPlaceholder: "New Option",
         userOptionLegend: "Add a New Option",
+        required: false,
         ...props
     };
+
+    if (!Array.isArray(props.options))
+    {
+        throw new Error("Options must be an array.");
+    }
+    else if (props.options.length === 0)
+    {
+        throw new Error("Options array must contain at least 1 element.");
+    }
 
     // storage keys
     const STORAGE_KEY = props.storageKey;
@@ -143,5 +155,15 @@ export default function RadioFieldset(props = {
         return selectedOption;
     }
 
-    return { element: fieldSet.element, getState: getState }
+    function validate()
+    {
+        if (!props.required || selectedOption)
+        {
+            return true;
+        }
+
+        throw new InvalidFieldsetException(`${props.legend} must have at least one selected option.`)
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate }
 }
