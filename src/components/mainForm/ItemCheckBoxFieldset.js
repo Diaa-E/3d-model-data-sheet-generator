@@ -5,6 +5,7 @@ import RadioGroup from "../RadioGroup";
 import icons from "../../barrels/icons.barrel";
 import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
+import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
 
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
