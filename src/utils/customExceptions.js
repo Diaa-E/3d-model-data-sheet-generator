@@ -1,6 +1,6 @@
 export const InvalidFieldsetException = customExceptionFActory("InvalidFieldException");
 
-function customExceptionFActory(name = "customException")
+export function customExceptionFActory(name = "customException")
 {
     return function customException(message = "")
     {
