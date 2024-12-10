@@ -67,7 +67,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
 
     function validate()
     {
-        if (isNaN(verticesInput.getValue()))
+        if (isNaN(verticesInput.getValue()) || !verticesInput.getValue())
         {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException("Vertices count must be a number.");
@@ -77,7 +77,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException("Vertices count cannot be a fraction.");
         }
-        else if (isNaN(trianglesInput.getValue()))
+        else if (isNaN(trianglesInput.getValue()) || !trianglesInput.getValue())
         {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException("Triangles count must be a number.");
