@@ -113,7 +113,7 @@ describe("Checkbox Fieldset Component", () => {
 
         for (let i = 0; i < options.length; i++)
         {
-            expect(checkboxes[i].checked).toBeFalsy();
+            expect(checkboxes[i].checked).toBe(false);
         }
     });
 
@@ -183,8 +183,8 @@ describe("Checkbox Fieldset Component", () => {
         const fieldSet = document.querySelectorAll("fieldset")[0];
         const checkboxes = fieldSet.querySelectorAll("input[type='checkbox']");
 
-        expect(checkboxes[1].checked).toBeTruthy();
-        expect(checkboxes[0].checked).toBeFalsy();
+        expect(checkboxes[1].checked).toBe(true);
+        expect(checkboxes[0].checked).toBe(false);
     });
 
     it("Renders a fieldset for adding a new option when enableUserOptions prop is true", () => {
