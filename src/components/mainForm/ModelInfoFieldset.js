@@ -1,3 +1,4 @@
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
 import Fieldset from "../Fieldset";
 import TextArea from "../TextArea";
@@ -62,12 +63,12 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         if (modelInfo.title === "")
         {
             fieldSet.setInvalid(true);
-            throw new Error("Model title cannot be empty.");
+            throw new InvalidFieldsetException("Model title cannot be empty.");
         }
         else if (modelInfo.description === "")
         {
             fieldSet.setInvalid(true);
-            throw new Error("Model description cannot be empty.");
+            throw new InvalidFieldsetException("Model description cannot be empty.");
         }
 
         fieldSet.setInvalid(false);

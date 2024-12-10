@@ -9,6 +9,7 @@ import DatasheetFieldset from "./DatasheetFieldset";
 import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
 import ItemCheckBoxFieldset from "./ItemCheckBoxFieldset";
 import icons from "../../barrels/icons.barrel";
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function MainForm()
 {
@@ -216,10 +217,17 @@ export default function MainForm()
         }
         catch (error)
         {
-            dispatchErrorPopupEvent({
-                dispatchingElement: form,
-                errorMsg: error
-            });
+            if (error instanceof InvalidFieldsetException)
+            {
+                dispatchErrorPopupEvent({
+                    dispatchingElement: form,
+                    errorMsg: error.message
+                });
+            }
+            else
+            {
+                throw error;
+            }
         }
     }
 
