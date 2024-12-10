@@ -41,6 +41,7 @@ export default function MainForm()
         addItemLegend: "Add a new item",
         addItemPlaceholder: "i.e 5 lowpoly monkeys",
         itemIcon: icons.modelItemIcon,
+        required: true,
     });
 
     const modelTier = RadioFieldset({
@@ -52,6 +53,7 @@ export default function MainForm()
         ],
         storageKey: storageKeys.modelTier,
         enableUserOptions: false,
+        required: true
     });
 
     const polyCount = PolyCountFieldset({
@@ -68,6 +70,7 @@ export default function MainForm()
         ],
         storageKey: storageKeys.meshType,
         enableUserOptions: false,
+        required: true,
     });
 
     const edgeSplit = RadioFieldset({
@@ -90,6 +93,7 @@ export default function MainForm()
         ],
         storageKey: storageKeys.rigging,
         enableUserOptions: false,
+        required: false,
     });
 
     const uv = CheckboxFieldset({
@@ -102,6 +106,7 @@ export default function MainForm()
         ],
         storageKey: storageKeys.uv,
         enableUserOptions: false,
+        required: false,
     });
 
     const textureSets = ItemCheckBoxFieldset({
@@ -109,7 +114,8 @@ export default function MainForm()
         storageKey: storageKeys.textureSets,
         addItemLegend: "Add a new texture set",
         addItemPlaceholder: "i.e lowpoly monkey (4096 x 4096)",
-        itemIcon: icons.textureSetIcon
+        itemIcon: icons.textureSetIcon,
+        required: false,
     });
 
     const textureWorkflow = CheckboxFieldset({
@@ -122,7 +128,8 @@ export default function MainForm()
         storageKey: storageKeys.textureWorkflow,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture workflow",
-        userOptionPlaceholder: "New Texture Workflow"
+        userOptionPlaceholder: "New Texture Workflow",
+        required: false,
     });
 
     const textureFormat = CheckboxFieldset({
@@ -135,7 +142,8 @@ export default function MainForm()
         storageKey: storageKeys.textureFormat,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture format",
-        userOptionPlaceholder: "New Texture Format"
+        userOptionPlaceholder: "New Texture Format",
+        required: false,
     });
 
     const textureMaps = CheckboxFieldset({
@@ -163,7 +171,8 @@ export default function MainForm()
         storageKey: storageKeys.textureMaps,
         enableUserOptions: true,
         userOptionLegend: "Add a new texture map",
-        userOptionPlaceholder: "New Texture Map"
+        userOptionPlaceholder: "New Texture Map",
+        required: false,
     });
 
     const targetSite = RadioFieldset({
@@ -175,7 +184,8 @@ export default function MainForm()
             "Sketchfab",
         ],
         storageKey: storageKeys.targetSite,
-        enableUserOptions: false
+        enableUserOptions: false,
+        required: true,
     });
 
     const datasheet = DatasheetFieldset();
@@ -214,6 +224,18 @@ export default function MainForm()
         try
         {
             modelInfo.validate();
+            modelContents.validate();
+            modelTier.validate();
+            polyCount.validate();
+            meshType.validate();
+            edgeSplit.validate();
+            rigging.validate();
+            uv.validate();
+            textureSets.validate();
+            textureWorkflow.validate();
+            textureFormat.validate();
+            textureMaps.validate();
+            targetSite.validate();
         }
         catch (error)
         {
