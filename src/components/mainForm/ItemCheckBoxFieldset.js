@@ -6,6 +6,7 @@ import icons from "../../barrels/icons.barrel";
 import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
@@ -13,6 +14,7 @@ export default function ItemCheckBoxFieldset(props = {
     itemIcon: "",
     addItemLegend: "",
     addItemPlaceholder: "",
+    required: false,
 })
 {
     props = {
@@ -21,6 +23,7 @@ export default function ItemCheckBoxFieldset(props = {
         itemIcon: icons.defaultIcon,
         addItemLegend: "New Item",
         addItemPlaceholder: "Add a New Item",
+        required: false,
         ...props
     };
 
@@ -132,5 +135,16 @@ export default function ItemCheckBoxFieldset(props = {
         return selectedItems;
     }
 
-    return { element: fieldSet.element, getState: getState };
+    function validate()
+    {
+        if (props.required && selectedItems.length < 1)
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException(`${props.legend} must have at least 1 visible item.`);
+        }
+
+        fieldSet.setInvalid(false);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate };
 }
