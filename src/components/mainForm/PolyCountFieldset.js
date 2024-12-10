@@ -2,6 +2,7 @@ import Fieldset from "../Fieldset";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
 import NumberInput from "../NumberInput";
 import FieldsContainer from "../FieldsContainer";
+import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function PolyCountFieldset(props = {storageKey: ""})
 {
@@ -64,5 +65,31 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         return polyCount;
     }
 
-    return { element: fieldSet.element, getState: getState }
+    function validate()
+    {
+        if (isNaN(verticesInput.getValue()))
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException("Vertices count must be a number.");
+        }
+        else if (verticesInput.getValue().indexOf(".") !== -1)
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException("Vertices count cannot be a fraction.");
+        }
+        else if (isNaN(trianglesInput.getValue()))
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException("Triangles count must be a number.");
+        }
+        else if (trianglesInput.getValue().indexOf(".") !== -1)
+        {
+            fieldSet.setInvalid(true);
+            throw new InvalidFieldsetException("Triangles count cannot be a fraction.");
+        }
+
+        fieldSet.setInvalid(false);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate }
 }
