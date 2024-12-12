@@ -127,7 +127,7 @@ export default function ItemCheckBoxFieldset(props = {
         );
         items.push(addItemFieldset.getValue());
         addItemFieldset.clear();
-        saveToStorage(STORAGE_KEY, items);
+        saveToStorage(STORAGE_KEY_USER, items);
     }
 
     function getState()

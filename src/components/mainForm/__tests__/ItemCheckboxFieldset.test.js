@@ -279,7 +279,6 @@ describe("Item Checkbox Fieldset Component", () => {
 
     it("Saves new item to session storage when add item button is clicked", () => {
 
-
         render(ItemCheckBoxFieldset({
 
             legend: "test 1",
@@ -297,6 +296,6 @@ describe("Item Checkbox Fieldset Component", () => {
         newOptionInput.value = "testItem3";
         addOptionButton.click();
 
-        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual(["testItem3"]);
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual(["testItem3"]);
     });
 });
