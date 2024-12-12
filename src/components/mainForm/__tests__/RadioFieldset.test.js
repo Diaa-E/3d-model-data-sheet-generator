@@ -20,7 +20,7 @@ describe("Radio Fieldset Component", () => {
         render(RadioFieldset({
 
             legend: "test 1",
-            options: [],
+            options: ["option1"],
             storageKey: "test1",
             enableUserOptions: false,
             userOptionLegend: "",
@@ -35,7 +35,7 @@ describe("Radio Fieldset Component", () => {
         render(RadioFieldset({
 
             legend: "test 1",
-            options: [],
+            options: ["option1"],
             storageKey: "test1",
             enableUserOptions: false,
             userOptionLegend: "",
@@ -69,6 +69,32 @@ describe("Radio Fieldset Component", () => {
         {
             expect(radioButtons[i].value).toBe(options[i]);
         }
+    });
+
+    it("Throws if options array is empty", () => {
+
+        expect(() => RadioFieldset({
+
+            legend: "test 1",
+            options: [],
+            storageKey: "test1",
+            enableUserOptions: false,
+            userOptionLegend: "",
+            userOptionPlaceholder: ""
+        })).toThrow(/options/i);
+    });
+
+    it("Throws if options array is not an array", () => {
+
+        expect(() => RadioFieldset({
+
+            legend: "test 1",
+            options: "text",
+            storageKey: "test1",
+            enableUserOptions: false,
+            userOptionLegend: "",
+            userOptionPlaceholder: ""
+        })).toThrow(/options/i);
     });
 
     it("Each radio button has the name attribute set to storageKey prop", () => {
