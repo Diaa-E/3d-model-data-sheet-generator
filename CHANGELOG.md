@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Polygon and vertex counts are now comma-seperated for better readibility.
 - ➕ Missing optional fields are highlighted in red on the sheet in case the user forgot to fill them.
 - ➕ Generated sheet is now displayed as a part of the document with titles and lists instead of a read-only text area.
 - ➕ Selected options are labeld by a check mark.
