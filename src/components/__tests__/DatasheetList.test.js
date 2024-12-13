@@ -131,4 +131,47 @@ describe("Datasheet List Component", () => {
         expect(listItems[1].textContent).toBe("c");
         expect(listItems[2].textContent).toBe("a");
     });
+
+    it("Throws when passed a non-array list", () => {
+
+        expect(() => {
+
+            DatasheetList({
+                ordered: false,
+                list: "array"
+            })
+        }).toThrow(/invalid\slist/i);
+    });
+
+    it("Adds a single N/A item to the ordered list if the list prop is empty", () => {
+
+        render(
+            DatasheetList({
+                ordered: true,
+                list: []
+            }).element
+        );
+
+        const orderedList = document.querySelector("ol");
+        const listItems = orderedList.querySelectorAll("li");
+
+        expect(listItems).toHaveLength(1);
+        expect(listItems[0].textContent).toBe("N/A");
+    });
+
+    it("Adds a single N/A item to the unordered list if the list prop is empty", () => {
+
+        render(
+            DatasheetList({
+                ordered: false,
+                list: []
+            }).element
+        );
+
+        const unorderedList = document.querySelector("ul");
+        const listItems = unorderedList.querySelectorAll("li");
+
+        expect(listItems).toHaveLength(1);
+        expect(listItems[0].textContent).toBe("N/A");
+    });
 });

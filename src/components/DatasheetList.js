@@ -12,6 +12,11 @@ export default function DatasheetList(props = {
         ...props
     };
 
+    if (!(props.list instanceof Array))
+    {
+        throw new TypeError(`Invalid list "${props.list}"`);
+    }
+
     let listElement = null;
     let finalList = null;
 
@@ -36,7 +41,7 @@ export default function DatasheetList(props = {
         );
     }
 
-    finalList.forEach(item => {
+    (finalList.length > 0 ? [...finalList] : ["N/A"]).forEach(item => {
 
         const listItem = createElement(
             "li",
