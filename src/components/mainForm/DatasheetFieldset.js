@@ -1,10 +1,14 @@
+import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
 import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";
 
 export default function DatasheetFieldset()
 {
-    const datasheetControls = DatasheetControls();
+
+    const datasheetControls = DatasheetControls({
+        onCopy: copyToClipboard
+    });
 
     let datasheet = null;
 
@@ -31,6 +35,34 @@ export default function DatasheetFieldset()
         });
 
         fieldset.element.append(datasheet.element);
+    }
+
+    async function copyToClipboard()
+    {
+        if (datasheet === null)
+        {
+            dispatchErrorPopupEvent({
+                dispatchingElement: datasheetControls.element,
+                errorMsg: "Datasheet is empty, nothing was copied to the clipboard."
+            });
+        }
+        else if (window.getSelection)
+        {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(datasheet.element);
+            selection.removeAllRanges();
+            selection.addRange(range);
+            await navigator.clipboard.writeText(selection.toString());
+            selection.removeRange(range);
+        }
+        else
+        {
+            dispatchErrorPopupEvent({
+                dispatchingElement: datasheet.element,
+                errorMsg: "This browser does not support copy to clipboard."
+            });
+        }
     }
 
     return { element: fieldset.element, generateDatasheet: generateDatasheet }
