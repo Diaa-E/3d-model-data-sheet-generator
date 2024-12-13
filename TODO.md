@@ -11,13 +11,12 @@
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
 1. Add option to scroll to each error field.
-1. Add dark mode.
 1. Revisit color palette.
-1. Seperate polygon and vertex count by comma.
 1. Use text button for generation.
 
 ### Completed ✅
 
+1. Seperate polygon and vertex count by comma.
 1. Highlight error fields.
 1. Lighten shadows.
 1. Move content more towards the center instead of stretching across the page.
