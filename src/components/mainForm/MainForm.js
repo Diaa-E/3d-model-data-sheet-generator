@@ -10,6 +10,7 @@ import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
 import ItemCheckBoxFieldset from "./ItemCheckBoxFieldset";
 import icons from "../../barrels/icons.barrel";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
+import formatNumberComma from "../../utils/numberFormatter";
 
 export default function MainForm()
 {
@@ -236,6 +237,78 @@ export default function MainForm()
             textureFormat.validate();
             textureMaps.validate();
             targetSite.validate();
+
+            datasheet.generateDatasheet({
+
+                title: modelInfo.getState().title,
+                sets: [
+                    {
+                        title: "Description",
+                        type: "text",
+                        data: Array.from([modelInfo.getState().description])
+                    },
+                    {
+                        title: "Model Contents",
+                        type: "unorderedList",
+                        data: Array.from(modelContents.getState())
+                    },
+                    {
+                        title: "Model Tier",
+                        type: "text",
+                        data: Array.from([modelTier.getState()])
+                    },
+                    {
+                        title: "Trianlges",
+                        type: "text",
+                        data: Array.from([formatNumberComma(polyCount.getState().triangles)])
+                    },
+                    {
+                        title: "Vertices",
+                        type: "text",
+                        data: Array.from([formatNumberComma(polyCount.getState().vertices)])
+                    },
+                    {
+                        title: "Mesh Type",
+                        type: "text",
+                        data: Array.from([meshType.getState()])
+                    },
+                    {
+                        title: "Edge Split",
+                        type: "text",
+                        data: Array.from([edgeSplit.getState()])
+                    },
+                    {
+                        title: "Rigging and Animation",
+                        type: "unorderedList",
+                        data: Array.from(rigging.getState())
+                    },
+                    {
+                        title: "UV Mapping",
+                        type: "unorderedList",
+                        data: Array.from(uv.getState())
+                    },
+                    {
+                        title: "Texture Sets",
+                        type: "unorderedList",
+                        data: Array.from(textureSets.getState())
+                    },
+                    {
+                        title: "Texture Workflow",
+                        type: "unorderedList",
+                        data: Array.from(textureWorkflow.getState())
+                    },
+                    {
+                        title: "Texture Format",
+                        type: "unorderedList",
+                        data: Array.from(textureFormat.getState())
+                    },
+                    {
+                        title: "Texture Maps",
+                        type: "orderedList",
+                        data: Array.from(textureMaps.getState())
+                    }
+                ]
+            });
         }
         catch (error)
         {
