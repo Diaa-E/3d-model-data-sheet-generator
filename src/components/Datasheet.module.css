@@ -1,0 +1,21 @@
+.datasheet-title{
+    font-family: var(--font-title);
+    font-size: 2rem;
+    border-top: solid var(--placeholder) 1px;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+
+.datasheet-wrapper{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    place-items: center;
+    margin-top: 30px;
+}
+
+.datasheet-text{
+    font-family: var(--font-default);
+    font-size: 1rem;
+}
