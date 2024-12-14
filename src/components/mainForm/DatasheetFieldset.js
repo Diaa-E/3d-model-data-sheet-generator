@@ -57,7 +57,9 @@ export default function DatasheetFieldset()
             const data = new ClipboardItem({ [text.type]: text, [html.type]: html });
             await navigator.clipboard.write([data]);
         }
-        else if (document.execCommand) //Clipboard fallback
+        //Clipboard fallback
+        // stolen from https://stackoverflow.com/questions/23934656/how-can-i-copy-rich-text-contents-to-the-clipboard-with-javascript/77305170#77305170
+        else if (document.execCommand) 
         {
             function onCopy(e)
             {
