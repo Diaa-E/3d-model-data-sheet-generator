@@ -46,15 +46,16 @@ export default function DatasheetFieldset()
                 errorMsg: "Datasheet is empty, nothing was copied to the clipboard."
             });
         }
-        else if (window.getSelection)
+        else if (window.Clipboard)
         {
-            const selection = window.getSelection();
-            const range = document.createRange();
-            range.selectNodeContents(datasheet.element);
-            selection.removeAllRanges();
-            selection.addRange(range);
-            await navigator.clipboard.writeText(selection.toString());
-            selection.removeRange(range);
+            // HTML might not work if the pasting target does not support the html mime
+            const html = new Blob([datasheet.element.innerHTML], {type: "text/html"});
+            // plain text fallback
+            const text = new Blob([datasheet.element.textContent], {type: "text/plain"});
+            console.log(datasheet.element.innerHTML);
+            console.log(text);
+            const data = new ClipboardItem({ [text.type]: text, [html.type]: html });
+            await navigator.clipboard.write([data]);
         }
         else
         {
