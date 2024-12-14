@@ -57,6 +57,18 @@ export default function DatasheetFieldset()
             const data = new ClipboardItem({ [text.type]: text, [html.type]: html });
             await navigator.clipboard.write([data]);
         }
+        else if (document.execCommand) //Clipboard fallback
+        {
+            function onCopy(e)
+            {
+                e.clipboardData.setData("text/html", datasheet.element.innerHTML);
+                e.clipboardData.setData("text/plain", datasheet.element.textContent);
+                e.preventDefault();
+            }
+            document.addEventListener("copy", onCopy);
+            document.execCommand("copy");
+            document.removeEventListener("copy", oncopy);
+        }
         else
         {
             dispatchErrorPopupEvent({
