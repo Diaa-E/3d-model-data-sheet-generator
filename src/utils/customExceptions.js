@@ -1,4 +1,5 @@
 export const InvalidFieldsetException = customExceptionFActory("InvalidFieldException");
+export const FeatureNotSupportedException = customExceptionFActory("Feature Not Supported");
 
 export function customExceptionFActory(name = "customException")
 {

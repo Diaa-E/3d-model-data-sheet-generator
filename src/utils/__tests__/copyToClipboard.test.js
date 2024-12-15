@@ -1,4 +1,5 @@
 import copyToClipboard from "../copyToClipboard";
+import { FeatureNotSupportedException } from "../customExceptions";
 
 describe("Copy To Clipboard Utility Function", () => {
 
@@ -107,6 +108,17 @@ describe("Copy To Clipboard Utility Function", () => {
             // Async functions do not strictly throw like classes or regular functions, trying to catch
             // using a throw assertion leaves an unresolved promise and the test fails to run
             await expect(copyToClipboard(12)).rejects.toBeInstanceOf(TypeError);
+        });
+
+        it("Throws if neither copy to clipboard APIs are available", async () => {
+
+            global.ClipboardItem = undefined;
+            document.execCommand = undefined;
+
+            const element = document.createElement("h1");
+            element.textContent = "test";
+
+            await expect(copyToClipboard(element)).rejects.toBeInstanceOf(FeatureNotSupportedException);
         });
     });
 });

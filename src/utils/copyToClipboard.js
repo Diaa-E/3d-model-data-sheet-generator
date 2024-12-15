@@ -1,4 +1,4 @@
-import { dispatchErrorPopupEvent } from "./errorPopupEvents";
+import { FeatureNotSupportedException } from "./customExceptions";
 
 export default async function copyToClipboard(element)
 {
@@ -30,9 +30,6 @@ export default async function copyToClipboard(element)
     }
     else
     {
-        dispatchErrorPopupEvent({
-            dispatchingElement: element,
-            errorMsg: "This browser does not support copying to clipboard."
-        });
+        throw new FeatureNotSupportedException("This browser does not support copying to clipboard.");
     }
 }
