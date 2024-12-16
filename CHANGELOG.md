@@ -8,6 +8,8 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Improved buttons accessibility.
+- ➕ Buttons now have readable text on wider screens.
 - ➕ Overhauled the entire color palette.
 - ➕ Polygon and vertex counts are now comma-seperated for better readibility.
 - ➕ Missing optional fields are highlighted in red on the sheet in case the user forgot to fill them.
