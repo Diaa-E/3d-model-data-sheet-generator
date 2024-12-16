@@ -4,7 +4,7 @@
 
 ### Pending 🕝
 
-1. Show button text + icon on wider screens.
+1. Set newly addded items to checked.
 1. Make options keyboard focusable.
 1. Add dark mode.
 1. Unmount error popup from the DOM after closing.
@@ -15,6 +15,7 @@
 
 ### Completed ✅
 
+1. Show button text + icon on wider screens.
 1. Revisit color palette.
 1. Seperate polygon and vertex count by comma.
 1. Highlight error fields.
