@@ -35,21 +35,19 @@
     --checkbox-label-shadow:
         5px 3px 0px 0px var(--checkbox-label-checked),
         -2px -7px 0px 0px var(--checkbox-label-checked);
-    --checkbox-label-checked: #e0dd65;
-    --checkbox-label-checked-text: #f9f9f9;
+    --checkbox-label-checked: #86a4f0;
 
     --radio-label-shadow:
         5px 3px 0px 0px var(--radio-label-checked),
         -2px -7px 0px 0px var(--radio-label-checked);
-    --radio-label-checked: #65e0e0;
-    --radio-label-checked-text: #f9f9f9;
+    --radio-label-checked: #86f0f0;
+
+    --item-label-shadow:
+        5px 3px 0px 0px var(--item-label-checked),
+        -2px -7px 0px 0px var(--item-label-checked);
+    --item-label-checked: #f0ee86;
 
     --button-focus: #131313;
-
-    --legend-background: #ffb373;
-    --legend-shadow:         
-        5px 3px 0px 0px var(--legend-background),
-        -2px -7px 0px 0px var(--legend-background);
 
     --button-primary: #ffb373;
     --button-primary-hover: #ffa152;

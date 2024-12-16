@@ -5,16 +5,12 @@
     transition: outline-color .2s ease-in-out ;
 }
 
-.fieldset>legend{
-    box-shadow: var(--shadow-off);
-}
-
 .invalid{
     outline: solid var(--error) 3px;
     outline-offset: -1px;
 }
 
-.invalid>legend{
+.invalid>.legend{
     border-radius: 5px;
     background-color: var(--error);
     box-shadow: var(--empty-title-shadow);
@@ -28,4 +24,5 @@
     margin: 0 auto 20px auto;
     font-family: var(--font-title);
     font-size: 1.5rem;
+    box-shadow: var(--shadow-off);
 }

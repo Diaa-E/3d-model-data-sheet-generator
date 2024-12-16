@@ -18,10 +18,6 @@
     box-shadow: var(--shadow-off);
 }
 
-.checkbox-label-text{
-    
-}
-
 .checkbox:checked+.checkbox-label{
     background-color: var(--checkbox-label-checked);
     box-shadow: var(--checkbox-label-shadow);
@@ -30,6 +26,11 @@
 .checkbox:checked+.radio-label{
     background-color: var(--radio-label-checked);
     box-shadow: var(--radio-label-shadow);
+}
+
+.checkbox:checked+.item-label{
+    background-color: var(--item-label-checked);
+    box-shadow: var(--item-label-shadow);
 }
 
 .mark{

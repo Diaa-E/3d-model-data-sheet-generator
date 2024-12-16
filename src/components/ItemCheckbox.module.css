@@ -4,6 +4,7 @@
 
 .item-checkbox-label{
     composes: checkbox-label from "../common.module.css";
+    composes: item-label from "../common.module.css";
 }
 
 .item-checkbox-label-text{
