@@ -42,7 +42,7 @@ export default function AddCheckbox( props = {
     const addButton = IconButton({
         color: "primary",
         onClick: () => props.onAdd(textBox),
-        text: "Add",
+        text: props.legend,
         type: "button",
         iconPath: icons.addIcon
     });
