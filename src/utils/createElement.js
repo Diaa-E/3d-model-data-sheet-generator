@@ -11,7 +11,8 @@ export function createElement(tag, props, ...children)
 
     const attributeMap = {
         class: "className",
-        for: "htmlFor"
+        for: "htmlFor",
+        ariaLabel: "aria-label"
     };
 
     const element = document.createElement(tag);
@@ -27,13 +28,17 @@ export function createElement(tag, props, ...children)
         {
             element.addEventListener(key.toLowerCase().substring(2), value);
         }
-        else if (!(key in element) && !(key in attributeMap))
+        else if (key in element)
         {
-            throw new Error("Invalid HTML element attribute: " + key);
+            element[key] = String(value);
+        }
+        else if (key in attributeMap)
+        {
+            element[attributeMap[key]] = String(value);
         }
         else
         {
-            element.setAttribute(key, String(value));
+            throw new Error("Invalid HTML element attribute: " + key);
         }
     });
 
