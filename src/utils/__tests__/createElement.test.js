@@ -40,7 +40,7 @@ describe("Create Element Utility Function", () => {
     it("Handles IDL attributes with different property names", () => {
 
         const element = createElement(
-            "div",
+            "label",
             {
                 id: "testId",
                 class: "test-class",
