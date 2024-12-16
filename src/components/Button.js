@@ -48,6 +48,7 @@ export default function Button(props = {
             type: props.type,
             class: `${styles["button"]} ${colors[props.color]}`,
             onClick: props.onClick,
+            ariaLabel: props.text
         },
         [
             textSpan,
