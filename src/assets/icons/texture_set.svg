@@ -40,7 +40,7 @@
      stroke-width="1.5"
      stroke-linecap="round"
      id="path1"
-     style="stroke-width:1.2;stroke-dasharray:none;stroke:#f2f2f2;stroke-opacity:1" />
+     style="stroke-width:1.2;stroke-dasharray:none;stroke:#161616;stroke-opacity:1" />
   <circle
      cx="17.5"
      cy="11.5"
@@ -48,7 +48,7 @@
      stroke="#1C274C"
      stroke-width="1.5"
      id="circle1"
-     style="stroke-width:1.2;stroke-dasharray:none;stroke:#f2f2f2;stroke-opacity:1" />
+     style="stroke-width:1.2;stroke-dasharray:none;stroke:#161616;stroke-opacity:1" />
   <circle
      cx="6.5"
      cy="11.5"
@@ -56,17 +56,17 @@
      stroke="#1C274C"
      stroke-width="1.5"
      id="circle2"
-     style="stroke-width:1.2;stroke-dasharray:none;stroke:#f2f2f2;stroke-opacity:1" />
+     style="stroke-width:1.2;stroke-dasharray:none;stroke:#161616;stroke-opacity:1" />
   <path
      d="M11.085 6.99976C11.085 7.82818 10.4134 8.49976 9.58496 8.49976C8.75653 8.49976 8.08496 7.82818 8.08496 6.99976C8.08496 6.17133 8.75653 5.49976 9.58496 5.49976C10.4134 5.49976 11.085 6.17133 11.085 6.99976Z"
      stroke="#1C274C"
      stroke-width="1.5"
      id="path2"
-     style="stroke-width:1.2;stroke-dasharray:none;stroke:#f2f2f2;stroke-opacity:1" />
+     style="stroke-width:1.2;stroke-dasharray:none;stroke:#161616;stroke-opacity:1" />
   <path
      d="M16 7C16 7.82843 15.3284 8.5 14.5 8.5C13.6716 8.5 13 7.82843 13 7C13 6.17157 13.6716 5.5 14.5 5.5C15.3284 5.5 16 6.17157 16 7Z"
      stroke="#1C274C"
      stroke-width="1.5"
      id="path3"
-     style="stroke-width:1.2;stroke-dasharray:none;stroke:#f2f2f2;stroke-opacity:1" />
+     style="stroke-width:1.2;stroke-dasharray:none;stroke:#161616;stroke-opacity:1" />
 </svg>

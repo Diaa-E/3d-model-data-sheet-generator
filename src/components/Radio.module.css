@@ -4,6 +4,7 @@
 
 .radio-label{
     composes: checkbox-label from "../common.module.css";
+    composes: radio-label from "../common.module.css";
 }
 
 .radio-label-text{

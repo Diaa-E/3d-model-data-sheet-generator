@@ -1,13 +1,17 @@
 .set-title{
     font-family: var(--font-title);
+    color: var(--text-dark);
     font-size: 1.5rem;
     margin: 20px 0 0 0;
-    border-top: solid var(--placeholder) 1px;
+    border-top: var(--border-light);
     padding: 10px;
     width: 100%;
     text-align: center;
 }
 
-.empty-set-title{
-    color: var(--red);
+.empty-set-title>span{
+    border-radius: 5px;
+    background-color: var(--error);
+    box-shadow: var(--empty-title-shadow);
+    padding: 0 10px;
 }

@@ -2,11 +2,16 @@
     width: 100%;
     height: 32px;
     min-width: 30px;
-    border-radius: 5px;
-    border: solid var(--font) 1px;
+    border-radius: 100px;
+    border: var(--border);
     cursor: pointer;
     padding: 5px;
-    transition: background-color .2s ease-in-out;
+    outline-color: var(--none);
+    transition: background-color .2s ease-in-out, outline-color .2s ease-in-out;
+}
+
+.button:focus{
+    outline: solid var(--button-focus) 2px;
 }
 
 .icon{
@@ -19,31 +24,27 @@
 }
 
 .button-primary{
-    background-color: var(--green);
+    background-color: var(--button-primary);
 }
 
 .button-secondary{
-    background-color: var(--background-option);
+    background-color: var(--button-secondary);
 }
 
 .button-danger{
-    background-color: var(--red);
-}
-
-.button-secondary .icon{
-    filter: invert(1);
+    background-color: var(--button-danger);
 }
 
 .button-danger:hover{
-    background-color: var(--red-dark);
+    background-color: var(--button-danger-hover);
 }
 
 .button-secondary:hover{
-    background-color: var(--background-option-dark);
+    background-color: var(--button-secondary-hover);
 }
 
 .button-primary:hover{
-    background-color: var(--green-dark);
+    background-color: var(--button-primary-hover);
 }
 
 .button-text{

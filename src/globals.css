@@ -14,29 +14,62 @@
 }
 
 :root{
-    --background-dark: #1F2041;
-    --background-option-dark: #4B3F72;
-    --background: #E8C4C4;
-    --background-card: #f2e5e5;
-    --background-mini-form: #daeaf1;
-    --background-option: #f2f2f2;
-    --background-option-dark: #c8c8c8;
-    --none: #00000000;
-    --shadow: #2B3A55;
-    --font: black;
-    --red: #f54748;
-    --red-dark: #c83f3f;
-    --green: #00ADB5;
-    --green-dark: #0e9da4;
-    --placeholder:#868686;
     --font-default: "Roboto", sans-serif;
     --font-title: "Slim Jim", serif;
-    --shadow: 0px 1px 3px rgb(0, 0, 0, 0.1), 0px 6px 12px rgb(0, 0, 0, 0.08);
-    --border: solid var(--font) 1px;
+
+    --none: #00000000;
+    
+    --shadow-color: #0000004b;
+    --shadow-off: 0px 0px 0px 0px var(--shadow-color);
+    --shadow-on: 3px 3px 0px 0px var(--shadow-color);
+
+    --background: #ffffff;
+    --background-dark: #ededed;
+
+    --text-dark: #161616;
+    --text-light: #9b9b9b;
+
+    --border: solid #161616 1px;
+    --border-light: solid #9b9b9b 1px;
+
+    --checkbox-label-shadow:
+        5px 3px 0px 0px var(--checkbox-label-checked),
+        -2px -7px 0px 0px var(--checkbox-label-checked);
+    --checkbox-label-checked: #e0dd65;
+    --checkbox-label-checked-text: #f9f9f9;
+
+    --radio-label-shadow:
+        5px 3px 0px 0px var(--radio-label-checked),
+        -2px -7px 0px 0px var(--radio-label-checked);
+    --radio-label-checked: #65e0e0;
+    --radio-label-checked-text: #f9f9f9;
+
+    --button-focus: #131313;
+
+    --legend-background: #ffb373;
+    --legend-shadow:         
+        5px 3px 0px 0px var(--legend-background),
+        -2px -7px 0px 0px var(--legend-background);
+
+    --button-primary: #ffb373;
+    --button-primary-hover: #ffa152;
+
+    --button-secondary: #ffffff;
+    --button-secondary-hover: #ededed;
+
+    --button-danger: #fc727f;
+    --button-danger-hover: #f75060;
+
+    --error: #fc727f;
+    --success: #85f26e;
+
+    --empty-title-shadow: 
+        5px 3px 0px 0px var(--error),
+        -2px -7px 0px 0px var(--error);
 }
 
 body{
-    background-color: var(--background);
+    background-color: var(--background-dark);
 }
 
 form{

@@ -11,17 +11,17 @@
 }
 
 .popup{
-    background-color: var(--red);
+    background-color: var(--error);
     padding: 10px;
-    border-radius: 5px;
-    border: solid var(--font) 1px;
+    border-radius: 500px;
+    border: var(--border);
     min-width: 300px;
     min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow-on);
 }
 
 .open{
@@ -64,7 +64,7 @@
 
 .error-msg{
     font-family: var(--font-default);
-    color: var(--background-option);
+    color: var(--text-dark);
     font-size: 1rem;
     margin: 0 auto;
 }
