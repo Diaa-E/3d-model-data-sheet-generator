@@ -3,6 +3,12 @@
     outline: none;
     outline-color: var(--none);
     transition: outline-color .2s ease-in-out ;
+    box-shadow: var(--shadow-off);
+    transition: box-shadow .2s ease-in-out;
+}
+
+.fieldset:focus-within{
+    box-shadow: var(--shadow-on);
 }
 
 .invalid{
