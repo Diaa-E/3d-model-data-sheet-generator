@@ -20,7 +20,7 @@
     --none: #00000000;
     
     --shadow-color: #0000004b;
-    --shadow-off: 0px 0px 0px 0px var(--shadow-color);
+    --shadow-off: 0px 0px 0px 0px var(--none);
     --shadow-on: 3px 3px 0px 0px var(--shadow-color);
 
     --background: #ffffff;
@@ -61,9 +61,20 @@
     --error: #fc727f;
     --success: #85f26e;
 
+    --tab-active: #ffb373;
+    --tab-hover: #ffd4b0;
     --empty-title-shadow: 
         5px 3px 0px 0px var(--error),
         -2px -7px 0px 0px var(--error);
+
+    --active-tab-shadow:
+        5px 3px 0px 0px var(--tab-active),
+        -2px -7px 0px 0px var(--tab-active);
+
+    --tab-hover-shadow:
+        5px 3px 0px 0px var(--tab-hover),
+        -2px -7px 0px 0px var(--tab-hover);
+    
 }
 
 body{
