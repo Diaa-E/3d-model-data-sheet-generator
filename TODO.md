@@ -12,6 +12,8 @@
 1. Add texture type UDIM or single image to each texture map.
 1. Add option to scroll to each error field.
 1. Use text button for generation.
+1. Add an extra field to model info for disclaimers.
+1. Add option to insert links to images.
 
 ### Completed ✅
 
