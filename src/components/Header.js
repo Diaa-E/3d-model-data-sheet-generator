@@ -1,16 +1,15 @@
 import { createElement } from "../utils/createElement";
 import styles from "./Header.module.css";
-import logo from "../assets/logo/logo.svg";
 import NavBar from "./NavBar";
 
 export default function Header()
 {
-    const logoImg = createElement(
-        "img",
+    const homeLink = createElement(
+        "a",
         {
-            class: styles["logo"],
-            alt: "3D moel datasheet generator logo",
-            src: logo
+            class: styles["home-link"],
+            href: "/",
+            ariaLabel: "Home"
         },
     );
 
@@ -22,7 +21,7 @@ export default function Header()
             class: styles["header-items-wrapper"]
         },
         [
-            logoImg,
+            homeLink,
             navBar.element
         ]
     );

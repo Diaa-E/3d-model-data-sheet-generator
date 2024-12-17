@@ -15,6 +15,11 @@
     place-content: space-between;
 }
 
-.logo{
-    height: 50px;
+.home-link{
+    height: 70px;
+    width: 200px;
+    background-image: url("../assets/logo/logo.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
