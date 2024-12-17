@@ -1,5 +1,7 @@
 .checkbox{
-    display: none;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
 }
 
 .checkbox-label{
@@ -16,6 +18,11 @@
     display: flex;
     justify-content: space-between;
     box-shadow: var(--shadow-off);
+}
+
+.checkbox:focus+.checkbox-label{
+    outline: solid var(--button-focus) 3px;
+    outline-offset: -1px;
 }
 
 .checkbox:checked+.checkbox-label{
