@@ -1,0 +1,20 @@
+.header{
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: var(--border);
+    background-color: var(--background);
+    padding: 5px;
+}
+
+.header-items-wrapper{
+    max-width: 1280px;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    place-items: space-between;
+    place-content: space-between;
+}
+
+.logo{
+    height: 50px;
+}
