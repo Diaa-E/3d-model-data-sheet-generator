@@ -70,18 +70,15 @@ body{
     background-color: var(--background-dark);
 }
 
-form{
-    display: grid;
-    grid-auto-rows: min-content;
-    place-content: stretch;
-    place-items: stretch;
-    gap: 5px;
-    padding: 2%;
-}
-
 :global(div#root){
+    position: none;
     margin: 0 auto;
-    max-width: 1280px;
     display: flex;
     flex-direction: column;
+}
+
+:global(div#content){
+    margin: 100px auto;
+    width: 100%;
+    max-width: 1280px;
 }
