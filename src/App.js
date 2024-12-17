@@ -7,20 +7,11 @@ import About from "./About";
 import {createElement} from "./utils/createElement";
 import logo from "./assets/logo/logo.svg";
 
-const routes = [
-    {
-        path: "/",
-        component: Index
-    },
-    {
-        path: "/model_form.html",
-        component: ModelForm
-    },
-    {
-        path: "/about.html",
-        component: About
-    }
-];
+const routes = {
+    "/": Index,
+    "/model_form.html": ModelForm,
+    "/about.html": About
+};
 
 const favIcon = createElement(
     "link",
@@ -32,17 +23,6 @@ const favIcon = createElement(
 );
 document.head.appendChild(favIcon);
 
-function getPage()
-{
-    for (const route of routes)
-    {
-        if (window.location.pathname === route.path)
-        {
-            return route.component();
-        }
-    }
-}
-
 document.body.append(
     createElement(
         "div",
@@ -50,7 +30,7 @@ document.body.append(
             id: "root"
         },
         [
-            getPage()
+            routes[window.location.pathname]()
         ]
     )
 );
