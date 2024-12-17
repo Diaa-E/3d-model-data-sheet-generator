@@ -4,6 +4,7 @@
     border-bottom: var(--border);
     background-color: var(--background);
     padding: 5px;
+    box-shadow: var(--shadow-on);
 }
 
 .header-items-wrapper{
