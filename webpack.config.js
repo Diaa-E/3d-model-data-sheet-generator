@@ -11,7 +11,9 @@ const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
 const config = {
-    entry: './src/index.js',
+    entry: {
+        app: "./src/App.js"
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].[hash].js",
@@ -23,6 +25,21 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
+            inject: true,
+            chunks: ["app"],
+            filename: "index.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/about.html',
+            inject: true,
+            chunks: ["app"],
+            filename: "about.html"
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/model_form.html',
+            inject: true,
+            chunks: ["app"],
+            filename: "model_form.html"
         }),
 
         // Add your plugins here

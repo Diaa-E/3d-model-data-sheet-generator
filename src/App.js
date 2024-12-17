@@ -1,37 +1,56 @@
 "use strict";
 
-import ErrorPopup from "./components/ErrorPopup";
-import MainForm from "./components/mainForm/MainForm";
-import { createElement } from "./utils/createElement";
+import "./globals.css";
+import Index from "./Index";
+import ModelForm from "./ModelForm";
+import About from "./About";
+import {createElement} from "./utils/createElement";
 import logo from "./assets/logo/logo.svg";
-import Header from "./components/Header";
 
-export default function App()
+const routes = [
+    {
+        path: "/",
+        component: Index
+    },
+    {
+        path: "/model_form.html",
+        component: ModelForm
+    },
+    {
+        path: "/about.html",
+        component: About
+    }
+];
+
+const favIcon = createElement(
+    "link",
+    {
+        rel: "icon",
+        type: "image/svg+xml",
+        href: logo,
+    }
+);
+document.head.appendChild(favIcon);
+
+function getPage()
 {
-
-    const favIcon = createElement(
-        "link",
+    for (const route of routes)
+    {
+        if (window.location.pathname === route.path)
         {
-            rel: "icon",
-            type: "image/svg+xml",
-            href: logo,
+            return route.component();
         }
-    );
-    document.head.appendChild(favIcon);
+    }
+}
 
-    const header = Header();
-    const mainForm = MainForm();
-    const errorPopup = ErrorPopup();
-
-    const contentDiv = createElement(
+document.body.append(
+    createElement(
         "div",
         {
-            id: "content"
+            id: "root"
         },
         [
-            mainForm.element
+            getPage()
         ]
     )
-           
-    return [ header.element, contentDiv, errorPopup.element ];
-}
+);
