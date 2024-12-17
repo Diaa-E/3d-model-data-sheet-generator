@@ -5,18 +5,18 @@
 ### Pending 🕝
 
 1. Set newly addded items to checked.
-1. Make options keyboard focusable.
 1. Add dark mode.
 1. Unmount error popup from the DOM after closing.
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
 1. Add option to scroll to each error field.
-1. Use text button for generation.
 1. Add an extra field to model info for disclaimers.
 1. Add option to insert links to images.
 
 ### Completed ✅
 
+1. Use text button for generation.
+1. Make options keyboard focusable.
 1. Show button text + icon on wider screens.
 1. Revisit color palette.
 1. Seperate polygon and vertex count by comma.
