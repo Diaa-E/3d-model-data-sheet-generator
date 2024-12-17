@@ -1,5 +1,6 @@
 .checkbox{
-    position: absolute;
+    height: 0;
+    width: 0;
     pointer-events: none;
     opacity: 0;
 }
