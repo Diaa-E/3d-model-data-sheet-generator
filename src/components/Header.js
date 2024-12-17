@@ -1,6 +1,7 @@
 import { createElement } from "../utils/createElement";
 import styles from "./Header.module.css";
 import logo from "../assets/logo/logo.svg";
+import NavBar from "./NavBar";
 
 export default function Header()
 {
@@ -13,6 +14,8 @@ export default function Header()
         },
     );
 
+    const navBar = NavBar();
+
     const headerItemsWrapper = createElement(
         "div",
         {
@@ -20,8 +23,9 @@ export default function Header()
         },
         [
             logoImg,
+            navBar.element
         ]
-    )
+    );
 
     const header = createElement(
         "header",
@@ -29,7 +33,7 @@ export default function Header()
             class: styles["header"]
         },
         [
-            headerItemsWrapper
+            headerItemsWrapper,
         ]
     );
 
