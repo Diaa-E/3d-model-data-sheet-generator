@@ -3,24 +3,28 @@ export const formattingTokens = {
         heading: "",
         bold: "",
         ul: "",
-        ol: ""
+        ol: "",
+        break: "",
     },
     CGTrader: {
         heading: "",
         bold: "**",
         ul: "- ",
-        ol: "1. "
+        ol: "1. ",
+        break: "\n",
     },
     Fab: {
         heading: "",
         bold: "",
         ul: "",
-        ol: ""
+        ol: "",
+        break: "",
     },
     Sketchfab: {
         heading: "#",
         bold: "**",
         ul: "* ",
         ol: "1. ",
+        break: "\n\n",
     }
 }

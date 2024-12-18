@@ -2,7 +2,7 @@ import { createElement } from "../utils/createElement";
 import styles from "./Datasheet.module.css";
 import DatasheetList from "./DatasheetList";
 import DatasheetSetTitle from "./DatasheetSetTitle";
-import { formattingTokens } from "../utils/formattingTokens";
+import { formattingTokens as f } from "../utils/formattingTokens";
 
 export default function Datasheet(props = {
 
@@ -48,10 +48,7 @@ export default function Datasheet(props = {
         {
             class: styles["datasheet-title"]
         },
-        `${formattingTokens[props.targetSite].heading} 
-        ${formattingTokens[props.targetSite].bold}
-        ${props.title}
-        ${formattingTokens[props.targetSite].bold}\n`,
+        `${f[props.targetSite].heading}${f[props.targetSite].bold}${props.title}${f[props.targetSite].bold}${f[props.targetSite].break}`,
     )
     const datasheetSets = [];
 
@@ -87,7 +84,7 @@ export default function Datasheet(props = {
                     {
                         class: styles["datasheet-text"]
                     },
-                    set.data.join(", ")
+                    `${f[props.targetSite].break}${set.data.join(", ")}${f[props.targetSite].break}`
                 )
             );
         }

@@ -1,5 +1,5 @@
 import { createElement } from "../utils/createElement";
-import { formattingTokens } from "../utils/formattingTokens";
+import { formattingTokens as f } from "../utils/formattingTokens";
 import styles from "./DatasheetList.module.css";
 
 export default function DatasheetList(props = {
@@ -51,7 +51,7 @@ export default function DatasheetList(props = {
             {
                 class: styles["list-item"]
             },
-            `${formattingTokens[props.targetSite][props.ordered ? "ol" : "ul"]} ${item}`
+            `${f[props.targetSite][props.ordered ? "ol" : "ul"]} ${item}${f[props.targetSite].break}`
         );
 
         listElement.append(listItem);
