@@ -23,6 +23,7 @@ export default function DatasheetFieldset()
 
     function generateDatasheet(props = {
         title: "",
+        targetSite: "",
         sets: []
     })
     {
@@ -33,6 +34,7 @@ export default function DatasheetFieldset()
 
         datasheet = Datasheet({
             title: props.title,
+            targetSite: props.targetSite,
             sets: props.sets
         });
 

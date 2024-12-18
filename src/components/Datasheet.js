@@ -2,15 +2,18 @@ import { createElement } from "../utils/createElement";
 import styles from "./Datasheet.module.css";
 import DatasheetList from "./DatasheetList";
 import DatasheetSetTitle from "./DatasheetSetTitle";
+import { formattingTokens } from "../utils/formattingTokens";
 
 export default function Datasheet(props = {
 
     title: "",
+    targetSite: "",
     sets: [],
 })
 {
     props = {
         title: "",
+        targetSite: "",
         sets: [
             {
                 title: "title1",
@@ -45,7 +48,10 @@ export default function Datasheet(props = {
         {
             class: styles["datasheet-title"]
         },
-        props.title,
+        `${formattingTokens[props.targetSite].heading} 
+        ${formattingTokens[props.targetSite].bold}
+        ${props.title}
+        ${formattingTokens[props.targetSite].bold}\n`,
     )
     const datasheetSets = [];
 
@@ -68,7 +74,8 @@ export default function Datasheet(props = {
 
             DatasheetSetTitle({
                 title: set.title,
-                emptySet: set.data.length === 0
+                emptySet: set.data.length === 0,
+                targetSite: props.targetSite,
             }).element
         );
 
@@ -90,7 +97,8 @@ export default function Datasheet(props = {
 
                 DatasheetList({
                     ordered: true,
-                    list: set.data
+                    list: set.data,
+                    targetSite: props.targetSite
                 }).element
             );
         }
@@ -100,7 +108,8 @@ export default function Datasheet(props = {
 
                 DatasheetList({
                     ordered: false,
-                    list: set.data
+                    list: set.data,
+                    targetSite: props.targetSite
                 }).element
             );
         }

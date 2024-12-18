@@ -12,6 +12,7 @@ import ItemCheckBoxFieldset from "./components/fieldsets/ItemCheckBoxFieldset";
 import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
 import formatNumberComma from "./utils/numberFormatter";
+import { formattingTokens } from "./utils/formattingTokens";
 
 export default function ModelForm()
 {
@@ -180,10 +181,7 @@ export default function ModelForm()
     const targetSite = RadioFieldset({
         legend: "Target Website",
         options: [
-            "None",
-            "CGTrader",
-            "Fab",
-            "Sketchfab",
+            ...Object.keys(formattingTokens)
         ],
         storageKey: storageKeys.targetSite,
         enableUserOptions: false,
@@ -234,6 +232,7 @@ export default function ModelForm()
             datasheet.generateDatasheet({
 
                 title: modelInfo.getState().title,
+                targetSite: targetSite.getState(),
                 sets: [
                     {
                         title: "Description",

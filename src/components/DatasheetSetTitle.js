@@ -1,14 +1,17 @@
 import { createElement } from "../utils/createElement";
+import { formattingTokens } from "../utils/formattingTokens";
 import styles from "./DatasheetSetTitle.module.css";
 
 export default function DatasheetSetTitle(props = {
     title: "",
     emptySet: false,
+    targetSite: "",
 })
 {
     props = {
         title: "Set Title",
         emptySet: false,
+        targetSite: "",
         ...props
     };
 
@@ -17,7 +20,9 @@ export default function DatasheetSetTitle(props = {
         {
             
         },
-        props.title
+        `${formattingTokens[props.targetSite].bold}
+        ${props.title}
+        ${formattingTokens[props.targetSite].bold}`
     )
 
     const title = createElement(

@@ -1,14 +1,17 @@
 import { createElement } from "../utils/createElement";
+import { formattingTokens } from "../utils/formattingTokens";
 import styles from "./DatasheetList.module.css";
 
 export default function DatasheetList(props = {
     ordered: false,
     list: [],
+    targetSite: ""
 })
 {
     props = {
         ordered: false,
         list: [],
+        targetSite: "",
         ...props
     };
 
@@ -48,7 +51,7 @@ export default function DatasheetList(props = {
             {
                 class: styles["list-item"]
             },
-            item
+            `${formattingTokens[props.targetSite][props.ordered ? "ol" : "ul"]} ${item}`
         );
 
         listElement.append(listItem);
