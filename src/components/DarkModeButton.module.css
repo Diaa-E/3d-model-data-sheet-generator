@@ -6,6 +6,13 @@
     border: var(--border);
     cursor: pointer;
     display: flex;
+    outline-color: var(--none);
+    transition: outline-color .2s ease-in-out;
+}
+
+.dark-mode-button:focus{
+    outline: solid var(--button-focus) 2px;
+    outline-offset: -1px;
 }
 
 .knob{
