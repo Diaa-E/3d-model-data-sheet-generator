@@ -14,17 +14,28 @@ export default function DatasheetForm(props = {
         ...props
     };
 
+    const title = createElement(
+        "h1",
+        {
+            class: styles["form-title"],
+        },
+        props.formTitle
+    );
+
     const form = createElement(
         "form",
         {
             action: "/",
             class: styles["datasheet-form"],
             onSubmit: (e) => {
-                e.preventDefault()
-                props.onSubmit(e)
+                e.preventDefault();
+                props.onSubmit(e);
             }
         },
-        props.fieldsets
+        [
+            title,
+            props.fieldsets
+        ]
     );
 
     return { element: form };

@@ -5,3 +5,11 @@
     padding: 10px;
     margin: 0 auto;
 }
+
+.form-title{
+    text-align: center;
+    font-family: var(--font-title);
+    color: var(--text-dark);
+    font-size: 3rem;
+    margin: 0 auto 50px auto;
+}
