@@ -7,7 +7,7 @@ export default function DarkModeButton()
     const STORAGE_KEY = "darkTheme";
     let darkTheme;
 
-    if (window.localStorage.getItem(STORAGE_KEY))
+    if (localStorage.getItem(STORAGE_KEY))
     {
         darkTheme = JSON.parse(window.localStorage.getItem(STORAGE_KEY));
     }
@@ -35,6 +35,13 @@ export default function DarkModeButton()
         icon
     );
 
+    const textSpan = createElement(
+        "span",
+        {
+            class: styles["button-text"]
+        },
+    )
+
     const button = createElement(
         "button",
         {
@@ -45,7 +52,8 @@ export default function DarkModeButton()
             }
         },
         [
-            knob
+            knob,
+            textSpan
         ]
     );
 
@@ -60,6 +68,7 @@ export default function DarkModeButton()
             knob.classList.remove(styles["light"]);
             knob.classList.add(styles["dark"]);
             button.ariaLabel = "Disable dark mode";
+            textSpan.textContent = "Disable dark mode";
         }
         else
         {
@@ -68,9 +77,10 @@ export default function DarkModeButton()
             knob.classList.remove(styles["dark"]);
             knob.classList.add(styles["light"]);
             button.ariaLabel = "Enable dark mode";
+            textSpan.textContent = "Enable dark mode";
         }
 
-        window.localStorage.setItem(STORAGE_KEY, JSON.parse(darkTheme));
+        localStorage.setItem(STORAGE_KEY, JSON.parse(darkTheme));
     }
 
     return { element: button };

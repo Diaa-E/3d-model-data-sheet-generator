@@ -17,7 +17,7 @@ export default function mockSessionStorage()
         sessionStore = []
     })
 
-    window.sessionStorage.getItem = mockGetItem;
-    window.sessionStorage.setItem = mockSetItem;
-    window.sessionStorage.clear = clear;
+    sessionStorage.getItem = mockGetItem;
+    sessionStorage.setItem = mockSetItem;
+    sessionStorage.clear = clear;
 }
