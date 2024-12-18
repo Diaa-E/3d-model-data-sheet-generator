@@ -1,0 +1,44 @@
+.dark-mode-button{
+    background-color: var(--background-dark);
+    width: 60px;
+    height: 30px;
+    border-radius: 500px;
+    border: var(--border);
+    cursor: pointer;
+    display: flex;
+}
+
+.knob{
+    height: 100%;
+    width: 50%;
+    border-radius: 50%;
+    background-color: var(--background);
+    transition: transform .2s ease-in-out;
+}
+
+.knob.dark{
+    transform: translateX(0);
+}
+
+.knob.light{
+    transform: translateX(100%);
+}
+
+.icon{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: background-image .2s ease-in-out;
+    filter: var(--icon-filter);
+    width: 70%;
+    height: 70%;
+    margin: 15%;
+}
+
+.dark>.icon{
+    background-image: url("../assets/icons/dark_mode.svg");
+}
+
+.light>.icon{
+    background-image: url("../assets/icons/light_mode.svg");
+}

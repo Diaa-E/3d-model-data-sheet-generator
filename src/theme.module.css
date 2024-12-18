@@ -1,0 +1,121 @@
+
+.light{
+    --background: #ffffff;
+    --background-dark: #ededed;
+        
+    --shadow-color: #0000004b;
+    --shadow-off: 0px 0px 0px 0px var(--none);
+    --shadow-on: 3px 3px 0px 0px var(--shadow-color);
+
+    --text-dark: #161616;
+    --text-light: #9b9b9b;
+
+    --border: solid #161616 1px;
+    --border-light: solid #9b9b9b 1px;
+
+    --checkbox-label-shadow:
+        5px 3px 0px 0px var(--checkbox-label-checked),
+        -2px -7px 0px 0px var(--checkbox-label-checked);
+    --checkbox-label-checked: #86a4f0;
+
+    --radio-label-shadow:
+        5px 3px 0px 0px var(--radio-label-checked),
+        -2px -7px 0px 0px var(--radio-label-checked);
+    --radio-label-checked: #86f0f0;
+
+    --item-label-shadow:
+        5px 3px 0px 0px var(--item-label-checked),
+        -2px -7px 0px 0px var(--item-label-checked);
+    --item-label-checked: #f0ee86;
+
+    --button-focus: #131313;
+
+    --button-primary: #ffb373;
+    --button-primary-hover: #ffa152;
+
+    --button-secondary: #ffffff;
+    --button-secondary-hover: #ededed;
+
+    --button-danger: #fc727f;
+    --button-danger-hover: #f75060;
+
+    --error: #fc727f;
+    --success: #85f26e;
+
+    --tab-active: #ffb373;
+    --tab-hover: #ffd4b0;
+    --empty-title-shadow: 
+        5px 3px 0px 0px var(--error),
+        -2px -7px 0px 0px var(--error);
+
+    --active-tab-shadow:
+        5px 3px 0px 0px var(--tab-active),
+        -2px -7px 0px 0px var(--tab-active);
+
+    --tab-hover-shadow:
+        5px 3px 0px 0px var(--tab-hover),
+        -2px -7px 0px 0px var(--tab-hover);
+
+    --icon-filter: invert(0);
+}
+
+.dark{
+    --background: #2e2e2e;
+    --background-dark: #212121;
+
+        
+    --shadow-color: #ffffff4b;
+    --shadow-off: 0px 0px 0px 0px var(--none);
+    --shadow-on: 3px 3px 0px 0px var(--shadow-color);
+
+    --text-dark: #fcfcfc;
+    --text-light: #9b9b9b;
+
+    --border: solid #515151 1px;
+    --border-light: solid #4a4a4a 1px;
+
+    --checkbox-label-shadow:
+        5px 3px 0px 0px var(--checkbox-label-checked),
+        -2px -7px 0px 0px var(--checkbox-label-checked);
+    --checkbox-label-checked: #48577f;
+
+    --radio-label-shadow:
+        5px 3px 0px 0px var(--radio-label-checked),
+        -2px -7px 0px 0px var(--radio-label-checked);
+    --radio-label-checked: #376a6a;
+
+    --item-label-shadow:
+        5px 3px 0px 0px var(--item-label-checked),
+        -2px -7px 0px 0px var(--item-label-checked);
+    --item-label-checked: #706f35;
+
+    --button-focus: #bdbdbd;
+
+    --button-primary: #9c6538;
+    --button-primary-hover: #7e4d25;
+
+    --button-secondary: #2e2e2e;
+    --button-secondary-hover: #212121;
+
+    --button-danger: #fc727f;
+    --button-danger-hover: #f75060;
+
+    --error: #963b44;
+    --success: #569e48;
+
+    --tab-active: #9c6538;
+    --tab-hover: #d38f56;
+    --empty-title-shadow: 
+        5px 3px 0px 0px var(--error),
+        -2px -7px 0px 0px var(--error);
+
+    --active-tab-shadow:
+        5px 3px 0px 0px var(--tab-active),
+        -2px -7px 0px 0px var(--tab-active);
+
+    --tab-hover-shadow:
+        5px 3px 0px 0px var(--tab-hover),
+        -2px -7px 0px 0px var(--tab-hover);
+
+    --icon-filter: invert(1) brightness(150%);
+}

@@ -1,4 +1,5 @@
 import { createElement } from "../utils/createElement";
+import DarkModeButton from "./DarkModeButton";
 import styles from "./Header.module.css";
 import NavBar from "./NavBar";
 
@@ -14,6 +15,7 @@ export default function Header()
     );
 
     const navBar = NavBar();
+    const darkModeButton = DarkModeButton();
 
     const headerItemsWrapper = createElement(
         "div",
@@ -22,7 +24,8 @@ export default function Header()
         },
         [
             homeLink,
-            navBar.element
+            navBar.element,
+            darkModeButton.element
         ]
     );
 

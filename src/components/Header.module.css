@@ -12,7 +12,7 @@
     margin: auto;
     padding: 5px;
     display: flex;
-    place-items: space-between;
+    place-items: center;
     place-content: space-between;
 }
 

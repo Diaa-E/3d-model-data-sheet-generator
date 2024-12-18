@@ -6,3 +6,7 @@
 .text-area-field{
     composes: input-field from "../common.module.css";
 }
+
+.text-area-label{
+    composes: text-box-label from "../common.module.css";
+}

@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Added dark theme.
 - ➕ Improved keyboard accessibility for all controls.
 - ➕ Improved buttons accessibility.
 - ➕ Buttons now have readable text on wider screens.

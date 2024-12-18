@@ -5,7 +5,6 @@
 ### Pending 🕝
 
 1. Set newly addded items to checked.
-1. Add dark mode.
 1. Unmount error popup from the DOM after closing.
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
@@ -15,6 +14,7 @@
 
 ### Completed ✅
 
+1. Add dark mode.
 1. Use text button for generation.
 1. Make options keyboard focusable.
 1. Show button text + icon on wider screens.

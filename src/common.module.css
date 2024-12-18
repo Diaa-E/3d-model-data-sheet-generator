@@ -46,6 +46,7 @@
     background-size: contain;
     height: 20px;
     width: 20px;
+    filter: var(--icon-filter);
     transition: filter .2s ease-in-out, opacity .2s ease-in-out;
 }
 
@@ -110,7 +111,7 @@
 }
 
 .text-box-label{
-    color: var(--font);
+    color: var(--text-dark);
 }
 
 .card{
