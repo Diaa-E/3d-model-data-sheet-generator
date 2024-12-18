@@ -4,6 +4,10 @@
 
 ### Pending 🕝
 
+1. add animation for errorpopup text update.
+1. create a success notification popup.
+1. Add reset form button
+1. Add reset field button.
 1. Set newly addded items to checked.
 1. Unmount error popup from the DOM after closing.
 1. Check for illegal characters.
