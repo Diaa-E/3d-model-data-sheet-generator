@@ -26,7 +26,7 @@ export default function ErrorPopup()
     const closeButton = IconButton({
         iconPath: icons.closeIcon,
         text: "Dismiss error popup",
-        onClick: closePopup,
+        onClick: () => closePopup(false),
         type: "button"
     });
 
@@ -63,11 +63,15 @@ export default function ErrorPopup()
     popup.style.setProperty("--close-duration", `${CLOSE_DURATION}s`);
     popup.style.setProperty("--open-duration", `${OPEN_DURATION}s`);
 
-    function closePopup()
+    function closePopup(silent = false)
     {
         popup.classList.remove(styles["open"]);
         popup.classList.add(styles["close"]);
-        lastFocusedElement.focus();
+
+        if (!silent)
+        {
+            lastFocusedElement.focus();
+        }
 
         setTimeout(() => {
 
@@ -90,13 +94,12 @@ export default function ErrorPopup()
         closeButton.focus();
 
         clearTimeout(closeTimer);
-        console.log("timer reset")
 
         closeTimer = setTimeout(() => {
 
             if (isOpen)
             {
-                closePopup();
+                closePopup(true);
             }
 
         }, 10000);
