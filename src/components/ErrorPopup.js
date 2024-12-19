@@ -2,7 +2,7 @@ import styles from "./ErrorPopup.module.css";
 import { createElement } from "../utils/createElement";
 import IconButton from "./IconButton";
 import icons from "../barrels/icons.barrel";
-import { popupEventName } from "../utils/errorPopupEvents";
+import { closeErrorPopupEvent, showErrorPopupEvent } from "../utils/errorPopupEvents";
 
 export default function ErrorPopup()
 {
@@ -53,11 +53,16 @@ export default function ErrorPopup()
         ]
     );
 
-    document.addEventListener(popupEventName, (e) => {
+    document.addEventListener(showErrorPopupEvent, (e) => {
 
         openPopup();
         errorMsg.textContent = e.detail.errorMsg;
         lastFocusedElement = e.detail.lastFocusedElement;
+    });
+
+    document.addEventListener(closeErrorPopupEvent, (e) => {
+
+        closePopup(e.detail.silent);
     });
 
     popup.style.setProperty("--close-duration", `${CLOSE_DURATION}s`);

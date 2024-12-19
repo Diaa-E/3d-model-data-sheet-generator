@@ -7,7 +7,7 @@ import PolyCountFieldset from "./components/fieldsets/PolyCountFieldset";
 import CheckboxFieldset from "./components/fieldsets/CheckboxFieldset";
 import RadioFieldset from "./components/fieldsets/RadioFieldSet";
 import DatasheetFieldset from "./components/fieldsets/DatasheetFieldset";
-import { dispatchErrorPopupEvent } from "./utils/errorPopupEvents";
+import { showErrorPopup } from "./utils/errorPopupEvents";
 import ItemCheckBoxFieldset from "./components/fieldsets/ItemCheckBoxFieldset";
 import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
@@ -306,7 +306,7 @@ export default function ModelForm()
         {
             if (error instanceof InvalidFieldsetException)
             {
-                dispatchErrorPopupEvent({
+                showErrorPopup({
                     dispatchingElement: form.element,
                     errorMsg: error.message
                 });

@@ -3,7 +3,7 @@ import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
-import { dispatchErrorPopupEvent} from "../../utils/errorPopupEvents";
+import { showErrorPopup} from "../../utils/errorPopupEvents";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 
@@ -119,7 +119,7 @@ export default function CheckboxFieldset(props = {
     {
         if (addOptionFieldset.getValue() === "")
         {
-            dispatchErrorPopupEvent({
+            showErrorPopup({
 
                 dispatchingElement: invalidField,
                 errorMsg: "Field Cannot be empty."
@@ -129,7 +129,7 @@ export default function CheckboxFieldset(props = {
         }
         else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
         {
-            dispatchErrorPopupEvent({
+            showErrorPopup({
 
                 dispatchingElement: invalidField,
                 errorMsg: "This option already exists"

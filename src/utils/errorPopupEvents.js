@@ -1,6 +1,7 @@
-export const popupEventName = "onShowPopup";
+export const showErrorPopupEvent = "onShowErrorPopup";
+export const closeErrorPopupEvent = "onCloseErrorPopup";
 
-export function dispatchErrorPopupEvent(options = {
+export function showErrorPopup(options = {
     dispatchingElement: null,
     errorMsg: "",
 })
@@ -17,7 +18,7 @@ export function dispatchErrorPopupEvent(options = {
     }
 
     const event = new CustomEvent(
-        popupEventName,
+        showErrorPopupEvent,
         {
             detail: {
                 errorMsg: options.errorMsg,
@@ -28,4 +29,26 @@ export function dispatchErrorPopupEvent(options = {
     )
 
     options.dispatchingElement.dispatchEvent(event);
+}
+
+export function closeErrorPopup(options = {
+    silent: false,
+})
+{
+    options = {
+        silent: false,
+        ...options
+    };
+
+    const event = new CustomEvent(
+        closeErrorPopupEvent,
+        {
+            detail: {
+                silent: options.silent,
+            },
+            bubbles: true,
+        }
+    );
+
+    document.dispatchEvent(event);
 }

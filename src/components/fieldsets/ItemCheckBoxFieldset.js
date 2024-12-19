@@ -5,7 +5,7 @@ import RadioGroup from "../RadioGroup";
 import icons from "../../barrels/icons.barrel";
 import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
-import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
+import { showErrorPopup } from "../../utils/errorPopupEvents";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function ItemCheckBoxFieldset(props = {
@@ -83,7 +83,7 @@ export default function ItemCheckBoxFieldset(props = {
     {
         if (addItemFieldset.getValue() === "")
         {
-            dispatchErrorPopupEvent({
+            showErrorPopup({
 
                 dispatchingElement: invalidField,
                 errorMsg: "Field Cannot be empty."
@@ -93,7 +93,7 @@ export default function ItemCheckBoxFieldset(props = {
         }
         else if (searchCaseInsensitive(items, addItemFieldset.getValue()))
         {
-            dispatchErrorPopupEvent({
+            showErrorPopup({
 
                 dispatchingElement: invalidField,
                 errorMsg: "This option already exists"

@@ -1,6 +1,6 @@
 import copyToClipboard from "../../utils/copyToClipboard";
 import { FeatureNotSupportedException } from "../../utils/customExceptions";
-import { dispatchErrorPopupEvent } from "../../utils/errorPopupEvents";
+import { showErrorPopup } from "../../utils/errorPopupEvents";
 import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";
@@ -45,7 +45,7 @@ export default function DatasheetFieldset()
     {
         if (datasheet === null)
         {
-            dispatchErrorPopupEvent({
+            showErrorPopup({
                 dispatchingElement: datasheetControls.element,
                 errorMsg: "Datasheet is empty, nothing was copied to the clipboard."
             });
@@ -60,7 +60,7 @@ export default function DatasheetFieldset()
             {
                 if (error instanceof FeatureNotSupportedException)
                 {
-                    dispatchErrorPopupEvent({
+                    showErrorPopup({
                         dispatchingElement: datasheet.element,
                         errorMsg: error.message,
                     });
