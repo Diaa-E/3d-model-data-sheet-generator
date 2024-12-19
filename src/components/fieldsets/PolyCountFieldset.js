@@ -27,6 +27,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
 
             polyCount.vertices = e.target.value;
             saveToStorage(STORAGE_KEY, polyCount);
+            fieldSet.setInvalid(false);
         },
         placeholder: "Number of Vertices",
         text: "Vertices",
@@ -40,6 +41,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
 
             polyCount.triangles = e.target.value;
             saveToStorage(STORAGE_KEY, polyCount);
+            fieldSet.setInvalid(false);
         },
         placeholder: "Number of Triangles",
         text: "Triangles",

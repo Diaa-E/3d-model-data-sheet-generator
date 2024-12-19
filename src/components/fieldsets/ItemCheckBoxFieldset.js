@@ -68,11 +68,13 @@ export default function ItemCheckBoxFieldset(props = {
                     {
                         selectedItems.push(e.target.value);
                         saveToStorage(STORAGE_KEY, selectedItems);
+                        fieldSet.setInvalid(false);
                     }
                     else
                     {
                         selectedItems.splice(selectedItems.findIndex(item => item === item), 1);
                         saveToStorage(STORAGE_KEY, selectedItems);
+                        fieldSet.setInvalid(false);
                     }
                 },
             })
@@ -118,11 +120,13 @@ export default function ItemCheckBoxFieldset(props = {
                     {
                         selectedItems.push(e.target.value);
                         saveToStorage(STORAGE_KEY, selectedItems);
+                        fieldSet.setInvalid(false);
                     }
                     else
                     {
                         selectedItems.splice(selectedItems.findIndex(item => item === newItem), 1);
                         saveToStorage(STORAGE_KEY, selectedItems);
+                        fieldSet.setInvalid(false);
                     }
                 },
             })
@@ -132,6 +136,7 @@ export default function ItemCheckBoxFieldset(props = {
         addItemFieldset.clear();
         saveToStorage(STORAGE_KEY_USER, items);
         saveToStorage(STORAGE_KEY, selectedItems);
+        fieldSet.setInvalid(false);
     }
 
     function getState()

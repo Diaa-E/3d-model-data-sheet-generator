@@ -80,6 +80,7 @@ export default function RadioFieldset(props = {
 
                     selectedOption = e.target.value,
                     saveToStorage(STORAGE_KEY, selectedOption);
+                    fieldSet.setInvalid(false);
                 }
             })
         );
@@ -100,6 +101,7 @@ export default function RadioFieldset(props = {
     
                         selectedOption = e.target.value,
                         saveToStorage(STORAGE_KEY, selectedOption);
+                        fieldSet.setInvalid(false);
                     }
                 })
             );
@@ -142,12 +144,14 @@ export default function RadioFieldset(props = {
 
                     selectedOption = e.target.value,
                     saveToStorage(STORAGE_KEY, selectedOption);
+                    fieldSet.setInvalid(false);
                 }
             })
         );
         userOptions.push(addOptionFieldset.getValue());
         addOptionFieldset.clear();
         saveToStorage(STORAGE_KEY_USER, userOptions);
+        fieldSet.setInvalid(false);
     }
 
     function getState()

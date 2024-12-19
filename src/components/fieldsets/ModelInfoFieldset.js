@@ -27,6 +27,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
 
             modelInfo.title = e.target.value;
             saveToStorage(STORAGE_KEY, modelInfo);
+            fieldSet.setInvalid(false);
         },
         placeholder: "Model Title",
         required: false,
@@ -42,6 +43,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
 
             modelInfo.description = e.target.value;
             saveToStorage(STORAGE_KEY, modelInfo);
+            fieldSet.setInvalid(false);
         }
     });
 

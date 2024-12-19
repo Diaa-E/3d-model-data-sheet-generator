@@ -75,11 +75,13 @@ export default function CheckboxFieldset(props = {
                     {
                         selectedOptions.push(e.target.value);
                         saveToStorage(STORAGE_KEY, selectedOptions);
+                        fieldSet.setInvalid(false);
                     }
                     else
                     {
                         selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
                         saveToStorage(STORAGE_KEY, selectedOptions);
+                        fieldSet.setInvalid(false);
                     }
                 },
             })
@@ -103,11 +105,13 @@ export default function CheckboxFieldset(props = {
                         {
                             selectedOptions.push(e.target.value);
                             saveToStorage(STORAGE_KEY, selectedOptions);
+                            fieldSet.setInvalid(false);
                         }
                         else
                         {
                             selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
                             saveToStorage(STORAGE_KEY, selectedOptions);
+                            fieldSet.setInvalid(false);
                         }
                     },
                 })
@@ -152,11 +156,13 @@ export default function CheckboxFieldset(props = {
                     {
                         selectedOptions.push(e.target.value);
                         saveToStorage(STORAGE_KEY, selectedOptions);
+                        fieldSet.setInvalid(false);
                     }
                     else
                     {
                         selectedOptions.splice(selectedOptions.findIndex(item => item === addOptionFieldset.getValue()), 1);
                         saveToStorage(STORAGE_KEY, selectedOptions);
+                        fieldSet.setInvalid(false);
                     }
                 },
             })
@@ -164,6 +170,7 @@ export default function CheckboxFieldset(props = {
         userOptions.push(addOptionFieldset.getValue());
         addOptionFieldset.clear();
         saveToStorage(STORAGE_KEY_USER, userOptions);
+        fieldSet.setInvalid(false);
     }
 
     function getState()
