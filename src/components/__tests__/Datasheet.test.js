@@ -1,4 +1,25 @@
+import { formattingTokens } from "../../utils/formattingTokens";
 import Datasheet from "../Datasheet";
+
+jest.mock("../../utils/formattingTokens.js", () => ({
+    __esModule: true,
+    formattingTokens : {
+        target1: {
+            heading: "h1",
+            bold: "b1",
+            ul: "ul1",
+            ol: "ol1",
+            break: "br1",
+        },
+        target2: {
+            heading: "h2",
+            bold: "b2",
+            ul: "ul2",
+            ol: "ol2",
+            break: "br2",
+        },
+    }
+}));
 
 describe("Datasheet Component", () => {
 
@@ -7,6 +28,8 @@ describe("Datasheet Component", () => {
         jest.resetAllMocks();
         cleanup();
     });
+
+    const targets = ["target1", "target2"];
 
     const types = {
         orderedList: "orderedList",
@@ -40,7 +63,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\stitle/i);
     });
@@ -53,7 +77,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: 12,
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\stitle/i);
     });
@@ -64,7 +89,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "mainTitle",
-                sets: 23
+                sets: 23,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\ssets/i);
     });
@@ -75,7 +101,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "mainTitle",
-                sets: []
+                sets: [],
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\ssets/i);
     });
@@ -89,7 +116,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\sset\stitle/i);
     });
@@ -103,7 +131,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\sset\stitle/i);
     });
@@ -117,7 +146,8 @@ describe("Datasheet Component", () => {
 
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             })
         }).toThrow(/invalid\sfieldset\stype/i);
     });
@@ -129,13 +159,32 @@ describe("Datasheet Component", () => {
         render(
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             }).element
         );
 
         const title = document.querySelector("h1");
 
-        expect(title.textContent).toBe("mainTitle");
+        expect(title.textContent).toMatch(/mainTitle/i);
+    });
+
+    it("Adds heading and bold tokens to title", () => {
+
+        const sets = createSets(4, types.orderedList);
+
+        render(
+            Datasheet({
+                title: "mainTitle",
+                sets: sets,
+                targetSite: targets[0]
+            }).element
+        );
+
+        const title = document.querySelector("h1");
+
+        expect(title.textContent).toContain(formattingTokens[targets[0]].heading);
+        expect(title.textContent).toContain(formattingTokens[targets[0]].bold);
     });
 
     it("Renders a set of the type text correctly", () => {
@@ -147,7 +196,8 @@ describe("Datasheet Component", () => {
         render(
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             }).element
         );
 
@@ -171,7 +221,8 @@ describe("Datasheet Component", () => {
         render(
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             }).element
         );
 
@@ -194,7 +245,8 @@ describe("Datasheet Component", () => {
         render(
             Datasheet({
                 title: "mainTitle",
-                sets: sets
+                sets: sets,
+                targetSite: targets[0]
             }).element
         );
 

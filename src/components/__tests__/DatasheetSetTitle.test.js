@@ -1,5 +1,27 @@
 import DatasheetSetTitle from "../DatasheetSetTitle";
 
+jest.mock("../../utils/formattingTokens.js", () => ({
+    __esModule: true,
+    formattingTokens : {
+        target1: {
+            heading: "h1",
+            bold: "b1",
+            ul: "ul1",
+            ol: "ol1",
+            break: "br1",
+        },
+        target2: {
+            heading: "h2",
+            bold: "b2",
+            ul: "ul2",
+            ol: "ol2",
+            break: "br2",
+        },
+    }
+}));
+
+import { formattingTokens } from "../../utils/formattingTokens";
+
 describe("Datasheet Set Title Component", () => {
 
     beforeEach(() => {
@@ -8,12 +30,15 @@ describe("Datasheet Set Title Component", () => {
         cleanup();
     });
 
+    const targets = ["target1", "target2"];
+
     it("Renders an h2 element", () => {
 
         render(
             DatasheetSetTitle({
                 title: "",
-                emptySet: false
+                emptySet: false,
+                targetSite: targets[0]
             }).element
         );
 
@@ -27,13 +52,14 @@ describe("Datasheet Set Title Component", () => {
         render(
             DatasheetSetTitle({
                 title: "test1",
-                emptySet: false
+                emptySet: false,
+                targetSite: targets[0]
             }).element
         );
 
         const title = document.querySelector("h2");
 
-        expect(title.textContent).toBe("test1");
+        expect(title.textContent).toMatch(/test1/i);
     });
 
     it("Adds a distinct class when emptySet prop is true", () => {
@@ -41,12 +67,28 @@ describe("Datasheet Set Title Component", () => {
         render(
             DatasheetSetTitle({
                 title: "test1",
-                emptySet: true
+                emptySet: true,
+                targetSite: targets[0]
             }).element
         );
 
         const title = document.querySelector("h2");
 
         expect(title.classList.toString()).toMatch(/empty/i);
+    });
+
+    it("Adds bold formatting tokens to the title's text", () => {
+
+        render(
+            DatasheetSetTitle({
+                title: "test1",
+                emptySet: true,
+                targetSite: targets[0]
+            }).element
+        );
+
+        const title = document.querySelector("h2");
+
+        expect(title.textContent).toContain(formattingTokens[targets[0]].bold);
     });
 });
