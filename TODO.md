@@ -4,11 +4,9 @@
 
 ### Pending 🕝
 
-1. add animation for errorpopup text update.
 1. create a success notification popup.
 1. Add reset form button
 1. Add reset field button.
-1. Unmount error popup from the DOM after closing.
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
 1. Add option to scroll to each error field.
@@ -17,6 +15,7 @@
 
 ### Completed ✅
 
+1. Unmount error popup from the DOM after closing.
 1. Set newly addded items to checked.
 1. Add dark mode.
 1. Use text button for generation.
@@ -39,4 +38,5 @@
 
 ### Cancelled ❌
 
+1. add animation for errorpopup text update. -> New messages create a new popup and stack on top of each other instead.
 1. Set the default of real world scale to yes. -> Removed the entire field.
