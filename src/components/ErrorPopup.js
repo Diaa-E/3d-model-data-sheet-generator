@@ -31,7 +31,7 @@ function PopupElement(props = {
 
     let isOpen = false;
     let closeTimer = null;
-    const CLOSE_DURATION = 0.5;
+    const CLOSE_DURATION = 0.3;
     const OPEN_DURATION = 0.3;
 
     const errorMsg = createElement(
