@@ -6,8 +6,30 @@ import { closeErrorPopupEvent, showErrorPopupEvent } from "../utils/errorPopupEv
 
 export default function ErrorPopup()
 {
+    document.addEventListener(showErrorPopupEvent, (e) => {
+
+        const newPopup = PopupElement({
+            errorMsg: e.detail.errorMsg,
+            lastFocusedElement: e.detail.lastFocusedElement,
+        });
+        document.body.append(newPopup.element);
+        newPopup.openPopup();
+    });
+}
+
+function PopupElement(props = {
+    errorMsg: "",
+    lastFocusedElement: null
+})
+{
+    props = {
+
+        errorMsg: "",
+        lastFocusedElement: null,
+        ...props
+    };
+
     let isOpen = false;
-    let lastFocusedElement = null;
     let closeTimer = null;
     const CLOSE_DURATION = 0.5;
     const OPEN_DURATION = 0.3;
@@ -19,7 +41,7 @@ export default function ErrorPopup()
             class: styles["error-msg"],
         },
         [
-            "This is an error message."
+            props.errorMsg
         ]
     );
 
@@ -53,18 +75,6 @@ export default function ErrorPopup()
         ]
     );
 
-    document.addEventListener(showErrorPopupEvent, (e) => {
-
-        openPopup();
-        errorMsg.textContent = e.detail.errorMsg;
-        lastFocusedElement = e.detail.lastFocusedElement;
-    });
-
-    document.addEventListener(closeErrorPopupEvent, (e) => {
-
-        closePopup(e.detail.silent);
-    });
-
     popup.style.setProperty("--close-duration", `${CLOSE_DURATION}s`);
     popup.style.setProperty("--open-duration", `${OPEN_DURATION}s`);
 
@@ -75,7 +85,7 @@ export default function ErrorPopup()
 
         if (!silent)
         {
-            lastFocusedElement.focus();
+            props.lastFocusedElement.focus();
         }
 
         setTimeout(() => {
@@ -83,6 +93,7 @@ export default function ErrorPopup()
             popupWrapper.style.visibility = "hidden";
             popupWrapper.hidden = true;
             isOpen = false;
+            popupWrapper.remove();
             
         }, CLOSE_DURATION * 1000);
     }
@@ -110,5 +121,5 @@ export default function ErrorPopup()
         }, 10000);
     }
 
-    return { element: popupWrapper }
+    return { element: popupWrapper, openPopup: openPopup, closePopup: closePopup }
 }

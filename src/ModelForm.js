@@ -331,5 +331,5 @@ export default function ModelForm()
         ]
     )
         
-    return [ header.element, contentDiv, errorPopup.element ];
+    return [ header.element, contentDiv ];
 }
