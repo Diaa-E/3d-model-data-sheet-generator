@@ -1,4 +1,4 @@
-import { dispatchErrorPopupEvent, popupEventName } from "../errorPopupEvents";
+import { showErrorPopup, showErrorPopupEvent } from "../errorPopupEvents";
 
 describe("Error Popup Events Utility Functions", () => {
 
@@ -12,10 +12,10 @@ describe("Error Popup Events Utility Functions", () => {
         const dispatcherElement = document.createElement("button");
         dispatcherElement.dispatchEvent = dispatchEventMock;
 
-        dispatchErrorPopupEvent({ dispatchingElement: dispatcherElement, errorMsg: "" });
+        showErrorPopup({ dispatchingElement: dispatcherElement, errorMsg: "" });
 
         expect(dispatchEventMock).toHaveBeenCalledTimes(1);
-        expect(dispatchEventMock.mock.calls[0][0].type).toBe(popupEventName);
+        expect(dispatchEventMock.mock.calls[0][0].type).toBe(showErrorPopupEvent);
         expect(dispatchEventMock.mock.calls[0][0].bubbles).toBeTruthy();
     });
 
@@ -25,7 +25,7 @@ describe("Error Popup Events Utility Functions", () => {
         const dispatcherElement = document.createElement("button");
         dispatcherElement.dispatchEvent = dispatchEventMock;
 
-        dispatchErrorPopupEvent({ dispatchingElement: dispatcherElement, errorMsg: "" });
+        showErrorPopup({ dispatchingElement: dispatcherElement, errorMsg: "" });
 
         expect(dispatchEventMock.mock.contexts[0]).toBe(dispatcherElement);
     });
@@ -36,7 +36,7 @@ describe("Error Popup Events Utility Functions", () => {
         const dispatcherElement = document.createElement("button");
         dispatcherElement.dispatchEvent = dispatchEventMock;
 
-        expect(() => dispatchErrorPopupEvent({ errorMsg: "" })).toThrow("DispatchingElement must be an HTML element");
+        expect(() => showErrorPopup({ errorMsg: "" })).toThrow("DispatchingElement must be an HTML element");
     });
 
     it("Throws when an invalid dispatching element is passed in the options object", () => {
@@ -45,7 +45,7 @@ describe("Error Popup Events Utility Functions", () => {
         const dispatcherElement = document.createElement("button");
         dispatcherElement.dispatchEvent = dispatchEventMock;
 
-        expect(() => dispatchErrorPopupEvent({ dispatchingElement: "string", errorMsg: "" })).toThrow("DispatchingElement must be an HTML element");
+        expect(() => showErrorPopup({ dispatchingElement: "string", errorMsg: "" })).toThrow("DispatchingElement must be an HTML element");
     });
 
     it("Passes error message from the options object to the detail object", () => {
@@ -54,7 +54,7 @@ describe("Error Popup Events Utility Functions", () => {
         const dispatcherElement = document.createElement("button");
         dispatcherElement.dispatchEvent = dispatchEventMock;
 
-        dispatchErrorPopupEvent({ dispatchingElement: dispatcherElement, errorMsg: "test1" })
+        showErrorPopup({ dispatchingElement: dispatcherElement, errorMsg: "test1" })
 
         expect(dispatchEventMock.mock.calls[0][0].detail.errorMsg).toBe("test1");
     });
