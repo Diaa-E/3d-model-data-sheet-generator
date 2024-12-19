@@ -1,27 +1,10 @@
 .popup-wrapper{
-    visibility: hidden;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    width: 100%;
-    height: 100px;
-    place-items: center;
-    place-content: center;
+    composes: popup-wrapper from "../common.module.css";
 }
 
 .popup{
+    composes: popup from "../common.module.css";
     background-color: var(--error);
-    padding: 10px;
-    border-radius: 500px;
-    border: var(--border);
-    min-width: 300px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    box-shadow: var(--shadow-on);
 }
 
 .open{
@@ -63,8 +46,6 @@
 }
 
 .error-msg{
-    font-family: var(--font-default);
+    composes: popup-msg from "../common.module.css";
     color: var(--text-dark);
-    font-size: 1rem;
-    margin: 0 auto;
 }
