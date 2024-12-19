@@ -102,13 +102,15 @@ export default function ItemCheckBoxFieldset(props = {
             return;
         }
 
+        const newItem = addItemFieldset.getValue();
+
         fieldSet.setInvalid(false);
         checkboxGroup.addButton(
             ItemCheckBox({
-                checked: false,
+                checked: true,
                 name: STORAGE_KEY,
-                text: addItemFieldset.getValue(),
-                value: addItemFieldset.getValue(),
+                text: newItem,
+                value: newItem,
                 itemIcon: props.itemIcon,
                 onChange: (e) => {
 
@@ -119,15 +121,17 @@ export default function ItemCheckBoxFieldset(props = {
                     }
                     else
                     {
-                        selectedItems.splice(selectedItems.findIndex(item => item === addItemFieldset.getValue()), 1);
+                        selectedItems.splice(selectedItems.findIndex(item => item === newItem), 1);
                         saveToStorage(STORAGE_KEY, selectedItems);
                     }
                 },
             })
         );
-        items.push(addItemFieldset.getValue());
+        items.push(newItem);
+        selectedItems.push(newItem);
         addItemFieldset.clear();
         saveToStorage(STORAGE_KEY_USER, items);
+        saveToStorage(STORAGE_KEY, selectedItems);
     }
 
     function getState()
