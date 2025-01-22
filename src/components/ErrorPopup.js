@@ -31,7 +31,6 @@ function PopupElement(props = {
     };
 
     let isOpen = false;
-    let closeTimer = null;
     const CLOSE_DURATION = 0.3;
     const OPEN_DURATION = 0.3;
 
@@ -110,9 +109,7 @@ function PopupElement(props = {
 
         closeButton.focus();
 
-        clearTimeout(closeTimer);
-
-        closeTimer = setTimeout(() => {
+        setTimeout(() => {
 
             if (isOpen)
             {
