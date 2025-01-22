@@ -3,7 +3,7 @@ export const FeatureNotSupportedException = customExceptionFActory("Feature Not 
 
 export function customExceptionFActory(name = "customException")
 {
-    return function customException(message = "")
+    return function customException(message = "", details = {})
     {
         Object.defineProperty(this, "name", {
 
@@ -16,6 +16,12 @@ export function customExceptionFActory(name = "customException")
             enumerable: false,
             writable: true,
             value: message
+        });
+
+        Object.defineProperty(this, "details", {
+            enumerable: false,
+            writable: true,
+            value: details
         });
     
         if(Error.hasOwnProperty("captureStackTrace"))
