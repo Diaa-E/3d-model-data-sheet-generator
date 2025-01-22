@@ -1,4 +1,4 @@
-import ErrorPopup from "./components/ErrorPopup";
+import RegisterErrorPopupEvent from "./components/ErrorPopup";
 import Header from "./components/Header";
 import { createElement } from "./utils/createElement";
 import DatasheetForm from "./components/DatasheetForm";
@@ -320,7 +320,7 @@ export default function ModelForm()
     }
 
     const header = Header();
-    const errorPopup = ErrorPopup();
+    RegisterErrorPopupEvent();
 
     const contentDiv = createElement(
         "div",

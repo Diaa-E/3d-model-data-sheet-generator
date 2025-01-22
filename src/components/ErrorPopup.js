@@ -3,11 +3,11 @@ import { createElement } from "../utils/createElement";
 import { showErrorPopupEvent } from "../utils/errorPopupEvents";
 import scrollToElement from "../utils/scrollToElement";
 
-export default function ErrorPopup()
+export default function RegisterErrorPopupEvent()
 {
     document.addEventListener(showErrorPopupEvent, (e) => {
 
-        const newPopup = PopupElement({
+        const newPopup = ErrorPopup({
             errorMsg: e.detail.errorMsg,
             lastFocusedElement: e.detail.lastFocusedElement,
             showScrollToField: e.detail.showScrollToField,
@@ -17,7 +17,7 @@ export default function ErrorPopup()
     });
 }
 
-function PopupElement(props = {
+function ErrorPopup(props = {
     errorMsg: "",
     lastFocusedElement: null,
     showScrollToField: false
