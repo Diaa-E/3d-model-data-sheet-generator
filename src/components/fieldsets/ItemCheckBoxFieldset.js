@@ -81,62 +81,75 @@ export default function ItemCheckBoxFieldset(props = {
         );
     });
 
-    function addItem(invalidField)
+    function addItem(inputField)
     {
-        if (addItemFieldset.getValue() === "")
+        try
         {
-            showErrorPopup({
+            if (addItemFieldset.getValue() === "")
+            {
+                throw new InvalidFieldsetException(
+                    "Field cannot be empty.",
+                    { invalidElement: inputField }
+                );
+            }
+            else if (searchCaseInsensitive(items, addItemFieldset.getValue()))
+            {
+                throw new InvalidFieldsetException(
+                    "This option already exists.",
+                    { invalidElement: inputField }
+                );
+            }
+            const newItem = addItemFieldset.getValue();
 
-                dispatchingElement: invalidField,
-                errorMsg: "Field Cannot be empty."
-            });
-            fieldSet.setInvalid(true);
-            return;
+            fieldSet.setInvalid(false);
+            checkboxGroup.addButton(
+                ItemCheckBox({
+                    checked: true,
+                    name: STORAGE_KEY,
+                    text: newItem,
+                    value: newItem,
+                    itemIcon: props.itemIcon,
+                    onChange: (e) => {
+
+                        if (e.target.checked)
+                        {
+                            selectedItems.push(e.target.value);
+                            saveToStorage(STORAGE_KEY, selectedItems);
+                            fieldSet.setInvalid(false);
+                        }
+                        else
+                        {
+                            selectedItems.splice(selectedItems.findIndex(item => item === newItem), 1);
+                            saveToStorage(STORAGE_KEY, selectedItems);
+                            fieldSet.setInvalid(false);
+                        }
+                    },
+                })
+            );
+            items.push(newItem);
+            selectedItems.push(newItem);
+            addItemFieldset.clear();
+            saveToStorage(STORAGE_KEY_USER, items);
+            saveToStorage(STORAGE_KEY, selectedItems);
+            fieldSet.setInvalid(false); 
         }
-        else if (searchCaseInsensitive(items, addItemFieldset.getValue()))
+        catch (error)
         {
-            showErrorPopup({
+            if (error instanceof InvalidFieldsetException)
+            {
+                fieldSet.setInvalid(true);
 
-                dispatchingElement: invalidField,
-                errorMsg: "This option already exists"
-            });
-            fieldSet.setInvalid(true);
-            return;
-        }
-
-        const newItem = addItemFieldset.getValue();
-
-        fieldSet.setInvalid(false);
-        checkboxGroup.addButton(
-            ItemCheckBox({
-                checked: true,
-                name: STORAGE_KEY,
-                text: newItem,
-                value: newItem,
-                itemIcon: props.itemIcon,
-                onChange: (e) => {
-
-                    if (e.target.checked)
-                    {
-                        selectedItems.push(e.target.value);
-                        saveToStorage(STORAGE_KEY, selectedItems);
-                        fieldSet.setInvalid(false);
-                    }
-                    else
-                    {
-                        selectedItems.splice(selectedItems.findIndex(item => item === newItem), 1);
-                        saveToStorage(STORAGE_KEY, selectedItems);
-                        fieldSet.setInvalid(false);
-                    }
-                },
-            })
-        );
-        items.push(newItem);
-        selectedItems.push(newItem);
-        addItemFieldset.clear();
-        saveToStorage(STORAGE_KEY_USER, items);
-        saveToStorage(STORAGE_KEY, selectedItems);
-        fieldSet.setInvalid(false);
+                showErrorPopup({
+    
+                    dispatchingElement: error.details.invalidElement,
+                    errorMsg: error.message
+                });
+            }
+            else
+            {
+                throw error;
+            }
+        }        
     }
 
     function getState()

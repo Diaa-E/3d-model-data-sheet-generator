@@ -109,49 +109,63 @@ export default function RadioFieldset(props = {
     }
     
 
-    function addOption(invalidField)
+    function addOption(inputField)
     {
-        if (addOptionFieldset.getValue() === "")
+        try
         {
-            dispatchErrorPopupEvent({
+            if (addOptionFieldset.getValue() === "")
+            {
+                throw new InvalidFieldsetException(
+                    "Field cannot be empty.",
+                    { invalidElement: inputField }
+                );
+            }
+            else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+            {
+                throw new InvalidFieldsetException(
+                    "This option already exists.",
+                    { invalidElement: inputField }
+                );
+            }
 
-                dispatchingElement: invalidField,
-                errorMsg: "Field Cannot be empty."
-            });
-            fieldSet.setInvalid(true);
-            return;
+            fieldSet.setInvalid(false);
+            radioGroup.addButton(
+                Radio({
+                    name: STORAGE_KEY,
+                    checked: false,
+                    text: addOptionFieldset.getValue(),
+                    value: addOptionFieldset.getValue(),
+                    userOption: true,
+                    onChange: (e) => {
+
+                        selectedOption = e.target.value,
+                        saveToStorage(STORAGE_KEY, selectedOption);
+                        fieldSet.setInvalid(false);
+                    }
+                })
+            );
+            userOptions.push(addOptionFieldset.getValue());
+            addOptionFieldset.clear();
+            saveToStorage(STORAGE_KEY_USER, userOptions);
+            fieldSet.setInvalid(false);
         }
-        else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+        catch (error)
         {
-            dispatchErrorPopupEvent({
-
-                dispatchingElement: invalidField,
-                errorMsg: "This option already exists"
-            });
-            fieldSet.setInvalid(true);
-            return;
+            if (error instanceof InvalidFieldsetException)
+            {
+                fieldSet.setInvalid(true);
+    
+                dispatchErrorPopupEvent({
+        
+                    dispatchingElement: inputField,
+                    errorMsg: "Field Cannot be empty."
+                });
+            }
+            else
+            {
+                throw error;
+            }
         }
-
-        fieldSet.setInvalid(false);
-        radioGroup.addButton(
-            Radio({
-                name: STORAGE_KEY,
-                checked: false,
-                text: addOptionFieldset.getValue(),
-                value: addOptionFieldset.getValue(),
-                userOption: true,
-                onChange: (e) => {
-
-                    selectedOption = e.target.value,
-                    saveToStorage(STORAGE_KEY, selectedOption);
-                    fieldSet.setInvalid(false);
-                }
-            })
-        );
-        userOptions.push(addOptionFieldset.getValue());
-        addOptionFieldset.clear();
-        saveToStorage(STORAGE_KEY_USER, userOptions);
-        fieldSet.setInvalid(false);
     }
 
     function getState()

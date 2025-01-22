@@ -119,58 +119,72 @@ export default function CheckboxFieldset(props = {
         });
     }
 
-    function addOption(invalidField)
+    function addOption(inputField)
     {
-        if (addOptionFieldset.getValue() === "")
+        try
         {
-            showErrorPopup({
+            if (addOptionFieldset.getValue() === "")
+            {
+                throw new InvalidFieldsetException(
+                    "Field Cannot be empty.",
+                    { invalidElement: inputField }
+                );
+            }
+            else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+            {
+                throw new InvalidFieldsetException(
+                    "This option already exists.",
+                    { invalidElement: inputField }
+                );
+            }
+            
+            fieldSet.setInvalid(false);
+            checkboxGroup.addButton(
+                CheckBox({
+                    checked: false,
+                    name: STORAGE_KEY,
+                    text: addOptionFieldset.getValue(),
+                    value: addOptionFieldset.getValue(),
+                    userOption: true,
+                    onChange: (e) => {
 
-                dispatchingElement: invalidField,
-                errorMsg: "Field Cannot be empty."
-            });
-            fieldSet.setInvalid(true);
-            return;
+                        if (e.target.checked)
+                        {
+                            selectedOptions.push(e.target.value);
+                            saveToStorage(STORAGE_KEY, selectedOptions);
+                            fieldSet.setInvalid(false);
+                        }
+                        else
+                        {
+                            selectedOptions.splice(selectedOptions.findIndex(item => item === addOptionFieldset.getValue()), 1);
+                            saveToStorage(STORAGE_KEY, selectedOptions);
+                            fieldSet.setInvalid(false);
+                        }
+                    },
+                })
+            );
+            userOptions.push(addOptionFieldset.getValue());
+            addOptionFieldset.clear();
+            saveToStorage(STORAGE_KEY_USER, userOptions);
+            fieldSet.setInvalid(false);
         }
-        else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+        catch (error)
         {
-            showErrorPopup({
-
-                dispatchingElement: invalidField,
-                errorMsg: "This option already exists"
-            });
-            fieldSet.setInvalid(true);
-            return;
+            if (error instanceof InvalidFieldsetException)
+            {
+                fieldSet.setInvalid(true);
+    
+                showErrorPopup({
+    
+                    dispatchingElement: error.details.invalidElement,
+                    errorMsg: error.message,
+                });
+            }
+            else
+            {
+                throw error;
+            }
         }
-
-        fieldSet.setInvalid(false);
-        checkboxGroup.addButton(
-            CheckBox({
-                checked: false,
-                name: STORAGE_KEY,
-                text: addOptionFieldset.getValue(),
-                value: addOptionFieldset.getValue(),
-                userOption: true,
-                onChange: (e) => {
-
-                    if (e.target.checked)
-                    {
-                        selectedOptions.push(e.target.value);
-                        saveToStorage(STORAGE_KEY, selectedOptions);
-                        fieldSet.setInvalid(false);
-                    }
-                    else
-                    {
-                        selectedOptions.splice(selectedOptions.findIndex(item => item === addOptionFieldset.getValue()), 1);
-                        saveToStorage(STORAGE_KEY, selectedOptions);
-                        fieldSet.setInvalid(false);
-                    }
-                },
-            })
-        );
-        userOptions.push(addOptionFieldset.getValue());
-        addOptionFieldset.clear();
-        saveToStorage(STORAGE_KEY_USER, userOptions);
-        fieldSet.setInvalid(false);
     }
 
     function getState()
