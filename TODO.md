@@ -9,12 +9,12 @@
 1. Add reset field button.
 1. Check for illegal characters.
 1. Add texture type UDIM or single image to each texture map.
-1. Add option to scroll to each error field.
 1. Add an extra field to model info for disclaimers.
 1. Add option to insert links to images.
 
 ### Completed ✅
 
+1. Add option to scroll to each error field.
 1. Unmount error popup from the DOM after closing.
 1. Set newly addded items to checked.
 1. Add dark mode.
