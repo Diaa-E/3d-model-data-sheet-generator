@@ -1,7 +1,5 @@
 import styles from "./ErrorPopup.module.css";
 import { createElement } from "../utils/createElement";
-import IconButton from "./IconButton";
-import icons from "../barrels/icons.barrel";
 import { showErrorPopupEvent } from "../utils/errorPopupEvents";
 import scrollToElement from "../utils/scrollToElement";
 
@@ -12,6 +10,7 @@ export default function ErrorPopup()
         const newPopup = PopupElement({
             errorMsg: e.detail.errorMsg,
             lastFocusedElement: e.detail.lastFocusedElement,
+            showScrollToField: e.detail.showScrollToField,
         });
         document.body.append(newPopup.element);
         newPopup.openPopup();
@@ -20,13 +19,15 @@ export default function ErrorPopup()
 
 function PopupElement(props = {
     errorMsg: "",
-    lastFocusedElement: null
+    lastFocusedElement: null,
+    showScrollToField: false
 })
 {
     props = {
 
         errorMsg: "",
         lastFocusedElement: null,
+        showScrollToField: false,
         ...props
     };
 
@@ -45,12 +46,20 @@ function PopupElement(props = {
         ]
     );
 
-    const closeButton = IconButton({
-        iconPath: icons.closeIcon,
-        text: "Dismiss error popup",
-        onClick: () => closePopup(false),
-        type: "button"
-    });
+    const fieldLink = props.showScrollToField ? createElement(
+        "a",
+        {
+            class: styles["field-link"],
+            href: "javascript:void(0)",
+            onClick: () => {
+                scrollToElement(props.lastFocusedElement);
+                closePopup();
+            }
+        },
+        [
+            "Scroll to field"
+        ]
+    ) : "";
 
     const popup = createElement(
         "div",
@@ -60,7 +69,7 @@ function PopupElement(props = {
         },
         [
             errorMsg,
-            closeButton
+            fieldLink,
         ]
     );
 
@@ -107,8 +116,6 @@ function PopupElement(props = {
         popup.classList.remove(styles["close"]);
         isOpen = true;
 
-        closeButton.focus();
-
         setTimeout(() => {
 
             if (isOpen)
@@ -116,7 +123,7 @@ function PopupElement(props = {
                 closePopup(true);
             }
 
-        }, 10000);
+        }, 5000);
     }
 
     return { element: popupWrapper, openPopup: openPopup, closePopup: closePopup }

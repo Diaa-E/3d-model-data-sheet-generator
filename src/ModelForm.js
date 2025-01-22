@@ -308,7 +308,8 @@ export default function ModelForm()
             {
                 showErrorPopup({
                     dispatchingElement: error.details.invalidElement,
-                    errorMsg: error.message
+                    errorMsg: error.message,
+                    showScrollToField: true,
                 });
             }
             else

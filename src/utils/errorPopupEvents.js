@@ -4,11 +4,13 @@ export const closeErrorPopupEvent = "onCloseErrorPopup";
 export function showErrorPopup(options = {
     dispatchingElement: null,
     errorMsg: "",
+    showScrollToField: false
 })
 {
     options = {
         dispatchingElement: null,
         errorMsg: "This is an Error",
+        showScrollToField: false,
         ...options
     };
 
@@ -23,6 +25,7 @@ export function showErrorPopup(options = {
             detail: {
                 errorMsg: options.errorMsg,
                 lastFocusedElement: options.dispatchingElement,
+                showScrollToField: options.showScrollToField,
             },
             bubbles: true,
         }

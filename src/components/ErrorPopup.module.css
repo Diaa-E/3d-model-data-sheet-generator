@@ -25,6 +25,17 @@
     animation-direction: normal;
 }
 
+.error-msg{
+    composes: popup-msg from "../common.module.css";
+    color: var(--text-dark);
+}
+
+.field-link, .field-link:visited{
+    font-family: var(--font-default);
+    font-weight: bold;
+    color: var(--text-dark)
+}
+
 @keyframes open {
     0% {
         transform: translateY(100px);
@@ -43,9 +54,4 @@
     100%{
         transform: translateY(100px);
     }
-}
-
-.error-msg{
-    composes: popup-msg from "../common.module.css";
-    color: var(--text-dark);
 }
