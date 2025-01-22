@@ -74,7 +74,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 "Vertices count must be a number.",
-                { invalidElement: verticesInput.element }
+                { invalidElement: fieldSet.element }
             );
         }
         else if (verticesInput.getValue().indexOf(".") !== -1)
@@ -82,7 +82,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 "Vertices count cannot be a fraction.",
-                { invalidElement: verticesInput.element }
+                { invalidElement: fieldSet.element }
             );
         }
         else if (isNaN(trianglesInput.getValue()) || !trianglesInput.getValue())
@@ -90,7 +90,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 "Triangles count must be a number.",
-                { invalidElement: trianglesInput.element }
+                { invalidElement: fieldSet.element }
             );
         }
         else if (trianglesInput.getValue().indexOf(".") !== -1)
@@ -98,7 +98,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 "Triangles count cannot be a fraction.",
-                { invalidElement: trianglesInput.element }
+                { invalidElement: fieldSet.element }
             );
         }
 

@@ -151,7 +151,7 @@ export default function ItemCheckBoxFieldset(props = {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 `${props.legend} must have at least 1 visible item.`,
-            { invalidElement: fieldSet.element }
+                { invalidElement: fieldSet.element }
             );
         }
 
