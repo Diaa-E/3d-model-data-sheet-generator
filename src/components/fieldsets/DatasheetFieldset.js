@@ -46,7 +46,7 @@ export default function DatasheetFieldset()
         if (datasheet === null)
         {
             showErrorPopup({
-                dispatchingElement: datasheetControls.element,
+                dispatchingElement: fieldset.element,
                 errorMsg: "Datasheet is empty, nothing was copied to the clipboard."
             });
         }
