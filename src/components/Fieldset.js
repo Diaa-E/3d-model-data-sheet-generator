@@ -27,7 +27,8 @@ export default function Fieldset(
     const fieldset = createElement(
         "fieldset",
         {
-            class: styles["fieldset"]
+            class: styles["fieldset"],
+            tabIndex: "0"
         },
         [
             legend,
