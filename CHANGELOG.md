@@ -28,6 +28,7 @@
 - ➕ Added more descriptive options to the UV fieldset.
 - ➕ Model contents are now a single field an the user can freely enter all the related info like the item count.
 - ➕ Texture sets are now a single field and the user can freely enter all the related info like the resolution if applicable.
+- ➕ User can now scroll to invalid form fields using a link in the error notification instead of manually scrolling up.
 - ➕ Errors are now displayed in a small notification popup at the bottom of the screen.
 - ➕ Removed the "scaled to real world dimensions" fieldset.
 - ➕ Document state is now saved to session storage to persist through reloads.
