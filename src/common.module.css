@@ -138,11 +138,9 @@
 }
 
 .popup{
-    padding: 10px;
+    padding: 10px 30px;
     border-radius: 500px;
     border: var(--border);
-    min-width: 300px;
-    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
