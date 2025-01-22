@@ -65,12 +65,18 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         if (modelInfo.title === "")
         {
             fieldSet.setInvalid(true);
-            throw new InvalidFieldsetException("Model title cannot be empty.");
+            throw new InvalidFieldsetException(
+                "Model title cannot be empty.",
+                { invalidElement: titleField.element }
+            );
         }
         else if (modelInfo.description === "")
         {
             fieldSet.setInvalid(true);
-            throw new InvalidFieldsetException("Model description cannot be empty.");
+            throw new InvalidFieldsetException(
+                "Model description cannot be empty.",
+                { invalidElement: descriptionField }
+            );
         }
 
         fieldSet.setInvalid(false);

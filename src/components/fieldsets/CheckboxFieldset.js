@@ -183,7 +183,10 @@ export default function CheckboxFieldset(props = {
         if (props.required && selectedOptions.length < 1)
         {
             fieldSet.setInvalid(true);
-            throw new InvalidFieldsetException(`${props.legend} must have at least 1 selected option.`);
+            throw new InvalidFieldsetException(
+                `${props.legend} must have at least 1 selected option.`,
+                { invalidElement: fieldSet.element }
+            );
         }
 
         fieldSet.setInvalid(false);

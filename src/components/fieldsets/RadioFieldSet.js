@@ -164,7 +164,10 @@ export default function RadioFieldset(props = {
         if (props.required && !selectedOption)
         {
             fieldSet.setInvalid(true);
-            throw new InvalidFieldsetException(`${props.legend} must have at least one selected option.`);
+            throw new InvalidFieldsetException(
+                `${props.legend} must have at least one selected option.`,
+                { invalidElement: fieldSet.element }
+            );
         }
 
         fieldSet.setInvalid(false);

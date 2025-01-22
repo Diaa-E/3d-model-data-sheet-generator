@@ -307,7 +307,7 @@ export default function ModelForm()
             if (error instanceof InvalidFieldsetException)
             {
                 showErrorPopup({
-                    dispatchingElement: form.element,
+                    dispatchingElement: error.details.invalidElement,
                     errorMsg: error.message
                 });
             }
