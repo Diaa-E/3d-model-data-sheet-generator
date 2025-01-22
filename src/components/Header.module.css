@@ -18,9 +18,10 @@
 
 .home-link{
     height: 70px;
-    width: 200px;
+    width: 70px;
     background-image: url("../assets/logo/logo.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    filter: var(--logo-filter)
 }

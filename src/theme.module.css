@@ -57,6 +57,7 @@
         -2px -7px 0px 0px var(--tab-hover);
 
     --icon-filter: invert(0);
+    --logo-filter: saturate(1);
 }
 
 .dark{
@@ -118,4 +119,5 @@
         -2px -7px 0px 0px var(--tab-hover);
 
     --icon-filter: invert(1) brightness(150%);
+    --logo-filter: saturate(0.7) brightness(0.8);
 }
