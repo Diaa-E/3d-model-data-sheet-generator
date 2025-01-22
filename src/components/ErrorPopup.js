@@ -2,7 +2,8 @@ import styles from "./ErrorPopup.module.css";
 import { createElement } from "../utils/createElement";
 import IconButton from "./IconButton";
 import icons from "../barrels/icons.barrel";
-import { closeErrorPopupEvent, showErrorPopupEvent } from "../utils/errorPopupEvents";
+import { showErrorPopupEvent } from "../utils/errorPopupEvents";
+import scrollToElement from "../utils/scrollToElement";
 
 export default function ErrorPopup()
 {
@@ -85,7 +86,7 @@ function PopupElement(props = {
 
         if (!silent)
         {
-            props.lastFocusedElement.focus();
+            scrollToElement(props.lastFocusedElement);
         }
 
         setTimeout(() => {
