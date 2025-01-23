@@ -39,6 +39,10 @@ export default function DatasheetFieldset()
         });
 
         fieldset.element.append(datasheet.element);
+        showSuccessPopup({
+            dispatchingElement: fieldset.element,
+            successMsg: "Datasheet generated."
+        });
     }
 
     async function onCopy()
