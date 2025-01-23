@@ -4,7 +4,14 @@
 
 .popup{
     composes: popup from "../common.module.css";
+}
+
+.popup-error{
     background-color: var(--error);
+}
+
+.popup-success{
+    background-color: var(--success);
 }
 
 .open{

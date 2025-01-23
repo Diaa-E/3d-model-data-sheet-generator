@@ -1,6 +1,6 @@
 import copyToClipboard from "../../utils/copyToClipboard";
 import { FeatureNotSupportedException } from "../../utils/customExceptions";
-import { showErrorPopup } from "../../utils/errorPopupEvents";
+import { showErrorPopup } from "../../utils/popupEvents";
 import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";

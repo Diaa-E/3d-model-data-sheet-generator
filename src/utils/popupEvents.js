@@ -1,5 +1,36 @@
 export const showErrorPopupEvent = "onShowErrorPopup";
 export const closeErrorPopupEvent = "onCloseErrorPopup";
+export const showSuccessPopupEvent = "onShowSuccessPopup";
+
+export function showSuccessPopup(options = {
+    dispatchingElement: null,
+    successMsg: "",
+})
+{
+    options = {
+        dispatchingElement: null,
+        successMsg: "Success",
+        ...options
+    };
+
+    if (!(options.dispatchingElement instanceof HTMLElement))
+    {
+        throw new Error("DispatchingElement must be an HTML element");
+    }
+
+    const event = new CustomEvent(
+        showSuccessPopupEvent,
+        {
+            detail: {
+                successMsg: options.successMsg,
+                lastFocusedElement: options.dispatchingElement,
+            },
+            bubbles: true,
+        }
+    )
+
+    options.dispatchingElement.dispatchEvent(event);
+}
 
 export function showErrorPopup(options = {
     dispatchingElement: null,

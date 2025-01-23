@@ -1,4 +1,4 @@
-import RegisterErrorPopupEvent from "./components/ErrorPopup";
+import { RegisterErrorPopupEvent, RegisterSuccessPopupEvent } from "./components/Popup";
 import Header from "./components/Header";
 import { createElement } from "./utils/createElement";
 import DatasheetForm from "./components/DatasheetForm";
@@ -7,7 +7,7 @@ import PolyCountFieldset from "./components/fieldsets/PolyCountFieldset";
 import CheckboxFieldset from "./components/fieldsets/CheckboxFieldset";
 import RadioFieldset from "./components/fieldsets/RadioFieldSet";
 import DatasheetFieldset from "./components/fieldsets/DatasheetFieldset";
-import { showErrorPopup } from "./utils/errorPopupEvents";
+import { showErrorPopup } from "./utils/popupEvents";
 import ItemCheckBoxFieldset from "./components/fieldsets/ItemCheckBoxFieldset";
 import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
@@ -321,6 +321,7 @@ export default function ModelForm()
 
     const header = Header();
     RegisterErrorPopupEvent();
+    RegisterSuccessPopupEvent();
 
     const contentDiv = createElement(
         "div",

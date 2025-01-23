@@ -1,33 +1,51 @@
-import styles from "./ErrorPopup.module.css";
+import styles from "./Popup.module.css";
 import { createElement } from "../utils/createElement";
-import { showErrorPopupEvent } from "../utils/errorPopupEvents";
+import { showErrorPopupEvent, showSuccessPopupEvent } from "../utils/popupEvents";
 import scrollToElement from "../utils/scrollToElement";
 
-export default function RegisterErrorPopupEvent()
+export function RegisterErrorPopupEvent()
 {
     document.addEventListener(showErrorPopupEvent, (e) => {
 
-        const newPopup = ErrorPopup({
-            errorMsg: e.detail.errorMsg,
+        const newPopup = Popup({
+            msg: e.detail.errorMsg,
             lastFocusedElement: e.detail.lastFocusedElement,
             showScrollToField: e.detail.showScrollToField,
+            error: true,
         });
         document.body.append(newPopup.element);
         newPopup.openPopup();
     });
 }
 
-function ErrorPopup(props = {
-    errorMsg: "",
+export function RegisterSuccessPopupEvent()
+{
+    document.addEventListener(showSuccessPopupEvent, (e) => {
+
+        const newPopup = Popup({
+            msg: e.detail.successMsg,
+            lastFocusedElement: e.detail.lastFocusedElement,
+            showScrollToField: false,
+            error: false,
+        });
+        document.body.append(newPopup.element);
+        newPopup.openPopup();
+    });
+}
+
+function Popup(props = {
+    msg: "",
     lastFocusedElement: null,
+    error: false,
     showScrollToField: false
 })
 {
     props = {
 
-        errorMsg: "",
+        msg: "",
         lastFocusedElement: null,
         showScrollToField: false,
+        error: false,
         ...props
     };
 
@@ -35,14 +53,14 @@ function ErrorPopup(props = {
     const CLOSE_DURATION = 0.3;
     const OPEN_DURATION = 0.3;
 
-    const errorMsg = createElement(
+    const msg = createElement(
         "p",
         {
             ariaLabel: "error message",
             class: styles["error-msg"],
         },
         [
-            props.errorMsg
+            props.msg
         ]
     );
 
@@ -65,10 +83,10 @@ function ErrorPopup(props = {
         "div",
         {
             role: "dialog",
-            class: styles["popup"]
+            class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`
         },
         [
-            errorMsg,
+            msg,
             fieldLink,
         ]
     );

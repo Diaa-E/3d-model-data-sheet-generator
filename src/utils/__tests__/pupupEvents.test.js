@@ -1,4 +1,4 @@
-import { showErrorPopup, showErrorPopupEvent } from "../errorPopupEvents";
+import { showErrorPopup, showErrorPopupEvent } from "../popupEvents";
 
 describe("Error Popup Events Utility Functions", () => {
 
