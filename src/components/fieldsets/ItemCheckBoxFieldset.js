@@ -90,14 +90,14 @@ export default function ItemCheckBoxFieldset(props = {
             if (newItem === "")
             {
                 throw new InvalidFieldsetException(
-                    "Field cannot be empty.",
+                    `A new ${props.legend} item cannot be empty.`,
                     { invalidElement: inputField }
                 );
             }
             else if (searchCaseInsensitive(items, newItem))
             {
                 throw new InvalidFieldsetException(
-                    "This option already exists.",
+                    `"${newItem}" already exists in ${props.legend}.`,
                     { invalidElement: inputField }
                 );
             }

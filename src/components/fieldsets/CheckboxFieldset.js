@@ -128,14 +128,14 @@ export default function CheckboxFieldset(props = {
             if (newOption === "")
             {
                 throw new InvalidFieldsetException(
-                    "Field Cannot be empty.",
+                    `A new ${props.legend} option cannot be empty.`,
                     { invalidElement: inputField }
                 );
             }
             else if (searchCaseInsensitive([...options, ...userOptions], newOption))
             {
                 throw new InvalidFieldsetException(
-                    "This option already exists.",
+                    `"${newOption}" already exists in ${props.legend}.`,
                     { invalidElement: inputField }
                 );
             }
