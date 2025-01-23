@@ -4,7 +4,6 @@
 
 ### Pending 🕝
 
-1. create a success notification popup.
 1. Add reset form button
 1. Add reset field button.
 1. Check for illegal characters.
@@ -14,6 +13,7 @@
 
 ### Completed ✅
 
+1. create a success notification popup.
 1. Add option to scroll to each error field.
 1. Unmount error popup from the DOM after closing.
 1. Set newly addded items to checked.
