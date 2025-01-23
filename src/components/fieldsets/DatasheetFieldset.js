@@ -1,6 +1,6 @@
 import copyToClipboard from "../../utils/copyToClipboard";
 import { FeatureNotSupportedException } from "../../utils/customExceptions";
-import { showErrorPopup } from "../../utils/popupEvents";
+import { showErrorPopup, showSuccessPopup } from "../../utils/popupEvents";
 import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";
@@ -55,6 +55,10 @@ export default function DatasheetFieldset()
             try
             {
                 await copyToClipboard(datasheet.element);
+                showSuccessPopup({
+                    dispatchingElement: fieldset.element,
+                    successMsg: "Datasheet copied to clipboard."
+                });
             }
             catch (error)
             {
