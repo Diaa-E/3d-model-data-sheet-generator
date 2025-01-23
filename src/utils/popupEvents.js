@@ -1,5 +1,4 @@
 export const showErrorPopupEvent = "onShowErrorPopup";
-export const closeErrorPopupEvent = "onCloseErrorPopup";
 export const showSuccessPopupEvent = "onShowSuccessPopup";
 
 export function showSuccessPopup(options = {
@@ -27,7 +26,7 @@ export function showSuccessPopup(options = {
             },
             bubbles: true,
         }
-    )
+    );
 
     options.dispatchingElement.dispatchEvent(event);
 }
@@ -60,29 +59,7 @@ export function showErrorPopup(options = {
             },
             bubbles: true,
         }
-    )
-
-    options.dispatchingElement.dispatchEvent(event);
-}
-
-export function closeErrorPopup(options = {
-    silent: false,
-})
-{
-    options = {
-        silent: false,
-        ...options
-    };
-
-    const event = new CustomEvent(
-        closeErrorPopupEvent,
-        {
-            detail: {
-                silent: options.silent,
-            },
-            bubbles: true,
-        }
     );
 
-    document.dispatchEvent(event);
+    options.dispatchingElement.dispatchEvent(event);
 }
