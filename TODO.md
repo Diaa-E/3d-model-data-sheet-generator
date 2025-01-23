@@ -10,6 +10,9 @@
 1. Add texture type UDIM or single image to each texture map.
 1. Add an extra field to model info for disclaimers.
 1. Add option to insert links to images.
+1. Add descriptive icons to popup messages.
+1. Add tip/hint text to each fieldset.
+1. Show empty list text in empty item lists.
 
 ### Completed ✅
 
