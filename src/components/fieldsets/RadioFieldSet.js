@@ -5,6 +5,7 @@ import Radio from "../Radio";
 import RadioGroup from "../RadioGroup";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
+import { showSuccessPopup } from "../../utils/popupEvents";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -113,14 +114,16 @@ export default function RadioFieldset(props = {
     {
         try
         {
-            if (addOptionFieldset.getValue() === "")
+            const newOption = addOptionFieldset.getValue();
+
+            if (newOption === "")
             {
                 throw new InvalidFieldsetException(
                     "Field cannot be empty.",
                     { invalidElement: inputField }
                 );
             }
-            else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+            else if (searchCaseInsensitive([...options, ...userOptions], newOption))
             {
                 throw new InvalidFieldsetException(
                     "This option already exists.",
@@ -133,8 +136,8 @@ export default function RadioFieldset(props = {
                 Radio({
                     name: STORAGE_KEY,
                     checked: false,
-                    text: addOptionFieldset.getValue(),
-                    value: addOptionFieldset.getValue(),
+                    text: newOption,
+                    value: newOption,
                     userOption: true,
                     onChange: (e) => {
 
@@ -144,9 +147,13 @@ export default function RadioFieldset(props = {
                     }
                 })
             );
-            userOptions.push(addOptionFieldset.getValue());
-            addOptionFieldset.clear();
+            userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);
+            showSuccessPopup({
+                dispatchingElement: inputField,
+                successMsg: `"${newOption}" has been added to ${props.legend}`
+            });
+            addOptionFieldset.clear();
             fieldSet.setInvalid(false);
         }
         catch (error)

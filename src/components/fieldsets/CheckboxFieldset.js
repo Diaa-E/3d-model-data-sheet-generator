@@ -3,7 +3,7 @@ import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
-import { showErrorPopup} from "../../utils/popupEvents";
+import { showErrorPopup, showSuccessPopup} from "../../utils/popupEvents";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 
@@ -123,14 +123,16 @@ export default function CheckboxFieldset(props = {
     {
         try
         {
-            if (addOptionFieldset.getValue() === "")
+            const newOption = addOptionFieldset.getValue();
+
+            if (newOption === "")
             {
                 throw new InvalidFieldsetException(
                     "Field Cannot be empty.",
                     { invalidElement: inputField }
                 );
             }
-            else if (searchCaseInsensitive([...options, ...userOptions], addOptionFieldset.getValue()))
+            else if (searchCaseInsensitive([...options, ...userOptions], newOption))
             {
                 throw new InvalidFieldsetException(
                     "This option already exists.",
@@ -143,8 +145,8 @@ export default function CheckboxFieldset(props = {
                 CheckBox({
                     checked: false,
                     name: STORAGE_KEY,
-                    text: addOptionFieldset.getValue(),
-                    value: addOptionFieldset.getValue(),
+                    text: newOption,
+                    value: newOption,
                     userOption: true,
                     onChange: (e) => {
 
@@ -156,16 +158,20 @@ export default function CheckboxFieldset(props = {
                         }
                         else
                         {
-                            selectedOptions.splice(selectedOptions.findIndex(item => item === addOptionFieldset.getValue()), 1);
+                            selectedOptions.splice(selectedOptions.findIndex(item => item === newOption), 1);
                             saveToStorage(STORAGE_KEY, selectedOptions);
                             fieldSet.setInvalid(false);
                         }
                     },
                 })
             );
-            userOptions.push(addOptionFieldset.getValue());
-            addOptionFieldset.clear();
+            userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);
+            showSuccessPopup({
+                dispatchingElement: inputField,
+                successMsg: `"${newOption}" has been added to ${props.legend}`,
+            });
+            addOptionFieldset.clear();
             fieldSet.setInvalid(false);
         }
         catch (error)

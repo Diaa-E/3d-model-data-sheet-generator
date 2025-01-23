@@ -5,7 +5,7 @@ import RadioGroup from "../RadioGroup";
 import icons from "../../barrels/icons.barrel";
 import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
-import { showErrorPopup } from "../../utils/popupEvents";
+import { showErrorPopup, showSuccessPopup } from "../../utils/popupEvents";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function ItemCheckBoxFieldset(props = {
@@ -85,21 +85,22 @@ export default function ItemCheckBoxFieldset(props = {
     {
         try
         {
-            if (addItemFieldset.getValue() === "")
+            const newItem = addItemFieldset.getValue();
+
+            if (newItem === "")
             {
                 throw new InvalidFieldsetException(
                     "Field cannot be empty.",
                     { invalidElement: inputField }
                 );
             }
-            else if (searchCaseInsensitive(items, addItemFieldset.getValue()))
+            else if (searchCaseInsensitive(items, newItem))
             {
                 throw new InvalidFieldsetException(
                     "This option already exists.",
                     { invalidElement: inputField }
                 );
             }
-            const newItem = addItemFieldset.getValue();
 
             fieldSet.setInvalid(false);
             checkboxGroup.addButton(
@@ -128,9 +129,13 @@ export default function ItemCheckBoxFieldset(props = {
             );
             items.push(newItem);
             selectedItems.push(newItem);
-            addItemFieldset.clear();
             saveToStorage(STORAGE_KEY_USER, items);
             saveToStorage(STORAGE_KEY, selectedItems);
+            showSuccessPopup({
+                dispatchingElement: inputField,
+                successMsg: `"${newItem}" has been added to ${props.legend}`
+            });
+            addItemFieldset.clear();
             fieldSet.setInvalid(false); 
         }
         catch (error)
