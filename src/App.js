@@ -6,6 +6,7 @@ import ModelForm from "./ModelForm";
 import About from "./About";
 import {createElement} from "./utils/createElement";
 import logo from "./assets/logo/logo.svg";
+import Header from "./components/Header";
 
 const routes = {
     "/": Index,
@@ -23,6 +24,8 @@ const favIcon = createElement(
 );
 document.head.appendChild(favIcon);
 
+const header = Header()
+
 document.body.append(
     createElement(
         "div",
@@ -30,6 +33,7 @@ document.body.append(
             id: "root"
         },
         [
+            header.element,
             routes[window.location.pathname]()
         ]
     )

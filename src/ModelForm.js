@@ -333,5 +333,5 @@ export default function ModelForm()
         ]
     )
         
-    return [ header.element, contentDiv ];
+    return [ contentDiv ];
 }
