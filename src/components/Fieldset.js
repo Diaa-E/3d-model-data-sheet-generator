@@ -6,6 +6,7 @@ export default function Fieldset(
         legend: "",
         children: [],
         required: false,
+        hint: "",
     }
 )
 {
@@ -13,6 +14,7 @@ export default function Fieldset(
         legend: "fieldset",
         children: [],
         required: false,
+        hint: "",
         ...props
     };
 
@@ -27,6 +29,16 @@ export default function Fieldset(
         ]
     );
 
+    const hint = createElement(
+        "p",
+        {
+            class: styles["hint"],
+        },
+        [
+            `Tip: ${props.hint}`
+        ]
+    );
+
     const fieldset = createElement(
         "fieldset",
         {
@@ -35,6 +47,7 @@ export default function Fieldset(
         },
         [
             legend,
+            props.hint === "" ? "" : hint,
             ...props.children
         ]
     );

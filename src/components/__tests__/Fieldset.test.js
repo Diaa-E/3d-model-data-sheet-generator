@@ -47,4 +47,22 @@ describe("Fieldset Component", () => {
 
         expect(legend["aria-label"]).toMatch(/required/i);
     });
+
+    it("Adds a tip text when hint props is not empty", () => {
+
+        render(Fieldset({ legend: "fieldset", required: true, hint: "test hint", children: [] }).element);
+
+        const hint = document.querySelector("p");
+
+        expect(hint.textContent).toMatch(/test\shint/i);
+    });
+
+    it("Removes tip text when hint prop is empty", () => {
+
+        render(Fieldset({ legend: "fieldset", required: true, hint: "", children: [] }).element);
+
+        const hint = document.querySelector("p");
+
+        expect(hint).toBeNull();
+    });
 });

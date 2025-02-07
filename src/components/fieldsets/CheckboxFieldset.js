@@ -9,6 +9,7 @@ import { InvalidFieldsetException } from "../../utils/customExceptions";
 
 export default function CheckboxFieldset(props = {
     legend: "",
+    hint: "",
     storageKey: "",
     options: [],
     enableUserOptions: false,
@@ -19,6 +20,7 @@ export default function CheckboxFieldset(props = {
 {
     props = {
         legend: "Checkbox Fieldset",
+        hint: "",
         storageKey: "defaultKey",
         options: [
             "option1",
@@ -53,6 +55,7 @@ export default function CheckboxFieldset(props = {
     const fieldSet = Fieldset({
 
         legend: props.legend,
+        hint: props.hint,
         required: props.required,
         children: props.enableUserOptions ? [
             checkboxGroup.element,

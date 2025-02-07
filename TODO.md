@@ -7,11 +7,11 @@
 1. Add reset form button
 1. Add reset field button.
 1. Check for illegal characters.
-1. Add tip/hint text to each fieldset.
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
 
 ### Completed ✅
 
+1. Add tip/hint text to each fieldset.
 1. Show empty list text in empty item lists.
 1. Add descriptive icons to popup messages.
 1. create a success notification popup.

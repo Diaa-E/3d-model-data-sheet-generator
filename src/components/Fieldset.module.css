@@ -34,6 +34,13 @@
     box-shadow: var(--shadow-off);
 }
 
+.hint{
+    color: var(--text-light);
+    font-family: var(--font-default);
+    text-align: center;
+    margin: -20px auto 20px auto;
+}
+
 .required::after{
     content: " *";
     color: var(--button-primary);

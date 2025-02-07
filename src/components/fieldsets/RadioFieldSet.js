@@ -9,6 +9,7 @@ import { showSuccessPopup } from "../../utils/popupEvents";
 
 export default function RadioFieldset(props = {
     legend: "",
+    hint: "",
     storageKey: "",
     options: [],
     enableUserOptions: false,
@@ -19,6 +20,7 @@ export default function RadioFieldset(props = {
 {
     props = {
         legend: "Radio Fieldset",
+        hint: "",
         storageKey: "defaultKey",
         options: [
             "option1",
@@ -61,6 +63,7 @@ export default function RadioFieldset(props = {
 
     const fieldSet = Fieldset({
         legend: props.legend,
+        hint: props.hint,
         required: props.required,
         children: props.enableUserOptions ? [
                 radioGroup.element,

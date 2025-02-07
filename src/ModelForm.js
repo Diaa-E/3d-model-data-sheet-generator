@@ -39,6 +39,7 @@ export default function ModelForm()
 
     const modelContents = ItemCheckBoxFieldset({
         legend: "Model Contents",
+        hint: "List all of the unique items included in your 3D model.",
         storageKey: storageKeys.modelContents,
         enableUserOptions: true,
         addItemLegend: "Add a new item",
@@ -78,6 +79,8 @@ export default function ModelForm()
 
     const edgeSplit = RadioFieldset({
         legend: "Edge Split",
+        hint: `some 3D model formats don't keep sharp edge data, which requires sharp edges to be split.
+        If your model's edges are welded, select "None"`,
         required: true,
         options: [
             "None",
@@ -91,6 +94,7 @@ export default function ModelForm()
 
     const rigging = CheckboxFieldset({
         legend: "Rigging and Animation",
+        hint: "Check if model is rigged, animated or both.",
         options: [
             "Rigged",
             "Animated",
@@ -102,6 +106,8 @@ export default function ModelForm()
 
     const uv = CheckboxFieldset({
         legend: "UV Mapping",
+        hint: `Overlapping UVs means some islads are sharing the same space on the texture map,
+         if all UVs are unique, select "Non-overlapping"`,
         options: [
             "Non-overlapping",
             "Overlapping by duplication",
@@ -115,6 +121,8 @@ export default function ModelForm()
 
     const textureSets = ItemCheckBoxFieldset({
         legend: "Texture Sets",
+        hint: `List all the texture sets included in your 3D model. It is a good practice to write each set's resolution 
+        in addition to its name.`,
         storageKey: storageKeys.textureSets,
         addItemLegend: "Add a new texture set",
         addItemPlaceholder: "i.e lowpoly monkey (4096 x 4096)",
@@ -124,6 +132,7 @@ export default function ModelForm()
 
     const textureWorkflow = CheckboxFieldset({
         legend: "Texture Workflow",
+        hint: `List texturing methods included in your 3D model.`,
         options: [
             "PBR Metallic Roughness",
             "PBR Specular Gloss",
@@ -181,6 +190,7 @@ export default function ModelForm()
 
     const targetSite = RadioFieldset({
         legend: "Target Website",
+        hint: `Each site has its own unique tokens for formatting text, select "None" to generate plain formatted text.`,
         options: [
             ...Object.keys(formattingTokens)
         ],
