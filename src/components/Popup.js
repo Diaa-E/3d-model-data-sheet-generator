@@ -79,6 +79,13 @@ function Popup(props = {
         ]
     ) : "";
 
+    const statusIcon = createElement(
+        "div",
+        {
+            class: `${styles["popup-icon"]} ${props.error ? styles["error-icon"] : styles["success-icon"]}`,
+        }
+    )
+
     const popup = createElement(
         "div",
         {
@@ -86,6 +93,7 @@ function Popup(props = {
             class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`
         },
         [
+            statusIcon,
             msg,
             fieldLink,
         ]
