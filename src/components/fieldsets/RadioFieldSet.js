@@ -61,6 +61,7 @@ export default function RadioFieldset(props = {
 
     const fieldSet = Fieldset({
         legend: props.legend,
+        required: props.required,
         children: props.enableUserOptions ? [
                 radioGroup.element,
                 addOptionFieldset.element

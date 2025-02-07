@@ -38,4 +38,13 @@ describe("Fieldset Component", () => {
 
         expect(childNode.parentElement).toBe(fieldset);
     });
+
+    it("Adds required flag when required prop is true", () => {
+
+        render(Fieldset({ legend: "fieldset", required: true, children: [] }).element);
+
+        const legend = document.querySelector("legend");
+
+        expect(legend["aria-label"]).toMatch(/required/i);
+    });
 });

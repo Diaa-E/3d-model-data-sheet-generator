@@ -5,19 +5,22 @@ export default function Fieldset(
     props = {
         legend: "",
         children: [],
+        required: false,
     }
 )
 {
     props = {
         legend: "fieldset",
         children: [],
+        required: false,
         ...props
     };
 
     const legend = createElement(
         "legend",
         {
-            class: styles["legend"]
+            class: `${styles["legend"]} ${props.required ? styles["required"] : ""}`,
+            ariaLabel: props.required ? `${props.legend} (required)` : props.legend,
         },
         [
             props.legend,

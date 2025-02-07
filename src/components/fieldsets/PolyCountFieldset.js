@@ -57,6 +57,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
 
     const fieldSet = Fieldset({
         legend: "Polygon Count",
+        required: true,
         children: [
             fieldsContainer
         ]

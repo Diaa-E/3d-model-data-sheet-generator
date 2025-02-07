@@ -78,6 +78,7 @@ export default function ModelForm()
 
     const edgeSplit = RadioFieldset({
         legend: "Edge Split",
+        required: true,
         options: [
             "None",
             "Sharp Edges",

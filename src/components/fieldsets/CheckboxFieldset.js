@@ -53,6 +53,7 @@ export default function CheckboxFieldset(props = {
     const fieldSet = Fieldset({
 
         legend: props.legend,
+        required: props.required,
         children: props.enableUserOptions ? [
             checkboxGroup.element,
             addOptionFieldset.element

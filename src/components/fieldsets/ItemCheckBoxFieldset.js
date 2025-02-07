@@ -47,6 +47,7 @@ export default function ItemCheckBoxFieldset(props = {
     const fieldSet = Fieldset({
 
         legend: props.legend,
+        required: props.required,
         children: [
             checkboxGroup.element,
             addItemFieldset.element

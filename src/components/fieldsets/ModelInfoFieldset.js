@@ -49,6 +49,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
 
     const fieldSet = Fieldset({
         legend: "Model Information",
+        required: true,
         children: [
             titleField.element,
             descriptionField

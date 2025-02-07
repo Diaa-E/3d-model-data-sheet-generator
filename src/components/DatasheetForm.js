@@ -22,6 +22,16 @@ export default function DatasheetForm(props = {
         props.formTitle
     );
 
+    const tip = createElement(
+        "p",
+        {
+            class: styles["tip"],
+        },
+        [
+            "Fieldsets marked with an (*) are required."
+        ]
+    )
+
     const form = createElement(
         "form",
         {
@@ -34,6 +44,7 @@ export default function DatasheetForm(props = {
         },
         [
             title,
+            tip,
             props.fieldsets
         ]
     );
