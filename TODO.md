@@ -4,10 +4,16 @@
 
 ### Pending 🕝
 
-1. Add reset form button
+1. Add reset form button.
 1. Add reset field button.
 1. Check for illegal characters.
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
+1. Add mobile display to header.
+1. Add mobile display to footer.
+1. Create a dialog box for confirming action.
+1. sort selected options before generating sheet.
+1. Add feature to edit user added options and items.
+1. Add feature to remove user added options and items.
 
 ### Completed ✅
 
