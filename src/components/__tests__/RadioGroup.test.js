@@ -23,7 +23,6 @@ describe("Radio Group Component", () => {
         const button = document.createElement("button");
 
         const radioGroupComponent = RadioGroup({
-            legend: "test 1",
             buttons: [button],
         });
         render(radioGroupComponent.element);
@@ -38,7 +37,6 @@ describe("Radio Group Component", () => {
         const button = document.createElement("button");
 
         const radioGroupComponent = RadioGroup({
-            legend: "test 1",
             buttons: [button],
         });
         render(radioGroupComponent.element);
