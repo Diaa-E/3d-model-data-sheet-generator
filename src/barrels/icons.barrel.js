@@ -7,6 +7,7 @@ import checkedIcon from "../assets/icons/checked.svg";
 import generateIcon from "../assets/icons/generate.svg";
 import modelItemIcon from "../assets/icons/model_item.svg";
 import textureSetIcon from "../assets/icons/texture_set.svg";
+import githubIcon from "../assets/icons/github.svg";
 
 const icons = {
     addIcon: addIcon,
@@ -17,7 +18,8 @@ const icons = {
     checkedIcon: checkedIcon,
     generateIcon: generateIcon,
     modelItemIcon: modelItemIcon,
-    textureSetIcon: textureSetIcon
+    textureSetIcon: textureSetIcon,
+    githubIcon: githubIcon,
 };
 
 export default icons;

@@ -7,6 +7,7 @@ import About from "./About";
 import {createElement} from "./utils/createElement";
 import logo from "./assets/logo/logo.svg";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const routes = {
     "/": Index,
@@ -24,7 +25,8 @@ const favIcon = createElement(
 );
 document.head.appendChild(favIcon);
 
-const header = Header()
+const header = Header();
+const footer = Footer();
 
 document.body.append(
     createElement(
@@ -34,7 +36,8 @@ document.body.append(
         },
         [
             header.element,
-            routes[window.location.pathname]()
+            routes[window.location.pathname](),
+            footer.element
         ]
     )
 );
