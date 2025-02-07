@@ -11,11 +11,11 @@
 1. Add an extra field to model info for disclaimers.
 1. Add option to insert links to images.
 1. Add tip/hint text to each fieldset.
-1. Show empty list text in empty item lists.
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
 
 ### Completed ✅
 
+1. Show empty list text in empty item lists.
 1. Add descriptive icons to popup messages.
 1. create a success notification popup.
 1. Add option to scroll to each error field.

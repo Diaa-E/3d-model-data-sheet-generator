@@ -9,3 +9,9 @@
     font-family: var(--font-default);
     margin-bottom: 20px;
 }
+
+.empty-group-text{
+    font-family: var(--font-default);
+    color: var(--text-light);
+    text-align: center;
+}

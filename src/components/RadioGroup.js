@@ -9,6 +9,16 @@ export default function RadioGroup( props = {
         buttons: [],
         ...props
     };
+    
+    const emptyGroupText = createElement(
+        "p",
+        {
+            class: styles["empty-group-text"],
+        },
+        [
+            "This section has no items."
+        ]
+    );
 
     const div = createElement(
         "div",
@@ -16,7 +26,7 @@ export default function RadioGroup( props = {
             class: styles["radio-group"]
         },
         [
-            ...props.buttons,
+            ...(props.buttons.length > 0 ? props.buttons : [ emptyGroupText ]),
         ]
     );
 
@@ -34,6 +44,8 @@ export default function RadioGroup( props = {
                 button
             );
         }
+
+        emptyGroupText.remove();
     }
 
     return { element: div, addButton: addButton }

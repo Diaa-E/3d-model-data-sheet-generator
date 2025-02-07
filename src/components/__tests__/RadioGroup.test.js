@@ -48,4 +48,32 @@ describe("Radio Group Component", () => {
 
         expect(button.parentElement).toBe(div);
     });
+
+    it("Displays empty section text when buttons prop is an empty array", () => {
+
+        const radioGroupComponent = RadioGroup({
+            buttons: [],
+        });
+        render(radioGroupComponent.element);
+
+        const div = document.querySelector("div");
+
+        expect(div.textContent).toMatch(/no\sitems/i);
+    });
+
+    it("Removes empty section text when a button is added", () => {
+
+        const radioGroupComponent = RadioGroup({
+            buttons: [],
+        });
+        render(radioGroupComponent.element);
+
+        const div = document.querySelector("div");
+
+        expect(div.textContent).toMatch(/no\sitems/i);
+
+        radioGroupComponent.addButton(document.createElement("button"));
+
+        expect(div.textContent).not.toMatch(/no\sitems/i);
+    });
 });
