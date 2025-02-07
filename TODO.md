@@ -13,6 +13,7 @@
 1. Add descriptive icons to popup messages.
 1. Add tip/hint text to each fieldset.
 1. Show empty list text in empty item lists.
+1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
 
 ### Completed ✅
 
