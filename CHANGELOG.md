@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Required fieldsets are now flagged with an (*).
 - ➕ Successfully completed actions open a success popup.
 - ➕ Added dark theme.
 - ➕ Improved keyboard accessibility for all controls.
