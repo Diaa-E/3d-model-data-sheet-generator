@@ -7,9 +7,6 @@
 1. Add reset form button
 1. Add reset field button.
 1. Check for illegal characters.
-1. Add texture type UDIM or single image to each texture map.
-1. Add an extra field to model info for disclaimers.
-1. Add option to insert links to images.
 1. Add tip/hint text to each fieldset.
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
 
@@ -42,5 +39,8 @@
 
 ### Cancelled ❌
 
+1. Add option to insert links to images. -> Not all sites support this feature.
+1. Add texture type UDIM or single image to each texture map. -> Redundant: Can be added as a custom texture map.
+1. Add an extra field to model info for disclaimers. -> Redundant: can be added in the description field.
 1. add animation for errorpopup text update. -> New messages create a new popup and stack on top of each other instead.
 1. Set the default of real world scale to yes. -> Removed the entire field.
