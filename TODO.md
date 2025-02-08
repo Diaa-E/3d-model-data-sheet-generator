@@ -7,7 +7,6 @@
 1. Add reset form button.
 1. Add reset field button.
 1. Check for illegal characters.
-1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags.
 1. Add mobile display to header.
 1. Add mobile display to footer.
 1. Create a dialog box for confirming action.
@@ -18,6 +17,7 @@
 
 ### Completed ✅
 
+1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags. -> Strong tags fixed the problem, but a better solution is matching Fab's tag order: h4 for editor's h1 and h5 for editor's h2.
 1. Add tip/hint text to each fieldset.
 1. Show empty list text in empty item lists.
 1. Add descriptive icons to popup messages.

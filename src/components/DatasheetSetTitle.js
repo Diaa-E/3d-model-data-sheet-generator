@@ -24,7 +24,7 @@ export default function DatasheetSetTitle(props = {
     )
 
     const title = createElement(
-        "h2",
+        "h5",
         {
             class: `${styles["set-title"]} ${props.emptySet ? styles["empty-set-title"] : ""}`
         },

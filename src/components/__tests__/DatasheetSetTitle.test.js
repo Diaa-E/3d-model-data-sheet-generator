@@ -32,7 +32,7 @@ describe("Datasheet Set Title Component", () => {
 
     const targets = ["target1", "target2"];
 
-    it("Renders an h2 element", () => {
+    it("Renders an h5 element", () => {
 
         render(
             DatasheetSetTitle({
@@ -42,7 +42,7 @@ describe("Datasheet Set Title Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h2");
+        const title = document.querySelector("h5");
 
         expect(title).not.toBeNull();
     });
@@ -57,7 +57,7 @@ describe("Datasheet Set Title Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h2");
+        const title = document.querySelector("h5");
 
         expect(title.textContent).toMatch(/test1/i);
     });
@@ -72,7 +72,7 @@ describe("Datasheet Set Title Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h2");
+        const title = document.querySelector("h5");
 
         expect(title.classList.toString()).toMatch(/empty/i);
     });
@@ -87,7 +87,7 @@ describe("Datasheet Set Title Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h2");
+        const title = document.querySelector("h5");
 
         expect(title.textContent).toContain(formattingTokens[targets[0]].bold);
     });

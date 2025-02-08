@@ -44,7 +44,7 @@ export default function Datasheet(props = {
     }
 
     const datasheetTitle = createElement(
-        "h1",
+        "h4",
         {
             class: styles["datasheet-title"]
         },

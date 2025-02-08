@@ -164,7 +164,7 @@ describe("Datasheet Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h1");
+        const title = document.querySelector("h4");
 
         expect(title.textContent).toMatch(/mainTitle/i);
     });
@@ -181,7 +181,7 @@ describe("Datasheet Component", () => {
             }).element
         );
 
-        const title = document.querySelector("h1");
+        const title = document.querySelector("h4");
 
         expect(title.textContent).toContain(formattingTokens[targets[0]].heading);
         expect(title.textContent).toContain(formattingTokens[targets[0]].bold);
