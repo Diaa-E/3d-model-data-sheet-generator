@@ -1,4 +1,4 @@
-# <img src="./src/assets/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
+# <img src="./src/assets/logo/logo.svg" width="70px"> 3D Model Data Sheet Generator
 
 ## To do list
 
@@ -14,6 +14,7 @@
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
+1. Add "Available 3D formats" fieldset.
 
 ### Completed ✅
 
