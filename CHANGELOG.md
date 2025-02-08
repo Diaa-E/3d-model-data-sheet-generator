@@ -1,17 +1,16 @@
-# <img src="./src/assets/logo/logo.svg" width="70px"> 3d Model Data Sheet Generator
+# <img src="./src/assets/logo/logo.svg" width="70px"> 3D Model Data Sheet Generator
 
 ## Change log
 
 - ➕: Feature
 - 🛠️: Fix
-- ⚙️: Code change with ni impact on user experience
+- ⚙️: Code change with no impact on user experience
 
 ### **2.0.0 (unreleased)**
 
 - ➕ Added a hint text to some fieldsets.
 - ➕ Required fieldsets are now flagged with an (*).
-- ➕ Successfully completed actions open a success popup.
-- ➕ Added dark theme.
+- ➕ Added dark mode.
 - ➕ Improved keyboard accessibility for all controls.
 - ➕ Improved buttons accessibility.
 - ➕ Buttons now have readable text on wider screens.
@@ -20,8 +19,8 @@
 - ➕ Missing optional fields are highlighted in red on the sheet in case the user forgot to fill them.
 - ➕ Generated sheet is now displayed as a part of the document with titles and lists instead of a read-only text area.
 - ➕ Selected options are labeld by a check mark.
-- ➕ Add favicon.
-- ➕ Added an extra option for animation.
+- ➕ Added an icon to the app's tab.
+- ➕ Added "animation" option to the rigging fieldset.
 - ➕ Added "Non-uniform polygons" option to mesh type fieldset.
 - ➕ Added "Mid-poly" option to model tier fieldset.
 - ➕ Aligned page content more towards the center and added a max width for wide screens.
@@ -32,6 +31,7 @@
 - ➕ Model contents are now a single field an the user can freely enter all the related info like the item count.
 - ➕ Texture sets are now a single field and the user can freely enter all the related info like the resolution if applicable.
 - ➕ User can now scroll to invalid form fields using a link in the error notification instead of manually scrolling up.
+- ➕ Successfully completed actions are now displayed in a small notification popup at the bottom of the screen.
 - ➕ Errors are now displayed in a small notification popup at the bottom of the screen.
 - ➕ Removed the "scaled to real world dimensions" fieldset.
 - ➕ Document state is now saved to session storage to persist through reloads.
@@ -39,11 +39,13 @@
 - ➕ Redesigned the logo.
 - ➕ Added extra options to the target site options.
 - ➕ Added feature to generate unformatted text (selecting none in the target site fieldset).
+- ➕ Changed app structure to include a home page, a page for each form (currently only 3D model is available) and an about page.
 - ⚙️ Reduced reliance on media queries.
 - ⚙️ Added all icons to a barrel file.
 - ⚙️ Added proper metadata.
 - ⚙️ Switched from global scope CSS to CSS modules.
-- ⚙️ Wrote unit tests for components.
+- ⚙️ Implemented unit tests for some components.
+- ⚙️ Components are now created using a utility function based on React's JSX.
 - ⚙️ Extracted each component in the ```components.js``` file into its own file.
 - ⚙️ Extracted each component in the ```elements.js``` file into its own file.
 
