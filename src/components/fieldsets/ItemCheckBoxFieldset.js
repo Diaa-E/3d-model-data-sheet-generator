@@ -33,9 +33,13 @@ export default function ItemCheckBoxFieldset(props = {
     const STORAGE_KEY = props.storageKey;
     const STORAGE_KEY_USER = `${STORAGE_KEY}_user`;
 
+    // initial state
+    const ITEMS_INIT = [];
+    const SELECTED_ITEMS_INIT = [];
+
     // fieldset state
-    const items = getFromStorage(STORAGE_KEY_USER, []);
-    const selectedItems = getFromStorage(STORAGE_KEY, []);
+    let items = getFromStorage(STORAGE_KEY_USER, []);
+    let selectedItems = getFromStorage(STORAGE_KEY, []);
 
     // components
     const checkboxGroup = RadioGroup();
@@ -180,5 +184,14 @@ export default function ItemCheckBoxFieldset(props = {
         fieldSet.setInvalid(false);
     }
 
-    return { element: fieldSet.element, getState: getState, validate: validate };
+    function reset()
+    {
+        items = ITEMS_INIT;
+        selectedItems = SELECTED_ITEMS_INIT;
+
+        saveToStorage(STORAGE_KEY_USER, ITEMS_INIT);
+        saveToStorage(STORAGE_KEY, SELECTED_ITEMS_INIT);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate, reset: reset };
 }

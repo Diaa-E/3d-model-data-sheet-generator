@@ -298,4 +298,32 @@ describe("Item Checkbox Fieldset Component", () => {
 
         expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual(["testItem3"]);
     });
+
+    it("Resets items and selected items to empty arrays when reset funciton is called", () => {
+
+        const userItems = ["testItem1", "testItem2"];
+        const selectedItems = ["testItem2"];
+
+        sessionStorage.setItem("test1_user", JSON.stringify(userItems));
+        sessionStorage.setItem("test1", JSON.stringify(selectedItems));
+
+        const fieldset = ItemCheckBoxFieldset({
+            
+            legend: "test 1",
+            storageKey: "test1",
+            addItemLegend: "add a new test item",
+            addItemPlaceholder: "new test item",
+            itemIcon: "",
+        });
+
+        render(fieldset.element);
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual(userItems);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual(selectedItems);
+
+        fieldset.reset();
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual([]);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual([]);
+    });
 });
