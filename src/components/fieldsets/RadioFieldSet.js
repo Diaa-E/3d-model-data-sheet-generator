@@ -77,27 +77,11 @@ export default function RadioFieldset(props = {
             ]
     });
 
-    options.forEach(option => {
+    load();
 
-        radioGroup.addButton(
-            Radio({
-                name: STORAGE_KEY,
-                checked: selectedOption === option,
-                text: option,
-                value: option,
-                onChange: (e) => {
-
-                    selectedOption = e.target.value,
-                    saveToStorage(STORAGE_KEY, selectedOption);
-                    fieldSet.setInvalid(false);
-                }
-            })
-        );
-    });
-
-    if (props.enableUserOptions)
+    function load()
     {
-        userOptions.forEach(option => {
+        options.forEach(option => {
 
             radioGroup.addButton(
                 Radio({
@@ -105,7 +89,6 @@ export default function RadioFieldset(props = {
                     checked: selectedOption === option,
                     text: option,
                     value: option,
-                    userOption: true,
                     onChange: (e) => {
     
                         selectedOption = e.target.value,
@@ -115,8 +98,29 @@ export default function RadioFieldset(props = {
                 })
             );
         });
-    }
     
+        if (props.enableUserOptions)
+        {
+            userOptions.forEach(option => {
+    
+                radioGroup.addButton(
+                    Radio({
+                        name: STORAGE_KEY,
+                        checked: selectedOption === option,
+                        text: option,
+                        value: option,
+                        userOption: true,
+                        onChange: (e) => {
+        
+                            selectedOption = e.target.value,
+                            saveToStorage(STORAGE_KEY, selectedOption);
+                            fieldSet.setInvalid(false);
+                        }
+                    })
+                );
+            });
+        }
+    }
 
     function addOption(inputField)
     {
@@ -204,14 +208,17 @@ export default function RadioFieldset(props = {
 
     function reset()
     {
-        userOptions = USER_OPTIONS_INIT;
         selectedOption = SELECTED_OPTION_INIT;
-
         saveToStorage(STORAGE_KEY, SELECTED_OPTION_INIT);
+
         if (props.enableUserOptions)
         {       
-                saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+            userOptions = USER_OPTIONS_INIT;
+            saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
         }
+
+        radioGroup.removeAllButtons();
+        load();
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset }
