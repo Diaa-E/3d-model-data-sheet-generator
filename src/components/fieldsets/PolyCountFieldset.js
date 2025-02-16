@@ -110,6 +110,9 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         state = STATE_INIT;
 
         saveToStorage(STORAGE_KEY, STATE_INIT);
+
+        trianglesInput.clear();
+        verticesInput.clear();
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset }

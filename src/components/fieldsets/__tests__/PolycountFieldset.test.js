@@ -139,4 +139,26 @@ describe("Polycount Fieldset Component", () => {
 
         expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({triangles: "", vertices: ""});
     });
+
+    it("Resets fields when reset funciton is called", () => {
+
+        const fieldset = PolyCountFieldset({
+            storageKey: "test1"
+        });
+
+        render(fieldset.element);
+
+        const numberInputs = document.querySelectorAll("input[type='number']");
+
+        changeElementValue(numberInputs[0], "30");
+        changeElementValue(numberInputs[1], "20");
+
+        expect(numberInputs[0].value).toBe("30");
+        expect(numberInputs[1].value).toBe("20");
+
+        fieldset.reset();
+
+        expect(numberInputs[0].value).toBe("");
+        expect(numberInputs[1].value).toBe("");
+    });
 });
