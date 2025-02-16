@@ -16,7 +16,7 @@ describe("Text Area Component", () => {
             onInput: () => {},
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
         const label = document.querySelector("label");
@@ -33,7 +33,7 @@ describe("Text Area Component", () => {
             onInput: () => {},
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const label = document.querySelector("label");
 
@@ -48,7 +48,7 @@ describe("Text Area Component", () => {
             onInput: () => {},
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
 
@@ -63,7 +63,7 @@ describe("Text Area Component", () => {
             onInput: () => {},
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
 
@@ -78,7 +78,7 @@ describe("Text Area Component", () => {
             onInput: () => {},
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
 
@@ -94,7 +94,7 @@ describe("Text Area Component", () => {
             placeholder: "text area",
             text: "text area",
             value: "some value"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
 
@@ -111,12 +111,35 @@ describe("Text Area Component", () => {
             onInput: onInput,
             placeholder: "text area",
             text: "text area"
-        }));
+        }).element);
 
         const textArea = document.querySelector("textarea");
         changeElementValue(textArea, "some text");
 
         expect(onInput.mock.calls).toHaveLength(1);
         expect(textArea.value).toBe("some text");
+    });
+
+    it("Clears textarea value when clear function is called", () => {
+
+        const textareaComponent = TextArea({
+            cols: 50,
+            rows: 20,
+            onInput: () => {},
+            placeholder: "text area",
+            text: "text area",
+            value: "some value"
+        });
+
+        render(textareaComponent.element);
+
+        const textArea = document.querySelector("textarea");
+        changeElementValue(textArea, "some text");
+
+        expect(textArea.value).toBe("some text");
+
+        textareaComponent.clear();
+
+        expect(textArea.value).toBe("");
     });
 });

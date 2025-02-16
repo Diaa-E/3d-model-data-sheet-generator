@@ -224,7 +224,7 @@ export default function ModelForm()
         onSubmit: onSubmit,
     });
 
-    function onReset()
+    function onReset(e)
     {
         modelInfo.reset();
         modelContents.reset();
@@ -239,8 +239,11 @@ export default function ModelForm()
         textureFormat.reset();
         textureMaps.reset();
         targetSite.reset();
-        
-        location.reload();
+
+        showSuccessPopup({
+            dispatchingElement: e.target,
+            successMsg: "Form has been reset."
+        })
     }
 
     function onSubmit()

@@ -51,7 +51,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         required: true,
         children: [
             titleField.element,
-            descriptionField
+            descriptionField.element
         ]
     });
 
@@ -87,6 +87,9 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         state = STATE_INIT;
         
         saveToStorage(STORAGE_KEY, STATE_INIT);
+
+        titleField.clear();
+        descriptionField.clear();
     }
 
     return {element: fieldSet.element, getState: getState, validate: validate, reset: reset};

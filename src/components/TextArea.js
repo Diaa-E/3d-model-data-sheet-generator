@@ -61,5 +61,10 @@ export default function TextArea(props = {
         ]
     );
 
-    return divContainer;
+    function clear()
+    {
+        textArea.value = "";
+    }
+
+    return {element: divContainer, clear: clear};
 }

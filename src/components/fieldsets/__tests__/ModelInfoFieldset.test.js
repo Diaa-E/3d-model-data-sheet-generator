@@ -154,7 +154,7 @@ describe("Model Info Fieldset Component", () => {
         expect(() => modelInfoComponent.validate()).toThrow(/description/i)
     });
 
-    it("Resets state to initial value when rest funciton is called", () => {
+    it("Resets state to initial value when reset funciton is called", () => {
 
         sessionStorage.setItem("test1", JSON.stringify({title: "test title", description: "test text"}));
 
@@ -169,5 +169,28 @@ describe("Model Info Fieldset Component", () => {
         fieldset.reset();
 
         expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({title: "", description: ""});
+    });
+
+    it("Resets fields when reset function is called", () => {
+
+        const fieldsetComponent = ModelInfoFieldset({
+            storageKey: "test1"
+        });
+
+        render(fieldsetComponent.element);
+
+        const titleInput = document.querySelector("input[type='text']");
+        const textarea = document.querySelector("textarea");
+
+        changeElementValue(titleInput, "some title");
+        changeElementValue(textarea, "some text");
+
+        expect(titleInput.value).toBe("some title");
+        expect(textarea.value).toBe("some text");
+
+        fieldsetComponent.reset();
+
+        expect(titleInput.value).toBe("");
+        expect(textarea.value).toBe("");
     });
 });
