@@ -186,6 +186,16 @@ export default function ItemCheckBoxFieldset(props = {
 
     function reset()
     {
+        items.forEach(item => {
+
+            checkboxGroup.removeButton(item);
+        });
+
+        selectedItems.forEach(item => {
+
+            checkboxGroup.setChecked(item);
+        });
+
         items = ITEMS_INIT;
         selectedItems = SELECTED_ITEMS_INIT;
 
