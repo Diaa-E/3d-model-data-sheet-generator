@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Form can now be reset to default values by clicking a button.
 - ➕ Added a hint text to some fieldsets.
 - ➕ Required fieldsets are now flagged with an (*).
 - ➕ Added dark mode.
