@@ -153,4 +153,21 @@ describe("Model Info Fieldset Component", () => {
 
         expect(() => modelInfoComponent.validate()).toThrow(/description/i)
     });
+
+    it("Resets state to initial value when rest funciton is called", () => {
+
+        sessionStorage.setItem("test1", JSON.stringify({title: "test title", description: "test text"}));
+
+        const fieldset = ModelInfoFieldset({
+            storageKey: "test1"
+        });
+
+        render(fieldset.element);
+
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({title: "test title", description: "test text"});
+
+        fieldset.reset();
+
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({title: "", description: ""});
+    });
 });

@@ -11,38 +11,37 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         ...props
     };
 
+    const STATE_INIT = {
+        title: "",
+        description: ""
+    };
+
     const STORAGE_KEY = props.storageKey;
-    const modelInfo = getFromStorage(
-        STORAGE_KEY,
-        {
-            title: "",
-            description: ""
-        }
-    );
+    let state = getFromStorage(STORAGE_KEY, STATE_INIT);
 
     const titleField = TextInput({
         autocomplete: "off",
         name: "modelTitle",
         onInput: (e) => {
 
-            modelInfo.title = e.target.value;
-            saveToStorage(STORAGE_KEY, modelInfo);
+            state.title = e.target.value;
+            saveToStorage(STORAGE_KEY, state);
             fieldSet.setInvalid(false);
         },
         placeholder: "Model Title",
         required: false,
         text: "Model Title",
-        value: modelInfo.title
+        value: state.title
     });
 
     const descriptionField = TextArea({
         placeholder: "Model Description",
         text: "Model Description",
-        value: modelInfo.description,
+        value: state.description,
         onInput: (e) => {
 
-            modelInfo.description = e.target.value;
-            saveToStorage(STORAGE_KEY, modelInfo);
+            state.description = e.target.value;
+            saveToStorage(STORAGE_KEY, state);
             fieldSet.setInvalid(false);
         }
     });
@@ -58,12 +57,12 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
 
     function getState()
     {
-        return modelInfo;
+        return state;
     }
 
     function validate()
     {
-        if (modelInfo.title === "")
+        if (state.title === "")
         {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
@@ -71,7 +70,7 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
                 { invalidElement: fieldSet.element }
             );
         }
-        else if (modelInfo.description === "")
+        else if (state.description === "")
         {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
@@ -83,5 +82,12 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         fieldSet.setInvalid(false);
     }
 
-    return {element: fieldSet.element, getState: getState, validate: validate};
+    function reset()
+    {
+        state = STATE_INIT;
+        
+        saveToStorage(STORAGE_KEY, STATE_INIT);
+    }
+
+    return {element: fieldSet.element, getState: getState, validate: validate, reset: reset};
 }
