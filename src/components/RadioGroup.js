@@ -63,15 +63,11 @@ export default function RadioGroup( props = {
         }
     }
 
-    function setChecked(label)
+    function removeAllButtons()
     {
-        const targetButton = Array.from(div.querySelectorAll("label")).find(element => element.textContent === label);
-
-        if (targetButton)
-        {
-            targetButton.checked = true;
-        }
+        div.innerHTML = "";
+        div.append(emptyGroupText);
     }
 
-    return { element: div, addButton: addButton, removeButton: removeButton, setChecked: setChecked }
+    return { element: div, addButton: addButton, removeButton: removeButton, removeAllButtons: removeAllButtons}
 }

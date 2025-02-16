@@ -61,33 +61,38 @@ export default function ItemCheckBoxFieldset(props = {
         ]
     });
 
-    items.forEach(item => {
+    load();
 
-        checkboxGroup.addButton(
-            ItemCheckBox({
-                checked: selectedItems.includes(item),
-                name: STORAGE_KEY,
-                text: item,
-                value: item,
-                itemIcon: props.itemIcon,
-                onChange: (e) => {
-
-                    if (e.target.checked)
-                    {
-                        selectedItems.push(e.target.value);
-                        saveToStorage(STORAGE_KEY, selectedItems);
-                        fieldSet.setInvalid(false);
-                    }
-                    else
-                    {
-                        selectedItems.splice(selectedItems.findIndex(item => item === item), 1);
-                        saveToStorage(STORAGE_KEY, selectedItems);
-                        fieldSet.setInvalid(false);
-                    }
-                },
-            })
-        );
-    });
+    function load()
+    {
+        items.forEach(item => {
+    
+            checkboxGroup.addButton(
+                ItemCheckBox({
+                    checked: selectedItems.includes(item),
+                    name: STORAGE_KEY,
+                    text: item,
+                    value: item,
+                    itemIcon: props.itemIcon,
+                    onChange: (e) => {
+    
+                        if (e.target.checked)
+                        {
+                            selectedItems.push(e.target.value);
+                            saveToStorage(STORAGE_KEY, selectedItems);
+                            fieldSet.setInvalid(false);
+                        }
+                        else
+                        {
+                            selectedItems.splice(selectedItems.findIndex(item => item === item), 1);
+                            saveToStorage(STORAGE_KEY, selectedItems);
+                            fieldSet.setInvalid(false);
+                        }
+                    },
+                })
+            );
+        });
+    }
 
     function addItem(inputField)
     {
@@ -186,21 +191,14 @@ export default function ItemCheckBoxFieldset(props = {
 
     function reset()
     {
-        items.forEach(item => {
-
-            checkboxGroup.removeButton(item);
-        });
-
-        selectedItems.forEach(item => {
-
-            checkboxGroup.setChecked(item);
-        });
-
-        items = ITEMS_INIT;
-        selectedItems = SELECTED_ITEMS_INIT;
+        items = [...ITEMS_INIT];
+        selectedItems = [...SELECTED_ITEMS_INIT];
 
         saveToStorage(STORAGE_KEY_USER, ITEMS_INIT);
         saveToStorage(STORAGE_KEY, SELECTED_ITEMS_INIT);
+
+        checkboxGroup.removeAllButtons();
+        load();
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset };

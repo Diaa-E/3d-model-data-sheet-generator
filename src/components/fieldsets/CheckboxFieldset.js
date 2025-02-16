@@ -69,44 +69,18 @@ export default function CheckboxFieldset(props = {
         ]
     });
 
-    options.forEach(option => {
+    load();
 
-        checkboxGroup.addButton(
-            CheckBox({
-                checked: selectedOptions.includes(option),
-                name: STORAGE_KEY,
-                text: option,
-                value: option,
-                onChange: (e) => {
-
-                    if (e.target.checked)
-                    {
-                        selectedOptions.push(e.target.value);
-                        saveToStorage(STORAGE_KEY, selectedOptions);
-                        fieldSet.setInvalid(false);
-                    }
-                    else
-                    {
-                        selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
-                        saveToStorage(STORAGE_KEY, selectedOptions);
-                        fieldSet.setInvalid(false);
-                    }
-                },
-            })
-        );
-    });
-
-    if (props.enableUserOptions)
+    function load()
     {
-        userOptions.forEach(option => {
-    
+        options.forEach(option => {
+
             checkboxGroup.addButton(
                 CheckBox({
                     checked: selectedOptions.includes(option),
                     name: STORAGE_KEY,
                     text: option,
                     value: option,
-                    userOption: true,
                     onChange: (e) => {
     
                         if (e.target.checked)
@@ -125,6 +99,37 @@ export default function CheckboxFieldset(props = {
                 })
             );
         });
+    
+        if (props.enableUserOptions)
+        {
+            userOptions.forEach(option => {
+        
+                checkboxGroup.addButton(
+                    CheckBox({
+                        checked: selectedOptions.includes(option),
+                        name: STORAGE_KEY,
+                        text: option,
+                        value: option,
+                        userOption: true,
+                        onChange: (e) => {
+        
+                            if (e.target.checked)
+                            {
+                                selectedOptions.push(e.target.value);
+                                saveToStorage(STORAGE_KEY, selectedOptions);
+                                fieldSet.setInvalid(false);
+                            }
+                            else
+                            {
+                                selectedOptions.splice(selectedOptions.findIndex(item => item === option), 1);
+                                saveToStorage(STORAGE_KEY, selectedOptions);
+                                fieldSet.setInvalid(false);
+                            }
+                        },
+                    })
+                );
+            });
+        }
     }
 
     function addOption(inputField)
@@ -222,14 +227,17 @@ export default function CheckboxFieldset(props = {
 
     function reset()
     {
-        userOptions = USER_OPTIONS_INIT;
-        selectedOptions = SELECTED_OPTIONS_INIT;
-
+        selectedOptions = [...SELECTED_OPTIONS_INIT];
         saveToStorage(STORAGE_KEY, SELECTED_OPTIONS_INIT);
+
         if (props.enableUserOptions)
         {
+            userOptions = [...USER_OPTIONS_INIT];
             saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
         }
+
+        checkboxGroup.removeAllButtons();
+        load();
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset };
