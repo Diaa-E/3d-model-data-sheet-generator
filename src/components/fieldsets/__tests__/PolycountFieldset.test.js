@@ -122,4 +122,21 @@ describe("Polycount Fieldset Component", () => {
 
         expect(triangleNumberInput.value).toBe("30");
     });
+
+    it("Resets state to initial values when reset function is called", () => {
+
+        sessionStorage.setItem("test1", JSON.stringify({triangles: "30", vertices: "20"}));
+
+        const fieldset = PolyCountFieldset({
+            storageKey: "test1"
+        });
+
+        render(fieldset.element);
+
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({triangles: "30", vertices: "20"});
+
+        fieldset.reset();
+
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual({triangles: "", vertices: ""});
+    });
 });

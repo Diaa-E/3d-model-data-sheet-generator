@@ -11,27 +11,26 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         ...props
     };
 
+    const STATE_INIT = {
+        vertices: "",
+        triangles: "",
+    };
+
     const STORAGE_KEY = props.storageKey;
-    const polyCount = getFromStorage(
-        STORAGE_KEY,
-        {
-            vertices: "",
-            triangles: "",
-        }
-    );
+    let state = getFromStorage(STORAGE_KEY, STATE_INIT);
 
     const verticesInput = NumberInput({
         name: "vertices",
         min: "0",
         onInput: (e) => {
 
-            polyCount.vertices = e.target.value;
-            saveToStorage(STORAGE_KEY, polyCount);
+            state.vertices = e.target.value;
+            saveToStorage(STORAGE_KEY, state);
             fieldSet.setInvalid(false);
         },
         placeholder: "Number of Vertices",
         text: "Vertices",
-        value: polyCount.vertices
+        value: state.vertices
     });
 
     const trianglesInput = NumberInput({
@@ -39,13 +38,13 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         min: "0",
         onInput: (e) => {
 
-            polyCount.triangles = e.target.value;
-            saveToStorage(STORAGE_KEY, polyCount);
+            state.triangles = e.target.value;
+            saveToStorage(STORAGE_KEY, state);
             fieldSet.setInvalid(false);
         },
         placeholder: "Number of Triangles",
         text: "Triangles",
-        value: polyCount.triangles
+        value: state.triangles
     });
 
     const fieldsContainer = FieldsContainer({
@@ -65,7 +64,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
 
     function getState()
     {
-        return polyCount;
+        return state;
     }
 
     function validate()
@@ -106,5 +105,12 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         fieldSet.setInvalid(false);
     }
 
-    return { element: fieldSet.element, getState: getState, validate: validate }
+    function reset()
+    {
+        state = STATE_INIT;
+
+        saveToStorage(STORAGE_KEY, STATE_INIT);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate, reset: reset }
 }
