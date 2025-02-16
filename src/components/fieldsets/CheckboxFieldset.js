@@ -226,7 +226,10 @@ export default function CheckboxFieldset(props = {
         selectedOptions = SELECTED_OPTIONS_INIT;
 
         saveToStorage(STORAGE_KEY, SELECTED_OPTIONS_INIT);
-        saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+        if (props.enableUserOptions)
+        {
+            saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+        }
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset };

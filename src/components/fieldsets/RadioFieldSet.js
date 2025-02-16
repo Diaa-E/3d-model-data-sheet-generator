@@ -207,8 +207,11 @@ export default function RadioFieldset(props = {
         userOptions = USER_OPTIONS_INIT;
         selectedOption = SELECTED_OPTION_INIT;
 
-        saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
         saveToStorage(STORAGE_KEY, SELECTED_OPTION_INIT);
+        if (props.enableUserOptions)
+        {       
+                saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+        }
     }
 
     return { element: fieldSet.element, getState: getState, validate: validate, reset: reset }
