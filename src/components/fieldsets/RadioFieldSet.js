@@ -46,9 +46,13 @@ export default function RadioFieldset(props = {
     const STORAGE_KEY = props.storageKey;
     const STORAGE_KEY_USER = props.enableUserOptions ? `${STORAGE_KEY}_user` : null;
 
+    // initial state
+    const USER_OPTIONS_INIT = [];
+    const SELECTED_OPTION_INIT = props.options[0];
+
     // fieldset state
     const options = props.options;
-    const userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, []) : null;
+    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, []) : null;
     let selectedOption = getFromStorage(STORAGE_KEY, options[0]);
 
     // components
@@ -198,5 +202,14 @@ export default function RadioFieldset(props = {
         fieldSet.setInvalid(false);
     }
 
-    return { element: fieldSet.element, getState: getState, validate: validate }
+    function reset()
+    {
+        userOptions = USER_OPTIONS_INIT;
+        selectedOption = SELECTED_OPTION_INIT;
+
+        saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+        saveToStorage(STORAGE_KEY, SELECTED_OPTION_INIT);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate, reset: reset }
 }

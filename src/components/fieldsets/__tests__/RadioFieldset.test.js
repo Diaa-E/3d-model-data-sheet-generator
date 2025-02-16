@@ -387,4 +387,34 @@ describe("Radio Fieldset Component", () => {
             expect(radioButtons[i].value).toBe(allOptions[i]);
         }
     });
+
+    it("Resets selected option to firest option and user options to empty array when reset function is called", () => {
+
+        const userOptions = ["testUserOption1"];
+        const options = ["testOption1", "testOption2"];
+        const selectedOption = "testOption2";
+
+        sessionStorage.setItem("test1_user", JSON.stringify(userOptions));
+        sessionStorage.setItem("test1", JSON.stringify(selectedOption));
+
+        const fieldset = RadioFieldset({
+
+            legend: "test 1",
+            options: options,
+            storageKey: "test1",
+            enableUserOptions: true,
+            userOptionLegend: "add a new test option",
+            userOptionPlaceholder: "new test option"
+        });
+
+        render(fieldset.element);
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual(userOptions);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual(selectedOption);
+
+        fieldset.reset();
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual([]);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual(options[0]);
+    });
 });
