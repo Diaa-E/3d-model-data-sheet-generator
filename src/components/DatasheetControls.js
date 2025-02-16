@@ -6,10 +6,12 @@ import { createElement } from "../utils/createElement";
 
 export default function DatasheetControls(props = {
     onCopy: () => {},
+    onReset: () => {}
 })
 {
     props = {
         onCopy: () => {},
+        onReset: () => {},
         ...props
     };
 
@@ -30,6 +32,15 @@ export default function DatasheetControls(props = {
         type: "button"
     });
 
+    const resetButton = Button({
+
+        color: "danger",
+        iconPath: icons.resetIcon,
+        onClick: props.onReset,
+        text: "Reset Form",
+        type: "button",
+    });
+
     const controlsWrapper = createElement(
         "div",
         {
@@ -37,6 +48,7 @@ export default function DatasheetControls(props = {
         },
         [
             copyButton,
+            resetButton,
             generateButton,
         ]
     );

@@ -7,7 +7,7 @@ import PolyCountFieldset from "./components/fieldsets/PolyCountFieldset";
 import CheckboxFieldset from "./components/fieldsets/CheckboxFieldset";
 import RadioFieldset from "./components/fieldsets/RadioFieldSet";
 import DatasheetFieldset from "./components/fieldsets/DatasheetFieldset";
-import { showErrorPopup } from "./utils/popupEvents";
+import { showErrorPopup, showSuccessPopup } from "./utils/popupEvents";
 import ItemCheckBoxFieldset from "./components/fieldsets/ItemCheckBoxFieldset";
 import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
@@ -199,7 +199,9 @@ export default function ModelForm()
         required: true,
     });
 
-    const datasheet = DatasheetFieldset();
+    const datasheet = DatasheetFieldset({
+        onReset: onReset
+    });
 
     const form = DatasheetForm({
         formTitle: "3D Model Form",
@@ -221,6 +223,25 @@ export default function ModelForm()
         ],
         onSubmit: onSubmit,
     });
+
+    function onReset()
+    {
+        modelInfo.reset();
+        modelContents.reset();
+        modelTier.reset();
+        polyCount.reset();
+        meshType.reset();
+        edgeSplit.reset();
+        rigging.reset();
+        uv.reset();
+        textureSets.reset();
+        textureWorkflow.reset();
+        textureFormat.reset();
+        textureMaps.reset();
+        targetSite.reset();
+        
+        location.reload();
+    }
 
     function onSubmit()
     {

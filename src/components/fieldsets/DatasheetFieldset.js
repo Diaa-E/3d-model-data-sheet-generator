@@ -5,11 +5,18 @@ import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";
 
-export default function DatasheetFieldset()
+export default function DatasheetFieldset(props = {
+    onReset: () => {}
+})
 {
+    props = {
+        onReset: () => {},
+        ...props
+    };
 
     const datasheetControls = DatasheetControls({
-        onCopy: onCopy
+        onCopy: onCopy,
+        onReset: props.onReset
     });
 
     let datasheet = null;
