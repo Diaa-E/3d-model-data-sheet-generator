@@ -4,7 +4,6 @@
 
 ### Pending 🕝
 
-1. Add reset form button.
 1. Add reset field button.
 1. Check for illegal characters.
 1. Add mobile display to header.
@@ -13,10 +12,10 @@
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
-1. Add "Available 3D formats" fieldset.
 
 ### Completed ✅
 
+1. Add reset form button. (It's a wacky solution that requires page reload, but definitely easier than resetting fieldsets manually, one more reason to use React)
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags. -> Strong tags fixed the problem, but a better solution is matching Fab's tag order: h4 for editor's h1 and h5 for editor's h2.
 1. Add tip/hint text to each fieldset.
 1. Show empty list text in empty item lists.
@@ -46,6 +45,7 @@
 
 ### Cancelled ❌
 
+1. Add "Available 3D formats" fieldset. -> Redundant: All websites provide this info by default.
 1. Add option to insert links to images. -> Not all sites support this feature.
 1. Add texture type UDIM or single image to each texture map. -> Redundant: Can be added as a custom texture map.
 1. Add an extra field to model info for disclaimers. -> Redundant: can be added in the description field.
