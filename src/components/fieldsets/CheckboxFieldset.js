@@ -37,10 +37,14 @@ export default function CheckboxFieldset(props = {
     const STORAGE_KEY = props.storageKey;
     const STORAGE_KEY_USER = props.enableUserOptions ? `${STORAGE_KEY}_user` : null;
 
+    // initial state values
+    const USER_OPTIONS_INIT = [];
+    const SELECTED_OPTIONS_INIT = [];
+
     // fieldset state
     const options = props.options;
-    const userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, []) : null;
-    const selectedOptions = getFromStorage(STORAGE_KEY, []);
+    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT) : null;
+    let selectedOptions = getFromStorage(STORAGE_KEY, SELECTED_OPTIONS_INIT);
 
     // components
     const checkboxGroup = RadioGroup();
@@ -216,5 +220,14 @@ export default function CheckboxFieldset(props = {
         fieldSet.setInvalid(false);
     }
 
-    return { element: fieldSet.element, getState: getState, validate: validate };
+    function reset()
+    {
+        userOptions = USER_OPTIONS_INIT;
+        selectedOptions = SELECTED_OPTIONS_INIT;
+
+        saveToStorage(STORAGE_KEY, SELECTED_OPTIONS_INIT);
+        saveToStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT);
+    }
+
+    return { element: fieldSet.element, getState: getState, validate: validate, reset: reset };
 }

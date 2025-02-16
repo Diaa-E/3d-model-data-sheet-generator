@@ -365,4 +365,34 @@ describe("Checkbox Fieldset Component", () => {
             expect(radioButtons[i].value).toBe(allOptions[i]);
         }
     });
+
+    it("Resets selected options and user options to empty arrays when reset function is called", () => {
+
+        const userOptions = ["testUserOption1"];
+        const options = ["testOption1", "testOption2"];
+        const selectedOptions = ["testOption1"];
+
+        sessionStorage.setItem("test1_user", JSON.stringify(userOptions));
+        sessionStorage.setItem("test1", JSON.stringify(selectedOptions));
+
+        const fieldset = CheckboxFieldset({
+
+            legend: "test 1",
+            options: options,
+            storageKey: "test1",
+            enableUserOptions: true,
+            userOptionLegend: "add a new test option",
+            userOptionPlaceholder: "new test option"
+        });
+
+        render(fieldset.element);
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual(userOptions);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual(selectedOptions);
+
+        fieldset.reset();
+
+        expect(JSON.parse(sessionStorage.getItem("test1_user"))).toEqual([]);
+        expect(JSON.parse(sessionStorage.getItem("test1"))).toEqual([]);
+    });
 });
