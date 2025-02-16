@@ -15,7 +15,7 @@
 
 ### Completed ✅
 
-1. Add reset form button. (It's a wacky solution that requires page reload, but definitely easier than resetting fieldsets manually, one more reason to use React)
+1. Add reset form button. ~~(It's a wacky solution that requires page reload, but definitely easier than resetting fieldsets manually, one more reason to use React)~~ NVM, I figured it out
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags. -> Strong tags fixed the problem, but a better solution is matching Fab's tag order: h4 for editor's h1 and h5 for editor's h2.
 1. Add tip/hint text to each fieldset.
 1. Show empty list text in empty item lists.
