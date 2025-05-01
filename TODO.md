@@ -12,6 +12,8 @@
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
+1. emphasize empty list text.
+1. Change edge split fieldset options to "UV split", "Smoothing split", "All edges".
 
 ### Completed ✅
 
