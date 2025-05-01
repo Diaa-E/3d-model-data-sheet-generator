@@ -8,6 +8,8 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Empty lists now show text indicating it has no items.
+- ➕ Replaced edge splitting options with industry standard ones.
 - ➕ Form can now be reset to default values by clicking a button.
 - ➕ Added a hint text to some fieldsets.
 - ➕ Required fieldsets are now flagged with an (*).
