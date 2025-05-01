@@ -84,8 +84,9 @@ export default function ModelForm()
         required: true,
         options: [
             "None",
-            "Sharp Edges",
-            "Angle-based",
+            "Smoothing Split",
+            "UV Split",
+            "Smoothing Split + UV Split",
             "All Edges"
         ],
         storageKey: storageKeys.edgeSplit,
