@@ -11,7 +11,7 @@ export default function RadioGroup( props = {
     };
     
     const emptyGroupText = createElement(
-        "p",
+        "em",
         {
             class: styles["empty-group-text"],
         },

@@ -12,6 +12,7 @@
 
 .empty-group-text{
     font-family: var(--font-default);
+    font-style: italic;
     color: var(--text-light);
     text-align: center;
 }

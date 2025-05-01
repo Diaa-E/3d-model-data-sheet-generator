@@ -12,10 +12,10 @@
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
-1. emphasize empty list text.
 
 ### Completed ✅
 
+1. emphasize empty list text.
 1. Change edge split fieldset options to "UV split", "Smoothing split", "All edges".
 1. Add reset form button. ~~(It's a wacky solution that requires page reload, but definitely easier than resetting fieldsets manually, one more reason to use React)~~ NVM, I figured it out
 1. Fix Fab.com Formatting, might be fixed by replacing heading tags with strong tags. -> Strong tags fixed the problem, but a better solution is matching Fab's tag order: h4 for editor's h1 and h5 for editor's h2.
