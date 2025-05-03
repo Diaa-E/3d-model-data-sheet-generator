@@ -28,7 +28,8 @@
     top: 0;
     height: 100%;
     width: 40%;
-    background-color: var(--background-dark);
+    background-color: var(--background);
+    box-shadow: var(--shadow-on);
     padding: 60px 40px;
     animation-duration: .3s;
     animation-timing-function: ease-in-out;
