@@ -13,6 +13,7 @@ import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
 import formatNumberComma from "./utils/numberFormatter";
 import { formattingTokens } from "./utils/formattingTokens";
+import Dialog from "./components/Dialog";
 
 export default function ModelForm()
 {
@@ -227,24 +228,29 @@ export default function ModelForm()
 
     function onReset(e)
     {
-        modelInfo.reset();
-        modelContents.reset();
-        modelTier.reset();
-        polyCount.reset();
-        meshType.reset();
-        edgeSplit.reset();
-        rigging.reset();
-        uv.reset();
-        textureSets.reset();
-        textureWorkflow.reset();
-        textureFormat.reset();
-        textureMaps.reset();
-        targetSite.reset();
-
-        showSuccessPopup({
-            dispatchingElement: e.target,
-            successMsg: "Form has been reset."
-        })
+        Dialog({
+            prompt: "Are you sure you want to reset the form?",
+            onConfirm: () => {
+                modelInfo.reset();
+                modelContents.reset();
+                modelTier.reset();
+                polyCount.reset();
+                meshType.reset();
+                edgeSplit.reset();
+                rigging.reset();
+                uv.reset();
+                textureSets.reset();
+                textureWorkflow.reset();
+                textureFormat.reset();
+                textureMaps.reset();
+                targetSite.reset();
+        
+                showSuccessPopup({
+                    dispatchingElement: e.target,
+                    successMsg: "Form has been reset."
+                });
+            }
+        }).open();
     }
 
     function onSubmit()
