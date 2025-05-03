@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Added a nav menu that replaces the nav bar when using a small screen.
 - ➕ Empty lists now show text indicating it has no items.
 - ➕ Replaced edge splitting options with industry standard ones.
 - ➕ Form can now be reset to default values by clicking a button.
