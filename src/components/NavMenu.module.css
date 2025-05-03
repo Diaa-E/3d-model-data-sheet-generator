@@ -19,7 +19,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    filter: var(--icon-filter)
+    filter: var(--icon-filter);
 }
 
 .nav-menu{
@@ -27,7 +27,7 @@
     left: 0;
     top: 0;
     height: 100%;
-    width: 80%;
+    width: 40%;
     background-color: var(--background-dark);
     padding: 60px 40px;
 }
