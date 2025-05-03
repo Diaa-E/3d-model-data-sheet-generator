@@ -10,6 +10,7 @@
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
+1. Fix dark mode button bug: dark mode button in nav bar (wide screen) and nav menu (narrow screen) are out of sync.
 
 ### Completed ✅
 
