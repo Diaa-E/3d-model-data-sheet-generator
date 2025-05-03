@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ All actions that remove data now show a confirmation dialog to avoid unfortunate accidents.
 - ➕ Added a nav menu that replaces the nav bar when using a small screen.
 - ➕ Empty lists now show text indicating it has no items.
 - ➕ Replaced edge splitting options with industry standard ones.
@@ -19,7 +20,7 @@
 - ➕ Improved buttons accessibility.
 - ➕ Buttons now have readable text on wider screens.
 - ➕ Overhauled the entire color palette.
-- ➕ Polygon and vertex counts are now comma-seperated for better readibility.
+- ➕ Polygon and vertex counts (generated sheet) are now comma-seperated for better readibility.
 - ➕ Missing optional fields are highlighted in red on the sheet in case the user forgot to fill them.
 - ➕ Generated sheet is now displayed as a part of the document with titles and lists instead of a read-only text area.
 - ➕ Selected options are labeld by a check mark.
