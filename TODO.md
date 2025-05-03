@@ -6,7 +6,6 @@
 
 1. Add reset field button.
 1. Check for illegal characters.
-1. Add mobile display to footer.
 1. Create a dialog box for confirming action.
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
@@ -14,6 +13,7 @@
 
 ### Completed ✅
 
+1. Add mobile display to footer.
 1. Add mobile display to header.
 1. emphasize empty list text.
 1. Change edge split fieldset options to "UV split", "Smoothing split", "All edges".

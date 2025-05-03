@@ -64,3 +64,11 @@
     font-family: var(--font-default);
     color: var(--text-dark);
 }
+
+@media (max-width: 800px)
+{
+    .footer-items-wrapper{
+        flex-direction: column;
+        gap: 50px;
+    }
+}
