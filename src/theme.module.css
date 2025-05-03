@@ -13,6 +13,7 @@
 
     --border: solid #161616 1px;
     --border-light: solid #9b9b9b 1px;
+    --border-danger: solid #fc727f 1px;
 
     --checkbox-label-shadow:
         5px 3px 0px 0px var(--checkbox-label-checked),
@@ -75,6 +76,7 @@
 
     --border: solid #515151 1px;
     --border-light: solid #4a4a4a 1px;
+    --border-danger: solid #963b44 1px;
 
     --checkbox-label-shadow:
         5px 3px 0px 0px var(--checkbox-label-checked),
