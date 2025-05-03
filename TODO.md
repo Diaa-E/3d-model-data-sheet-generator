@@ -6,7 +6,6 @@
 
 1. Add reset field button.
 1. Check for illegal characters.
-1. Add mobile display to header.
 1. Add mobile display to footer.
 1. Create a dialog box for confirming action.
 1. sort selected options before generating sheet.
@@ -15,6 +14,7 @@
 
 ### Completed ✅
 
+1. Add mobile display to header.
 1. emphasize empty list text.
 1. Change edge split fieldset options to "UV split", "Smoothing split", "All edges".
 1. Add reset form button. ~~(It's a wacky solution that requires page reload, but definitely easier than resetting fieldsets manually, one more reason to use React)~~ NVM, I figured it out

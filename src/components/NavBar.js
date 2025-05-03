@@ -1,20 +1,34 @@
 import { createElement } from "../utils/createElement";
+import DarkModeButton from "./DarkModeButton";
 import styles from "./NavBar.module.css";
 
-export default function NavBar()
+export default function NavBar( props = {
+    pages: []
+})
 {
-    const pages = [
-        {
-            title: "3D Model",
-            path: "model_form"
-        },
-        {
-            title: "About",
-            path: "about"
-        },
-    ]
+    props = {
+        pages: [
+            {
+                title: "3D Model",
+                path: "model_form"
+            },
+            {
+                title: "About",
+                path: "about"
+            },
+        ],
+        ...props
+    };
 
-    const links = pages.map(page => {
+    const darkModeButton = createElement(
+        "li",
+        {
+
+        },
+        DarkModeButton().element,
+    );
+
+    const links = props.pages.map(page => {
 
         return createElement(
             "li",
@@ -40,7 +54,8 @@ export default function NavBar()
         {
             class: styles["nav-list"]
         },
-        links
+        links,
+        darkModeButton
     )
 
     const nav = createElement(

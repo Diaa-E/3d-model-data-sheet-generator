@@ -1,10 +1,21 @@
 import { createElement } from "../utils/createElement";
-import DarkModeButton from "./DarkModeButton";
 import styles from "./Header.module.css";
 import NavBar from "./NavBar";
+import NavMenu from "./NavMenu";
 
 export default function Header()
 {
+    const pages = [
+        {
+            title: "3D Model",
+            path: "model_form"
+        },
+        {
+            title: "About",
+            path: "about"
+        },
+    ];
+
     const homeLink = createElement(
         "a",
         {
@@ -14,8 +25,13 @@ export default function Header()
         },
     );
 
-    const navBar = NavBar();
-    const darkModeButton = DarkModeButton();
+    const navBar = NavBar({
+        pages: pages
+    });
+
+    const navMenu = NavMenu({
+        pages: pages
+    });
 
     const headerItemsWrapper = createElement(
         "div",
@@ -25,7 +41,7 @@ export default function Header()
         [
             homeLink,
             navBar.element,
-            darkModeButton.element
+            navMenu.element,
         ]
     );
 

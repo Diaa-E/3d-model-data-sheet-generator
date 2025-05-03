@@ -9,6 +9,7 @@ import modelItemIcon from "../assets/icons/model_item.svg";
 import textureSetIcon from "../assets/icons/texture_set.svg";
 import githubIcon from "../assets/icons/github.svg";
 import resetIcon from "../assets/icons/reset.svg";
+import menuIcon from "../assets/icons/menu.svg";
 
 const icons = {
     addIcon: addIcon,
@@ -22,6 +23,7 @@ const icons = {
     textureSetIcon: textureSetIcon,
     githubIcon: githubIcon,
     resetIcon: resetIcon,
+    menuIcon: menuIcon,
 };
 
 export default icons;

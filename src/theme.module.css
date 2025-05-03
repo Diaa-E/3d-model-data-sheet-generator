@@ -2,6 +2,7 @@
 .light{
     --background: #ffffff;
     --background-dark: #ededed;
+    --backdrop: #ffffffe0;
         
     --shadow-color: #0000004b;
     --shadow-off: 0px 0px 0px 0px var(--none);
@@ -63,7 +64,7 @@
 .dark{
     --background: #2e2e2e;
     --background-dark: #212121;
-
+    --backdrop: #2e2e2ee0;
         
     --shadow-color: #ffffff4b;
     --shadow-off: 0px 0px 0px 0px var(--none);

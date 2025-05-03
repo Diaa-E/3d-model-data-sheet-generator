@@ -1,5 +1,5 @@
 .nav-bar{
-
+    display: block;
 }
 
 .nav-list{
@@ -33,4 +33,10 @@
 .active{
     box-shadow: var(--active-tab-shadow);
     background-color: var(--tab-active);
+}
+
+@media (max-width: 800px) {
+    .nav-bar{
+        display: none;
+    }
 }
