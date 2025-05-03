@@ -89,7 +89,6 @@ export default function NavMenu( props = {
             class: styles["nav-menu"]
         },
         [
-            closeNavMenuButton,
             nav
         ]
     );
@@ -99,7 +98,10 @@ export default function NavMenu( props = {
         {
             class: styles["nav-menu-backdrop"]
         },
-        navMenu
+        [
+            closeNavMenuButton,
+            navMenu
+        ]
     )
 
     const navMenuButtonIcon = createElement(
@@ -115,17 +117,38 @@ export default function NavMenu( props = {
             type: "button",
             class: styles["nav-menu-button"],
             ariaLabel: "Navigation Menu",
-            onClick: () => {
-
-                document.body.append(navMenuBackdrop);
-            }
+            onClick: openNavMenu
         },
         navMenuButtonIcon,
     );
 
     function closeNavMenu()
     {
-        navMenuBackdrop.remove();
+        navMenuBackdrop.classList.remove(styles["open-backdrop"]);
+        navMenu.classList.remove(styles["open-menu"]);
+        closeNavMenuButton.classList.remove(styles["show-button"]);
+        
+        navMenuBackdrop.classList.add(styles["close-backdrop"]);
+        navMenu.classList.add(styles["close-menu"]);
+        closeNavMenuButton.classList.add(styles["hide-button"]);
+
+        setTimeout(() => {
+
+            navMenuBackdrop.remove();
+        }, 500);
+    }
+
+    function openNavMenu()
+    {
+        document.body.append(navMenuBackdrop);
+
+        navMenuBackdrop.classList.remove(styles["close-backdrop"]);
+        navMenu.classList.remove(styles["close-menu"]);
+        closeNavMenuButton.classList.remove(styles["hide-button"]);
+
+        navMenuBackdrop.classList.add(styles["open-backdrop"]);
+        navMenu.classList.add(styles["open-menu"]);
+        closeNavMenuButton.classList.add(styles["show-button"]);
     }
 
     navMenuButton.style.setProperty("--icon", `url(${icons.menuIcon})`);

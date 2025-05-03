@@ -30,6 +30,11 @@
     width: 40%;
     background-color: var(--background-dark);
     padding: 60px 40px;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
 }
 
 .nav-menu-backdrop{
@@ -40,6 +45,35 @@
     height: 100%;
     width: 100%;
     background-color: var(--backdrop);
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+}
+
+.open-backdrop{
+    animation-name: open-backdrop;
+}
+
+.close-backdrop{
+    animation-name: close-backdrop;
+}
+
+.open-menu{
+    animation-name: open-menu;
+}
+
+.close-menu{
+    animation-name: close-menu;
+}
+
+.show-button{
+    animation-name: show-button;
+}
+
+.hide-button{
+    animation-name: hide-button;
 }
 
 .nav-list{
@@ -76,6 +110,11 @@
     border: none;
     filter: var(--icon-filter);
     cursor: pointer;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
 }
 
 .close-nav-menu-button-icon{
@@ -85,6 +124,74 @@
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+}
+
+@keyframes open-backdrop {
+    0% {
+        background-color: var(--none);
+    }
+
+    100% {
+        background-color: var(--backdrop);
+    }
+}
+
+@keyframes close-backdrop {
+    0% {
+        background-color: var(--backdrop);
+    }
+
+    100% {
+        background-color: var(--none);
+    }
+}
+
+@keyframes open-menu{
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes close-menu{
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes show-button{
+    0% {
+        transform: scale(0);
+    }
+
+    90% {
+        transform: scale(110%);
+    }
+
+    100% {
+        transform: scale(100%);
+    }
+}
+
+@keyframes hide-button{
+    0% {
+        transform: scale(100%);
+    }
+
+    10% {
+        transform: scale(110%);
+    }
+
+    100% {
+        transform: scale(0);
+    }
 }
 
 @media (max-width: 800px) {
