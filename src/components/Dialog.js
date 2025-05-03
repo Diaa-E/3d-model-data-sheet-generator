@@ -80,12 +80,14 @@ export default function Dialog( props = {
     function openDialog()
     {
         document.body.append(dialogBackdrop);
-        
+
         dialogBox.classList.remove(styles["close"]);
         dialogBackdrop.classList.remove(styles["close"]);
 
         dialogBox.classList.add(styles["open"]);
         dialogBackdrop.classList.add(styles["open"]);
+
+        confirmButton.focus();
     }
 
     function closeDialog()
