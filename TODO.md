@@ -11,6 +11,7 @@
 1. Fix dark mode button bug: dark mode button in nav bar (wide screen) and nav menu (narrow screen) are out of sync.
 1. Lock focus cycling inside dialog box.
 1. write unit tests for illegal character checking in fieldsets.
+1. Write unit tests for icon link component.
 
 ### Completed ✅
 
