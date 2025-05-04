@@ -8,6 +8,7 @@
 
 ### **2.0.0 (unreleased)**
 
+- ➕ Added an about page with source links and latest release notes.
 - ➕ Items added by user are no checked for invalid characters that break the target site's formatting (example: a "- " will unexpectedly create a new unordered list on CGTrader).
 - ➕ All actions that remove data now show a confirmation dialog to avoid unfortunate accidents.
 - ➕ Added a nav menu that replaces the nav bar when using a small screen.
