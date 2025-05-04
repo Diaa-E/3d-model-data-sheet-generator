@@ -1,5 +1,7 @@
+import icons from "../barrels/icons.barrel";
 import { createElement } from "../utils/createElement";
 import styles from "./Footer.module.css";
+import IconLink from "./IconLink";
 
 export default function Footer( props = {
 
@@ -16,18 +18,11 @@ export default function Footer( props = {
         },
     );
 
-    const sourceLink = createElement(
-        "a",
-        {
-            href: "https://github.com/Diaa-E/3d-model-data-sheet-generator",
-            class: styles["source-link"],
-            target: "_blank"
-        },
-        [
-            "Source",
-            sourceLogo,
-        ]
-    );
+    const sourceLink = IconLink({
+        href: "https://github.com/Diaa-E/3d-model-data-sheet-generator",
+        iconPath: icons.githubIcon,
+        text: "Source"
+    })
 
     const homeLogo = createElement(
         "div",
@@ -66,7 +61,7 @@ export default function Footer( props = {
         [
             homeLink,
             copyright,
-            sourceLink,
+            sourceLink.element,
         ]
     );
 

@@ -1,0 +1,29 @@
+
+.icon-link, .icon-link:visited{
+    display: flex;
+    place-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-family: var(--font-default);
+    box-shadow: var(--active-tab-shadow);
+    background-color: var(--tab-active);
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+
+.icon-link:hover{
+    background-color: var(--tab-hover);
+    box-shadow: var(--tab-hover-shadow);
+}
+
+.icon{
+    background-image: var(--icon);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 30px;
+    min-width: 30px;
+    filter: var(--icon-filter);
+}
