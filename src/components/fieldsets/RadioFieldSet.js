@@ -6,6 +6,7 @@ import RadioGroup from "../RadioGroup";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { showSuccessPopup } from "../../utils/popupEvents";
+import { containsIllegalCharacters } from "../../utils/formattingTokens";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -127,6 +128,7 @@ export default function RadioFieldset(props = {
         try
         {
             const newOption = addOptionFieldset.getValue();
+            const illegalCharactersState = containsIllegalCharacters(newOption);
 
             if (newOption === "")
             {
@@ -139,6 +141,13 @@ export default function RadioFieldset(props = {
             {
                 throw new InvalidFieldsetException(
                     `"${newOption}" already exists in ${props.legend}.`,
+                    { invalidElement: inputField }
+                );
+            }
+            else if (illegalCharactersState.status === true)
+            {
+                throw new InvalidFieldsetException(
+                    `"${newOption}" contains invalid characters: "${illegalCharactersState.character}".`,
                     { invalidElement: inputField }
                 );
             }

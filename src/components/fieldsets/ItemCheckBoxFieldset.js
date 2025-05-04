@@ -7,6 +7,7 @@ import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility"
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { showErrorPopup, showSuccessPopup } from "../../utils/popupEvents";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
+import { containsIllegalCharacters } from "../../utils/formattingTokens";
 
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
@@ -99,6 +100,7 @@ export default function ItemCheckBoxFieldset(props = {
         try
         {
             const newItem = addItemFieldset.getValue();
+            const illegalCharactersState = containsIllegalCharacters(newItem);
 
             if (newItem === "")
             {
@@ -111,6 +113,13 @@ export default function ItemCheckBoxFieldset(props = {
             {
                 throw new InvalidFieldsetException(
                     `"${newItem}" already exists in ${props.legend}.`,
+                    { invalidElement: inputField }
+                );
+            }
+            else if (illegalCharactersState.status === true)
+            {
+                throw new InvalidFieldsetException(
+                    `"${newItem}" contains invalid characters: "${illegalCharactersState.character}".`,
                     { invalidElement: inputField }
                 );
             }
