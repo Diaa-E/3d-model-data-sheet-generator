@@ -24,7 +24,7 @@
     background-color: var(--background);
     border: var(--border-danger);
     border-radius: 10px;
-    width: 30%;
+    width: 40%;
     min-height: 20%;
     padding: 30px;
     box-shadow: var(--shadow-on);
@@ -108,5 +108,12 @@
 
     100% {
         background-color: var(--none);
+    }
+}
+
+@media (max-width: 800px)
+{
+    .dialog-box{
+        width: 80%;
     }
 }
