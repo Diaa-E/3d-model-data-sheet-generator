@@ -1,0 +1,46 @@
+.app-title{
+    font-family: var(--font-title);
+    font-size: 3rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.app-version{
+    font-family: var(--font-default);
+    font-size: 2rem;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.changes-title{
+    font-family: var(--font-default);
+    font-size: 2rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.change-list-item{
+    font-family: var(--font-default);
+    color: var(--text-dark);
+    margin: 10px;
+}
+
+.change-list{
+    margin: 20px auto;
+    max-width: 800px;
+    list-style: decimal;
+}
+
+.links-wrapper{
+    display: flex;
+    place-items: center;
+    place-content: center;
+    padding: 50px;
+    gap: 50px;
+    margin: 0 auto 50px auto;
+}
+
+.wrapper{
+    height: 100%;
+    width: 100%;
+}

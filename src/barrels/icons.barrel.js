@@ -10,6 +10,7 @@ import textureSetIcon from "../assets/icons/texture_set.svg";
 import githubIcon from "../assets/icons/github.svg";
 import resetIcon from "../assets/icons/reset.svg";
 import menuIcon from "../assets/icons/menu.svg";
+import changelogIcon from "../assets/icons/change_log.svg";
 
 const icons = {
     addIcon: addIcon,
@@ -24,6 +25,7 @@ const icons = {
     githubIcon: githubIcon,
     resetIcon: resetIcon,
     menuIcon: menuIcon,
+    changelogIcon: changelogIcon
 };
 
 export default icons;

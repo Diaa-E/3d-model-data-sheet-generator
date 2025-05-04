@@ -373,7 +373,7 @@ export default function ModelForm()
         [
             form.element
         ]
-    )
+    );
         
     return [ contentDiv ];
 }
