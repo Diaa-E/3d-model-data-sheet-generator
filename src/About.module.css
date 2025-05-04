@@ -27,8 +27,10 @@
 
 .change-list{
     margin: 20px auto;
+    padding: 10px;
     max-width: 800px;
     list-style: decimal;
+    list-style-position: inside;
 }
 
 .links-wrapper{
