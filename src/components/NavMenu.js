@@ -81,7 +81,7 @@ export default function NavMenu( props = {
         closeNavMenuButtonIcon
     );
 
-    closeNavMenuButton.style.setProperty("--icon", `url(${icons.closeIcon})`);
+    closeNavMenuButton.style.setProperty("--icon", `url("${icons.closeIcon}")`);
 
     const navMenu = createElement(
         "div",
@@ -151,7 +151,7 @@ export default function NavMenu( props = {
         closeNavMenuButton.classList.add(styles["show-button"]);
     }
 
-    navMenuButton.style.setProperty("--icon", `url(${icons.menuIcon})`);
+    navMenuButton.style.setProperty("--icon", `url("${icons.menuIcon}")`);
 
     return { element: navMenuButton }
 }
