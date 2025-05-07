@@ -39,7 +39,7 @@ export default function DatasheetForm(props = {
             class: styles["tip"]
         },
         [
-            `The following strings are not allowed: ${getIllegalCharacters().join(", ")}`
+            `The following strings are not allowed: ${getIllegalCharacters().map(item => `"${item}"`).join(", ")}`
         ]
     );
 
