@@ -21,14 +21,6 @@ export default function Hero()
         ]
     );
 
-    const tutorialLink = IconLink({
-        href: "#tutorial",
-        iconPath: "",
-        text: "Learn More",
-        newTab: false,
-        showIcon: false,
-    });
-
     const heroSlogan = createElement(
         "h2",
         {
@@ -47,7 +39,6 @@ export default function Hero()
         [
             heroTitle,
             heroSlogan,
-            tutorialLink.element,
         ]
     );
 
