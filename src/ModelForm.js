@@ -13,6 +13,8 @@ import { InvalidFieldsetException } from "./utils/customExceptions";
 import formatNumberComma from "./utils/numberFormatter";
 import { formattingTokens } from "./utils/formattingTokens";
 import Dialog from "./components/Dialog";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function ModelForm()
 {
@@ -375,3 +377,9 @@ export default function ModelForm()
         
     return [ contentDiv ];
 }
+
+document.getElementById("root").append(
+    Header().element,
+    ...ModelForm(),
+    Footer().element
+)

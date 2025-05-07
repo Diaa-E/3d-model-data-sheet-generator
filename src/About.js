@@ -2,6 +2,8 @@ import styles from "./About.module.css";
 import IconLink from "./components/IconLink";
 import icons from "./barrels/icons.barrel";
 import { createElement } from "./utils/createElement";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function About()
 {
@@ -138,3 +140,9 @@ export default function About()
 
     return [ contentDiv ];
 }
+
+document.getElementById("root").append(
+    Header().element,
+    ...About(),
+    Footer().element
+);

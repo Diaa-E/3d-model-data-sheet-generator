@@ -1,6 +1,6 @@
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import { createElement } from "./utils/createElement";
 
 export default function Index()
 {
@@ -8,3 +8,9 @@ export default function Index()
 
     return [ hero.element ];
 }
+
+document.getElementById("root").append(
+    Header().element,
+    ...Index(),
+    Footer().element,
+)
