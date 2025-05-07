@@ -177,11 +177,11 @@ export default function ModelForm()
             "Normal DX",
             "Normal GL",
             "Opacity",
-            "Normal DX (RGB) + Height (Alpha)",
-            "Normal GL (RGB) + Height (Alpha)",
             "Ambient Occlusion (R) + Roughness (G) + Metallic (B)",
             "Roughness",
-            "Specular"
+            "Specular",
+            "Specular (RGB) + Smoothness (Alpha)",
+            "Metallic (Greyscale) + Smoothness (Alpha)"
         ],
         storageKey: storageKeys.textureMaps,
         enableUserOptions: true,
