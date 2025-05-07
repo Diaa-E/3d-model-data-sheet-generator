@@ -27,18 +27,21 @@ const config = {
             template: './src/index.html',
             inject: true,
             chunks: ["app"],
+            favicon: "./src/assets/logo/logo.svg",
             filename: "index.html"
         }),
         new HtmlWebpackPlugin({
             template: './src/about.html',
             inject: true,
             chunks: ["app"],
+            favicon: "./src/assets/logo/logo.svg",
             filename: "about.html"
         }),
         new HtmlWebpackPlugin({
             template: './src/model_form.html',
             inject: true,
             chunks: ["app"],
+            favicon: "./src/assets/logo/logo.svg",
             filename: "model_form.html"
         }),
 
