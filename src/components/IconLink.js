@@ -6,7 +6,9 @@ export default function IconLink( props = {
 
     href: "",
     iconPath: "",
-    text: ""
+    text: "",
+    newTab: true,
+    showIcon: true,
 })
 {
     props = {
@@ -14,6 +16,8 @@ export default function IconLink( props = {
         href: "",
         iconPath: icons.defaultIcon,
         text: "default text",
+        newTab: true,
+        showIcon: true,
         ...props
     };
 
@@ -29,11 +33,11 @@ export default function IconLink( props = {
         {
             href: props.href,
             class: styles["icon-link"],
-            target: "_blank"
+            target: `${props.newTab ? "_blank" : ""}`
         },
         [
             props.text,
-            linkIcon,
+            props.showIcon ? linkIcon : "",
         ]
     );
 

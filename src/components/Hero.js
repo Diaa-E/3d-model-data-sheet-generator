@@ -22,9 +22,11 @@ export default function Hero()
     );
 
     const tutorialLink = IconLink({
-        href: "",
+        href: "#tutorial",
         iconPath: "",
-        text: "Learn More"
+        text: "Learn More",
+        newTab: false,
+        showIcon: false,
     });
 
     const heroSlogan = createElement(
