@@ -37,7 +37,7 @@ export function getIllegalCharacters(siteTokens = formattingTokens)
     {
         for (const [tokenKey, tokenValue] of Object.entries(siteValue))
         {
-            if (illegalCharacters.indexOf(tokenValue) < 0 && tokenValue !== "")
+            if (illegalCharacters.indexOf(tokenValue) < 0 && tokenValue !== "" && !tokenValue.includes("\n"))
             {
                 illegalCharacters.push(tokenValue);
             }

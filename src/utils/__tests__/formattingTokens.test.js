@@ -59,6 +59,26 @@ describe("Illegal characters list generation utility function", () => {
 
         expect(getIllegalCharacters(tokens)).toEqual(["1 ", "2 ", " ", "3 "]);
     });
+
+    it("Ignores line breaks", () => {
+
+        const tokens = {
+
+            site1: {
+                token1: "1 " ,
+                token2: "2 ",
+                token3: "\n"
+            },
+            site2: {
+                token1: "1 ",
+                token2: "2 ",
+                token3: "3 ",
+                token4: "\n"
+            }
+        };
+
+        expect(getIllegalCharacters(tokens)).toEqual(["1 ", "2 ", "3 "]);
+    });
 });
 
 describe("Illegal character detection utility function", () => {
