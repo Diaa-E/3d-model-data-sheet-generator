@@ -1,5 +1,6 @@
 import styles from "./DatasheetForm.module.css";
 import { createElement } from "../utils/createElement";
+import { getIllegalCharacters } from "../utils/formattingTokens";
 
 export default function DatasheetForm(props = {
     onSubmit: () => {},
@@ -22,7 +23,7 @@ export default function DatasheetForm(props = {
         props.formTitle
     );
 
-    const tip = createElement(
+    const requiredFieldsTip = createElement(
         "p",
         {
             class: styles["tip"],
@@ -30,7 +31,17 @@ export default function DatasheetForm(props = {
         [
             "Fieldsets marked with an (*) are required."
         ]
-    )
+    );
+
+    const illegalCharactersTip = createElement(
+        "p",
+        {
+            class: styles["tip"]
+        },
+        [
+            `The following strings are not allowed: ${getIllegalCharacters().join(", ")}`
+        ]
+    );
 
     const form = createElement(
         "form",
@@ -44,7 +55,8 @@ export default function DatasheetForm(props = {
         },
         [
             title,
-            tip,
+            requiredFieldsTip,
+            illegalCharactersTip,
             props.fieldsets
         ]
     );
