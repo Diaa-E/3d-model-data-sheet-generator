@@ -1,5 +1,4 @@
 import { RegisterErrorPopupEvent, RegisterSuccessPopupEvent } from "./components/Popup";
-import Header from "./components/Header";
 import { createElement } from "./utils/createElement";
 import DatasheetForm from "./components/DatasheetForm";
 import ModelInfoFieldset from "./components/fieldsets/ModelInfoFieldset";
