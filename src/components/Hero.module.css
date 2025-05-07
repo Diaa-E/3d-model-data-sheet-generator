@@ -19,6 +19,7 @@
     min-width: 400px;
     background-repeat: no-repeat;
     background-size: contain;
+    filter: var(--logo-filter);
 }
 
 .hero-title{
