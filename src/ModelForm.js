@@ -360,8 +360,7 @@ export default function ModelForm()
             }
         }
     }
-
-    const header = Header();
+    
     RegisterErrorPopupEvent();
     RegisterSuccessPopupEvent();
 
