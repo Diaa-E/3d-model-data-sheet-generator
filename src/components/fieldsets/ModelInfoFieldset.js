@@ -1,5 +1,6 @@
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
+import { containsIllegalCharacters } from "../../utils/formattingTokens";
 import Fieldset from "../Fieldset";
 import TextArea from "../TextArea";
 import TextInput from "../TextInput";
@@ -62,6 +63,9 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
 
     function validate()
     {
+        const illegalCharactersStateTitle = containsIllegalCharacters(state.title);
+        const illegalCharactersStateDesc = containsIllegalCharacters(state.description);
+
         if (state.title === "")
         {
             fieldSet.setInvalid(true);
@@ -70,11 +74,25 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
                 { invalidElement: fieldSet.element }
             );
         }
+        else if (illegalCharactersStateTitle.status === true)
+        {
+            throw new InvalidFieldsetException(
+                `Title contains invalid characters: "${illegalCharactersStateTitle.character}".`,
+                { invalidElement: fieldSet.element }
+            );
+        }
         else if (state.description === "")
         {
             fieldSet.setInvalid(true);
             throw new InvalidFieldsetException(
                 "Model description cannot be empty.",
+                { invalidElement: fieldSet.element }
+            );
+        }
+        else if (illegalCharactersStateDesc.status === true)
+        {
+            throw new InvalidFieldsetException(
+                `Description contains invalid characters: "${illegalCharactersStateDesc.character}".`,
                 { invalidElement: fieldSet.element }
             );
         }
