@@ -1,0 +1,41 @@
+.hero-wrapper{
+    display: flex;
+    gap: 50px;
+    align-content: space-between;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.hero-text-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    place-items: flex-start;
+}
+
+.hero-image{
+    background-image: url("../assets/logo/logo_wireframe.svg");
+    min-height: 400px;
+    min-width: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hero-title{
+    font-family: var(--font-title);
+    color: var(--text-dark);
+    font-size: 5rem;
+}
+
+.hero-slogan{
+    font-family: var(--font-default);
+    color: var(--text-dark);
+    font-size: 2.5rem;
+}
+
+@media (max-width: 800px) {
+    
+    .hero-image{
+        display: none;
+    }
+}
