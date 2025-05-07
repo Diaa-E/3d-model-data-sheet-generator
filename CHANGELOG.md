@@ -9,7 +9,7 @@
 ### **2.0.0 (unreleased)**
 
 - ➕ Added an about page with source links and latest release notes.
-- ➕ Items added by user are no checked for invalid characters that break the target site's formatting (example: a "- " will unexpectedly create a new unordered list on CGTrader).
+- ➕ Items added by user are now checked for invalid characters that break the target site's formatting (example: a "- " will unexpectedly create a new unordered list on CGTrader).
 - ➕ All actions that remove data now show a confirmation dialog to avoid unfortunate accidents.
 - ➕ Added a nav menu that replaces the nav bar when using a small screen.
 - ➕ Empty lists now show text indicating it has no items.
@@ -22,10 +22,10 @@
 - ➕ Improved buttons accessibility.
 - ➕ Buttons now have readable text on wider screens.
 - ➕ Overhauled the entire color palette.
-- ➕ Polygon and vertex counts (generated sheet) are now comma-seperated for better readibility.
+- ➕ Polygon and vertex counts (generated sheet) are now comma-separated for better readability.
 - ➕ Missing optional fields are highlighted in red on the sheet in case the user forgot to fill them.
 - ➕ Generated sheet is now displayed as a part of the document with titles and lists instead of a read-only text area.
-- ➕ Selected options are labeld by a check mark.
+- ➕ Selected options are labeled by a check mark.
 - ➕ Added an icon to the app's tab.
 - ➕ Added "animation" option to the rigging fieldset.
 - ➕ Added "Non-uniform polygons" option to mesh type fieldset.
@@ -33,9 +33,9 @@
 - ➕ Aligned page content more towards the center and added a max width for wide screens.
 - ➕ Softened element shadows.
 - ➕ Added a model title field.
-- ➕ Improved accessibility for multiple compoenents.
+- ➕ Improved accessibility for multiple components.
 - ➕ Added more descriptive options to the UV fieldset.
-- ➕ Model contents are now a single field an the user can freely enter all the related info like the item count.
+- ➕ Model contents are now a single field and the user can freely enter all the related info like the item count.
 - ➕ Texture sets are now a single field and the user can freely enter all the related info like the resolution if applicable.
 - ➕ User can now scroll to invalid form fields using a link in the error notification instead of manually scrolling up.
 - ➕ Successfully completed actions are now displayed in a small notification popup at the bottom of the screen.
