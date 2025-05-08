@@ -6,7 +6,7 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.0.1 (unreleased)**
+### **2.0.1 (8 May, 2025)**
 
 - 🛠️ Fixed nav bar not highlighting active page.
 - ⚙️ Configured CSS-loader for modules in production mode, this is why the :global() was not working in production.

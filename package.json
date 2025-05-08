@@ -1,6 +1,6 @@
 {
   "name": "3d-data-sheet-generator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A tool for generating descriptions for 3D models",
   "main": "App.js",
   "private": true,
