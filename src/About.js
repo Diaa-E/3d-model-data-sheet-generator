@@ -63,6 +63,7 @@ export default function About()
     );
 
     const changesList = [
+        `Fixed broken home link (again).`,
         `Fixed nav bar not highlighting active page.`,
         `Some code improvements`,
     ];

@@ -8,6 +8,7 @@
 
 ### **2.0.1 (8 May, 2025)**
 
+- 🛠️ Fix broken home link (again).
 - 🛠️ Fixed nav bar not highlighting active page.
 - ⚙️ Configured CSS-loader for modules in production mode, this is why the :global() was not working in production.
 - ⚙️ Replaced custom popup events with creating new instances of the popup element.
