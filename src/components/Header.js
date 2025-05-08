@@ -20,7 +20,7 @@ export default function Header()
         "a",
         {
             class: styles["home-link"],
-            href: `${window.location.protocol}//${window.location.host}`,
+            href: `/`,
             ariaLabel: "Home"
         },
     );

@@ -36,31 +36,56 @@ const config = {
         open: true,
         host: 'localhost',
     },
-    plugins: [
+    plugins: isProduction ? [
         new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: true,
             chunks: ["app", "index"],
             favicon: "./src/assets/logo/logo.svg",
-            filename: "index.html"
+            filename: "index.html",
+            base: "https://diaa-e.github.io/3d-model-data-sheet-generator"
         }),
         new HtmlWebpackPlugin({
             template: './src/about.html',
             inject: true,
             chunks: ["app", "about"],
             favicon: "./src/assets/logo/logo.svg",
-            filename: "about.html"
+            filename: "about.html",
+            base: "https://diaa-e.github.io/3d-model-data-sheet-generator"
         }),
         new HtmlWebpackPlugin({
             template: './src/model_form.html',
             inject: true,
             chunks: ["app", "modelForm"],
             favicon: "./src/assets/logo/logo.svg",
-            filename: "model_form.html"
+            filename: "model_form.html",
+            base: "https://diaa-e.github.io/3d-model-data-sheet-generator"
         }),
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
+    ] : [
+              new HtmlWebpackPlugin({
+            template: './src/index.html',
+            inject: true,
+            chunks: ["app", "index"],
+            favicon: "./src/assets/logo/logo.svg",
+            filename: "index.html",
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/about.html',
+            inject: true,
+            chunks: ["app", "about"],
+            favicon: "./src/assets/logo/logo.svg",
+            filename: "about.html",
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/model_form.html',
+            inject: true,
+            chunks: ["app", "modelForm"],
+            favicon: "./src/assets/logo/logo.svg",
+            filename: "model_form.html",
+        }),  
     ],
     module: {
         rules: [
@@ -92,7 +117,6 @@ module.exports = () => {
         config.plugins.push(new MiniCssExtractPlugin({filename: "[name].[hash].css"}));
         config.optimization.minimizer.push(new CssMinimizerPlugin());
         config.optimization.minimizer.push(new TerserPlugin());
-        config.plugins[0].filename = "[name].[hash].html"; //causes an error when used in dev
         config.output.clean = true;
         
     } else {
