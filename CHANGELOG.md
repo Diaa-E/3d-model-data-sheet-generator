@@ -6,6 +6,10 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
+### **2.0.1 (unreleased)**
+
+- ⚙️ Configured CSS-loader for modules in production mode, this is why the :global() was not working in production.
+
 ### **2.0.0 (8 May, 2025)**
 
 - ➕ Added an about page with source links and latest release notes.

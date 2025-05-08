@@ -8,11 +8,9 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-const stylesHandler = isProduction ? [
-    MiniCssExtractPlugin.loader, "css-loader"
-]:
-[
-    "style-loader",
+const stylesHandler = isProduction ? [ MiniCssExtractPlugin.loader ]:[ "style-loader" ];
+
+stylesHandler.push(
     {
         loader: "css-loader",
         options: {
@@ -21,7 +19,7 @@ const stylesHandler = isProduction ? [
             },
         }
     }
-]
+);
 
 const config = {
     entry: {
