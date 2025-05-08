@@ -7,7 +7,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == 'production';
-const ASSET_PATH = process.env.ASSET_PATH || '/';
+const base = process.env.ASSET_PATH || '/3d-model-data-sheet-generator/';
 
 const stylesHandler = isProduction ? [ MiniCssExtractPlugin.loader ]:[ "style-loader" ];
 
@@ -44,8 +44,8 @@ const config = {
             chunks: ["app", "index"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "index.html",
-            base: "https://diaa-e.github.io/3d-model-data-sheet-generator",
-            publicPath: ASSET_PATH
+            base: base,
+            publicPath: base
         }),
         new HtmlWebpackPlugin({
             template: './src/about.html',
@@ -53,8 +53,8 @@ const config = {
             chunks: ["app", "about"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "about.html",
-            base: "https://diaa-e.github.io/3d-model-data-sheet-generator",
-            publicPath: ASSET_PATH
+            base: base,
+            publicPath: base
         }),
         new HtmlWebpackPlugin({
             template: './src/model_form.html',
@@ -62,8 +62,8 @@ const config = {
             chunks: ["app", "modelForm"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "model_form.html",
-            base: "https://diaa-e.github.io/3d-model-data-sheet-generator",
-            publicPath: ASSET_PATH
+            base: base,
+            publicPath: base
         }),
 
         // Add your plugins here
