@@ -6,7 +6,7 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.0.0 (unreleased)**
+### **2.0.0 (8 May, 2025)**
 
 - ➕ Added an about page with source links and latest release notes.
 - ➕ Items added by user are now checked for invalid characters that break the target site's formatting (example: a "- " will unexpectedly create a new unordered list on CGTrader).
