@@ -3,6 +3,7 @@ import styles from "./NavMenu.module.css";
 import { createElement } from "../utils/createElement";
 import icons from "../barrels/icons.barrel";
 import DarkModeButton from "./DarkModeButton";
+import getCurrentPage from "../utils/getCurrentPage";
 
 export default function NavMenu( props = {
     pages: {},
@@ -29,7 +30,7 @@ export default function NavMenu( props = {
                     {
                         href: `./${page.path}.html`,
                         class: `${styles["nav-link"]} 
-                                ${window.location.pathname === "/" + page.path + ".html" ? styles["active"] : ""}`,
+                                ${getCurrentPage(window.location.pathname) === page.path ? styles["active"] : ""}`,
                     },
                     page.title
                 )

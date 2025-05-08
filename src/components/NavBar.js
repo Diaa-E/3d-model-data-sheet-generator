@@ -1,4 +1,5 @@
 import { createElement } from "../utils/createElement";
+import getCurrentPage from "../utils/getCurrentPage";
 import DarkModeButton from "./DarkModeButton";
 import styles from "./NavBar.module.css";
 
@@ -41,7 +42,7 @@ export default function NavBar( props = {
                     {
                         href: `./${page.path}.html`,
                         class: `${styles["nav-link"]} 
-                                ${window.location.pathname === "/" + page.path + ".html" ? styles["active"] : ""}`
+                                ${getCurrentPage(window.location.pathname) === page.path ? styles["active"] : ""}`
                     },
                     page.title
                 )
