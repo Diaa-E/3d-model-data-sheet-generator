@@ -12,6 +12,8 @@
 1. Lock focus cycling inside dialog box.
 1. write unit tests for illegal character checking in fieldsets.
 1. Write unit tests for icon link component.
+1. Fix header active tab in production.
+1. Update READEME.
 
 ### Completed ✅
 
