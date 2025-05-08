@@ -12,7 +12,8 @@ export function createElement(tag, props, ...children)
     const attributeMap = {
         class: "className",
         for: "htmlFor",
-        ariaLabel: "aria-label"
+        ariaLabel: "aria-label",
+        role: "role",
     };
 
     const element = document.createElement(tag);
