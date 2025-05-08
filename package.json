@@ -26,6 +26,7 @@
   "homepage": "https://github.com/Diaa-E/3d-model-data-sheet-generator#readme",
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.25.4",
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.12",
