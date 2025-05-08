@@ -58,7 +58,7 @@ export default function Popup(props = {
     const popup = createElement(
         "div",
         {
-            role: "dialog",
+            role: "alert",
             class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`
         },
         [
