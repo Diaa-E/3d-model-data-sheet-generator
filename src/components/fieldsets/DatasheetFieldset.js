@@ -1,9 +1,9 @@
 import copyToClipboard from "../../utils/copyToClipboard";
 import { FeatureNotSupportedException } from "../../utils/customExceptions";
-import { showErrorPopup, showSuccessPopup } from "../../utils/popupEvents";
 import Datasheet from "../Datasheet";
 import DatasheetControls from "../DatasheetControls";
 import Fieldset from "../Fieldset";
+import Popup from "../Popup";
 
 export default function DatasheetFieldset(props = {
     onReset: () => {}
@@ -46,39 +46,48 @@ export default function DatasheetFieldset(props = {
         });
 
         fieldset.element.append(datasheet.element);
-        showSuccessPopup({
-            dispatchingElement: fieldset.element,
-            successMsg: "Datasheet generated."
-        });
+        Popup({
+            error: false,
+            lastFocusedElement: fieldset.element,
+            msg: "Datasheet generated.",
+            showScrollToField: false,
+
+        }).open();
     }
 
     async function onCopy()
     {
         if (datasheet === null)
         {
-            showErrorPopup({
-                dispatchingElement: fieldset.element,
-                errorMsg: "Datasheet is empty, nothing was copied to the clipboard."
-            });
+            Popup({
+                error: true,
+                lastFocusedElement: fieldset.element,
+                msg: "Datasheet is empty, nothing was copied to the clipboard.",
+                showScrollToField: true,
+            }).open();
         }
         else
         {
             try
             {
                 await copyToClipboard(datasheet.element);
-                showSuccessPopup({
-                    dispatchingElement: fieldset.element,
-                    successMsg: "Datasheet copied to clipboard."
-                });
+                Popup({
+                    error: false,
+                    lastFocusedElement: fieldset.element,
+                    msg: "Datasheet copied to clipboard.",
+                    showScrollToField: false,
+                }).open();
             }
             catch (error)
             {
                 if (error instanceof FeatureNotSupportedException)
                 {
-                    showErrorPopup({
-                        dispatchingElement: datasheet.element,
-                        errorMsg: error.message,
-                    });
+                    Popup({
+                        error: true,
+                        lastFocusedElement: datasheet.element,
+                        msg: error.message,
+                        showScrollToField: false,
+                    })
                 }
                 else
                 {

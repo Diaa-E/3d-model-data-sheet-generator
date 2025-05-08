@@ -5,9 +5,9 @@ import RadioGroup from "../RadioGroup";
 import icons from "../../barrels/icons.barrel";
 import { saveToStorage, getFromStorage } from "../../utils/sesionStorageUtility";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
-import { showErrorPopup, showSuccessPopup } from "../../utils/popupEvents";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { containsIllegalCharacters } from "../../utils/formattingTokens";
+import Popup from "../Popup";
 
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
@@ -153,10 +153,12 @@ export default function ItemCheckBoxFieldset(props = {
             selectedItems.push(newItem);
             saveToStorage(STORAGE_KEY_USER, items);
             saveToStorage(STORAGE_KEY, selectedItems);
-            showSuccessPopup({
-                dispatchingElement: inputField,
-                successMsg: `"${newItem}" has been added to ${props.legend}`
-            });
+            Popup({
+                error: false,
+                lastFocusedElement: inputField,
+                msg: `"${newItem}" has been added to ${props.legend}`,
+                showScrollToField: false,
+            }).open();
             addItemFieldset.clear();
             fieldSet.setInvalid(false); 
         }
@@ -166,11 +168,12 @@ export default function ItemCheckBoxFieldset(props = {
             {
                 fieldSet.setInvalid(true);
 
-                showErrorPopup({
-    
-                    dispatchingElement: error.details.invalidElement,
-                    errorMsg: error.message
-                });
+                Popup({
+                    error: true,
+                    lastFocusedElement: error.details.invalidElement,
+                    msg: error.message,
+                    showScrollToField: true,
+                }).open();
             }
             else
             {

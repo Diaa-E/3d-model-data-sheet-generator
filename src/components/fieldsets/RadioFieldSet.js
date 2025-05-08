@@ -5,8 +5,8 @@ import Radio from "../Radio";
 import RadioGroup from "../RadioGroup";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
-import { showSuccessPopup } from "../../utils/popupEvents";
 import { containsIllegalCharacters } from "../../utils/formattingTokens";
+import Popup from "../Popup";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -170,10 +170,12 @@ export default function RadioFieldset(props = {
             );
             userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);
-            showSuccessPopup({
-                dispatchingElement: inputField,
-                successMsg: `"${newOption}" has been added to ${props.legend}`
-            });
+            Popup({
+                error: false,
+                lastFocusedElement: inputField,
+                msg: `"${newOption}" has been added to ${props.legend}`,
+                showScrollToField: false
+            }).open();
             addOptionFieldset.clear();
             fieldSet.setInvalid(false);
         }
@@ -183,11 +185,12 @@ export default function RadioFieldset(props = {
             {
                 fieldSet.setInvalid(true);
     
-                dispatchErrorPopupEvent({
-        
-                    dispatchingElement: inputField,
-                    errorMsg: "Field Cannot be empty."
-                });
+                Popup({
+                    error: true,
+                    lastFocusedElement: inputField,
+                    msg: "Field Cannot be empty.",
+                    showScrollToField: true,
+                }).open();
             }
             else
             {

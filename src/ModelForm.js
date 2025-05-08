@@ -1,4 +1,3 @@
-import { RegisterErrorPopupEvent, RegisterSuccessPopupEvent } from "./components/Popup";
 import { createElement } from "./utils/createElement";
 import DatasheetForm from "./components/DatasheetForm";
 import ModelInfoFieldset from "./components/fieldsets/ModelInfoFieldset";
@@ -6,7 +5,6 @@ import PolyCountFieldset from "./components/fieldsets/PolyCountFieldset";
 import CheckboxFieldset from "./components/fieldsets/CheckboxFieldset";
 import RadioFieldset from "./components/fieldsets/RadioFieldSet";
 import DatasheetFieldset from "./components/fieldsets/DatasheetFieldset";
-import { showErrorPopup, showSuccessPopup } from "./utils/popupEvents";
 import ItemCheckBoxFieldset from "./components/fieldsets/ItemCheckBoxFieldset";
 import icons from "./barrels/icons.barrel";
 import { InvalidFieldsetException } from "./utils/customExceptions";
@@ -15,6 +13,7 @@ import { formattingTokens } from "./utils/formattingTokens";
 import Dialog from "./components/Dialog";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Popup from "./components/Popup";
 
 export default function ModelForm()
 {
@@ -246,10 +245,12 @@ export default function ModelForm()
                 textureMaps.reset();
                 targetSite.reset();
         
-                showSuccessPopup({
-                    dispatchingElement: e.target,
-                    successMsg: "Form has been reset."
-                });
+                Popup({
+                    error: false,
+                    lastFocusedElement: e.target,
+                    msg: "Form has been reset.",
+                    showScrollToField: false,
+                }).open();
             }
         }).open();
     }
@@ -349,11 +350,12 @@ export default function ModelForm()
         {
             if (error instanceof InvalidFieldsetException)
             {
-                showErrorPopup({
-                    dispatchingElement: error.details.invalidElement,
-                    errorMsg: error.message,
-                    showScrollToField: true,
-                });
+                Popup({
+                    error: true,
+                    lastFocusedElement: error.details.invalidElement,
+                    msg: error.message,
+                    showScrollToField: true
+                }).open();
             }
             else
             {
@@ -361,9 +363,6 @@ export default function ModelForm()
             }
         }
     }
-    
-    RegisterErrorPopupEvent();
-    RegisterSuccessPopupEvent();
 
     const contentDiv = createElement(
         "div",

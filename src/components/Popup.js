@@ -1,39 +1,8 @@
 import styles from "./Popup.module.css";
 import { createElement } from "../utils/createElement";
-import { showErrorPopupEvent, showSuccessPopupEvent } from "../utils/popupEvents";
 import scrollToElement from "../utils/scrollToElement";
 
-export function RegisterErrorPopupEvent()
-{
-    document.addEventListener(showErrorPopupEvent, (e) => {
-
-        const newPopup = Popup({
-            msg: e.detail.errorMsg,
-            lastFocusedElement: e.detail.lastFocusedElement,
-            showScrollToField: e.detail.showScrollToField,
-            error: true,
-        });
-        document.body.append(newPopup.element);
-        newPopup.openPopup();
-    });
-}
-
-export function RegisterSuccessPopupEvent()
-{
-    document.addEventListener(showSuccessPopupEvent, (e) => {
-
-        const newPopup = Popup({
-            msg: e.detail.successMsg,
-            lastFocusedElement: e.detail.lastFocusedElement,
-            showScrollToField: false,
-            error: false,
-        });
-        document.body.append(newPopup.element);
-        newPopup.openPopup();
-    });
-}
-
-function Popup(props = {
+export default function Popup(props = {
     msg: "",
     lastFocusedElement: null,
     error: false,
@@ -135,6 +104,8 @@ function Popup(props = {
 
     function openPopup()
     {
+        document.body.append(popupWrapper);
+
         popupWrapper.style.visibility = "visible";
         popupWrapper.hidden = false;
         
@@ -152,5 +123,5 @@ function Popup(props = {
         }, 5000);
     }
 
-    return { element: popupWrapper, openPopup: openPopup, closePopup: closePopup }
+    return { element: popupWrapper, open: openPopup, close: closePopup }
 }

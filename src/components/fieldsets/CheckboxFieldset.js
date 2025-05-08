@@ -3,10 +3,10 @@ import CheckBox from "../CheckBox";
 import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
-import { showErrorPopup, showSuccessPopup} from "../../utils/popupEvents";
 import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { containsIllegalCharacters } from "../../utils/formattingTokens";
+import Popup from "../Popup";
 
 export default function CheckboxFieldset(props = {
     legend: "",
@@ -189,10 +189,12 @@ export default function CheckboxFieldset(props = {
             );
             userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);
-            showSuccessPopup({
-                dispatchingElement: inputField,
-                successMsg: `"${newOption}" has been added to ${props.legend}`,
-            });
+            Popup({
+                error: false,
+                lastFocusedElement: inputField,
+                msg: `"${newOption}" has been added to ${props.legend}`,
+                showScrollToField: false,
+            }).open();
             addOptionFieldset.clear();
             fieldSet.setInvalid(false);
         }
@@ -202,11 +204,12 @@ export default function CheckboxFieldset(props = {
             {
                 fieldSet.setInvalid(true);
     
-                showErrorPopup({
-    
-                    dispatchingElement: error.details.invalidElement,
-                    errorMsg: error.message,
-                });
+                Popup({
+                    error: true,
+                    lastFocusedElement: error.details.invalidElement,
+                    msg: error.message,
+                    showScrollToField: true
+                }).open();
             }
             else
             {
