@@ -2,7 +2,7 @@ export function searchCaseInsensitive(array, value)
 {
     if (typeof value !== "string")
     {
-        throw new Error("Value must be a string.")
+        throw new TypeError("Value must be a string.")
     }
 
     value = value.toLowerCase();
