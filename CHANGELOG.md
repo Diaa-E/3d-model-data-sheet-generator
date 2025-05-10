@@ -6,6 +6,11 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
+### **2.0.2 (Unreleased)**
+
+- 🛠️ Fixed page titles not working properly.
+- ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
+
 ### **2.0.1 (8 May, 2025)**
 
 - 🛠️ Fix broken home link (again).

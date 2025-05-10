@@ -15,6 +15,7 @@
 
 ### Completed ✅
 
+1. Add page titles to webpack config.
 1. Write unit tests for icon link component.
 1. Fix header active tab in production.
 1. Check for illegal characters.

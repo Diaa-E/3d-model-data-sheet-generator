@@ -7,7 +7,10 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const isProduction = process.env.NODE_ENV == 'production';
-const base = process.env.ASSET_PATH || '/3d-model-data-sheet-generator/';
+const repoName = {
+    base: '/3d-model-data-sheet-generator/',
+    publicPath: '/3d-model-data-sheet-generator/'
+};
 
 const stylesHandler = isProduction ? [ MiniCssExtractPlugin.loader ]:[ "style-loader" ];
 
@@ -32,6 +35,7 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].[hash].js",
+        clean: true,
     },
     devServer: {
         open: true,
@@ -44,51 +48,54 @@ const config = {
             chunks: ["app", "index"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "index.html",
-            base: base,
-            publicPath: base
+            title: "Home | 3D Model Datasheet Generator",
+            ...repoName
         }),
         new HtmlWebpackPlugin({
-            template: './src/about.html',
+            template: './src/index.html',
             inject: true,
             chunks: ["app", "about"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "about.html",
-            base: base,
-            publicPath: base
+            title: "About | 3D Model Datasheet Generator",
+            ...repoName
         }),
         new HtmlWebpackPlugin({
-            template: './src/model_form.html',
+            template: './src/index.html',
             inject: true,
             chunks: ["app", "modelForm"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "model_form.html",
-            base: base,
-            publicPath: base
+            title: "3D Model | 3D Model Datasheet Generator",
+            ...repoName
         }),
 
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
     ] : [
-              new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: './src/index.html',
             inject: true,
             chunks: ["app", "index"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "index.html",
+            title: "Home | 3D Model Datasheet Generator",
         }),
         new HtmlWebpackPlugin({
-            template: './src/about.html',
+            template: './src/index.html',
             inject: true,
             chunks: ["app", "about"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "about.html",
+            title: "About | 3D Model Datasheet Generator",
         }),
         new HtmlWebpackPlugin({
-            template: './src/model_form.html',
+            template: './src/index.html',
             inject: true,
             chunks: ["app", "modelForm"],
             favicon: "./src/assets/logo/logo.svg",
             filename: "model_form.html",
+            title: "3D Model | 3D Model Datasheet Generator",
         }),  
     ],
     module: {
@@ -121,12 +128,11 @@ module.exports = () => {
         config.plugins.push(new MiniCssExtractPlugin({filename: "[name].[hash].css"}));
         config.optimization.minimizer.push(new CssMinimizerPlugin());
         config.optimization.minimizer.push(new TerserPlugin());
-        config.output.clean = true;
         
     } else {
         config.mode = 'development';
+
         config.devtool = 'inline-source-map';
-        config.output.clean = true;
     }
     return config;
 };
