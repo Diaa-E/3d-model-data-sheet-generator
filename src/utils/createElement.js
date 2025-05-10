@@ -55,7 +55,7 @@ export function createElement(tag, props, ...children)
     return element;
 }
 
-export function createFragment(props, ...children)
+export function createFragment(...children)
 {
     return children;
 }
