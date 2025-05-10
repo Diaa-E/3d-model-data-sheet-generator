@@ -24,6 +24,8 @@ This sections covers the code side of the application.
 1. [Fieldsets]()
 1. [Testing]()
 
+---------------
+
 ### Tools
 
 The tools used in building the latest version.
@@ -34,6 +36,8 @@ The tools used in building the latest version.
 | Styling | CSS / CSS Modules |
 | Scripting | JavaScript |
 | Testing | Jest |
+
+-------------
 
 ### Utility Functions
 
@@ -252,3 +256,5 @@ Utility functions are kept in ```./src/utils/``` and their tests are in ```./src
     | Return Type | Details |
     |----|----|
     |undefined | - |
+
+-------------
