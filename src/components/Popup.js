@@ -59,7 +59,9 @@ export default function Popup(props = {
         "div",
         {
             role: "alert",
-            class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`
+            class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`,
+            "--close-duration": `${CLOSE_DURATION}s`,
+            "--open-duration": `${OPEN_DURATION}s`
         },
         [
             statusIcon,
@@ -78,9 +80,6 @@ export default function Popup(props = {
             popup
         ]
     );
-
-    popup.style.setProperty("--close-duration", `${CLOSE_DURATION}s`);
-    popup.style.setProperty("--open-duration", `${OPEN_DURATION}s`);
 
     function closePopup(silent = false)
     {

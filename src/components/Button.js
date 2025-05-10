@@ -48,15 +48,14 @@ export default function Button(props = {
             type: props.type,
             class: `${styles["button"]} ${colors[props.color]}`,
             onClick: props.onClick,
-            ariaLabel: props.text
+            ariaLabel: props.text,
+            "--icon": `url("${props.iconPath}")`
         },
         [
             textSpan,
             divIcon
         ]
     );
-
-    button.style.setProperty("--icon", `url("${props.iconPath}")`);
     
     return button;
 }

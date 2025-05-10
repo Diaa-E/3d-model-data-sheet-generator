@@ -66,7 +66,8 @@ export default function ItemCheckBox(props = {
         "label",
         {
             for: id,
-            class: styles["item-checkbox-label"]
+            class: styles["item-checkbox-label"],
+            "--item-icon": `url("${props.itemIcon}")`
         },
         [
             itemMark,
@@ -74,8 +75,6 @@ export default function ItemCheckBox(props = {
             visibilityMark
         ]
     );
-
-    label.style.setProperty("--item-icon", `url("${props.itemIcon}")`)
 
     return createFragment(
         {},

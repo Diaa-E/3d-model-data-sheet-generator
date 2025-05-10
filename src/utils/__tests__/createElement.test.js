@@ -129,4 +129,16 @@ describe("Create Element Utility Function", () => {
             );
         }).toThrow();
     });
+
+    it("Adds CSS variables to element style", () => {
+
+        const element = createElement(
+            "div",
+            {
+                "--test": "#000000",
+            },
+        );
+
+        expect(element.style.getPropertyValue("--test")).toBe("#000000");
+    });
 });

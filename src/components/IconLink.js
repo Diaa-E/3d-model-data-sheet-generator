@@ -33,15 +33,14 @@ export default function IconLink( props = {
         {
             href: props.href,
             class: styles["icon-link"],
-            target: `${props.newTab ? "_blank" : ""}`
+            target: `${props.newTab ? "_blank" : ""}`,
+            "--icon": `url("${props.iconPath}")`
         },
         [
             props.text,
             props.showIcon ? linkIcon : "",
         ]
     );
-
-    link.style.setProperty("--icon", `url("${props.iconPath}")`);
 
     return { element: link }
 }

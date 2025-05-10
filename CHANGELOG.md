@@ -10,6 +10,7 @@
 
 - 🛠️ Fixed page titles not working properly.
 - ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
+- ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
 
 ### **2.0.1 (8 May, 2025)**
 

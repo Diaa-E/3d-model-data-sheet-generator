@@ -41,14 +41,13 @@ export default function IconButton(props = {
             type: props.type,
             class: `${styles["icon-button"]}`,
             onClick: props.onClick,
+            "--icon": `url("${props.iconPath}")`
         },
         [
             textSpan,
             divIcon
         ]
     );
-
-    button.style.setProperty("--icon", `url("${props.iconPath}")`);
     
     return button;
 }

@@ -29,6 +29,10 @@ export function createElement(tag, props, ...children)
         {
             element.addEventListener(key.toLowerCase().substring(2), value);
         }
+        else if (key.startsWith("--"))
+        {
+            element.style.setProperty(key, value);
+        }
         else if (key in element)
         {
             element[key] = String(value);

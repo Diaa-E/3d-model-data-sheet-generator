@@ -77,12 +77,11 @@ export default function NavMenu( props = {
         {
             class: styles["close-nav-menu-button"],
             ariaLabel: "Close Nav Menu",
-            onClick: closeNavMenu
+            onClick: closeNavMenu,
+            "--icon": `url("${icons.closeIcon}")`
         },
         closeNavMenuButtonIcon
     );
-
-    closeNavMenuButton.style.setProperty("--icon", `url("${icons.closeIcon}")`);
 
     const navMenu = createElement(
         "div",
@@ -118,7 +117,8 @@ export default function NavMenu( props = {
             type: "button",
             class: styles["nav-menu-button"],
             ariaLabel: "Navigation Menu",
-            onClick: openNavMenu
+            onClick: openNavMenu,
+            "--icon": `url("${icons.menuIcon}")`
         },
         navMenuButtonIcon,
     );
@@ -151,8 +151,6 @@ export default function NavMenu( props = {
         navMenu.classList.add(styles["open-menu"]);
         closeNavMenuButton.classList.add(styles["show-button"]);
     }
-
-    navMenuButton.style.setProperty("--icon", `url("${icons.menuIcon}")`);
 
     return { element: navMenuButton }
 }
