@@ -76,7 +76,6 @@ export default function CheckBox(props = {
     );
 
     return createFragment(
-        {},
         checkBox,
         label
     );

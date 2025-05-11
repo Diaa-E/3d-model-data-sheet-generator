@@ -77,7 +77,6 @@ export default function Radio( props = {
     );
 
     const fragment = createFragment(
-        {},
         radioButton,
         label
     )

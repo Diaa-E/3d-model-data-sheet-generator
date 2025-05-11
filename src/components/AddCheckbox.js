@@ -1,6 +1,6 @@
 import { createElement } from "../utils/createElement";
 import styles from "./AddCheckbox.module.css";
-import IconButton from "./Button";
+import Button from "./Button";
 import { v4 as generateId } from "uuid";
 import icons from "../barrels/icons.barrel";
 
@@ -39,7 +39,7 @@ export default function AddCheckbox( props = {
         }
     );
 
-    const addButton = IconButton({
+    const addButton = Button({
         color: "primary",
         onClick: () => props.onAdd(textBox),
         text: props.legend,
@@ -67,7 +67,7 @@ export default function AddCheckbox( props = {
             legend,
             label,
             textBox,
-            addButton
+            addButton.element
         ]
     );
 

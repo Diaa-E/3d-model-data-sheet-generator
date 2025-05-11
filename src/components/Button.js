@@ -57,5 +57,5 @@ export default function Button(props = {
         ]
     );
     
-    return button;
+    return {element: button};
 }

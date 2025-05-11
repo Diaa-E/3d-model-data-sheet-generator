@@ -47,9 +47,9 @@ export default function DatasheetControls(props = {
             class: styles["controls-wrapper"],
         },
         [
-            copyButton,
-            resetButton,
-            generateButton,
+            copyButton.element,
+            resetButton.element,
+            generateButton.element,
         ]
     );
 

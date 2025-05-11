@@ -50,8 +50,8 @@ export default function Dialog( props = {
             class: styles["dialog-controls-wrapper"],
         },
         [
-            confirmButton,
-            cancelButton
+            confirmButton.element,
+            cancelButton.element
         ]
     )
 
@@ -87,7 +87,7 @@ export default function Dialog( props = {
         dialogBox.classList.add(styles["open"]);
         dialogBackdrop.classList.add(styles["open"]);
 
-        confirmButton.focus();
+        confirmButton.element.focus();
     }
 
     function closeDialog()

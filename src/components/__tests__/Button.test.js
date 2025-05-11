@@ -16,7 +16,7 @@ describe("Icon Button Component", () => {
             iconPath: "",
             text: "button 1",
             type: "button",
-        }));
+        }).element);
 
         const button = document.querySelector("button");
 
@@ -31,7 +31,7 @@ describe("Icon Button Component", () => {
             iconPath: "",
             text: "button 1",
             type: "button",
-        }));
+        }).element);
 
         const button = document.querySelector("button");
 
@@ -46,7 +46,7 @@ describe("Icon Button Component", () => {
             iconPath: "",
             text: "button 1",
             type: "submit",
-        }));
+        }).element);
 
         const button = document.querySelector("button");
 
@@ -61,7 +61,7 @@ describe("Icon Button Component", () => {
             iconPath: "icon1",
             text: "button 1",
             type: "submit",
-        }));
+        }).element);
 
         const button = document.querySelector("button");
 
@@ -78,7 +78,7 @@ describe("Icon Button Component", () => {
             iconPath: "icon1",
             text: "button 1",
             type: "submit",
-        }));
+        }).element);
 
         const button = document.querySelector("button");
         button.click();
@@ -96,7 +96,7 @@ describe("Icon Button Component", () => {
             iconPath: "icon1",
             text: "button 1",
             type: "submit",
-        }));
+        }).element);
 
         const div = document.querySelector("div");
         div.click();
