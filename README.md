@@ -19,7 +19,7 @@ This sections covers the code side of the application.
 
 1. [Tools](#tools)
 1. [Utility Functions](#utility-functions)
-1. [Assets]()
+1. [Assets](#assets)
 1. [UI Components]()
 1. [Fieldsets]()
 1. [Testing]()
@@ -70,7 +70,7 @@ Utility functions are kept in ```./src/utils/``` and their tests are in ```./src
     |----|----|
     | object | Created html element as an instance of HTMLElement |
 
-1. ### createFragment
+1. #### createFragment
 
     - Export from ```./src/utils/createElement.js```.
     - Creates a fragment.
@@ -256,5 +256,26 @@ Utility functions are kept in ```./src/utils/``` and their tests are in ```./src
     | Return Type | Details |
     |----|----|
     |undefined | - |
+
+-------------
+
+### Assets
+
+1. #### Fonts
+    
+    - Path: ```./src/assets/fonts/```.
+    - Fonts are imported to the ```./src/globals.css/``` and are assigned to variables in the ```:root```.
+
+1. #### Logo
+
+    - Path: ```./src/assets/logo/```.
+    - The application's logo and any variants of it are kept in the same location.
+    - Logo is imported directly when needed.
+
+1. #### Icons
+
+    - Path: ```./src/assets/icons/```.
+    - All icons are bundled and exported inside the default export ```icons``` object from the barrel file ```./src/barrels/iconsBarrel.js```.
+    - icons object structure: ```icons.<iconName>```.
 
 -------------
