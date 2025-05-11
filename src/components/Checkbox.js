@@ -1,9 +1,9 @@
 import { v4 as generateId } from "uuid"
-import { createElement, createFragment } from "../utils/createElement";
+import { createElement } from "../utils/createElement";
 
 import styles from "./CheckBox.module.css";
 
-export default function CheckBox(props = {
+export default function Checkbox(props = {
     name: "",
     text: "",
     value: "",
@@ -24,7 +24,7 @@ export default function CheckBox(props = {
 
     const id = generateId();
 
-    const checkBox = createElement(
+    const checkboxInput = createElement(
         "input",
         {
             id: id,
@@ -75,8 +75,16 @@ export default function CheckBox(props = {
         ]
     );
 
-    return createFragment(
-        checkBox,
-        label
-    );
+    const wrapper = createElement(
+        "div",
+        {
+
+        },
+        [
+            checkboxInput,
+            label
+        ]
+    )
+
+    return { element: wrapper };
 }

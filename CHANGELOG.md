@@ -12,6 +12,8 @@
 - ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
 - ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
 - ⚙️ Button UI component now exports an object instead of the element directly.
+- ⚙️ Checkbox UI component now exports an object instead of the element directly.
+- ⚙️ Unified checkbox naming (sometimes it was "checkbox" and others it was "checkBox").
 
 ### **2.0.1 (8 May, 2025)**
 

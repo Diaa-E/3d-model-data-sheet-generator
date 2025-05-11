@@ -1,5 +1,5 @@
 import AddCheckbox from "../AddCheckbox";
-import CheckBox from "../CheckBox";
+import Checkbox from "../Checkbox";
 import Fieldset from "../Fieldset";
 import RadioGroup from "../RadioGroup";
 import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility";
@@ -77,7 +77,7 @@ export default function CheckboxFieldset(props = {
         options.forEach(option => {
 
             checkboxGroup.addButton(
-                CheckBox({
+                Checkbox({
                     checked: selectedOptions.includes(option),
                     name: STORAGE_KEY,
                     text: option,
@@ -97,7 +97,7 @@ export default function CheckboxFieldset(props = {
                             fieldSet.setInvalid(false);
                         }
                     },
-                })
+                }).element
             );
         });
     
@@ -106,7 +106,7 @@ export default function CheckboxFieldset(props = {
             userOptions.forEach(option => {
         
                 checkboxGroup.addButton(
-                    CheckBox({
+                    Checkbox({
                         checked: selectedOptions.includes(option),
                         name: STORAGE_KEY,
                         text: option,
@@ -127,7 +127,7 @@ export default function CheckboxFieldset(props = {
                                 fieldSet.setInvalid(false);
                             }
                         },
-                    })
+                    }).element
                 );
             });
         }
@@ -164,7 +164,7 @@ export default function CheckboxFieldset(props = {
             
             fieldSet.setInvalid(false);
             checkboxGroup.addButton(
-                CheckBox({
+                Checkbox({
                     checked: false,
                     name: STORAGE_KEY,
                     text: newOption,
@@ -185,7 +185,7 @@ export default function CheckboxFieldset(props = {
                             fieldSet.setInvalid(false);
                         }
                     },
-                })
+                }).element
             );
             userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);
