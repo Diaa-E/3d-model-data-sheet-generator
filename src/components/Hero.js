@@ -1,6 +1,5 @@
 import { createElement } from "../utils/createElement";
 import styles from "./Hero.module.css";
-import IconLink from "./IconLink";
 
 export default function Hero()
 {
