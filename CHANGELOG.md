@@ -20,6 +20,7 @@
 - ⚙️ Replaced syntax error throw when datasheet set.data is not an array with a type error throw.
 - ⚙️ Improved fieldset component's default legend text.
 - ⚙️ Removed unused element in the footer component.
+- ⚙️ Removed unused component file and its unit tests.
 
 ### **2.0.1 (8 May, 2025)**
 
