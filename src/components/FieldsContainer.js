@@ -21,5 +21,5 @@ export default function FieldsContainer( props = {
         ]
     );
 
-    return divContainer;
+    return { element: divContainer };
 }

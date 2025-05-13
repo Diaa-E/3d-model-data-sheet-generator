@@ -10,7 +10,7 @@ describe("Fields Container Component", () => {
 
     it("Renders a div container", () => {
 
-        render(FieldsContainer({children: []}));
+        render(FieldsContainer({children: []}).element);
         const divCotnainer = document.querySelector("div");
 
         expect(divCotnainer).not.toBeNull();
@@ -21,7 +21,7 @@ describe("Fields Container Component", () => {
         const p = document.createElement("p");
         p.textContent = "some text";
 
-        render(FieldsContainer({children: [p]}));
+        render(FieldsContainer({children: [p]}).element);
         const divCotnainer = document.querySelector("div");
         const paragraph = document.querySelector("p");
 

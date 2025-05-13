@@ -58,7 +58,7 @@ export default function PolyCountFieldset(props = {storageKey: ""})
         legend: "Polygon Count",
         required: true,
         children: [
-            fieldsContainer
+            fieldsContainer.element
         ]
     });
 
