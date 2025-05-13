@@ -22,6 +22,7 @@
 - ⚙️ Improved fieldset component's default legend text.
 - ⚙️ Removed unused element in the footer component.
 - ⚙️ Removed unused component file and its unit tests.
+- ⚙️ Removed "required" key from number input props, the form validates using JS not the environment, required attributes are not needed.
 
 ### **2.0.1 (8 May, 2025)**
 

@@ -17,7 +17,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false
         });
 
         render(numberInputComponent.element);
@@ -38,7 +37,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "number_1",
-            required: false
         });
 
         render(numberInputComponent.element);
@@ -57,7 +55,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false
         });
 
         render(numberInputComponent.element);
@@ -76,7 +73,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false
         });
 
         render(numberInputComponent.element);
@@ -95,7 +91,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false
         });
 
         render(numberInputComponent.element);
@@ -103,44 +98,6 @@ describe("Number Input Component", () => {
         const numberInput = document.querySelector("input[type='number']");
 
         expect(numberInput.min).toBe("0");
-    });
-
-    it("Adds required attribute when required prop is true", () => {
-
-        const numberInputComponent = NumberInput({
-            max: "",
-            min: "",
-            name: "number_1",
-            onInput: () => {},
-            placeholder: "50",
-            text: "",
-            required: true
-        });
-
-        render(numberInputComponent.element);
-
-        const numberInput = document.querySelector("input[type='number']");
-
-        expect(numberInput.required).toBeTruthy();
-    });
-
-    it("Removes required attribute when required prop is false", () => {
-
-        const numberInputComponent = NumberInput({
-            max: "",
-            min: "",
-            name: "number_1",
-            onInput: () => {},
-            placeholder: "50",
-            text: "",
-            required: false
-        });
-
-        render(numberInputComponent.element);
-
-        const numberInput = document.querySelector("input[type='number']");
-
-        expect(numberInput.required).toBeFalsy();
     });
 
     it("Uses value from value prop", () => {
@@ -152,7 +109,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false,
             value: "24"
         });
 
@@ -172,7 +128,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false,
             value: "24"
         });
 
@@ -196,7 +151,6 @@ describe("Number Input Component", () => {
             onInput: () => {},
             placeholder: "50",
             text: "",
-            required: false,
             value: "24"
         });
 
@@ -222,7 +176,6 @@ describe("Number Input Component", () => {
             onInput: onInput,
             placeholder: "50",
             text: "",
-            required: false
         });
 
         render(numberInputComponent.element);
