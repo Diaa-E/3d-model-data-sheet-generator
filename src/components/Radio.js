@@ -1,5 +1,5 @@
 import { v4 as generateId } from "uuid";
-import {createElement, createFragment} from "../utils/createElement";
+import { createElement } from "../utils/createElement";
 
 import styles from "./Radio.module.css";
 
@@ -76,10 +76,16 @@ export default function Radio( props = {
         ]
     );
 
-    const fragment = createFragment(
-        radioButton,
-        label
-    )
+    const divWrapper = createElement(
+        "div",
+        {
 
-    return fragment;
+        },
+        [
+            radioButton,
+            label
+        ]
+    );
+
+    return { element: divWrapper };
 }

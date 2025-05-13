@@ -10,7 +10,7 @@ describe("Radio component", () => {
 
     it("Returns a radio input with a label", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
         const label = document.querySelector("label");
@@ -21,7 +21,7 @@ describe("Radio component", () => {
 
     it("Label uses the text from the text prop", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}).element);
 
         const label = document.querySelector("label");
 
@@ -30,7 +30,7 @@ describe("Radio component", () => {
 
     it("Radio button uses the value from the props", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
 
@@ -39,7 +39,7 @@ describe("Radio component", () => {
 
     it("Radio button uses the name from the props", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
 
@@ -48,7 +48,7 @@ describe("Radio component", () => {
 
     it("Checks radio button when checked prop is true", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: true}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: true}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
 
@@ -57,7 +57,7 @@ describe("Radio component", () => {
 
     it("Unchecks radio button when checked prop is false", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: false}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1", checked: false}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
 
@@ -66,7 +66,7 @@ describe("Radio component", () => {
 
     it("Radio button is checked when label is clicked", () => {
 
-        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: () => {}, text: "radio_1", value: "radio_1"}).element);
 
         const label = document.querySelector("label");
         const radioButton = document.querySelector('input[type="radio"]');
@@ -82,7 +82,7 @@ describe("Radio component", () => {
 
         const onChange = jest.fn();
 
-        render(Radio({name: "option", onChange: onChange, text: "radio_1", value: "radio_1"}));
+        render(Radio({name: "option", onChange: onChange, text: "radio_1", value: "radio_1"}).element);
 
         const radioButton = document.querySelector('input[type="radio"]');
         radioButton.click();
@@ -94,8 +94,8 @@ describe("Radio component", () => {
 
         const onChange = jest.fn();
 
-        render(Radio({name: "option", onChange: onChange, text: "radio_1", value: "radio_1"}));
-        render(Radio({name: "option", onChange: () => {}, text: "radio_2", value: "radio_2"}));
+        render(Radio({name: "option", onChange: onChange, text: "radio_1", value: "radio_1"}).element);
+        render(Radio({name: "option", onChange: () => {}, text: "radio_2", value: "radio_2"}).element);
 
         const radioButton1 = document.querySelectorAll('input[type="radio"]')[0];
         const radioButton2 = document.querySelectorAll('input[type="radio"]')[1];

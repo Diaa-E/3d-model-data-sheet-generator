@@ -96,7 +96,7 @@ export default function RadioFieldset(props = {
                         saveToStorage(STORAGE_KEY, selectedOption);
                         fieldSet.setInvalid(false);
                     }
-                })
+                }).element
             );
         });
     
@@ -117,7 +117,7 @@ export default function RadioFieldset(props = {
                             saveToStorage(STORAGE_KEY, selectedOption);
                             fieldSet.setInvalid(false);
                         }
-                    })
+                    }).element
                 );
             });
         }
@@ -166,7 +166,7 @@ export default function RadioFieldset(props = {
                         saveToStorage(STORAGE_KEY, selectedOption);
                         fieldSet.setInvalid(false);
                     }
-                })
+                }).element
             );
             userOptions.push(newOption);
             saveToStorage(STORAGE_KEY_USER, userOptions);

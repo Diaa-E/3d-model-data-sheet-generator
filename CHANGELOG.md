@@ -13,10 +13,11 @@
 - 🛠️ Fixed broken footer home link.
 - ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
 - ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
-- ⚙️ Button UI component now exports an object instead of the element directly.
-- ⚙️ Checkbox UI component now exports an object instead of the element directly.
-- ⚙️ FieldsContainer UI component now exports an object instead of the element directly.
-- ⚙️ ItemCheckbox UI component now exports an object instead of the a fragment.
+- ⚙️ Button UI component now returns an object instead of the element directly.
+- ⚙️ Checkbox UI component now returns an object instead of the element directly.
+- ⚙️ FieldsContainer UI component now returns an object instead of the element directly.
+- ⚙️ ItemCheckbox UI component now returns an object instead of the a fragment.
+- ⚙️ Radio UI component now returns an object instead of fragment.
 - ⚙️ Unified checkbox naming (sometimes it was "checkbox" and others it was "checkBox").
 - ⚙️ Replaced syntax error throw when datasheet set.data is not an array with a type error throw.
 - ⚙️ Improved fieldset component's default legend text.
