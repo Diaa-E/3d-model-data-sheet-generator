@@ -30,20 +30,9 @@ export default function RadioGroup( props = {
         ]
     );
 
-    function addButton(button)
+    function addButton(...buttons)
     {
-        if(Array.isArray(button))
-        {
-            div.append(
-                ...button
-            );
-        }
-        else
-        {
-            div.append(
-                button
-            );
-        }
+        div.append(...buttons);
 
         emptyGroupText.remove();
     }
@@ -65,7 +54,10 @@ export default function RadioGroup( props = {
 
     function removeAllButtons()
     {
-        div.innerHTML = "";
+        div.childNodes.forEach(child => {
+
+            child.remove();
+        });
         div.append(emptyGroupText);
     }
 

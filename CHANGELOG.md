@@ -25,6 +25,8 @@
 - ⚙️ Removed unused component file and its unit tests.
 - ⚙️ Removed "required" key from number input props, the form validates using JS not the environment, required attributes are not needed.
 - ⚙️ Removed close function from the returned object of Popup component, popup is closed/destroyed from within, no need to expose this function.
+- ⚙️ RadioGroup's remove funciton now iterates over children removing them one at a time instead of using innerHTML.
+- ⚙️ RadioGroup's asddButton funciton now accepts rest of arguments instead of cheching for argument type whether it's an array or not.
 
 ### **2.0.1 (8 May, 2025)**
 
