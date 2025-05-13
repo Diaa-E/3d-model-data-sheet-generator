@@ -11,7 +11,7 @@ export default function Popup(props = {
 {
     props = {
 
-        msg: "",
+        msg: "default message",
         lastFocusedElement: null,
         showScrollToField: false,
         error: false,
@@ -122,5 +122,5 @@ export default function Popup(props = {
         }, 5000);
     }
 
-    return { element: popupWrapper, open: openPopup, close: closePopup }
+    return { element: popupWrapper, open: openPopup}
 }

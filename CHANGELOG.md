@@ -23,6 +23,7 @@
 - ⚙️ Removed unused element in the footer component.
 - ⚙️ Removed unused component file and its unit tests.
 - ⚙️ Removed "required" key from number input props, the form validates using JS not the environment, required attributes are not needed.
+- ⚙️ Removed close function from the returned object of Popup component, popup is closed/destroyed from within, no need to expose this function.
 
 ### **2.0.1 (8 May, 2025)**
 
