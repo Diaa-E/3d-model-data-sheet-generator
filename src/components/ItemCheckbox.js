@@ -1,5 +1,5 @@
 import { v4 as generateId } from "uuid"
-import { createElement, createFragment } from "../utils/createElement";
+import { createElement } from "../utils/createElement";
 import icons from "../barrels/icons.barrel";
 
 import styles from "./ItemCheckbox.module.css";
@@ -14,9 +14,9 @@ export default function ItemCheckBox(props = {
 })
 {
     props = {
-        name: "checkbox",
-        text: "checkbox",
-        value: "checkbox",
+        name: "item",
+        text: "item",
+        value: "item",
         onChange: () => {},
         checked: false,
         itemIcon: icons.defaultIcon,
@@ -76,9 +76,16 @@ export default function ItemCheckBox(props = {
         ]
     );
 
-    return createFragment(
-        {},
-        itemCheckBox,
-        label
-    );
+    const divWrapper = createElement(
+        "div",
+        {
+
+        },
+        [
+            itemCheckBox,
+            label
+        ]
+    )
+
+    return {element: divWrapper};
 }

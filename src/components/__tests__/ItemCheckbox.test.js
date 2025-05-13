@@ -10,7 +10,7 @@ describe("Item Checkbox Component", () => {
 
     it("Returns a checkbox input with a label", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}).element);
 
         expect(document.querySelector("label")).not.toBeNull();
         expect(document.querySelector("input[type='checkbox']")).not.toBeNull();
@@ -18,35 +18,35 @@ describe("Item Checkbox Component", () => {
 
     it("Label uses the text from the text prop", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}).element);
 
         expect(document.querySelector("label").textContent).toBe("value_1");
     });
 
     it("checkbox uses the value from the value prop", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}).element);
 
         expect(document.querySelector("input[type='checkbox']").value).toBe("value_1");
     });
 
     it("Checks checkbox when checked prop is true", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", checked: true}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", checked: true}).element);
 
         expect(document.querySelector("input[type='checkbox']").checked).toBe(true);
     });
 
     it("Unchecks checkbox when checked prop is true", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", checked: false}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", checked: false}).element);
 
         expect(document.querySelector("input[type='checkbox']").checked).toBe(false);
     });
 
     it("Checkbox is checked when label is clicked", () => {
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1"}).element);
 
         const checkBox = document.querySelector("input[type='checkbox']");
         const label = document.querySelector("label");
@@ -62,7 +62,7 @@ describe("Item Checkbox Component", () => {
 
         const onChange = jest.fn();
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", onChange: onChange}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", onChange: onChange}).element);
 
         const checkBox = document.querySelector("input[type='checkbox']");
         checkBox.click();
@@ -74,7 +74,7 @@ describe("Item Checkbox Component", () => {
 
         const onChange = jest.fn();
 
-        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", onChange: onChange}));
+        render(ItemCheckBox({name: "option_1", text: "value_1", value: "value_1", onChange: onChange}).element);
 
         const checkBox = document.querySelector("input[type='checkbox']");
         checkBox.click();

@@ -90,7 +90,7 @@ export default function ItemCheckBoxFieldset(props = {
                             fieldSet.setInvalid(false);
                         }
                     },
-                })
+                }).element
             );
         });
     }
@@ -147,7 +147,7 @@ export default function ItemCheckBoxFieldset(props = {
                             fieldSet.setInvalid(false);
                         }
                     },
-                })
+                }).element
             );
             items.push(newItem);
             selectedItems.push(newItem);
