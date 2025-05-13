@@ -11,7 +11,7 @@ export default function Fieldset(
 )
 {
     props = {
-        legend: "fieldset",
+        legend: "Fieldset Title",
         children: [],
         required: false,
         hint: "",

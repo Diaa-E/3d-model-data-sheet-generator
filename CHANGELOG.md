@@ -17,6 +17,7 @@
 - ⚙️ FieldsContainer UI component now exports an object instead of the element directly.
 - ⚙️ Unified checkbox naming (sometimes it was "checkbox" and others it was "checkBox").
 - ⚙️ Replaced syntax error throw when datasheet set.data is not an array with a type error throw.
+- ⚙️ Improved fieldset component's default legend text.
 
 ### **2.0.1 (8 May, 2025)**
 
