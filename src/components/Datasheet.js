@@ -64,7 +64,7 @@ export default function Datasheet(props = {
         }
         else if (!(set.data instanceof Array))
         {
-            throw new SyntaxError(`Invalid set "${set}"`);
+            throw new TypeError(`Invalid set "${set}"`);
         }
 
         datasheetSets.push(
