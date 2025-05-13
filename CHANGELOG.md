@@ -9,6 +9,7 @@
 ### **2.0.2 (Unreleased)**
 
 - 🛠️ Fixed page titles not working properly.
+- 🛠️ Fixed checkbox taking space on screen while hidden, this bug was caused by changing checkbox returnto a div instead of a fragment.
 - ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
 - ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
 - ⚙️ Button UI component now exports an object instead of the element directly.
