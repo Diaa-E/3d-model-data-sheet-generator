@@ -5,7 +5,7 @@ import icons from "../barrels/icons.barrel";
 
 export default function Dialog( props = {
     onConfirm: () => {},
-    prompt: "Default prompt",
+    prompt: "",
 })
 {
     props = {
