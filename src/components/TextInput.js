@@ -8,7 +8,6 @@ export default function TextInput(props = {
     name: "",
     onInput: () => {},
     autocomplete: "",
-    required: false,
     value: "",
 })
 {
@@ -35,7 +34,6 @@ export default function TextInput(props = {
             autocomplete: props.autocomplete,
             class: styles["text-input"],
             value: props.value,
-            ...(props.required && { required: true })
         }
     );
 

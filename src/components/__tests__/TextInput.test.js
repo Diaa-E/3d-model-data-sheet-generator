@@ -15,7 +15,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1"
         });
 
@@ -35,7 +34,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1"
         });
 
@@ -53,7 +51,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1"
         });
 
@@ -64,42 +61,6 @@ describe("Text Input Component", () => {
         expect(textInput.placeholder).toBe("text_1");
     });
 
-    it("Adds required attribute when required prop is true", () => {
-
-        const textInputComponent = TextInput({
-            autocomplete: "off",
-            name: "text_1",
-            onInput: () => {},
-            placeholder: "text_1",
-            required: true,
-            text: "text_1"
-        });
-
-        render(textInputComponent.element);
-
-        const textInput = document.querySelector("input[type='text']");
-
-        expect(textInput.required).toBeTruthy();
-    });
-
-    it("Removes required attribute when required prop is false", () => {
-
-        const textInputComponent = TextInput({
-            autocomplete: "off",
-            name: "text_1",
-            onInput: () => {},
-            placeholder: "text_1",
-            required: false,
-            text: "text_1"
-        });
-
-        render(textInputComponent.element);
-
-        const textInput = document.querySelector("input[type='text']");
-
-        expect(textInput.required).toBeFalsy();
-    });
-
     it("Uses value from value prop", () => {
 
         const textInputComponent = TextInput({
@@ -107,7 +68,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1",
             value: "some value"
         });
@@ -126,7 +86,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1",
             value: "some value"
         });
@@ -148,7 +107,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: () => {},
             placeholder: "text_1",
-            required: false,
             text: "text_1",
             value: "some value"
         });
@@ -172,7 +130,6 @@ describe("Text Input Component", () => {
             name: "text_1",
             onInput: onInput,
             placeholder: "text_1",
-            required: false,
             text: "text_1"
         });
 
