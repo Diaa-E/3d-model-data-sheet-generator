@@ -13,6 +13,7 @@
 - ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
 - ⚙️ Button UI component now exports an object instead of the element directly.
 - ⚙️ Checkbox UI component now exports an object instead of the element directly.
+- ⚙️ FieldsContainer UI component now exports an object instead of the element directly.
 - ⚙️ Unified checkbox naming (sometimes it was "checkbox" and others it was "checkBox").
 - ⚙️ Replaced syntax error throw when datasheet set.data is not an array with a type error throw.
 
