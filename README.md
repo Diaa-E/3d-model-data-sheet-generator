@@ -261,6 +261,8 @@ Utility functions are kept in ```./src/utils/``` and their tests are in ```./src
 
 ### Assets
 
+Assets file structure and usage.
+
 1. #### Fonts
     
     - Path: ```./src/assets/fonts/```.
@@ -279,3 +281,440 @@ Utility functions are kept in ```./src/utils/``` and their tests are in ```./src
     - icons object structure: ```icons.<iconName>```.
 
 -------------
+
+### UI Components
+
+Simple UI components and their usage. Components take a props object where all the customization options are passed.
+
+1. #### AddCheckbox
+
+    - Default export from ```./src/components/AddCheckbox.js```.
+    - Returns a fieldset with text input for adding items to a parent fieldset component.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | legend | string | "Add a new checkbox" | Text to be assigned the fieldset legend (title).|
+    |placeholder | string | "new checkbox" | Placeholder text for the text input in the fieldset. |
+    | onAdd | function | () => { } | Function executed when the add button is clicked, use this to add new items to the parent fieldset. |
+    |id | string | UUID v4 output | Id used to assign a label to the textbox.| 
+
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    |element |HTML element | Component's HTML element. |
+    | clear | function | Clears input box. |
+    | getValue | function | Gets input box value. |
+
+1. #### Button
+
+    - Default export from ```./src/components/Button.js```.
+    - Returns a button with text and an icon.
+    - Text disappears on narrow screens leaving only the icon.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |type | string | "button" | Sets button's type attribute.|
+    | onClick | function | () => { } | Function to be executed when the button is clicked. |
+    | iconPath | string | icons.defaultIcon from [Icons Barrel](#icons) | Path to button's icon. |
+    | text | string | "click here"| Text displayed on the button, text disappears when using narrow screens. |
+    | color | string | "primary" | Sets cutton color scheme, options are: "primary", "secondary" or "danger".|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element|
+
+1. #### CheckBox
+
+    - Default export from ```./src/components/Checkbox.js```.
+    - Returns a labeled checkbox.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | name | string | "checkbox" | Sets name attribute for checkbox input |
+    | text | string | "checkbox" | Sets checkbox label text |
+    | value | string | "checkbox" | Sets value for checkbox input |
+    | onChange | function | () => { } | Function to be executed on checkbox checked state change |
+    | checked | boolean | false | Sets checkbox checked state, true checkss the box |
+    | userOption | bolean | false | True flags the checkbox as user-added.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### DarkModeButton
+
+    - Default export from ```./src/components/DarkModeButton.js```.
+    - Returns an animated button for setting application theme.
+    - Application theme is saved to local storage.
+    - Multiple instances of this component don't sync unless re-initialized.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | - | - | - | - |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### Datasheet
+
+    - Default export from ```./src/components/Datasheet.js```.
+    - Returns the generated formatted text for preview.
+    - Throws a ```TypeError``` if title is not a string.
+    - Throws a ```TypeError``` if sets is not an array.
+    - Throws an ```Error``` if sets has no items.
+    - Throws a ```TypeError``` if set.title is not a string.
+    - Throws a ```SyntaxError``` if set.type is not included in the set types array.
+    - Throws a ```TypeError``` if set.data is not an array.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | title | string | "" | 3D asset name. |
+    | targetSite | string | "" | Target site to generate text for.|
+    | sets | array | [{ title: "title1", type: "orderedList", data: ["value1", "value2"] }] | Datasheet sections.|
+
+    | Prop | Type | Details |
+    |----|-----|---|
+    |sets.title | string | Section title.|
+    | sets.type | string | Type of section, can be either "text", "orderedList" or "unorderedList".|
+    | sets.data | array | Data to be written into the section. |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### DatasheetControls
+
+    - Default export from ```./src/components/DatasheetControls.js```.
+    - Returns form buttons.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | onCopy | function | () => { }| Function executed when copy to clipboard button is clicked. Used to pass copying functionality. |
+    | onReset | function | () => { }| Funciton executed when reset form button is clicked. Used to pass resetting fields functionality.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. ####  DatasheetForm
+
+    - Default export from ```./src/components/DatasheetForm.js```.
+    - Returns main form element.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | onSubmit | function | () => { } | Function to be executed when the form is submitted. Used to pass submition functionality, preventDefault is called by the form then the function from props. |
+    | fieldsets | array | [ ]| Child Fieldset elements to be appended to this form.|
+    | formTtitle | string | Datasheet Title | Form title. |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### DatasheetList 
+
+    - Default export from ```./src/components/DatasheetList.js```.
+    - Returns a list section for a datasheet.
+    - Throws a ```TypeError``` when list is not an array.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | ordered | boolean | false | Generated an ordered list when true, an unordered one when false.|
+    | list | array | [ ]| Array of list items to be included in the list element. |
+    | targetSite | string | "" | Target site to generate text for. |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### DatasheetSetTitle
+
+    - Default export from ```./src/components/DatasheetSetTitle.js```.
+    - Returns a heading for a datasheet section.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |title | string | "Set Ttitle| Section title |
+    | emptySet | boolean | false | Highlights the section in red if true, meant to warn the user that they haven't submitted anything to an optional fieldset.|
+    | targetSite | string | "" | Target site to generate text for.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### Dialog
+
+    - Default export from ```./src/components/Dialog.js```.
+    - Returns a dialog box with a prompt, confirm and cancel buttons.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | onConfirm | function | () => { } | Function executed when confirm button is clicked.|
+    | prompt | string | "Default prompt" | Prompt text shown in the dialog box.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+    | open | function | Creates a new instance of the Dialog component and mounts it to the document's body. Cancel button destroys the instance by default.|
+
+1. #### FieldsContainer
+
+    - Default export from ```./src/components/Dialog.js```.
+    - Returns a two-column grid container for input fields.
+    - Converts into a two-row grid on narrow screens.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | children | array | [ ]| Input fields to be appended to the fields container.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### Fieldset
+
+    - Default export from ```./src/components/Fieldset.js```.
+    - Returns a fieldset element.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | legend | string | "Fieldset Title"| Text for fieldset's legend element. |
+    | children | array | [ ]| HTML elements to be appended to the fieldset.|
+    | required | boolean | false | Marks the fieldset as required when true.|
+    | hint | string | "" | A tip/hint text for the user on how to fill in the fieldset.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+    | setInvalid | function | Marks the fieldset as invalid when passed true, removes the marking when passed false.|
+
+1. #### Footer
+
+    - Default export from ```./src/components/Footer.js```.
+    - Returns a footer element.
+    - Contains a link to homepage, copyright info and a link to source repo.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | - | - | - | - |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### Header
+
+    - Default export from ```./src/components/Header.js```.
+    - Returns a header element.
+    - Contains a link to homepage, navigation bar/menu and a dark mode button.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | - | - | - | - |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### Hero
+    - Default export from ```./src/components/Hero.js```.
+    - Returns a hero element for the home page.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | - | - | - | - |
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### IconLink
+
+    - Default export from ```./src/components/IconLink.js```.
+    - Returns a link with text and an icon.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |href | string | "" | Address to link to.|
+    |iconPath | string | icons.defaultIcon [Icons Barrel](#icons)| Path to icon asset. |
+    | text | string | "default text" | Text to display on the link.|
+    |newTab | boolean | true | Opens link in a new tab when true.|
+    | showIcon | boolean | true | Renders the icon when true.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### ItemCheckbox
+
+    - Default export from ```./src/components/ItemCheckbox.js```.
+    - Returns a labeled checkbox with an icon.
+    - Same as regular [Checkbox](#checkbox) but is used for lists items not just options.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | name | string | "item" | Checkbox's name attribute.|
+    |text| string | "item" | Checkbox label text.|
+    |value | string | "item" | Checkbox value attribute.|
+    | onChange | function | () => { } | Funciton to be executed on checkbox's checked state change.|
+    | checked | boolean | false | Sets the checkbox to checked if true.|
+    | itemIcon | string | icons.defaultIcon [Icons Barrel](#icons) | Path to icon.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### NavBar
+
+    - Default export from ```./src/components/NavBar.js```.
+    - Returns a navigation bar element.
+    - Renders an instance of [DarkModeButton](#darkmodebutton).
+    - Visible on wide screens to replace [NavMenu](#navmenu).
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | pages | array | [ ] | Array of page links to add to the navigation.|
+
+    | Prop | Type | Details |
+    |----|---|---|
+    |page.title | string | Text to show on navigation link. |
+    | page.path | string | Path to page.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### NavMenu
+
+    - Default export from ```./src/components/NavMenu.js```.
+    - Returns a nav menu button that opens a navigation menu when clicked.
+    - Renders an instance of [DarkModeButton](#darkmodebutton).
+    - Visible on narrow screens to replace [NavBar](#navbar).
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | pages | array | [ ] | Array of page links to add to the navigation.|
+
+    | Prop | Type | Details |
+    |----|---|---|
+    |page.title | string | Text to show on navigation link. |
+    | page.path | string | Path to page.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element |
+
+1. #### NumberInput
+
+    - Default export from ```./src/components/NumberInput.js```.
+    - Returns a labeled number input.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | text | string | "number" | Number input label text.|
+    | palceholder | string | "number" | Number input plaeholder text|
+    | onInput | function | () => { } | Function to execute when the number input value is changed.|
+    | name | string | "number" | Number input's name attribute.|
+    | max | string | "" | Maximum value. |
+    | min | string | "" | Minimum value. |
+    | value | string | "" | Number input value.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+    | getValue | function | Gets number input's value.|
+    | clear | function | Clears number input's value (set to "").|
+
+1. #### Popup
+
+    - Default export from ```./src/components/Popup.js```.
+    - Returns a popup message element.
+    - Popup automatically disappears after a set time inside the component.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |msg | string | "default message" | Text shown in the popup.|
+    | lasFocusedElement | HTML element | null | Element to focus and scroll to when the "scroll to field" option is on.|
+    | error | boolean | false | Renders a success popup when false, renders an error message when true.|
+    | showScrollToField | boolean | false | Shows a "scroll to field" button, used to scroll to invalid element on form submition.|
+
+    
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+    | open | function | Creates a new instance of the popup element and mounts it to the document's body. Element is destroyed after a set period of time.|
+    
+1. #### Radio
+
+    - Default export from ```./src/components/Radio.js```.
+    - Returns a labeled radio button element.
+    - onChange event only triggers when a radio button is checked, being unchecked by the checking of another radio input in the same group does not trigger the event (default radio input behavior).
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |name | string | "radioGroup" | Radio input name attribute |
+    | onChange | funciton | () => { } | Funciton to be executed on radio button checked state change. |
+    | text | string | Radio | Radio input label text.|
+    | value | string | "radio" | Radio input value. |
+    | checked | boolean | false | Sets the radio input as checked if true.|
+    | userOption | boolean | false | Flags the radio input as a user-added option when true.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+
+1. #### RadioGroup
+
+    - Default export from ```./src/components/RadioGroup.js```.
+    - Returns the passed radio/checkbox input wrapped as a group.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |button | array | [ ] | The radio/checkbox inputs to group together.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+    |addButton | function | Adds one or more buttons to the group. Arguments are passed as rest of arguments.| 
+    | remobeButton | funciton | Removes a button from the group with a matching label to the passed string.|
+    | removeAllButtons | funciton | Removes all button from the group.|
+
+1. #### TextArea
+
+    - Default export from ```./src/components/TextArea.js```.
+    - Returns a labeled text area.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | text | string | "text area" | Text area label text.|
+    | placeholder | string | "text area" | Text area placeholder text.|
+    | rows | number | 10 | Number of rows in the text area.|
+    | cols | number | 30 | Number of columns in the text area.|
+    | onInput | function | () => { } | Function to be executed on text area value change.|
+    | value | string | "" | Text area contents.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+    | clear | function | Clears text area's contents.|
+
+1. #### TextInput
+
+    - Default export from ```./src/components/TextInput.js```.
+    - Returns a labeled text input.
+
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    |text | string | "text" | Text input's label text.|
+    | placeholder | string | "text" | Text input's placeholder text.|
+    | name | string | "text" | Text input's name attribute.|
+    |onInput | function | () => { } | Funciton to be executed on text input's value change.|
+    | autocomplete | string | "off" | Text input's autocomplete attribute.|
+    | value | string | "" | Text input's contents.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
+    |getValue | function | Returns text input's contents.|
+    | clear | function | Clears text input's contents. | 
