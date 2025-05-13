@@ -11,13 +11,6 @@ export default function Footer( props = {
         ...props
     };
 
-    const sourceLogo = createElement(
-        "div",
-        {
-            class: styles["source-logo"]
-        },
-    );
-
     const sourceLink = IconLink({
         href: "https://github.com/Diaa-E/3d-model-data-sheet-generator",
         iconPath: icons.githubIcon,
@@ -35,7 +28,8 @@ export default function Footer( props = {
         "a",
         {
             class: styles["home-link"],
-            href: "/",
+            href: "index.html",
+            ariaLabel: "Home",
         },
         [
             homeLogo,

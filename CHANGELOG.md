@@ -10,6 +10,7 @@
 
 - 🛠️ Fixed page titles not working properly.
 - 🛠️ Fixed checkbox taking space on screen while hidden, this bug was caused by changing checkbox returnto a div instead of a fragment.
+- 🛠️ Fixed broken footer home link.
 - ⚙️ Removed redundant HTML templates, now using index.html as template for all pages.
 - ⚙️ CreateElement utility function now handles CSS variables, they can be passed directly as a prop instead of using element.style.setProperty() on returned object.
 - ⚙️ Button UI component now exports an object instead of the element directly.
@@ -18,6 +19,7 @@
 - ⚙️ Unified checkbox naming (sometimes it was "checkbox" and others it was "checkBox").
 - ⚙️ Replaced syntax error throw when datasheet set.data is not an array with a type error throw.
 - ⚙️ Improved fieldset component's default legend text.
+- ⚙️ Removed unused element in the footer component.
 
 ### **2.0.1 (8 May, 2025)**
 
