@@ -6,7 +6,7 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.0.2 (Unreleased)**
+### **2.0.2 (15 May, 2025)**
 
 - 🛠️ Fixed page titles not working properly.
 - 🛠️ Fixed checkbox taking space on screen while hidden, this bug was caused by changing checkbox returnto a div instead of a fragment.
