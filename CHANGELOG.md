@@ -6,6 +6,12 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
+### **2.0.3 (unreleased)** 
+
+- ⚙️ Removed unnecessary visibility toggling when opening/closing popups.
+- ⚙️ Moved popup CSS classes to its own CSS module instead of the common module.
+- ⚙️ Removed redundant isOpen flag from popup component.
+
 ### **2.0.2 (15 May, 2025)**
 
 - 🛠️ Fixed page titles not working properly.

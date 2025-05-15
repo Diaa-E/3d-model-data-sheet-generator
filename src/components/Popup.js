@@ -18,14 +18,13 @@ export default function Popup(props = {
         ...props
     };
 
-    let isOpen = false;
     const CLOSE_DURATION = 0.3;
     const OPEN_DURATION = 0.3;
 
     const msg = createElement(
         "p",
         {
-            ariaLabel: "error message",
+            ariaLabel: props.error ? "error" : "success",
             class: styles["error-msg"],
         },
         [
@@ -81,21 +80,13 @@ export default function Popup(props = {
         ]
     );
 
-    function closePopup(silent = false)
+    function closePopup()
     {
         popup.classList.remove(styles["open"]);
         popup.classList.add(styles["close"]);
 
-        if (!silent)
-        {
-            scrollToElement(props.lastFocusedElement);
-        }
-
         setTimeout(() => {
 
-            popupWrapper.style.visibility = "hidden";
-            popupWrapper.hidden = true;
-            isOpen = false;
             popupWrapper.remove();
             
         }, CLOSE_DURATION * 1000);
@@ -105,21 +96,10 @@ export default function Popup(props = {
     {
         document.body.append(popupWrapper);
 
-        popupWrapper.style.visibility = "visible";
-        popupWrapper.hidden = false;
-        
         popup.classList.add(styles["open"]);
         popup.classList.remove(styles["close"]);
-        isOpen = true;
 
-        setTimeout(() => {
-
-            if (isOpen)
-            {
-                closePopup(true);
-            }
-
-        }, 5000);
+        setTimeout(closePopup, 5000);
     }
 
     return { element: popupWrapper, open: openPopup}

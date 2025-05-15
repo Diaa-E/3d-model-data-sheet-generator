@@ -1,9 +1,23 @@
 .popup-wrapper{
-    composes: popup-wrapper from "../common.module.css";
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 100px;
+    place-items: center;
+    place-content: center;
 }
 
 .popup{
-    composes: popup from "../common.module.css";
+    padding: 10px 30px;
+    border-radius: 500px;
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    box-shadow: var(--shadow-on);
 }
 
 .popup-error{
@@ -33,7 +47,9 @@
 }
 
 .error-msg{
-    composes: popup-msg from "../common.module.css";
+    font-family: var(--font-default);
+    font-size: 1rem;
+    margin: 0 auto;
     color: var(--text-dark);
 }
 
