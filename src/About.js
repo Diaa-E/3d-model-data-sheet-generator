@@ -23,7 +23,7 @@ export default function About()
             class: styles["app-version"]
         },
         [
-            "Version 2.0.2"
+            "Version 2.1.0"
         ]
     );
 
@@ -63,9 +63,9 @@ export default function About()
     );
 
     const changesList = [
-        `Fixed page titles not working properly.`,
-        `Fixed checkbox taking space on screen while hidden, this bug was caused by changing checkbox returnto a div instead of a fragment.`,
-        `Fixed broken footer home link.`,
+        `Added a reset button to each fieldset.`,
+        `Fixed error popup displaying a "scroll to field" link when the user copies nothing to the clipboard.`,
+        `Fixed resetting form repeating some fieldset items due to a bug in the removeAllButtons function.`,
     ];
 
     const changeListItems = changesList.map(item => {

@@ -6,7 +6,7 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.1.0 (unreleased)** 
+### **2.1.0 (16 May, 2025)** 
 
 - ➕ Added a reset button to each fieldset.
 - 🛠️ Fixed error popup displaying a "scroll to field" link when the user copies nothing to the clipboard.
