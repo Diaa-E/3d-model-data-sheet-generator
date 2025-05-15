@@ -57,6 +57,7 @@ export default function Popup(props = {
     const popup = createElement(
         "div",
         {
+            id: "alert",
             role: "alert",
             class: `${styles["popup"]} ${props.error ? styles["popup-error"] : styles["popup-success"]}`,
             "--close-duration": `${CLOSE_DURATION}s`,
