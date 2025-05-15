@@ -8,6 +8,7 @@
 
 ### **2.0.3 (unreleased)** 
 
+- 🛠️ Fixed error popup displaying a "scroll to field" link when the user copies nothing to the clipboard.
 - 🛠️ Fixed resetting form repeating some fieldset items due to a bug in the removeAllButtons function.
 - ⚙️ Removed unnecessary visibility toggling when opening/closing popups.
 - ⚙️ Moved popup CSS classes to its own CSS module instead of the common module.

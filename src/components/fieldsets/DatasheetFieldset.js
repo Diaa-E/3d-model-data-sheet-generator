@@ -63,7 +63,7 @@ export default function DatasheetFieldset(props = {
                 error: true,
                 lastFocusedElement: fieldset.element,
                 msg: "Datasheet is empty, nothing was copied to the clipboard.",
-                showScrollToField: true,
+                showScrollToField: false,
             }).open();
         }
         else
