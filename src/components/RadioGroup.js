@@ -54,10 +54,11 @@ export default function RadioGroup( props = {
 
     function removeAllButtons()
     {
-        div.childNodes.forEach(child => {
-
-            child.remove();
-        });
+        while (div.childNodes[0])
+        {
+            div.childNodes[0].remove();
+        }
+        
         div.append(emptyGroupText);
     }
 
