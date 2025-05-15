@@ -23,7 +23,7 @@ export default function About()
             class: styles["app-version"]
         },
         [
-            "Version 2.0.1"
+            "Version 2.0.2"
         ]
     );
 
@@ -63,9 +63,9 @@ export default function About()
     );
 
     const changesList = [
-        `Fixed broken home link (again).`,
-        `Fixed nav bar not highlighting active page.`,
-        `Some code improvements`,
+        `Fixed page titles not working properly.`,
+        `Fixed checkbox taking space on screen while hidden, this bug was caused by changing checkbox returnto a div instead of a fragment.`,
+        `Fixed broken footer home link.`,
     ];
 
     const changeListItems = changesList.map(item => {
