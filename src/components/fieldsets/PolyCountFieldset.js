@@ -3,6 +3,7 @@ import { getFromStorage, saveToStorage } from "../../utils/sesionStorageUtility"
 import NumberInput from "../NumberInput";
 import FieldsContainer from "../FieldsContainer";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
+import ResetFieldsetButton from "../ResetFieldsetButton";
 
 export default function PolyCountFieldset(props = {storageKey: ""})
 {
@@ -52,12 +53,18 @@ export default function PolyCountFieldset(props = {storageKey: ""})
             verticesInput.element,
             trianglesInput.element,
         ]
-    })
+    });
+
+    const resetButton = ResetFieldsetButton({
+        fieldsetName: "Polygon Count",
+        onReset: reset
+    });
 
     const fieldSet = Fieldset({
         legend: "Polygon Count",
         required: true,
         children: [
+            resetButton.element,
             fieldsContainer.element
         ]
     });

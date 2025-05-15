@@ -4,6 +4,7 @@ import { containsIllegalCharacters } from "../../utils/formattingTokens";
 import Fieldset from "../Fieldset";
 import TextArea from "../TextArea";
 import TextInput from "../TextInput";
+import ResetFieldsetButton from "../ResetFieldsetButton";
 
 export default function ModelInfoFieldset(props = {storageKey: ""})
 {
@@ -47,10 +48,16 @@ export default function ModelInfoFieldset(props = {storageKey: ""})
         }
     });
 
+    const resetButton = ResetFieldsetButton({
+        fieldsetName: "Model Information",
+        onReset: reset
+    });
+
     const fieldSet = Fieldset({
         legend: "Model Information",
         required: true,
         children: [
+            resetButton.element,
             titleField.element,
             descriptionField.element
         ]

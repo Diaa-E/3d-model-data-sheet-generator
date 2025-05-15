@@ -4,7 +4,6 @@
 
 ### Pending 🕝
 
-1. Add reset field button.
 1. sort selected options before generating sheet.
 1. Add feature to edit user added options and items.
 1. Add feature to remove user added options and items.
@@ -15,6 +14,7 @@
 
 ### Completed ✅
 
+1. Add reset field button.
 1. Add page titles to webpack config.
 1. Write unit tests for icon link component.
 1. Fix header active tab in production.

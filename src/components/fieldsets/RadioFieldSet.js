@@ -7,6 +7,7 @@ import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { containsIllegalCharacters } from "../../utils/formattingTokens";
 import Popup from "../Popup";
+import ResetFieldsetButton from "../ResetFieldsetButton";
 
 export default function RadioFieldset(props = {
     legend: "",
@@ -66,14 +67,21 @@ export default function RadioFieldset(props = {
         placeholder: props.userOptionPlaceholder
     }) : null;
 
+    const resetButton = ResetFieldsetButton({
+        fieldsetName: props.legend,
+        onReset: reset
+    });
+
     const fieldSet = Fieldset({
         legend: props.legend,
         hint: props.hint,
         required: props.required,
         children: props.enableUserOptions ? [
+                resetButton.element,
                 radioGroup.element,
                 addOptionFieldset.element
             ] : [
+                resetButton.element,
                 radioGroup.element
             ]
     });

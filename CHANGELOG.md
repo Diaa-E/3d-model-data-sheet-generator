@@ -6,8 +6,9 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.0.3 (unreleased)** 
+### **2.1.0 (unreleased)** 
 
+- ➕ Added a reset button to each fieldset.
 - 🛠️ Fixed error popup displaying a "scroll to field" link when the user copies nothing to the clipboard.
 - 🛠️ Fixed resetting form repeating some fieldset items due to a bug in the removeAllButtons function.
 - ⚙️ Removed unnecessary visibility toggling when opening/closing popups.

@@ -8,6 +8,7 @@ import { searchCaseInsensitive } from "../../utils/customArraySearch";
 import { InvalidFieldsetException } from "../../utils/customExceptions";
 import { containsIllegalCharacters } from "../../utils/formattingTokens";
 import Popup from "../Popup";
+import ResetFieldsetButton from "../ResetFieldsetButton";
 
 export default function ItemCheckBoxFieldset(props = {
     legend: "",
@@ -51,12 +52,18 @@ export default function ItemCheckBoxFieldset(props = {
         onAdd: addItem
     });
 
+    const resetButton = ResetFieldsetButton({
+        fieldsetName: props.legend,
+        onReset: reset
+    });
+
     const fieldSet = Fieldset({
 
         legend: props.legend,
         hint: props.hint,
         required: props.required,
         children: [
+            resetButton.element,
             checkboxGroup.element,
             addItemFieldset.element
         ]

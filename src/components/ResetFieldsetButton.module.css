@@ -1,0 +1,25 @@
+.reset-button{
+    composes: button from "../common.module.css";
+    position: absolute;
+    width: min-content;
+    background-color: var(--button-danger);
+}
+
+.reset-button:hover{
+    background-color: var(--button-danger-hover);
+}
+
+.reset-icon{
+    background-image: var(--icon);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    filter: var(--icon-filter)
+}
+
+.hide{
+    display: none;
+    visibility: hidden;
+}
