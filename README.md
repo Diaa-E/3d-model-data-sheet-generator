@@ -717,4 +717,18 @@ Simple UI components and their usage. Components take a props object where all t
     |----|---|----|
     | element | HTML element | Component's HTML element. |
     |getValue | function | Returns text input's contents.|
-    | clear | function | Clears text input's contents. | 
+    | clear | function | Clears text input's contents. |
+
+1. #### ResetFieldsetButton
+
+    - Default export from ```./src/components/ResetFieldsetButton.js```.
+    - Returns an icon button with no text for resetting individual fieldsets.
+    
+    | Prop | Type | Default Value | Details |
+    |----|----|---|---|
+    | fieldsetName | string | "reset fieldset" | The name of the fieldset the button resets.|
+    | onReset | function | () => { }| Funciton to be executed on button click. This component open a confirm dialog first before executing onReset.|
+
+    | Return object key | Type | Details |
+    |----|---|----|
+    | element | HTML element | Component's HTML element. |
