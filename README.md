@@ -20,7 +20,7 @@ This sections covers the code side of the application.
 1. [Tools](#tools)
 1. [Utility Functions](#utility-functions)
 1. [Assets](#assets)
-1. [UI Components]()
+1. [UI Components](#ui-components)
 1. [Fieldsets]()
 1. [Testing]()
 
