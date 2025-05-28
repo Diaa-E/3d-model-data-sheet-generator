@@ -11,6 +11,8 @@
 1. Lock focus cycling inside dialog box.
 1. write unit tests for illegal character checking in fieldsets.
 1. Update READEME.
+1. Add gumroad to supported sites.
+1. Add heading level (1 = h1, 5 = h5) to formatting tokens, some sites that don't use special characters and use html tags instead are not consistent with heading levels.
 
 ### Completed ✅
 
