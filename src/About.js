@@ -23,7 +23,7 @@ export default function About()
             class: styles["app-version"]
         },
         [
-            "Version 2.1.0"
+            "Version 2.1.1"
         ]
     );
 
@@ -63,9 +63,7 @@ export default function About()
     );
 
     const changesList = [
-        `Added a reset button to each fieldset.`,
-        `Fixed error popup displaying a "scroll to field" link when the user copies nothing to the clipboard.`,
-        `Fixed resetting form repeating some fieldset items due to a bug in the removeAllButtons function.`,
+        `Fixed Checkbox fieldset reset not working properly.`,
     ];
 
     const changeListItems = changesList.map(item => {

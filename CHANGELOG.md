@@ -6,7 +6,7 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
-### **2.1.1 (unreleased)**
+### **2.1.1 (06 Jul, 2025)**
 
 - 🛠️ Fixed checkbox fieldset reset function not working properly.
 
