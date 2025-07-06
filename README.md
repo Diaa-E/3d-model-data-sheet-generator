@@ -1,4 +1,4 @@
-# <img src="./src/assets/logo/logo.svg" width="70px"> 3D Model Data Sheet Generator v2.1.0
+# <img src="./src/assets/logo/logo.svg" width="70px"> 3D Model Data Sheet Generator v2.1.1
 
 Generate 3D asset formatted descriptions for various marketplaces by filling out a simple form.
 
