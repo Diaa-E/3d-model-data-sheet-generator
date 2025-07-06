@@ -54,8 +54,8 @@ export default function RadioFieldset(props = {
 
     // fieldset state
     const options = props.options;
-    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, []) : null;
-    let selectedOption = getFromStorage(STORAGE_KEY, options[0]);
+    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, [...USER_OPTIONS_INIT]) : null;
+    let selectedOption = getFromStorage(STORAGE_KEY, SELECTED_OPTION_INIT);
 
     // components
     const radioGroup = RadioGroup();

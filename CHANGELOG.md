@@ -6,6 +6,10 @@
 - 🛠️: Fix
 - ⚙️: Code change with no impact on user experience
 
+### **2.3.1 (unreleased)**
+
+- 🛠️ Fixed checkbox fieldset reset function not working properly.
+
 ### **2.1.0 (16 May, 2025)** 
 
 - ➕ Added a reset button to each fieldset.

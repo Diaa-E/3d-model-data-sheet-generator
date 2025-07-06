@@ -40,8 +40,8 @@ export default function ItemCheckBoxFieldset(props = {
     const SELECTED_ITEMS_INIT = [];
 
     // fieldset state
-    let items = getFromStorage(STORAGE_KEY_USER, []);
-    let selectedItems = getFromStorage(STORAGE_KEY, []);
+    let items = getFromStorage(STORAGE_KEY_USER, [...ITEMS_INIT]);
+    let selectedItems = getFromStorage(STORAGE_KEY, [...SELECTED_ITEMS_INIT]);
 
     // components
     const checkboxGroup = RadioGroup();

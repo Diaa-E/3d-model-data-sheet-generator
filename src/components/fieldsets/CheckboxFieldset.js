@@ -45,8 +45,22 @@ export default function CheckboxFieldset(props = {
 
     // fieldset state
     const options = props.options;
-    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, USER_OPTIONS_INIT) : null;
-    let selectedOptions = getFromStorage(STORAGE_KEY, SELECTED_OPTIONS_INIT);
+    let userOptions = props.enableUserOptions ? getFromStorage(STORAGE_KEY_USER, [...USER_OPTIONS_INIT]) : null;
+    let selectedOptions = getFromStorage(STORAGE_KEY, [...SELECTED_OPTIONS_INIT]);
+    /*
+    06-JUL-2025
+    
+    2.3.0 reset function bug
+
+    Resetting fieldset does not work after checking boxes.
+
+    Reproduction:
+    1. Open app
+    2. Select any options from any checkbox fieldset
+    3. Without reloading the page, call reset function by resetting the whole form or this specific fieldset.
+
+    Cause: getFromStorage function is passed an array reference instead of value.
+    */
 
     // components
     const checkboxGroup = RadioGroup();
